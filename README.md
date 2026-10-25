@@ -41,11 +41,15 @@ python experiments/t0_smoke.py
 
 | File | Purpose |
 | --- | --- |
-| [`PROJECT_CONTEXT.md`](PROJECT_CONTEXT.md) | Canonical project memory |
-| [`DESIGN.md`](DESIGN.md) | Technical design |
-| [`DECISIONS.md`](DECISIONS.md) | Decision index |
+| [`context.md`](context.md) | **Living project memory — update this first** |
+| [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) | MoSCoW requirements and stories |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Components, data flow, contracts |
+| [`DESIGN.md`](DESIGN.md) | Design goals and trade-offs |
+| [`docs/MICROPLAN.md`](docs/MICROPLAN.md) | Task cards and vertical slices |
+| [`docs/INVESTIGATIONS.md`](docs/INVESTIGATIONS.md) | Experiments before committing |
+| [`DECISIONS.md`](DECISIONS.md) | ADR index |
 | [`PROGRESS.md`](PROGRESS.md) | Actual status |
-| [`ROADMAP.md`](ROADMAP.md) | Six-week plan |
+| [`ROADMAP.md`](ROADMAP.md) | Six-week calendar |
 | [`docs/PHASE0_FEASIBILITY.md`](docs/PHASE0_FEASIBILITY.md) | Why the PDF was not feasible |
 | [`docs/SYNOPSIS_BLITE.md`](docs/SYNOPSIS_BLITE.md) | Text to paste into the DTU synopsis |
 

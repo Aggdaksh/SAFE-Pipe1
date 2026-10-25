@@ -2,7 +2,7 @@
 
 **Horizon:** six weeks to Project-I final (system + tables + report + demo).  
 **Hardware:** experiment PC **16 GB**; coding Mac **8 GB**.  
-**Detailed week plan:** [`docs/PLAN_16GB.md`](docs/PLAN_16GB.md). Tasks: [`docs/TASKS.md`](docs/TASKS.md).  
+**Detailed week plan:** [`docs/PLAN_16GB.md`](docs/PLAN_16GB.md). Task cards: [`docs/MICROPLAN.md`](docs/MICROPLAN.md). Index: [`docs/TASKS.md`](docs/TASKS.md). Living memory: [`context.md`](context.md).  
 **Estimates are estimates.** Critical path: T0 → generators → 96-run matrix → models → CLI demo → report.
 
 ## Milestones

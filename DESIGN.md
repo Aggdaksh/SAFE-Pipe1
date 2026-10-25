@@ -1,89 +1,88 @@
 # DESIGN.md
 
 **Updated:** 2026-10-25  
-**Status:** Approved design for B-lite. Sections marked *Proposed* are not implemented.
+**Status:** Approved design for B-lite. Implementation status is per component, not implied by this document.  
+**Canonical diagrams and contracts:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)  
+**Requirements:** [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md)
 
 ## Goals and constraints
 
 - Recommend or abstain **before** execution.
-- Evidence from one PC; workers are memory-capped on purpose.
+- Evidence from one 16 GB PC; workers memory-capped **on purpose** (1–2 GB).
 - Prediction uses only pre-run features.
-- Complexity budget: one process, one library, no message bus.
+- Complexity budget: one process, one library, no message bus, no Glue runtime.
 
-## Architecture (approved)
+## Architecture overview
 
-Single Python package. CLI in-process. Dask `LocalCluster` is an implementation detail of the adapter.
+Single Python package. CLI in-process. Dask `LocalCluster` is an adapter detail.
 
-```mermaid
-flowchart TD
-  req[Request: WorkloadSpec + ObjectiveSpec]
-  prof[Profiler]
-  ood[OOD gate]
-  model[Runtime + conformal]
-  rules[Failure rules]
-  opt[Bounded optimizer]
-  rec[Recommendation or abstain]
-  adp[Dask adapter]
-  store[Run store]
+See mermaid diagrams in `docs/ARCHITECTURE.md`. Short path:
 
-  req --> prof --> ood --> model --> opt
-  rules --> opt
-  opt --> rec --> adp --> store
-```
+`WorkloadSpec + ObjectiveSpec → profile → OOD → runtime+conformal + rules → cost/SLA → optimizer → Decision → optional execute → run store`
 
-## Components
+## Proposed vs implemented
 
 | Component | Responsibility | Implemented? |
 | --- | --- | --- |
-| `schemas` | Pydantic contracts | Yes (v0) |
-| `optimizer` | Feasible set + argmin cost / abstain | Yes (v0, uses supplied estimates) |
-| `adapters.dask` | LocalCluster factory + smoke execute | Partial (T0 helper) |
-| `workloads` | Four generators | No |
+| `schemas` | Pydantic contracts | Yes (v0) — extend `RunResult` before collector |
+| `optimizer` | Feasible set + argmin cost / abstain | Yes (v0, supplied estimates) |
+| `adapters.dask` | LocalCluster factory | Partial (T0 helper, not run on PC) |
+| `configs/dask_grid.json` | Eight native configs | No |
+| `workloads` | Four generators + DAGs | No |
 | `features` | Pre-run profiler | No |
 | `models` | LightGBM, conformal, OOD | No |
 | `run_store` | JSONL/Parquet append-only | No |
-| `cli` | profile/train/recommend/execute | Stub |
-| Glue adapter | Contract only | Out of Project-I implementation |
+| `cli` | profile/train/recommend/execute | recommend stub only |
+| Glue adapter | — | Out of Project-I |
 
-## Interfaces
+## Interfaces (stable)
 
-Optimizer input: a list of `CandidateEstimate` (config id, expected runtime, conformal upper, p_fail, expected cost, ood state).  
-Optimizer output: `Decision` with `action` in `{recommend, abstain}`.
+```
+recommend(estimates: list[CandidateEstimate], objective: ObjectiveSpec) -> Decision
+```
 
-SLA test uses **conformal upper bound**, not the point estimate. That is intentional conservatism.
+- SLA constraint uses **`runtime_upper_s`**, not the point estimate.
+- Red OOD is never feasible.
+- Yellow may be recommended if constraints pass.
+- Cost tie-break: `expected_cost`, then `runtime_upper_s`, then `config_id`.
 
-## Data model (v0)
+**Cost vs SLA (decision):** point estimate drives `expected_cost`; conformal upper drives the SLA check. Do not optimize the upper bound as if it were mean cost.
 
-See `safe_pipe/schemas.py`.
+## Data model
 
-Run records must store: workload id, native Dask config JSON, SLA, predicted interval, actual engine time, peak memory if available, terminal status, failure category, model version, hardware fingerprint.
+v0 in `safe_pipe/schemas.py`. Collector must add (still proposed): `repeat_id`, `data_version`, `hardware`, `sla_seconds`, `predicted_upper_s`, `failure_category`, `voided`.
 
 ## Failure taxonomy
 
-- **Actionable:** OOM/nanny restart, excessive spill, timeout, straggler/skew.
-- **Transient:** worker lost (still record; do not treat as “needs more RAM” automatically).
-- **Non-configuration:** exceptions from user code, missing files.
+- **Actionable:** OOM/nanny, excessive spill, timeout, skew/stragglers.
+- **Transient:** worker lost — record; do not auto-mean “needs more RAM”.
+- **Non-configuration:** user code, missing files.
 
-## Security and privacy
+## Error handling
 
-Synthetic data only. No cloud credentials in repo.
+See table in `docs/ARCHITECTURE.md`. Always close the cluster. One job at a time. Corrupt jobs are voided, not edited.
 
-## Performance expectations
+## Auth / trust
 
-A recommendation over 8 candidates must be < 1 s after models are loaded. Physical jobs may take minutes; that is the experiment, not a latency SLO for the optimizer.
+No auth. Synthetic data. The academic trust boundary is **report honesty**.
+
+## Performance
+
+Optimizer < 1 s for 8 candidates. Physical jobs may take minutes. Bottleneck is wall-clock collection, not ranking.
 
 ## Testing
 
-- Unit: schemas, optimizer feasibility, abstention on red OOD, SLA using upper bound.
-- T0: one tiny Dask dataframe job under `memory_limit` (manual on experiment PC).
-- Later: leakage checks; grouped split unit tests; evaluation scripts over frozen CSVs.
+- Unit (Mac, no Dask extras required): schemas, optimizer, store, grid size, leakage helpers.
+- T0/T0b: manual on 16 GB PC, evidence in `reports/`.
+- Later: grouped-split tests on frozen CSV; evaluation scripts.
 
 ## Deployment
 
-No deployment. Demo is `pytest` + one live Dask job on the experiment PC. Optional Colab notebook is not production.
+None. Demo = pytest + one live Dask job + frozen tables.
 
 ## Trade-offs
 
-- Local Dask ≠ Glue. We do not transfer claims.
-- Memory cap **induces** failures; report them as induced vs natural.
-- 8 candidates cannot support “optimal over all Dask knobs”. Language is **best in the declared set**.
+- Local Dask ≠ Glue.
+- Induced failures via `memory_limit` must be labeled induced.
+- “Best in the declared set of eight”, never globally optimal.
+- 3 repeats on 16 GB instead of more knobs (ADR-004).

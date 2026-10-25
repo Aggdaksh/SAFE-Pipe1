@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated:** 2026-10-25
+**Updated:** 2026-10-25 (micro-plan)
 
 ## Completed and verified
 
@@ -11,14 +11,15 @@
 
 ## In progress
 
+- T-CTX / T-ARCH: `context.md`, requirements, architecture, investigations, micro-plan written this session (push when you ask).
 - T0 Dask smoke script (`experiments/t0_smoke.py`) — code present, **not** executed on the experiment PC.
 
 ## Next tasks
 
-1. Record experiment PC **OS** (Windows vs Linux) in this file.
-2. On the 16 GB PC: `pip install -e ".[dev,dask]"` and `python experiments/t0_smoke.py`; write `reports/t0.md`.
-3. Submit [`docs/SYNOPSIS_BLITE.md`](docs/SYNOPSIS_BLITE.md) language to Dr. Vishwakarma.
-4. Follow [`docs/PLAN_16GB.md`](docs/PLAN_16GB.md) week 1 (T0b + generators).
+1. Record experiment PC **OS** in `context.md`.
+2. T0 on the 16 GB PC; write `reports/t0.md`.
+3. Mac-parallel if T0 waits: `T-GRID` and `T-STORE`.
+4. Submit [`docs/SYNOPSIS_BLITE.md`](docs/SYNOPSIS_BLITE.md) to Dr. Vishwakarma.
 
 ## Blocked
 
@@ -46,13 +47,15 @@
 
 ## Immediate next actions
 
-T0 on the 16 GB experiment PC. Then T0b (50 MB, 1g vs 2g).
+Agree the micro-plan, then T0 on the 16 GB PC. Mac can do T-GRID + T-STORE without Dask.
 
 ## Task register
 
 | ID | Task | Status | Evidence |
 | --- | --- | --- | --- |
 | T-DOC | Phase 0/1 docs + ADRs | DONE | files in `docs/` |
+| T-CTX | Living `context.md` | IN REVIEW | `context.md` |
+| T-ARCH | Requirements + architecture + microplan | IN REVIEW | `docs/REQUIREMENTS.md`, `ARCHITECTURE.md`, `MICROPLAN.md` |
 | T-SCH | Pydantic schemas v0 | DONE | `safe_pipe/schemas.py` |
 | T-OPT | Bounded optimizer v0 | DONE | `pytest` 8 passed, 2026-10-25 |
 | T0 | Dask LocalCluster smoke | NOT STARTED | needs 16 GB PC |
