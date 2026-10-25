@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "safe-pipe"
+version = "0.1.0"
+description = "Failure-aware cost and runtime optimizer for memory-capped Dask batch pipelines"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Daksh Aggarwal" },
+  { name = "Chaitanya Singh" },
+  { name = "Ganant Awasthi" },
+]
+dependencies = [
+  "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dask = [
+  "dask[dataframe,distributed]>=2024.8.0",
+  "pandas>=2.2",
+  "pyarrow>=16.0",
+]
+ml = [
+  "scikit-learn>=1.5",
+  "lightgbm>=4.5",
+]
+dev = [
+  "pytest>=8.2",
+]
+
+[project.scripts]
+safe-pipe = "safe_pipe.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["safe_pipe*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

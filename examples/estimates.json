@@ -1,0 +1,18 @@
+[
+  {
+    "config_id": "w1_t1_1gb",
+    "expected_runtime_s": 14.0,
+    "runtime_upper_s": 18.0,
+    "p_fail": 0.04,
+    "expected_cost": 2.1,
+    "ood_state": "green"
+  },
+  {
+    "config_id": "w2_t2_2gb",
+    "expected_runtime_s": 9.0,
+    "runtime_upper_s": 12.0,
+    "p_fail": 0.03,
+    "expected_cost": 4.8,
+    "ood_state": "green"
+  }
+]
