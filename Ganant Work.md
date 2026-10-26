@@ -89,6 +89,12 @@
 - Added a configuration/resource-cost calculation, one exact audited CSV row, the real sort-family median-cost comparison, grouped model-split and uncertainty examples, OOD/abstention cases, a verified CLI-output excerpt, cross-PC Git commands, and three self-check questions.
 - Kept invented teaching values explicitly separate from the frozen physical measurements and linked examples to the implementation or reports.
 
+## Checkpoint 13 — Midterm synopsis alignment
+
+- Reviewed the user-supplied three-page DTU synopsis PDF against the implemented branch. Its checksum matches the original synopsis considered in the repository's Phase 0 feasibility analysis; the PDF itself remains outside Git.
+- Wrote [`docs/MIDTERM_SYNOPSIS_ALIGNMENT.md`](docs/MIDTERM_SYNOPSIS_ALIGNMENT.md): a goal-by-goal evidence and gap review covering the original 176-run/Glue proposal, the reduced 96-run Dask study, the model and policy results, and the limitations that must be stated at midterm.
+- Re-ran the full Windows test suite (29 passed) and checked the committed CSV (96 unique cells, all success, zero SLA misses) plus the model/policy metric files. The review explicitly does not assign an official completion percentage or claim supervisor approval of the reduced scope.
+
 ## Current work and next steps
 
 1. Have the team review `origin/codex/windows-dask` and merge it to `main` through a pull request when ready. Continue pushing any new Windows commits to this tracked branch.
