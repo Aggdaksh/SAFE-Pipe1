@@ -1,5 +1,7 @@
 # DESIGN.md
 
+**Implementation update (2026-10-26):** The original design below describes the planned 16 GB host and proposed components. The user selected a Windows PC with 31.4 GiB RAM; all 96 Dask jobs and the model/policy path have since been run. Current evidence and limitations are in [`PROGRESS.md`](PROGRESS.md) and ADR-005. Worker caps remain 1–2 GB.
+
 **Updated:** 2026-10-26  
 **Status:** Approved design for B-lite. Implementation status is per component, not implied by this document.  
 **Canonical diagrams and contracts:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)  

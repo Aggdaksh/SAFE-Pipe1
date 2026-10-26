@@ -24,10 +24,12 @@ The original 16 GB plan is a conservative sizing reference. The actual host has 
 - Dask execution and one-cell collection are implemented; the scored matrix has **not** started.
 - Four `main-v1` datasets (175–198 MB) are generated, fingerprinted, and ignored by Git. The committed index is `configs/datasets_main_v1.json`.
 - Twelve 2 GB SLA pilot runs succeeded. Deadlines and the randomized 96-cell order were frozen in `configs/` before scored collection. See `reports/matrix_preparation.md`.
+- All 96 Dask cells were measured and audited: 96 successes, zero SLA misses. The curated CSV is committed at `data/curated/runs.csv`; raw JSONL and Parquet remain local.
+- Grouped LightGBM plus conformal, a conservative rule-based OOD gate, fitted CLI recommendation, descriptive same-table baselines, and a feature-contribution figure are implemented. See `reports/runtime_model.md`, `reports/policy.md`, and `reports/shap.md`.
 
 ## Current task
 
-Run the 96 scored cells one at a time in the committed randomized order, starting with a 16-job batch and checking labels. Then audit leakage, train models, evaluate baselines, and write the report. Do not treat pilot rows as scored matrix rows or timeout durations as successful runtimes.
+The technical results draft and separate tiny live Dask demo are complete in the repository. Push the Windows branch when GitHub write access works, then get team review and formal DTU submission. The optional TabPFN comparison remains unrun. No failure classifier can be supported because all 96 jobs succeeded.
 
 ## Design rules
 

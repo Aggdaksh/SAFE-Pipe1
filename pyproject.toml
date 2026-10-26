@@ -30,8 +30,10 @@ dask = [
   "pyarrow>=16.0",
 ]
 ml = [
+  "pandas>=2.2",
   "scikit-learn>=1.5",
   "lightgbm>=4.5",
+  "matplotlib>=3.9",
 ]
 dev = [
   "pytest>=8.2",

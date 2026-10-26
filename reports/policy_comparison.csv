@@ -1,0 +1,5 @@
+family,policy_config,policy_median_cost,default_config,default_median_cost,conservative_config,conservative_median_cost,random_expected_median_cost,policy_any_sla_miss,ood_state
+scan_filter,w1_t2_1g,3.0812304000137374,w1_t1_2g,4.660872600157745,w2_t2_2g,5.679102400317788,4.0406863001408055,False,green
+groupby,w1_t2_1g,6.821499299956486,w1_t1_2g,13.274659499991685,w2_t2_2g,11.61894560046494,9.74461585006793,False,green
+skewed_join,w1_t2_1g,4.166772299911827,w1_t1_2g,6.910955700092018,w2_t2_2g,6.395433600060642,5.4342589249718,False,green
+sort_merge,w1_t2_1g,16.026232199859805,w1_t1_2g,20.83867740025744,w2_t2_2g,17.77061920054257,16.579135650055832,False,green

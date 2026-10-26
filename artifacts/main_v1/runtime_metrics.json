@@ -1,0 +1,18 @@
+{
+  "data_version": "main-v1",
+  "train_rows": 36,
+  "calibration_rows": 36,
+  "calibration_groups": 12,
+  "test_rows": 24,
+  "test_groups": 8,
+  "upper_log_offset": 0.5236420631183731,
+  "test_mdape_percent": 13.842297329243673,
+  "median_baseline_test_mdape_percent": 23.013084199639323,
+  "test_row_upper_coverage": 1.0,
+  "test_group_upper_coverage": 1.0,
+  "mean_upper_width_seconds": 1.3300616817068183,
+  "table_sha256": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42",
+  "split_sha256": "d93cde5419e8b7ffe43e1d885f9901f09c204de1457f6950368d0408e8996b8f",
+  "model_spec": "LightGBM log-runtime; 120 trees, 7 leaves, min child 3, learning rate 0.05, L2 1; grouped max-residual split conformal alpha=0.1",
+  "limitations": "Only four workload profiles and eight test family/config cells; all physical runs succeeded. Coverage is descriptive, not a validated population guarantee."
+}

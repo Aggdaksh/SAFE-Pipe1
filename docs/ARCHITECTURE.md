@@ -1,5 +1,7 @@
 # Architecture
 
+**Implementation update (2026-10-26):** The Windows `codex/windows-dask` branch now has Dask execution, 96 audited physical runs, a grouped runtime model, fitted CLI recommendations, same-table baseline analysis, and a demo explanation figure. Component statuses below describe the earlier Mac-side snapshot. Current evidence and remaining limits are in [`../PROGRESS.md`](../PROGRESS.md) and [`../Ganant Work.md`](../Ganant%20Work.md).
+
 **Updated:** 2026-10-26  
 **Status:** Approved for B-lite. Profiler, OOD, models, and Dask execute are still proposed (`execute_dask` raises `NotImplementedError` on purpose). Grid, optimizer, JSONL store, and pandas execute are implemented.  
 **Companion:** [`DESIGN.md`](../DESIGN.md)

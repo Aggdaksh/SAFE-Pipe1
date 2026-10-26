@@ -1,65 +1,34 @@
 # SAFE-Pipe (Project-I, B-lite)
 
-Repository: [https://github.com/Aggdaksh/SAFE-Pipe1](https://github.com/Aggdaksh/SAFE-Pipe1)
+SAFE-Pipe selects the lowest expected normalized-cost configuration from eight declared memory-capped local Dask configurations that is predicted to meet a job deadline, or abstains. It is a DTU IT401 Group 45 project on **one PC**, not a Glue or multi-node study. The original 176-run/Glue synopsis is historical; see [`docs/PHASE1_DECISION.md`](docs/PHASE1_DECISION.md).
 
-Failure-aware **pre-run** configuration selection for **memory-capped local Dask**.
+## Current measured state
 
-Given a batch workload profile, SLA deadline, and failure-risk limit, SAFE-Pipe ranks a **small declared candidate set** and returns the cheapest configuration that is predicted to finish on time — or **abstains**.
+On the user-selected Windows experiment PC (31.4 GiB physical RAM), four synthetic Parquet families were run across eight configurations with three repeats: **96 physical Dask jobs**. Worker limits remained 1–2 GB. The audited table has **96 successes, zero SLA misses, and zero failures**. The curated shareable data is [`data/curated/runs.csv`](data/curated/runs.csv); large Parquet inputs and raw JSONL stay local. Dataset hashes, frozen SLAs, and randomized run order are in `configs/`.
 
-This repository is the DTU IT401 Group 45 implementation. The original synopsis PDF claimed AWS Glue depth and 176 Dask runs. **That experiment is not what this repo implements.** See [`docs/SYNOPSIS_BLITE.md`](docs/SYNOPSIS_BLITE.md) and [`docs/PHASE1_DECISION.md`](docs/PHASE1_DECISION.md).
+LightGBM on a grouped split gave 13.84% test MdAPE versus 23.01% for a family-median baseline; the conformal upper bound covered 24/24 held-out rows. The policy had 34.1% lower normalized cost than the declared default in a **descriptive same-table** comparison. The model trained on some cells in that table, and there were no failures, so these results do not establish independent cost or safety improvement. See [`reports/runtime_model.md`](reports/runtime_model.md), [`reports/policy.md`](reports/policy.md), and [`reports/audit.md`](reports/audit.md).
 
-## What is in scope (Project-I)
+## Set up and verify
 
-- One primary backend: **Dask** on a single PC, with worker `memory_limit` set low enough to induce spill/timeout.
-- Four synthetic Parquet workload families: scan/filter, group-by, skewed join, sort/merge.
-- **96** physical runs (4 families × 8 candidates × 3 repeats) on a **16 GB** PC, **150–250 MB** datasets. Worker memory stays 1–2 GB.
-- Models: **LightGBM** runtime + **split conformal** upper bound + **leave-one-family OOD**.
-- Failure handling: **deterministic rules** unless ~30+ credible actionable failures appear.
-- Optional Colab chapter: **TabPFN** on the exported CSV (comparison, not the live policy).
+Python 3.11+ is required. On Windows PowerShell:
 
-## What is out of scope
-
-AWS Glue evidence, Spark, LLM agents, from-scratch deep learning as the policy, microservices, and any claim of a real cluster.
-
-## Setup (8 GB Mac — tests and tiny data)
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-pytest
-safe-pipe recommend --estimates examples/estimates.json --sla 20
-safe-pipe generate --dest data/generated
-safe-pipe collect --family scan_filter
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e ".[dev,dask,ml]"
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m safe_pipe.cli recommend-model --family sort_merge --sla 13.1
 ```
 
-As of 2026-10-26: **20 pytest tests passed** on the Mac. That is **not** Dask evidence.
+On the coding Mac, `pip install -e ".[dev]"` runs the unit and tiny-data tests; Dask integration tests skip without the Dask extra. Existing model artifacts can be used after installing `.[ml]`. The `recommend-model` command prints eight candidate estimates, the selected configuration or abstention, and a note that failure probabilities are not calibrated.
 
-## Setup (16 GB experiment PC — official T0)
+## Reproduce the physical experiment on an authorized host
 
-```bash
-pip install -e ".[dev,dask]"
-python experiments/t0_smoke.py
-```
+Read [`reports/matrix_preparation.md`](reports/matrix_preparation.md), [`reports/t0.md`](reports/t0.md), and [`Ganant Work.md`](Ganant%20Work.md) first. `experiments/prepare_matrix_data.py` creates versioned synthetic inputs and refuses to replace frozen files. `experiments/pilot_sla.py` and `experiments/prepare_matrix_plan.py` freeze deadlines and order before scoring. `experiments/run_matrix.py` appends one Dask result at a time and can resume without repeating cells. `experiments/audit_runs.py` validates all 96 rows and exports CSV/Parquet. Do not rerun those commands into the existing `main-v1` records or treat pilot jobs as scored rows.
 
-Full steps: [`reports/HANDOFF_16GB.md`](reports/HANDOFF_16GB.md). Do not run the 8-config Dask matrix on the 8 GB Mac.
+## Scope and limitations
 
-## Documents
+The four families are scan/filter, group-by, skewed join, and sort/merge. LightGBM predicts successful runtime; split conformal supplies an upper bound; a conservative rule-based OOD gate abstains outside measured scope. Failure handling remains deterministic because all 96 physical runs succeeded. TabPFN on Colab is optional and not run. Glue, Spark, LLM agents, and real-cluster claims are out of scope.
 
-| File | Purpose |
-| --- | --- |
-| [`context.md`](context.md) | **Living project memory — update this first** |
-| [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) | MoSCoW requirements and stories |
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Components, data flow, contracts |
-| [`DESIGN.md`](DESIGN.md) | Design goals and trade-offs |
-| [`docs/MICROPLAN.md`](docs/MICROPLAN.md) | Task cards and vertical slices |
-| [`docs/INVESTIGATIONS.md`](docs/INVESTIGATIONS.md) | Experiments before committing |
-| [`DECISIONS.md`](DECISIONS.md) | ADR index |
-| [`PROGRESS.md`](PROGRESS.md) | Actual status |
-| [`ROADMAP.md`](ROADMAP.md) | Six-week calendar |
-| [`docs/PHASE0_FEASIBILITY.md`](docs/PHASE0_FEASIBILITY.md) | Why the PDF was not feasible |
-| [`docs/SYNOPSIS_BLITE.md`](docs/SYNOPSIS_BLITE.md) | Text to paste into the DTU synopsis |
-| [`reports/HANDOFF_16GB.md`](reports/HANDOFF_16GB.md) | What to run on the experiment PC |
-| [`docs/SESSION_STATUS.md`](docs/SESSION_STATUS.md) | Snapshot for the next coding session |
+For current tasks and cross-PC handoff, read [`context.md`](context.md), [`PROGRESS.md`](PROGRESS.md), [`Ganant Work.md`](Ganant%20Work.md), and [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md). The Windows branch has local commits but GitHub rejected the current credential with HTTP 403; the handoff guide explains how an account with repository write access can push it.
 
-Do not commit secrets. Do not write Glue run counts into the report.
+The verified `profile → recommend-model → execute` sequence and its separate tiny live run are documented in [`reports/demo.md`](reports/demo.md). A technical results draft is in [`reports/project_i_results.md`](reports/project_i_results.md).

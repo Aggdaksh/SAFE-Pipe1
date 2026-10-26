@@ -1,41 +1,36 @@
 # Progress
 
-**Updated:** 2026-10-26. Canonical project context: [`context.md`](context.md).
+**Updated:** 2026-10-26. Canonical memory: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
 
-## Completed and verified
+## Verified work
 
-| Task | Evidence |
-| --- | --- |
-| B-lite scope, architecture, requirements | `docs/PHASE1_DECISION.md`, `docs/ARCHITECTURE.md`, `docs/REQUIREMENTS.md` |
-| Schemas, optimizer, eight-config grid | Unit tests; `configs/dask_grid.json` |
-| JSONL store, tiny four-family generators, pandas collector | Mac branch tests |
-| Experiment host identified | Windows 11 PC, 31.4 GiB physical RAM; ADR-005 |
-| Dependencies | `.[dev,dask]` in ignored Windows `.venv`, Python 3.14.6 |
-| T0 LocalCluster smoke | PASS, `reports/t0.md` |
-| T0b 1 GB versus 2 GB probe | Pilot measurements and scale decision, `reports/t0b.md` |
-| Four Dask family DAGs and timed one-cell collector | 24 tests pass, including tiny Dask integration and timeout |
-| Four main-v1 datasets, hashes, three 2 GB SLA pilots per family, randomized 96-cell plan | `configs/datasets_main_v1.json`, `configs/family_sla_main_v1.json`, `configs/matrix_plan_main_v1.json`; `reports/matrix_preparation.md` |
+| Task | Status | Evidence |
+| --- | --- | --- |
+| Scope, architecture, schemas, optimizer, grid | DONE | `docs/`, `safe_pipe/`, unit tests |
+| Windows experiment host, T0, T0b | DONE | ADR-005, `reports/t0.md`, `reports/t0b.md` |
+| Four main-v1 Parquet datasets, hashes, SLAs, order | DONE | `configs/datasets_main_v1.json`, `configs/family_sla_main_v1.json`, `configs/matrix_plan_main_v1.json` |
+| Dask executor and one-cell collector | DONE for measured path | Tiny integration tests and physical pilots |
+| 96 scored Dask runs | DONE | 96 unique rows; `data/curated/runs.csv` |
+| Label and pre-run feature audit | DONE | `reports/audit.md`, `data/curated/audit.json` |
+| Grouped LightGBM and conformal upper | DONE, small-sample result | `reports/runtime_model.md`, `artifacts/main_v1/` |
+| OOD gate | PARTIAL | Conservative family/size rules; no calibrated k-NN with one profile per family |
+| Fitted CLI recommendation and same-table baselines | DONE, descriptive | `safe-pipe recommend-model`, `reports/policy.md` |
+| Feature-contribution demo figure | DONE | `reports/shap_sort_merge.png`, `reports/shap.md` |
+| Technical results draft and separate live Dask demo | DONE as repository draft | `reports/project_i_results.md`, `reports/demo.md` |
 
-## In progress
+The full Windows suite currently passes **29 tests** with `.[dev,dask,ml]` installed. Dask tests skip on a coding machine without Dask.
 
-- Commit the frozen preparation files and run the first 16 scored cells, checking statuses before continuing.
+## Measured outcomes
 
-## Not started
+- The selected experiment PC is Windows 11 with 31.4 GiB physical RAM. Dask workers remained capped at 1–2 GB; four datasets were 175–198 MB.
+- All **96/96** jobs succeeded and met their frozen family SLAs. This leaves **zero** actionable failure positives; no learned failure model or failure-reduction claim is supported.
+- On 8 held-out family/config cells (24 rows), LightGBM MdAPE was **13.84%** versus **23.01%** for the family-median baseline. Conformal upper coverage was **24/24 rows**, with mean width **1.33 s**. These are descriptive small-sample results.
+- Same-table policy median normalized cost averaged **7.524** versus **11.421** for default, a **34.1%** lower cost in this table. Some evaluated cells were used for model fitting, so this is not an independent improvement estimate.
 
-- Scored 96-run matrix and curated Parquet table.
-- Label/leakage audit, LightGBM, conformal intervals, OOD, fitted CLI policy, baselines, SHAP, report.
+## Remaining and limits
 
-## Constraints and known limits
-
-- The selected experiment host is 32 GB, replacing the plan's earlier 16 GB assumption. Worker `memory_limit` remains 1–2 GB and the grid remains eight configs.
-- T0b timings are one run per cell and are **pilot evidence only**. The slower 1 GB sort does not by itself prove spill.
-- The pandas collector has only a post-run timeout check. The Dask collector uses `future.result(timeout=...)` and cancels on timeout; cluster shutdown still requires observation under difficult worker failures.
-- Peak worker memory is not yet captured. `peak_memory_bytes=null` is honest until telemetry is implemented.
-- The original `safe-pipe collect` command regenerates its pandas dataset; the Dask matrix must load frozen manifests instead.
-
-## Immediate next steps
-
-1. Commit and push the Windows Dask branch so the other PCs can pull it.
-2. Calibrate and verify all four datasets and pilot group-by/join.
-3. Freeze SLAs and start the scored matrix; save each completed row to ignored JSONL.
-4. Audit the frozen table before model training.
+- Department formatting, supervisor review, and formal submission remain outside the verified repository draft.
+- Optional TabPFN comparison remains unrun. The formal DTU synopsis/report submission and supervisor decision are outside this repository's verified work.
+- The rule-based OOD thresholds are heuristics; only one dataset size per family was measured. Peak worker memory was not reliably collected (`null` in run records). Dask logged some memory warnings during successful 1 GB sort jobs.
+- Physical Parquet and raw JSONL remain local and ignored; the audited flat CSV and preparation hashes are committed for collaboration.
+- GitHub publication is blocked: `git push` returned HTTP 403 for `JEENERDS`, and `gh auth status` reports its token invalid. Local branch `codex/windows-dask` has the work. See [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md).

@@ -1,0 +1,11 @@
+{
+  "data_version": "main-v1",
+  "bytes_by_family": {
+    "groupby": 198487831,
+    "scan_filter": 198446552,
+    "skewed_join": 174604451,
+    "sort_merge": 178382606
+  },
+  "rule": "red for unseen family or >2x input-size shift; yellow for >1.25x; green otherwise",
+  "limitation": "one measured profile per family; thresholds are conservative heuristics, not distance-calibrated"
+}

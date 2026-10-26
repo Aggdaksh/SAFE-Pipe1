@@ -1,0 +1,28 @@
+{
+  "feature_names": [
+    "input_bytes",
+    "estimated_rows",
+    "file_count",
+    "partition_count",
+    "skew_score",
+    "n_workers",
+    "threads_per_worker",
+    "memory_limit_gb",
+    "allocated_vcpus",
+    "allocated_gb",
+    "family_scan_filter",
+    "family_groupby",
+    "family_skewed_join",
+    "family_sort_merge",
+    "config_id_w1_t1_1g",
+    "config_id_w1_t2_1g",
+    "config_id_w1_t1_2g",
+    "config_id_w1_t2_2g",
+    "config_id_w2_t1_1g",
+    "config_id_w2_t2_1g",
+    "config_id_w2_t1_2g",
+    "config_id_w2_t2_2g"
+  ],
+  "upper_log_offset": 0.5236420631183731,
+  "table_sha256": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42"
+}

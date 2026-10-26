@@ -1,0 +1,20 @@
+{
+  "data_version": "main-v1",
+  "evaluation": "descriptive same-table comparison; fitted model trained on some cells in this table",
+  "families": 4,
+  "policy_abstentions_on_known_families": 0,
+  "policy_unsafe_families": 0,
+  "mean_policy_median_cost": 7.523933549935464,
+  "mean_default_median_cost": 11.421291300124722,
+  "mean_conservative_median_cost": 10.366025200346485,
+  "mean_random_expected_median_cost": 8.949674181309092,
+  "policy_cost_change_vs_default_percent": -34.123617441984855,
+  "heldout_family_gate_states": {
+    "scan_filter": "red",
+    "groupby": "red",
+    "skewed_join": "red",
+    "sort_merge": "red"
+  },
+  "heldout_red_count": 4,
+  "failure_limit": "all 96 jobs succeeded; p_fail is a rule flag, not calibrated"
+}

@@ -1,27 +1,20 @@
 # Task index
 
-**Updated:** 2026-10-26. Detailed cards: [`MICROPLAN.md`](MICROPLAN.md). Actual host change: ADR-005.
+**Updated:** 2026-10-26. Measured status is in [`../PROGRESS.md`](../PROGRESS.md); detailed original cards remain in [`MICROPLAN.md`](MICROPLAN.md).
 
-| ID | Purpose | Status | Evidence / next gate |
-| --- | --- | --- | --- |
-| T-CTX / T-ARCH | Context, architecture, requirements | DONE | `context.md`, `docs/` |
-| T-SCH / T-OPT | Schemas and bounded optimizer | DONE | Unit tests |
-| T-GRID | Declared eight configurations | DONE | `configs/dask_grid.json` |
-| T-STORE | JSONL run store | DONE | Round-trip test |
-| T-HW | Experiment host RAM and OS | DONE | Windows, 31.4 GiB; `reports/t0.md` |
-| T0 | LocalCluster smoke | DONE | `reports/t0.md` |
-| T0b | 1 GB versus 2 GB pilot | DONE | `reports/t0b.md` |
-| T-GEN | Four Parquet generators | DONE | Tiny and four main-v1 datasets; hashes verified |
-| T-COL | One-cell collector | DONE | Dask tiny success/timeout tests and physical T0b/SLA pilots; matrix runner validates manifests |
-| T-MX1 | 48 scan/group-by scored runs | NOT STARTED | Requires frozen datasets, SLAs, collector |
-| T-MX2 | 48 join/sort scored runs | NOT STARTED | Requires T-MX1 |
-| T-AUDIT | Labels and leakage | NOT STARTED | Requires frozen 96-row table |
-| T-ML | LightGBM and conformal | NOT STARTED | Requires audit |
-| T-OOD | Leave-one-family gate | NOT STARTED | Requires model |
-| T-POL | Fitted CLI recommendation | NOT STARTED | Requires OOD |
-| T-BASE | Default, conservative, random | NOT STARTED | Same-table comparison |
-| T-SHAP | Demo explanations | NOT STARTED | Requires model |
-| T-TAB | Optional TabPFN comparison | NOT STARTED | Requires frozen table |
-| T-REP | Report and demo | NOT STARTED | Numbers must match curated table |
+| ID | Task | Status |
+| --- | --- | --- |
+| T-CTX / T-ARCH / T-SCH / T-OPT / T-GRID / T-STORE | Context, design, contracts, optimizer, grid, store | DONE |
+| T-HW / T0 / T0b | Actual host, Dask smoke, worker-cap pilots | DONE |
+| T-GEN / T-COL | Four frozen datasets and Dask collector | DONE for main-v1 |
+| T-MX1 / T-MX2 | 96 physical scored jobs | DONE; 24 per family |
+| T-AUDIT | Label, hash, and feature audit | DONE |
+| T-ML | LightGBM and grouped split-conformal | DONE; small-sample result |
+| T-OOD | Leave-one-family gate | PARTIAL; deterministic unseen-family/size gate, no calibrated k-NN |
+| T-POL | Fitted CLI recommendation | DONE |
+| T-BASE | Default, conservative, random same-table comparison | DONE; descriptive |
+| T-SHAP | Model explanation figure | DONE |
+| T-TAB | Optional TabPFN comparison | DEFERRED |
+| T-REP | Results report and demo | IN REVIEW; technical draft and live demo verified, formal submission pending |
 
-The Mac-side branch remains available. The Windows Dask work is on `codex/windows-dask`; pull it before continuing on another PC.
+All 96 jobs succeeded. Failure ML remains rules-only because the positive-count gate was not met. The selected Windows host has 32 GB marketed RAM (ADR-005); worker caps stay 1–2 GB.

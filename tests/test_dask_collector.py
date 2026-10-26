@@ -1,6 +1,8 @@
 from pathlib import Path
 
-import dask
+import pytest
+
+dask = pytest.importorskip("dask")
 
 from safe_pipe.collector import collect_dask
 from safe_pipe.grid import get_config

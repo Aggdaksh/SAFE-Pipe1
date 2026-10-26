@@ -1,5 +1,7 @@
 # Phase 1 — Selected direction: B-lite
 
+**Hardware update (ADR-005, 2026-10-26):** The user selected a Windows PC with 31.4 GiB RAM for the physical experiment. The four-family/eight-config/three-repeat design and 1–2 GB worker caps remained unchanged. All 96 scored runs completed; see [`../reports/audit.md`](../reports/audit.md).
+
 **Date:** 2026-10-25  
 **Status:** Accepted for Project-I unless the supervisor rejects the reduced experiment size.  
 **Gate:** Do not expand back to Glue or 176 runs without a new ADR.

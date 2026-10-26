@@ -1,5 +1,7 @@
 # ROADMAP.md
 
+**Status update (2026-10-26):** This is the original schedule. The user-selected Windows host has 31.4 GiB RAM; T0/T0b, the 96-run matrix, audit, runtime model, policy baseline comparison, and explanation figure are complete. See [`PROGRESS.md`](PROGRESS.md). The milestone dates below remain planning history.
+
 **Horizon:** six weeks to Project-I final (system + tables + report + demo).  
 **Hardware:** experiment PC **16 GB**; coding Mac **8 GB**.  
 **Detailed week plan:** [`docs/PLAN_16GB.md`](docs/PLAN_16GB.md). Task cards: [`docs/MICROPLAN.md`](docs/MICROPLAN.md). Index: [`docs/TASKS.md`](docs/TASKS.md). Living memory: [`context.md`](context.md).  

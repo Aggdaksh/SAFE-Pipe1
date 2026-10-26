@@ -33,7 +33,7 @@ Li et al., PVLDB 2023 (constrained Spark tuning); Karthikeyan et al., NSDI 2023 
 ## Expected goals
 
 1. Prototype with shared schemas (workload, objective, configuration, result), a Dask adapter, a versioned run store, training, ranking, and explainable output (including SHAP for the demo).
-2. Validate memory-capped Dask in depth on a **16 GB** PC: **96** main runs (four families × eight configs × three repeats) plus a few smoke jobs. Worker `memory_limit` stays 1–2 GB so spill/timeout remain observable. Glue is an adapter contract only and is **not evaluated**.
+2. Validate memory-capped Dask on the selected **32 GB Windows PC**: **96** main runs (four families × eight configs × three repeats) plus pilot jobs. Worker `memory_limit` stays 1–2 GB to study memory pressure. All 96 scored jobs succeeded; no spill or timeout outcome is claimed. Glue is an adapter contract only and is **not evaluated**.
 3. Train LightGBM (and a simple baseline) on successful log-runtime, add a split-conformal upper interval, and apply a leave-one-family OOD green/yellow/red gate. Timeouts are censored lower bounds, not successful runtimes.
 4. Keep deterministic safety rules. Activate exploratory failure ML only if the positive-count gate is met.
 5. Compare against Dask default, a conservative fixed config, and random selection on the same run table. Report runtime error, interval coverage, normalized cost, SLA misses, failures, unsafe recommendations, and abstention. Label unsupported improvements inconclusive.

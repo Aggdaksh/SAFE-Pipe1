@@ -3,6 +3,8 @@ from pathlib import Path
 import math
 import pytest
 
+pytest.importorskip("dask.dataframe")
+
 from safe_pipe.adapters.dask_local import local_client
 from safe_pipe.schemas import DaskNativeConfig, WorkloadFamily
 from safe_pipe.workloads.execute_dask import execute_dask

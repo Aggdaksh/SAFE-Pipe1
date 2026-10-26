@@ -1,5 +1,7 @@
 # Handoff: 16 GB experiment PC (T0 / T0b / 96-run matrix)
 
+**Historical handoff:** The user selected a different Windows PC with 31.4 GiB RAM for the physical experiment. T0, T0b, and all 96 matrix runs are complete there. See [`../Ganant Work.md`](../Ganant%20Work.md), [`t0.md`](t0.md), and [`audit.md`](audit.md). The steps below record the earlier 16 GB plan.
+
 **Date:** 2026-10-26  
 **Repo:** https://github.com/Aggdaksh/SAFE-Pipe1  
 **Branch with this work:** `cursor/context-and-microplan` (merge to `main` if that is what the PC clones).
