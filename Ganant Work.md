@@ -61,6 +61,11 @@
 - Wrote [`reports/demo.md`](reports/demo.md) with the command sequence and an explicit distinction between the frozen main-v1 prediction/actual table and the tiny live job.
 - Local commit: `83c1b06` — fitted policy, model artifact, technical results draft, demo flow, Git guide, and this PC log. Final suite: **29 passed**.
 
+## Checkpoint 9 — Git PAT handoff attempt
+
+- On 2026-10-26, the user placed `docs/Git.env` for PAT authentication. At inspection it was **0 bytes**, so no token could be used. The file was untracked and is now explicitly ignored by Git. Commit `b623a74` contains only that `.gitignore` rule; it does not contain a credential.
+- Asked the user to save the PAT and reply when ready. Authentication and push have **not** been attempted with this new PAT. The previous push blocker (HTTP 403 for `JEENERDS`) still applies until a valid token with repository write access is supplied.
+
 ## Git publication status
 
 The four implementation commits (`8c8e00c`, `7680811`, `efb6bcc`, `83c1b06`) exist **locally** on `codex/windows-dask`. A push retry after `83c1b06` again returned HTTP 403: the current credential is for `JEENERDS` and lacks write access to `Aggdaksh/SAFE-Pipe1`; `gh auth status` also reports that account's token is invalid. The optional GitHub connection is not installed. **No Windows commits have been pushed yet.** Follow [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md) once an account with write access is available. Do not reset or switch away from this branch before preserving the commits.
