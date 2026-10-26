@@ -20,5 +20,6 @@ data/demo/
 .env
 .env.*
 !.env.example
+docs/Git.env
 .ipynb_checkpoints/
 reports/_scratch/
