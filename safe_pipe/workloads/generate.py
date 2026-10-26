@@ -117,7 +117,7 @@ def generate_family(
         n_rows=n_rows,
         n_files=n_files,
         input_bytes=input_bytes,
-        path=str(family_dir),
+        path=family_dir.as_posix(),
         sha256=sha,
     )
     (family_dir / "manifest.json").write_text(manifest.model_dump_json(indent=2), encoding="utf-8")
@@ -139,3 +139,20 @@ def write_index(dest: Path, manifests: list[DatasetManifest]) -> None:
     dest.mkdir(parents=True, exist_ok=True)
     payload = [m.model_dump() for m in manifests]
     (dest / "index.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def verify_manifest(manifest: DatasetManifest, dataset_dir: Path) -> None:
+    """Refuse to run an altered or incomplete frozen dataset."""
+    if manifest.family is WorkloadFamily.SKEWED_JOIN:
+        folders = (dataset_dir / "left", dataset_dir / "right")
+        paths = [path for folder in folders for path in sorted(folder.glob("*.parquet"))]
+        hasher = hashlib.sha256()
+        for path in paths:
+            hasher.update(path.read_bytes())
+        sha = hasher.hexdigest()
+    else:
+        paths = sorted(dataset_dir.glob("*.parquet"))
+        sha = _sha256_dir(dataset_dir)
+    expected_count = manifest.n_files + (1 if manifest.family is WorkloadFamily.SKEWED_JOIN else 0)
+    if len(paths) != expected_count or sum(path.stat().st_size for path in paths) != manifest.input_bytes or sha != manifest.sha256:
+        raise ValueError(f"dataset does not match frozen manifest: {dataset_dir}")

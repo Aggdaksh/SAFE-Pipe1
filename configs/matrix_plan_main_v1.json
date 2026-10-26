@@ -1,0 +1,486 @@
+{
+  "data_version": "main-v1",
+  "shuffle_seed": 2026,
+  "cells": [
+    {
+      "family": "groupby",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w2_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 1
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t2_2g",
+      "repeat_id": 3
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t1_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "groupby",
+      "config_id": "w1_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t1_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "sort_merge",
+      "config_id": "w1_t2_2g",
+      "repeat_id": 2
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 3
+    },
+    {
+      "family": "skewed_join",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "groupby",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 2
+    },
+    {
+      "family": "scan_filter",
+      "config_id": "w2_t2_1g",
+      "repeat_id": 1
+    }
+  ]
+}

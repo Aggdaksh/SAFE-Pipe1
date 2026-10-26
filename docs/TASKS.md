@@ -11,8 +11,8 @@
 | T-HW | Experiment host RAM and OS | DONE | Windows, 31.4 GiB; `reports/t0.md` |
 | T0 | LocalCluster smoke | DONE | `reports/t0.md` |
 | T0b | 1 GB versus 2 GB pilot | DONE | `reports/t0b.md` |
-| T-GEN | Four Parquet generators | IN PROGRESS | Tiny complete; scale and freeze four physical datasets |
-| T-COL | One-cell collector | IN PROGRESS | Pandas complete; Dask tiny success/timeout tested; verify physical pilot and manifest hashes |
+| T-GEN | Four Parquet generators | DONE | Tiny and four main-v1 datasets; hashes verified |
+| T-COL | One-cell collector | DONE | Dask tiny success/timeout tests and physical T0b/SLA pilots; matrix runner validates manifests |
 | T-MX1 | 48 scan/group-by scored runs | NOT STARTED | Requires frozen datasets, SLAs, collector |
 | T-MX2 | 48 join/sort scored runs | NOT STARTED | Requires T-MX1 |
 | T-AUDIT | Labels and leakage | NOT STARTED | Requires frozen 96-row table |

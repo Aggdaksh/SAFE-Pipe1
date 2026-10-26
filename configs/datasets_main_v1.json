@@ -1,0 +1,42 @@
+[
+  {
+    "data_version": "main-v1",
+    "family": "scan_filter",
+    "seed": 47,
+    "n_rows": 23320000,
+    "n_files": 16,
+    "input_bytes": 198446552,
+    "path": "data/generated/main-v1/scan_filter",
+    "sha256": "9065c73b32fe3a43376150659f9fa2e62d96d9faedfd73baa172bd29aa9ed63a"
+  },
+  {
+    "data_version": "main-v1",
+    "family": "groupby",
+    "seed": 48,
+    "n_rows": 14970000,
+    "n_files": 16,
+    "input_bytes": 198487831,
+    "path": "data/generated/main-v1/groupby",
+    "sha256": "a26e66e2e2d91aa698fb7f6b98073fef9feaa7a71fb38bdba0a3fc6fb4aac5c6"
+  },
+  {
+    "data_version": "main-v1",
+    "family": "skewed_join",
+    "seed": 49,
+    "n_rows": 17040000,
+    "n_files": 16,
+    "input_bytes": 174604451,
+    "path": "data/generated/main-v1/skewed_join",
+    "sha256": "6886d3104c85d2b76aa04842d742b5fe791d8ada079f0d86e705c2bf76c86a02"
+  },
+  {
+    "data_version": "main-v1",
+    "family": "sort_merge",
+    "seed": 50,
+    "n_rows": 12770000,
+    "n_files": 16,
+    "input_bytes": 178382606,
+    "path": "data/generated/main-v1/sort_merge",
+    "sha256": "1d641bfcc400ac668940809401267e63986a5916af3c311ca6a88b1bbc57e750"
+  }
+]

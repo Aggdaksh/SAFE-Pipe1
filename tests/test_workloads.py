@@ -4,7 +4,7 @@ from safe_pipe.collector import collect_pandas
 from safe_pipe.grid import get_config
 from safe_pipe.matrix import planned_cells
 from safe_pipe.schemas import RunStatus, WorkloadFamily
-from safe_pipe.workloads.generate import generate_family, workload_from_manifest
+from safe_pipe.workloads.generate import generate_family, verify_manifest, workload_from_manifest
 from safe_pipe.workloads.execute_pandas import execute_pandas
 
 
@@ -18,6 +18,7 @@ def test_tiny_families_execute_in_pandas(tmp_path: Path) -> None:
         manifest = generate_family(family, dest, n_rows=400, n_files=2)
         assert manifest.input_bytes > 0
         assert (Path(manifest.path) / "manifest.json").exists()
+        verify_manifest(manifest, Path(manifest.path))
         execute_pandas(family, Path(manifest.path))
 
 

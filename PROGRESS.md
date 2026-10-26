@@ -14,12 +14,11 @@
 | T0 LocalCluster smoke | PASS, `reports/t0.md` |
 | T0b 1 GB versus 2 GB probe | Pilot measurements and scale decision, `reports/t0b.md` |
 | Four Dask family DAGs and timed one-cell collector | 24 tests pass, including tiny Dask integration and timeout |
+| Four main-v1 datasets, hashes, three 2 GB SLA pilots per family, randomized 96-cell plan | `configs/datasets_main_v1.json`, `configs/family_sla_main_v1.json`, `configs/matrix_plan_main_v1.json`; `reports/matrix_preparation.md` |
 
 ## In progress
 
-- Scale/fingerprint all four Parquet families to the T0b target sizes.
-- Pilot group-by and skewed join, and freeze an SLA for each family before matrix scoring.
-- Prepare a resumable, randomized, one-job-at-a-time 96-cell collector.
+- Commit the frozen preparation files and run the first 16 scored cells, checking statuses before continuing.
 
 ## Not started
 

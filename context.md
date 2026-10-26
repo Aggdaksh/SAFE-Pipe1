@@ -22,10 +22,12 @@ The original 16 GB plan is a conservative sizing reference. The actual host has 
 - T0 passed on the selected Windows PC: one 512 MB Dask worker returned the expected sum. See [`reports/t0.md`](reports/t0.md).
 - T0b pilot compared 1 GB and 2 GB workers on two scan sizes and one sort size. The 136 MB sort took 10.58 s at 1 GB versus 4.53 s at 2 GB; both succeeded. See [`reports/t0b.md`](reports/t0b.md). No spill or OOM has been confirmed.
 - Dask execution and one-cell collection are implemented; the scored matrix has **not** started.
+- Four `main-v1` datasets (175–198 MB) are generated, fingerprinted, and ignored by Git. The committed index is `configs/datasets_main_v1.json`.
+- Twelve 2 GB SLA pilot runs succeeded. Deadlines and the randomized 96-cell order were frozen in `configs/` before scored collection. See `reports/matrix_preparation.md`.
 
 ## Current task
 
-Scale and fingerprint the four datasets to the sizes chosen in T0b; pilot group-by and skewed join; freeze family SLAs before scoring. Then run the 96 cells one at a time in randomized order, audit labels and leakage, train models, evaluate baselines, and write the report. Do not treat pilot rows as scored matrix rows or timeout durations as successful runtimes.
+Run the 96 scored cells one at a time in the committed randomized order, starting with a 16-job batch and checking labels. Then audit leakage, train models, evaluate baselines, and write the report. Do not treat pilot rows as scored matrix rows or timeout durations as successful runtimes.
 
 ## Design rules
 

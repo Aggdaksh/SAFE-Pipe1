@@ -1,0 +1,42 @@
+{
+  "data_version": "main-v1",
+  "method": "1.5 times median of three w1_t1_2g pilot engine times, rounded up to 0.1s",
+  "families": {
+    "scan_filter": {
+      "pilot_seconds": [
+        1.542343100067228,
+        1.6813596000429243,
+        2.0350157000357285
+      ],
+      "median_seconds": 1.6813596000429243,
+      "sla_seconds": 2.6
+    },
+    "groupby": {
+      "pilot_seconds": [
+        4.963206199929118,
+        5.251119500026107,
+        5.685453499900177
+      ],
+      "median_seconds": 5.251119500026107,
+      "sla_seconds": 7.9
+    },
+    "skewed_join": {
+      "pilot_seconds": [
+        2.5552293000509962,
+        2.8469828000525013,
+        3.0700509999878705
+      ],
+      "median_seconds": 2.8469828000525013,
+      "sla_seconds": 4.3
+    },
+    "sort_merge": {
+      "pilot_seconds": [
+        8.02420240000356,
+        8.725169699988328,
+        9.112880100030452
+      ],
+      "median_seconds": 8.725169699988328,
+      "sla_seconds": 13.1
+    }
+  }
+}
