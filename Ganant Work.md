@@ -83,6 +83,12 @@
 - Added a small interactive, clearly illustrative SLA/cost selection example. Its resource arithmetic and optimizer rule match the code; its predicted runtimes are invented for teaching and separate from measured results.
 - Linked the lesson from README. It contains no secret values or local raw data.
 
+## Checkpoint 12 — Worked examples in the lesson
+
+- Expanded [`PROJECT_EXPLAINER.html`](PROJECT_EXPLAINER.html) with hand-calculated scan/filter, group-by, and join examples; clarified that the current `sort_merge` Dask DAG shuffles by key but does not merge a second table.
+- Added a configuration/resource-cost calculation, one exact audited CSV row, the real sort-family median-cost comparison, grouped model-split and uncertainty examples, OOD/abstention cases, a verified CLI-output excerpt, cross-PC Git commands, and three self-check questions.
+- Kept invented teaching values explicitly separate from the frozen physical measurements and linked examples to the implementation or reports.
+
 ## Current work and next steps
 
 1. Have the team review `origin/codex/windows-dask` and merge it to `main` through a pull request when ready. Continue pushing any new Windows commits to this tracked branch.

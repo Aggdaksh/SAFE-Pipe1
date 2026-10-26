@@ -37,6 +37,12 @@
     .tile { padding:16px 18px; border:1px solid var(--line); border-radius:14px; background:#fbfcff; }
     .tile strong { display:block; font-size:1.02rem; margin-bottom:5px; }
     .tile p { margin:0; font-size:.94rem; }
+    .worked { margin:20px 0; padding:18px 20px; background:#f8fbff; border:1px solid #cadced; border-radius:14px; }
+    .worked h3 { margin:0 0 8px; color:#123d7d; }
+    .worked table { margin:9px 0; }
+    .worked p:last-child { margin-bottom:0; }
+    .tag { display:inline-block; border-radius:99px; padding:2px 9px; background:#e4f1ed; color:#155c4e; font-size:.75rem; font-weight:750; letter-spacing:.02em; }
+    .tag.idea { background:#fff0cf; color:#80540c; }
     .metric-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:20px 0; }
     .metric { padding:17px; background:#edf4fc; border-radius:13px; }
     .metric b { display:block; font-size:1.7rem; line-height:1.2; color:var(--blue); }
@@ -99,7 +105,7 @@
 
     <section id="start">
       <h2>1. What problem are we solving?</h2>
-      <p>Imagine a nightly pipeline that reads Parquet files, filters rows, groups or joins data, and writes a result. It has a deadline: perhaps it must finish before the morning report. You can give its processing engine more workers, more threads, or more memory. Those choices change both runtime and resource usage.</p>
+      <p>Imagine a nightly pipeline that reads Parquet files, filters rows, groups or joins data, and computes a result. It has a deadline: perhaps it must finish before the morning report. You can give its processing engine more workers, more threads, or more memory. Those choices change both runtime and resource usage.</p>
       <div class="two-col">
         <div class="tile"><strong>Too little capacity</strong><p>The job may run slowly, miss its deadline, or fail under memory pressure.</p></div>
         <div class="tile"><strong>Too much capacity</strong><p>The job may finish, but reserve more CPU and memory than necessary.</p></div>
@@ -116,9 +122,28 @@
         <div class="tile"><strong>Dask</strong><p>A Python framework that breaks data work into tasks. Here it runs on a <em>LocalCluster</em> on one PC; workers have explicit memory limits.</p></div>
         <div class="tile"><strong>Configuration</strong><p>The resources assigned to Dask: 1 or 2 workers × 1 or 2 threads per worker × 1 or 2 GB per worker. That gives 8 combinations.</p></div>
       </div>
-      <p>A <strong>workload family</strong> means the operation pattern. The project measures scan/filter (read and keep rows), group-by (aggregate by key), skewed join (combine tables when some keys are much more common), and sort/merge (order and combine data). Those patterns stress resources differently.</p>
+      <p>A <strong>workload family</strong> means the operation pattern. The project measures scan/filter, group-by, skewed join, and a key-based sort/shuffle workload named <code>sort_merge</code>. Those patterns stress resources differently.</p>
       <div class="flow" aria-label="Data flow"><span>Parquet input</span><i aria-hidden="true">→</i><span>Dask tasks</span><i aria-hidden="true">→</i><span>Measured run</span><i aria-hidden="true">→</i><span>Runtime model</span><i aria-hidden="true">→</i><span>Recommendation</span></div>
       <p>The <strong>deadline</strong> is called an SLA in this project. A <strong>run</strong> is one workload family executed once with one setting. A <strong>repeat</strong> reruns that same pair because timings vary.</p>
+      <h3>Four tiny examples of what the code computes</h3>
+      <p>The following rows are <strong>made-up teaching data</strong>, small enough to calculate by hand. The physical experiment uses much larger generated Parquet files. The links point to the real <a href="safe_pipe/workloads/execute_dask.py">Dask operations</a>.</p>
+      <div class="worked">
+        <span class="tag idea">Teaching rows</span><h3>Scan/filter: keep matching numbers, then average</h3>
+        <p>Suppose the <code>value</code> column is <code>0.2, 0.8, 0.6</code>. The code keeps values greater than <code>0.5</code>, giving <code>0.8, 0.6</code>. Their mean is <strong>0.7</strong>. The real expression is <code>frame.loc[frame["value"] &gt; 0.5, "value"].mean()</code>. A separate <code>flag</code> column exists in the generated input, but this measured operation does not use it.</p>
+      </div>
+      <div class="worked">
+        <span class="tag idea">Teaching rows</span><h3>Group-by: add per key, then average the group totals</h3>
+        <div class="scroll"><table><thead><tr><th>key</th><th>value</th></tr></thead><tbody><tr><td>A</td><td>2</td></tr><tr><td>B</td><td>5</td></tr><tr><td>A</td><td>3</td></tr></tbody></table></div>
+        <p>Group A totals <code>2 + 3 = 5</code>; group B totals <code>5</code>. The code then averages those two totals: <strong>(5 + 5) / 2 = 5</strong>. It times the computation rather than saving an output table.</p>
+      </div>
+      <div class="worked">
+        <span class="tag idea">Teaching rows</span><h3>Skewed join: match keys between two tables</h3>
+        <p>Left table: <code>(K1, payload 4)</code>, <code>(K1, payload 2)</code>, <code>(K2, payload 7)</code>. Right table: <code>(K1, dimension X)</code>. An inner join keeps the two <code>K1</code> rows, and the code sums their left-side payload: <strong>4 + 2 = 6</strong>. If many rows share <code>K1</code>, that key is <em>skewed</em> and can create uneven work. The real generator deliberately produces such uneven keys.</p>
+      </div>
+      <div class="worked">
+        <span class="tag idea">Conceptual operation</span><h3><code>sort_merge</code>: shuffle by key</h3>
+        <p>Imagine rows arriving with keys <code>3, 1, 2</code>. <code>set_index("key", shuffle="tasks")</code> redistributes them into key-ordered Dask partitions. The code then takes the first <code>payload</code> from each resulting partition and sums those values, forcing the shuffle to run. The exact scalar depends on partition boundaries. Despite its name, this current benchmark <strong>does not join or merge a second table</strong>.</p>
+      </div>
     </section>
 
     <section id="design">
@@ -130,6 +155,11 @@
         <li><strong>Reject unsupported or unsafe choices.</strong><p>The out-of-distribution (OOD) gate marks an unfamiliar family or large size shift; a simple memory rule can reject a candidate. The failure field is a rule flag because no measured job failed.</p></li>
         <li><strong>Choose or abstain.</strong><p>The <a href="safe_pipe/optimizer.py">optimizer</a> keeps candidates whose upper runtime is within the SLA and whose guards pass. Among those, it chooses the smallest expected normalized cost. If none qualify, it abstains.</p></li>
       </ol>
+      <div class="worked">
+        <span class="tag idea">Decode a setting</span><h3>What does <code>w2_t2_1g</code> buy?</h3>
+        <p><code>w2</code> means two worker processes; <code>t2</code> means two threads in each, so the project counts <strong>2 × 2 = 4 allocated vCPUs</strong>. <code>1g</code> means a 1 GB limit <em>for each worker</em>, so the counted memory is <strong>2 × 1 = 2 GB</strong>. If its predicted runtime were 3 seconds, its illustrative cost would be <code>3 × (4 + 2) = 18</code> normalized units. The PC itself has more RAM, but that does not change these worker limits. See <a href="safe_pipe/grid.py">grid.py</a> and <a href="safe_pipe/cost.py">cost.py</a>.</p>
+      </div>
+      <p>At a high level, <a href="safe_pipe/workloads/generate.py">generate.py</a> makes repeatable Parquet inputs, <a href="safe_pipe/workloads/execute_dask.py">execute_dask.py</a> defines the Dask calculations, <a href="safe_pipe/collector.py">collector.py</a> times one run, <a href="safe_pipe/models/runtime.py">runtime.py</a> predicts duration, and <a href="safe_pipe/optimizer.py">optimizer.py</a> makes the final choice. The <a href="safe_pipe/cli.py">CLI</a> ties these parts together.</p>
       <div class="callout caution"><strong>A key rule:</strong> A prediction may use only information available <em>before</em> a run. Feeding the actual runtime or status into its own prediction would be data leakage and make the evaluation misleading.</div>
     </section>
 
@@ -151,9 +181,14 @@
       <h2>5. What exactly did we test?</h2>
       <div class="metric-grid"><div class="metric"><b>4</b><span>workload families</span></div><div class="metric"><b>8</b><span>resource configurations</span></div><div class="metric"><b>3</b><span>physical repeats of each pair</span></div></div>
       <p><strong>4 × 8 × 3 = 96 scored jobs.</strong> Each ran in a fresh Dask LocalCluster, one job at a time, on the selected Windows PC. The four versioned Parquet inputs were about 175–198 MB each. They are synthetic so the team can control and reproduce the experiment.</p>
-      <div class="scroll"><table><thead><tr><th>Family</th><th>Plain-language operation</th><th>Frozen SLA</th></tr></thead><tbody><tr><td><code>scan_filter</code></td><td>Read files and keep matching rows</td><td>2.6 s</td></tr><tr><td><code>groupby</code></td><td>Group keys and calculate aggregates</td><td>7.9 s</td></tr><tr><td><code>skewed_join</code></td><td>Join when some keys are unusually common</td><td>4.3 s</td></tr><tr><td><code>sort_merge</code></td><td>Sort and merge data</td><td>13.1 s</td></tr></tbody></table></div>
+      <div class="scroll"><table><thead><tr><th>Family</th><th>Operation actually timed</th><th>Frozen SLA</th></tr></thead><tbody><tr><td><code>scan_filter</code></td><td>Mean of values greater than 0.5</td><td>2.6 s</td></tr><tr><td><code>groupby</code></td><td>Mean of per-key value sums</td><td>7.9 s</td></tr><tr><td><code>skewed_join</code></td><td>Inner join, then sum matching payload</td><td>4.3 s</td></tr><tr><td><code>sort_merge</code></td><td>Key-based shuffle, then reduce partition values</td><td>13.1 s</td></tr></tbody></table></div>
       <p>These deadlines were fixed from separate pilot runs: 1.5 × the median successful time of the reference <code>w1_t1_2g</code> setting, rounded up to a tenth of a second. Pilot jobs are excluded from the 96 scored rows. Dataset hashes and the randomized order were frozen first to make later choices auditable. See <a href="reports/matrix_preparation.md">matrix preparation</a>.</p>
       <p>Each raw result was appended to a local JSONL log. An audit checked that all 96 planned family/setting/repeat cells were present exactly once and exported <a href="data/curated/runs.csv">runs.csv</a>. Large Parquet inputs and raw machine logs remain local and are ignored by Git.</p>
+      <div class="worked">
+        <span class="tag">Actual CSV row</span><h3>Read one measured run</h3>
+        <div class="scroll"><table><thead><tr><th>Field</th><th>Value</th><th>How to read it</th></tr></thead><tbody><tr><td><code>family</code></td><td><code>sort_merge</code></td><td>The key-shuffle workload</td></tr><tr><td><code>config_id</code></td><td><code>w1_t2_1g</code></td><td>One worker, two threads, 1 GB per worker</td></tr><tr><td><code>repeat_id</code></td><td><code>2</code></td><td>The second of three runs for this pair</td></tr><tr><td><code>input_bytes</code></td><td><code>178,382,606</code></td><td>The frozen Parquet input size</td></tr><tr><td><code>engine_seconds</code></td><td><code>5.3420774</code></td><td>Measured job duration, not a prediction</td></tr><tr><td><code>sla_seconds</code></td><td><code>13.1</code></td><td>The deadline for this family</td></tr><tr><td><code>status</code></td><td><code>success</code></td><td>The run finished successfully</td></tr></tbody></table></div>
+        <p>Because <code>5.342 &lt; 13.1</code>, this one run met its SLA. Its allocated resources were 2 counted vCPUs and 1 GB, so its measured cost is about <code>5.342 × (2 + 1) = 16.026</code> normalized units. This is one row in <a href="data/curated/runs.csv">the 96-row file</a>; it is not the model's estimate.</p>
+      </div>
     </section>
 
     <section id="decision">
@@ -161,6 +196,14 @@
       <p>Suppose a sort job arrives with a 13.1 second SLA. The command <code>recommend-model</code> creates one pre-run feature row per allowed setting, predicts each runtime and upper bound, calculates cost, checks the guards, and returns one setting or abstention.</p>
       <div class="callout"><strong>Real frozen sort example:</strong> It chose <code>w1_t2_1g</code>. Its point runtime estimate was 3.30 s, and its upper estimate was 5.57 s, below the 13.1 s SLA. The three measured runtimes for this family/setting were 5.083, 5.566, and 5.342 s. This is an illustration from the measured table, not an independent validation case. <a href="reports/demo.md">Demo evidence</a>.</div>
       <p>The formula is <strong>expected normalized cost = predicted seconds × (allocated vCPUs + allocated GB)</strong>. For <code>w1_t2_1g</code>, that is approximately <code>3.30 × (2 + 1) = 9.90</code> local cost units. The point estimate sets cost; the more cautious upper estimate tests the deadline. The formula is a comparison tool, not money.</p>
+      <div class="worked">
+        <span class="tag">Actual table comparison</span><h3>Prediction, deadline, and measurement are different numbers</h3>
+        <p>The policy's <strong>3.30 s</strong> point estimate produced the <strong>9.90</strong> expected-cost score. Its <strong>5.57 s</strong> upper estimate passed the <strong>13.1 s</strong> deadline. After execution, the three actual runtimes had a <strong>5.342 s median</strong>, giving <strong>16.026</strong> median measured cost units. For the declared default <code>w1_t1_2g</code>, the sort-family median was <strong>6.946 s</strong> and <strong>20.839</strong> units. Both choices met this family's SLA; these same-table measurements are an illustration, not a new independent experiment. Sources: <a href="data/curated/runs.csv">CSV</a> and <a href="reports/policy.md">policy report</a>.</p>
+      </div>
+      <div class="worked">
+        <span class="tag idea">Teaching scenario</span><h3>When does the system refuse to choose?</h3>
+        <p>If the smallest upper estimate among all settings were <code>7 s</code> but your deadline were <code>5 s</code>, no candidate passes, even if a point estimate is faster than 5 s. The optimizer abstains. The OOD gate also marks a workload red if it is too far from its measured size: a roughly <strong>178 MB</strong> sort input is the measured profile; <strong>240 MB</strong> is roughly 35% larger and would be yellow, while <strong>540 MB</strong> is more than twice as large and would be red. Yellow does not automatically reject a setting; red does. These size thresholds are hand-set heuristics, not validated failure probabilities. See <a href="safe_pipe/models/ood.py">ood.py</a>.</p>
+      </div>
       <h3>Try the selection rule</h3>
       <p class="small">Teaching example with made-up predictions for three real grid settings. The cost formula and selection rule match the code; these numbers are not experiment results.</p>
       <div class="demo">
@@ -176,15 +219,29 @@
       <h2>7. What do the results prove?</h2>
       <div class="metric-grid"><div class="metric"><b>96/96</b><span>jobs succeeded and met SLA</span></div><div class="metric"><b>13.84%</b><span>test median absolute percentage runtime error</span></div><div class="metric"><b>24/24</b><span>held-out rows within the runtime upper bound</span></div></div>
       <p>The model was tested on 24 rows from eight held-out family/setting pairs. All three repeats of a pair stayed in the same training, calibration, or test group. LightGBM's runtime MdAPE was 13.84%, versus 23.01% for a simple family-median baseline. The upper bound covered all 24 test rows; that does <strong>not</strong> mean it will cover every future job. See <a href="reports/runtime_model.md">runtime model report</a>.</p>
+      <div class="worked">
+        <span class="tag idea">Why the split matters</span><h3>Keep related repeats together</h3>
+        <p>Suppose three timings for the same family and setting are <code>5.1, 5.3, 5.2 s</code>. Putting two in training and the third in test would let the model see almost the same situation beforehand. SAFE-Pipe keeps all three in one group. The real split used <strong>36 training rows / 12 pairs</strong>, <strong>36 calibration rows / 12 pairs</strong>, and <strong>24 test rows / 8 pairs</strong>. Those sets serve different purposes: fit the model, size its upper cushion, and evaluate unseen pairs. See the <a href="configs/model_split_main_v1.json">frozen split</a>.</p>
+        <p>For intuition, if a model predicts <code>5 s</code> and the job takes <code>6 s</code>, its absolute percentage error on that row is <code>|6 − 5| / 6 ≈ 16.7%</code>. MdAPE is the median of such errors across test rows. The real conformal cushion is calculated from grouped <em>log-runtime</em> errors; its fitted multiplier is about <code>1.688</code>, which is why a 3.30 s point prediction becomes about 5.57 s upper. This simple example does not replace the actual calibration calculation.</p>
+      </div>
       <p>In a same-table comparison, the selected settings had mean median normalized cost 7.524 versus 11.421 for the declared default, about 34.1% lower <em>in that table</em>. Some settings in the evaluation table were also used to train the model, so this is descriptive and cannot establish a general cost improvement. See <a href="reports/policy.md">policy report</a>.</p>
       <div class="callout caution"><strong>Important limits:</strong> All 96 jobs succeeded, so there are no observed failure examples to train or validate a failure predictor and no measured safety advantage. Worker peak memory was not captured reliably. The OOD thresholds are cautious hand-set rules based on only one measured size per family. Dask memory warnings on some successful 1 GB sorts do not prove spill or failure.</div>
     </section>
 
     <section id="git">
       <h2>8. What did we push to GitHub?</h2>
-      <p>The published branch is <a href="https://github.com/Aggdaksh/SAFE-Pipe1/tree/codex/windows-dask"><code>codex/windows-dask</code></a>. It contains the earlier Mac work plus this PC's Dask executor, frozen experiment definitions, audited 96-row CSV, model artifacts, tests, reports, demo notes, and <a href="Ganant%20Work.md">progress log</a>. The latest publication checkpoint before this explainer was commit <code>f5b6e3d</code>.</p>
+      <p>The published branch is <a href="https://github.com/Aggdaksh/SAFE-Pipe1/tree/codex/windows-dask"><code>codex/windows-dask</code></a>. It contains the earlier Mac work plus this PC's Dask executor, frozen experiment definitions, audited 96-row CSV, model artifacts, tests, reports, demo notes, this explainer, and <a href="Ganant%20Work.md">progress log</a>.</p>
       <div class="two-col"><div class="tile"><strong>Shared through Git</strong><p>Source code, small configuration JSON files, curated CSV, model artifact, metrics, figures, and documentation.</p></div><div class="tile"><strong>Local to this PC</strong><p>Virtual environment, large generated Parquet files, raw JSONL logs, demo inputs, and the ignored PAT file <code>docs/Git.env</code>.</p></div></div>
       <p>Git is the collaboration record; <code>main</code> has not yet been updated with this branch. Team members can fetch the branch, inspect the evidence, and review a pull request before merging. Follow <a href="docs/GIT_COLLABORATION.md">the Git collaboration guide</a>. Never put the PAT in a commit, screenshot, or shared lesson.</p>
+      <div class="worked">
+        <span class="tag idea">Example teammate workflow</span><h3>How another PC receives this work</h3>
+        <p>In an existing clone, a teammate can run the following commands once to fetch this branch and switch to it. They will receive the committed CSV and code, but must install dependencies locally. They will <strong>not</strong> receive this PC's raw Parquet inputs, raw JSONL logs, virtual environment, or token.</p>
+        <pre><code>git fetch origin
+git switch --track origin/codex/windows-dask
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e ".[dev,dask,ml]"</code></pre>
+        <p class="small">These setup commands are for Windows PowerShell. If the branch already exists locally, use <code>git switch codex/windows-dask</code> and <code>git pull --ff-only</code> instead. The <a href="docs/GIT_COLLABORATION.md">Git guide</a> has the full handoff.</p>
+      </div>
     </section>
 
     <section id="next">
@@ -222,6 +279,22 @@
       </ol>
       <pre><code>.\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe -m safe_pipe.cli recommend-model --family sort_merge --sla 13.1</code></pre>
+      <div class="worked">
+        <span class="tag">Verified CLI excerpt</span><h3>How to read the printed recommendation</h3>
+        <p>The real command prints a larger JSON object with the workload, objective, eight candidates, and decision. These are selected fields from the verified sort run, rounded here for reading:</p>
+        <pre><code>selected candidate: w1_t2_1g
+expected_runtime_s: 3.297
+runtime_upper_s: 5.566
+expected_cost: 9.891
+ood_state: green
+decision.action: recommend
+decision.config_id: w1_t2_1g</code></pre>
+        <p>The upper <code>5.566</code> is below the SLA <code>13.1</code>. The <code>9.891</code> cost comes from the <em>predicted</em> runtime and resource allocation; it is not the measured run cost. The command also prints <code>p_fail: 0.0</code>, which is only the current deterministic memory-guard flag, not a calibrated chance of failure.</p>
+      </div>
+      <h3>Check your understanding</h3>
+      <details><summary>Why are there 96 rows if there are only four workload families?</summary><p>Each family ran under eight settings, and each family/setting pair ran three times: <code>4 × 8 × 3 = 96</code>.</p></details>
+      <details><summary>If the point runtime is 3.3 s, why check 5.57 s against the SLA?</summary><p>The point estimate drives expected cost. The calibrated upper estimate adds a cushion for uncertainty and is the number used to decide whether the deadline is likely to be met.</p></details>
+      <details><summary>Does 96 successful jobs prove that the system reduces failures?</summary><p>No. With zero observed failures, there is no measured failure difference between policies and no positive failure examples for a learned failure model.</p></details>
       <p class="small">For a live tiny Dask execution, follow <a href="reports/demo.md">the separate demo instructions</a>. Its input size is different from the frozen experiment.</p>
     </section>
     <footer>Built from the repository's current reports and Git history. The linked files are the source of record; this page is an explanation for learning and handoff.</footer>
