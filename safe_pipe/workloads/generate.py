@@ -57,6 +57,7 @@ def generate_family(
     n_rows: int | None = None,
     n_files: int | None = None,
     seed: int | None = None,
+    data_version: str = DATA_VERSION,
 ) -> DatasetManifest:
     rows, files, default_seed = tiny_spec(family)
     n_rows = rows if n_rows is None else n_rows
@@ -110,7 +111,7 @@ def generate_family(
         sha = _sha256_dir(family_dir)
 
     manifest = DatasetManifest(
-        data_version=DATA_VERSION,
+        data_version=data_version,
         family=family,
         seed=seed,
         n_rows=n_rows,

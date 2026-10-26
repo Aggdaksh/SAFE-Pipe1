@@ -1,7 +1,6 @@
 """T0 — Dask LocalCluster smoke.
 
-Run this on the **16 GB experiment PC only**.
-Do not run it on the 8 GB coding Mac: worker caps of 1–2 GB plus processes will swap.
+Run this on the designated experiment PC, not the 8 GB coding Mac.
 """
 
 from __future__ import annotations
@@ -20,7 +19,7 @@ def main() -> None:
     ):
         print(
             "Refusing T0 on the coding Mac (SAFE_PIPE_HOST=8gb). "
-            "Run this on the 16GB PC.",
+            "Run this on the experiment PC.",
             file=sys.stderr,
         )
         raise SystemExit(2)
@@ -44,7 +43,7 @@ def main() -> None:
                 "sum": total,
                 "elapsed_s": round(elapsed, 3),
                 "config": config.model_dump(),
-                "host_note": "official T0 is the 16GB experiment PC",
+                "host_note": "run on the designated experiment PC",
             }
         )
 

@@ -13,6 +13,7 @@ build/
 data/raw/
 data/generated/
 data/runs/
+data/probes/
 *.parquet
 .DS_Store
 .env

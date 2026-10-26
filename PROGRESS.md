@@ -1,68 +1,42 @@
-# PROGRESS.md
+# Progress
 
-**Updated:** 2026-10-26 (docs freeze for next session)
+**Updated:** 2026-10-26. Canonical project context: [`context.md`](context.md).
 
 ## Completed and verified
 
-- Phase 0/1 docs, B-lite freeze, GitHub `https://github.com/Aggdaksh/SAFE-Pipe1.git`.
-- Optimizer + schemas: originally 8 tests (2026-10-25).
-- **2026-10-26 Mac:** `pytest` **20 passed**. CLI `collect` on tiny scan_filter → `success pandas_local w1_t1_1g`.
-- T-GRID: `configs/dask_grid.json` eight ids, allocated vCPU/GB tests.
-- T-STORE: JSONL append/read.
-- T-GEN (tiny only): four families via pandas/pyarrow. Full 150–250 MB **not** generated (waits T0b).
-- T-COL (pandas only): success + timeout (`timeout_s=0`) unit tests. Dask collector **not** implemented.
-- T-CTX / T-ARCH: living `context.md` + architecture/requirements/microplan.
-- T0b guard: missing `--i-am-on-16gb` returns exit 2.
+| Task | Evidence |
+| --- | --- |
+| B-lite scope, architecture, requirements | `docs/PHASE1_DECISION.md`, `docs/ARCHITECTURE.md`, `docs/REQUIREMENTS.md` |
+| Schemas, optimizer, eight-config grid | Unit tests; `configs/dask_grid.json` |
+| JSONL store, tiny four-family generators, pandas collector | Mac branch tests |
+| Experiment host identified | Windows 11 PC, 31.4 GiB physical RAM; ADR-005 |
+| Dependencies | `.[dev,dask]` in ignored Windows `.venv`, Python 3.14.6 |
+| T0 LocalCluster smoke | PASS, `reports/t0.md` |
+| T0b 1 GB versus 2 GB probe | Pilot measurements and scale decision, `reports/t0b.md` |
+| Four Dask family DAGs and timed one-cell collector | 24 tests pass, including tiny Dask integration and timeout |
 
 ## In progress
 
-- T-HW: RAM=16 GB recorded; **OS unknown**.
-- T0: script exists; **not executed on the 16 GB PC**. Not run on the 8 GB Mac (would swap / is not official evidence).
+- Scale/fingerprint all four Parquet families to the T0b target sizes.
+- Pilot group-by and skewed join, and freeze an SLA for each family before matrix scoring.
+- Prepare a resumable, randomized, one-job-at-a-time 96-cell collector.
 
-## Next tasks
+## Not started
 
-1. Commit/push remaining uncommitted code+docs on `cursor/context-and-microplan` if still dirty.
-2. T0 on 16 GB PC → `reports/t0.md` (`reports/HANDOFF_16GB.md`).
-3. Implement T0b Dask body; freeze dataset MB.
-4. Dask execute + 96-run collector on that PC.
-5. New chat: start from `context.md` + `docs/SESSION_STATUS.md`.
+- Scored 96-run matrix and curated Parquet table.
+- Label/leakage audit, LightGBM, conformal intervals, OOD, fitted CLI policy, baselines, SHAP, report.
 
-## Blocked
+## Constraints and known limits
 
-- Official Dask matrix, models, SHAP, TabPFN: waiting on T0 on the 16 GB PC.
+- The selected experiment host is 32 GB, replacing the plan's earlier 16 GB assumption. Worker `memory_limit` remains 1–2 GB and the grid remains eight configs.
+- T0b timings are one run per cell and are **pilot evidence only**. The slower 1 GB sort does not by itself prove spill.
+- The pandas collector has only a post-run timeout check. The Dask collector uses `future.result(timeout=...)` and cancels on timeout; cluster shutdown still requires observation under difficult worker failures.
+- Peak worker memory is not yet captured. `peak_memory_bytes=null` is honest until telemetry is implemented.
+- The original `safe-pipe collect` command regenerates its pandas dataset; the Dask matrix must load frozen manifests instead.
 
-## Known issues
+## Immediate next steps
 
-- Worker caps stay 1–2 GB despite 16 GB host (ADR-004).
-- Pandas collector timeout is a **post-hoc wall-clock check**, not a preemptive kill. Fine for tiny data; Dask path needs a real timeout.
-- `safe-pipe collect` always regenerates the family under `--data-dir`.
-
-## Deferred
-
-- Glue. TabPFN until a Dask CSV exists. Streamlit.
-
-## Testing and validation status
-
-- Unit (Mac, no Dask): **20 passed**, 2026-10-26.
-- T0 Dask: **not executed**.
-- 96-run matrix: **not started**.
-
-## Immediate next actions
-
-On the 16 GB PC: `pip install -e ".[dev,dask]"` then `python experiments/t0_smoke.py`.
-
-## Task register
-
-| ID | Task | Status | Evidence |
-| --- | --- | --- | --- |
-| T-DOC / T-CTX / T-ARCH | Docs system | DONE | `context.md`, `docs/*` |
-| T-SCH / T-OPT | Schemas + optimizer | DONE | pytest |
-| T-GRID | 8 configs | DONE | `configs/dask_grid.json` |
-| T-STORE | JSONL | DONE | `tests/test_store.py` |
-| T-GEN | Tiny generators | DONE (tiny) | `tests/test_workloads.py`; scale DEFERRED until T0b |
-| T-COL | Pandas collector | DONE (pandas) | CLI collect success; Dask DEFERRED |
-| T-HW | RAM/OS | IN PROGRESS | 16 GB; OS unknown |
-| T0 | Dask smoke | NOT STARTED | needs 16 GB PC |
-| T0b | 50 MB 1g vs 2g | NOT STARTED | guard only |
-| T-MX1 / T-MX2 | 96 Dask runs | NOT STARTED | planner exists (`planned_cells==96`) |
-| T-ML … T-REP | Models/report | NOT STARTED | — |
+1. Commit and push the Windows Dask branch so the other PCs can pull it.
+2. Calibrate and verify all four datasets and pilot group-by/join.
+3. Freeze SLAs and start the scored matrix; save each completed row to ignored JSONL.
+4. Audit the frozen table before model training.
