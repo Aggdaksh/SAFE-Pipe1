@@ -59,14 +59,15 @@
 - Added `safe-pipe profile` for the frozen pre-run workload and `safe-pipe execute` for one Dask demo job with manifest verification and a separate JSONL store.
 - Ran `safe-pipe generate --dest data/demo --family sort_merge`, then executed the policy's `w1_t2_1g` configuration on the tiny sample. The live Dask job succeeded in **2.300 s** on 30,783 Parquet bytes. It is excluded from the 96 scored rows.
 - Wrote [`reports/demo.md`](reports/demo.md) with the command sequence and an explicit distinction between the frozen main-v1 prediction/actual table and the tiny live job.
+- Local commit: `83c1b06` — fitted policy, model artifact, technical results draft, demo flow, Git guide, and this PC log. Final suite: **29 passed**.
 
 ## Git publication status
 
-The three commits above exist **locally** on `codex/windows-dask`. `git push -u origin codex/windows-dask` returned HTTP 403: the current credential is for `JEENERDS` and lacks write access to `Aggdaksh/SAFE-Pipe1`; `gh auth status` also reports that account's token is invalid. **No Windows commits have been pushed yet.** Follow [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md) once an account with write access is available. Do not reset or switch away from this branch before preserving the commits.
+The four implementation commits (`8c8e00c`, `7680811`, `efb6bcc`, `83c1b06`) exist **locally** on `codex/windows-dask`. A push retry after `83c1b06` again returned HTTP 403: the current credential is for `JEENERDS` and lacks write access to `Aggdaksh/SAFE-Pipe1`; `gh auth status` also reports that account's token is invalid. The optional GitHub connection is not installed. **No Windows commits have been pushed yet.** Follow [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md) once an account with write access is available. Do not reset or switch away from this branch before preserving the commits.
 
 ## Current work and next steps
 
-1. Run final tests and consistency checks, then commit this log, the Git guide, model artifacts, metrics, results draft, and demo instructions locally. Push `codex/windows-dask` when GitHub write access works, then let teammates pull that branch or merge it to `main` through review.
+1. Restore GitHub write access with an authorized account, then run `git push -u origin codex/windows-dask`. Teammates can then pull the branch or merge it to `main` through review.
 2. Optional TabPFN/Colab comparison and formal DTU synopsis submission still need team decisions. Do not train a failure classifier or claim failure improvement from zero failures.
 
 ## Resume commands on this PC
