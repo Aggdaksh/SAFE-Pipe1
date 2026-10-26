@@ -95,6 +95,11 @@
 - Wrote [`docs/MIDTERM_SYNOPSIS_ALIGNMENT.md`](docs/MIDTERM_SYNOPSIS_ALIGNMENT.md): a goal-by-goal evidence and gap review covering the original 176-run/Glue proposal, the reduced 96-run Dask study, the model and policy results, and the limitations that must be stated at midterm.
 - Re-ran the full Windows test suite (29 passed) and checked the committed CSV (96 unique cells, all success, zero SLA misses) plus the model/policy metric files. The review explicitly does not assign an official completion percentage or claim supervisor approval of the reduced scope.
 
+## Checkpoint 14 — Midterm PowerPoint-agent handoff
+
+- Created [`docs/MIDTERM_PRESENTATION_HANDOFF.md`](docs/MIDTERM_PRESENTATION_HANDOFF.md) with project/title-slide facts, verified evidence, exact quantitative caveats, a suggested slide sequence, speaker answers, and source links for another agent preparing the PowerPoint.
+- Proposed a substantive second phase: new held-out workload profiles and independent policy evaluation, reliable resource telemetry and controlled pressure checks, stronger baselines, then final documentation. This is a **proposal**, not completed work or supervisor-approved scope. The document avoids treating the old 176-run design as a percentage denominator and uses a milestone-based halfway narrative only conditionally.
+
 ## Current work and next steps
 
 1. Have the team review `origin/codex/windows-dask` and merge it to `main` through a pull request when ready. Continue pushing any new Windows commits to this tracked branch.

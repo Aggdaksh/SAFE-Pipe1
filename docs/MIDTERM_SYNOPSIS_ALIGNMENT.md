@@ -20,6 +20,8 @@ This is substantial progress for the **reduced B-lite experiment**: its core dat
 
 For a midterm described informally as “half the progress,” present the completed **foundation + measured prototype** as the first major phase, and the **scope reconciliation + stronger evaluation + final reporting** as the remaining phase. Do not say the overall project is exactly 50% complete without a rubric or agreed scope.
 
+A [PowerPoint-agent handoff](MIDTERM_PRESENTATION_HANDOFF.md) proposes a bounded second validation phase that could support an approximately halfway milestone story **if the team and supervisor accept it**. That proposed phase is not included in the measured results below.
+
 | Workstream | Midterm position |
 | --- | --- |
 | Problem definition and B-lite architecture | Documented internally; reduced scope still needs supervisor agreement. |
