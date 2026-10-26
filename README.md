@@ -1,5 +1,7 @@
 # SAFE-Pipe (Project-I, B-lite)
 
+New to this project? Open the standalone [beginner's HTML lesson](PROJECT_EXPLAINER.html) in a browser. It explains the problem, the Git and experiment history, the measured results, and what remains.
+
 SAFE-Pipe selects the lowest expected normalized-cost configuration from eight declared memory-capped local Dask configurations that is predicted to meet a job deadline, or abstains. It is a DTU IT401 Group 45 project on **one PC**, not a Glue or multi-node study. The original 176-run/Glue synopsis is historical; see [`docs/PHASE1_DECISION.md`](docs/PHASE1_DECISION.md).
 
 ## Current measured state

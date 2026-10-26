@@ -77,6 +77,12 @@
 
 **Published:** `codex/windows-dask` is now on `origin` under the authorized `Aggdaksh` account. The earlier `JEENERDS` HTTP 403 was resolved using the PAT value from ignored `docs/Git.env`. Do not add that file to Git. Follow [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md) for cross-PC fetch and review steps.
 
+## Checkpoint 11 — Beginner project lesson
+
+- Created [`PROJECT_EXPLAINER.html`](PROJECT_EXPLAINER.html), a standalone browser lesson for a reader with theoretical ETL knowledge. It explains the problem, core terms, initial `main` and Mac snapshots, this PC's Dask work, the frozen 96-run experiment, results and limits, Git handoff, and remaining tasks.
+- Added a small interactive, clearly illustrative SLA/cost selection example. Its resource arithmetic and optimizer rule match the code; its predicted runtimes are invented for teaching and separate from measured results.
+- Linked the lesson from README. It contains no secret values or local raw data.
+
 ## Current work and next steps
 
 1. Have the team review `origin/codex/windows-dask` and merge it to `main` through a pull request when ready. Continue pushing any new Windows commits to this tracked branch.

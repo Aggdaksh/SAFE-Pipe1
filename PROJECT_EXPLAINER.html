@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A beginner-friendly, evidence-linked lesson about the SAFE-Pipe project.">
+  <title>SAFE-Pipe, from the beginning</title>
+  <style>
+    :root { color-scheme: light; --ink:#17243b; --muted:#53627a; --paper:#f5f7fb; --card:#fff; --line:#dce4ee; --blue:#174d9e; --aqua:#dff4ef; --mint:#146b59; --amber:#fff0cf; --red:#a63f3f; --shadow:0 12px 35px rgba(24,43,77,.07); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:var(--blue); }
+    a:hover { text-decoration-thickness:2px; }
+    :focus-visible { outline:3px solid #eaad32; outline-offset:3px; }
+    .shell { display:grid; grid-template-columns:225px minmax(0,850px); gap:36px; max-width:1180px; margin:auto; padding:26px 28px 90px; }
+    nav { position:sticky; top:22px; align-self:start; padding:18px 14px; background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); }
+    nav strong { display:block; padding:0 12px 10px; color:var(--blue); letter-spacing:.03em; }
+    nav a { display:block; padding:7px 12px; border-radius:9px; text-decoration:none; color:var(--ink); font-size:.91rem; }
+    nav a:hover { background:#eaf1fb; }
+    main { min-width:0; }
+    header { padding:44px 44px 38px; color:white; background:linear-gradient(130deg,#102e66,#176c86 75%,#278c87); border-radius:24px; box-shadow:var(--shadow); }
+    header p { color:#e3effa; max-width:65ch; }
+    h1 { font-size:clamp(2rem,5vw,3.3rem); line-height:1.13; letter-spacing:-.04em; margin:8px 0 16px; }
+    h2 { font-size:clamp(1.5rem,3vw,2rem); line-height:1.2; letter-spacing:-.025em; margin:0 0 17px; }
+    h3 { font-size:1.16rem; margin:25px 0 7px; }
+    p { margin:0 0 14px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:.75rem; font-weight:800; }
+    .hero-summary { font-size:1.23rem; font-weight:550; }
+    .hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:23px; }
+    .hero-meta span { border:1px solid #a8cbdf; border-radius:99px; padding:4px 10px; font-size:.82rem; }
+    section { margin-top:24px; padding:32px 38px; background:var(--card); border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow); scroll-margin-top:20px; }
+    .lead { font-size:1.09rem; color:#334761; }
+    .callout { border-left:4px solid var(--mint); background:var(--aqua); padding:15px 18px; border-radius:0 12px 12px 0; margin:20px 0; }
+    .caution { border-left-color:#bc7d16; background:var(--amber); }
+    .two-col { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:18px 0; }
+    .tile { padding:16px 18px; border:1px solid var(--line); border-radius:14px; background:#fbfcff; }
+    .tile strong { display:block; font-size:1.02rem; margin-bottom:5px; }
+    .tile p { margin:0; font-size:.94rem; }
+    .metric-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:20px 0; }
+    .metric { padding:17px; background:#edf4fc; border-radius:13px; }
+    .metric b { display:block; font-size:1.7rem; line-height:1.2; color:var(--blue); }
+    .metric span { display:block; font-size:.85rem; line-height:1.35; margin-top:4px; }
+    .flow { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:20px 0; }
+    .flow span { padding:9px 12px; background:#eaf1fb; border:1px solid #cbdcf0; border-radius:10px; font-size:.9rem; font-weight:650; }
+    .flow i { color:var(--mint); font-size:1.25rem; font-style:normal; }
+    .steps { counter-reset:step; list-style:none; padding:0; }
+    .steps li { position:relative; padding:0 0 23px 44px; border-left:2px solid #cad9ea; margin-left:13px; }
+    .steps li:last-child { border-left-color:transparent; padding-bottom:0; }
+    .steps li::before { counter-increment:step; content:counter(step); position:absolute; left:-15px; top:0; width:28px; height:28px; border-radius:50%; background:var(--blue); color:white; display:grid; place-items:center; font-size:.82rem; font-weight:800; }
+    .steps strong { display:block; }
+    .steps p { margin:4px 0 0; }
+    table { width:100%; border-collapse:collapse; margin:16px 0; font-size:.93rem; }
+    th,td { padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#eef3fa; }
+    .scroll { overflow-x:auto; }
+    code { padding:2px 5px; background:#edf2f8; border-radius:4px; font-size:.9em; }
+    pre { overflow:auto; background:#12243e; color:#e5f1ff; padding:18px; border-radius:12px; line-height:1.5; }
+    pre code { background:transparent; padding:0; color:inherit; }
+    details { border:1px solid var(--line); border-radius:11px; margin:8px 0; background:#fbfcff; }
+    summary { cursor:pointer; padding:10px 14px; font-weight:700; }
+    details p { padding:0 14px 12px; margin:0; }
+    .demo { padding:20px; border:1px solid #a9c8df; background:#f0f7fd; border-radius:15px; }
+    .demo label { display:block; font-weight:700; margin-bottom:8px; }
+    .demo input[type=range] { width:min(100%,430px); vertical-align:middle; }
+    .demo-output { margin-top:15px; padding:13px 16px; border-radius:10px; background:white; border:1px solid var(--line); min-height:62px; }
+    .small { font-size:.85rem; color:var(--muted); }
+    .status { font-weight:700; color:var(--mint); }
+    .source-list li { margin:7px 0; }
+    footer { padding:25px 8px; font-size:.86rem; color:var(--muted); }
+    @media(max-width:850px) { .shell { display:block; padding:12px 12px 50px; } nav { position:static; margin-bottom:12px; } nav a { display:inline-block; } header { padding:32px 24px; } section { padding:26px 22px; } }
+    @media(max-width:520px) { .two-col,.metric-grid { grid-template-columns:1fr; } table { font-size:.82rem; } th,td { padding:8px; } }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <nav aria-label="Lesson sections">
+    <strong>SAFE-Pipe lesson</strong>
+    <a href="#start">1. The problem</a>
+    <a href="#basics">2. The basics</a>
+    <a href="#design">3. What it builds</a>
+    <a href="#journey">4. How we got here</a>
+    <a href="#experiment">5. The experiment</a>
+    <a href="#decision">6. A decision</a>
+    <a href="#results">7. What results mean</a>
+    <a href="#git">8. What was pushed</a>
+    <a href="#next">9. What remains</a>
+    <a href="#glossary">10. Terms</a>
+    <a href="#try">11. Try it</a>
+  </nav>
+  <main>
+    <header>
+      <div class="eyebrow">A beginner's guided tour · 26 October 2026</div>
+      <h1>SAFE-Pipe, from the beginning</h1>
+      <p class="hero-summary">We run the same kind of data pipeline with different resource settings, learn how long each setting takes, and recommend a setting that should finish before a deadline at low resource cost.</p>
+      <p>This page starts with ETL concepts and ends with the actual code, measurements, Git branch, and remaining work. It is a teaching guide; the linked reports and files hold the reproducible evidence.</p>
+      <div class="hero-meta"><span>One Windows experiment PC</span><span>Four workload families</span><span>Eight Dask settings</span><span>96 measured jobs</span></div>
+    </header>
+
+    <section id="start">
+      <h2>1. What problem are we solving?</h2>
+      <p>Imagine a nightly pipeline that reads Parquet files, filters rows, groups or joins data, and writes a result. It has a deadline: perhaps it must finish before the morning report. You can give its processing engine more workers, more threads, or more memory. Those choices change both runtime and resource usage.</p>
+      <div class="two-col">
+        <div class="tile"><strong>Too little capacity</strong><p>The job may run slowly, miss its deadline, or fail under memory pressure.</p></div>
+        <div class="tile"><strong>Too much capacity</strong><p>The job may finish, but reserve more CPU and memory than necessary.</p></div>
+      </div>
+      <p><strong>SAFE-Pipe's question:</strong> Before this job starts, which of our eight allowed Dask settings has the lowest estimated resource cost while its cautious runtime estimate meets the deadline? If the job is unlike our measured workloads, or no setting qualifies, the system can <em>abstain</em> and ask for a human decision.</p>
+      <div class="callout"><strong>Scope:</strong> This is a university Project-I prototype using synthetic data and one local PC. Its “cost” is a normalized measure of local resource use, not an AWS bill. It has not measured AWS Glue or a multi-machine cluster. <a href="docs/SYNOPSIS_BLITE.md">Read the B-lite synopsis</a>.</div>
+    </section>
+
+    <section id="basics">
+      <h2>2. The minimum data engineering background</h2>
+      <div class="two-col">
+        <div class="tile"><strong>Pipeline / ETL</strong><p>A sequence of steps that reads data, transforms it, and produces a result. Here the transformations are four deliberately chosen patterns, not a business production pipeline.</p></div>
+        <div class="tile"><strong>Parquet</strong><p>A file format for tabular data. The project generates versioned Parquet inputs so runs can be compared on the same bytes.</p></div>
+        <div class="tile"><strong>Dask</strong><p>A Python framework that breaks data work into tasks. Here it runs on a <em>LocalCluster</em> on one PC; workers have explicit memory limits.</p></div>
+        <div class="tile"><strong>Configuration</strong><p>The resources assigned to Dask: 1 or 2 workers × 1 or 2 threads per worker × 1 or 2 GB per worker. That gives 8 combinations.</p></div>
+      </div>
+      <p>A <strong>workload family</strong> means the operation pattern. The project measures scan/filter (read and keep rows), group-by (aggregate by key), skewed join (combine tables when some keys are much more common), and sort/merge (order and combine data). Those patterns stress resources differently.</p>
+      <div class="flow" aria-label="Data flow"><span>Parquet input</span><i aria-hidden="true">→</i><span>Dask tasks</span><i aria-hidden="true">→</i><span>Measured run</span><i aria-hidden="true">→</i><span>Runtime model</span><i aria-hidden="true">→</i><span>Recommendation</span></div>
+      <p>The <strong>deadline</strong> is called an SLA in this project. A <strong>run</strong> is one workload family executed once with one setting. A <strong>repeat</strong> reruns that same pair because timings vary.</p>
+    </section>
+
+    <section id="design">
+      <h2>3. What has the team built?</h2>
+      <ol class="steps">
+        <li><strong>Describe the job before running it.</strong><p>A workload profile includes its family, input size, estimated rows, file and partition counts, and a skew indicator. It does not include the job's actual result or runtime. See <a href="safe_pipe/features.py">feature list</a> and <a href="safe_pipe/schemas.py">schemas</a>.</p></li>
+        <li><strong>List the allowed settings.</strong><p>The frozen <a href="configs/dask_grid.json">grid</a> has eight candidates. For example, <code>w1_t2_1g</code> means one worker, two threads, and a 1 GB memory limit for that worker.</p></li>
+        <li><strong>Estimate runtime, with a cushion.</strong><p>A fitted LightGBM model predicts a typical successful runtime. A one-sided conformal calibration adds an <em>upper bound</em> used for the SLA check. The bound is a cautious estimate, not a promise.</p></li>
+        <li><strong>Reject unsupported or unsafe choices.</strong><p>The out-of-distribution (OOD) gate marks an unfamiliar family or large size shift; a simple memory rule can reject a candidate. The failure field is a rule flag because no measured job failed.</p></li>
+        <li><strong>Choose or abstain.</strong><p>The <a href="safe_pipe/optimizer.py">optimizer</a> keeps candidates whose upper runtime is within the SLA and whose guards pass. Among those, it chooses the smallest expected normalized cost. If none qualify, it abstains.</p></li>
+      </ol>
+      <div class="callout caution"><strong>A key rule:</strong> A prediction may use only information available <em>before</em> a run. Feeding the actual runtime or status into its own prediction would be data leakage and make the evaluation misleading.</div>
+    </section>
+
+    <section id="journey">
+      <h2>4. Where did we start, and what changed?</h2>
+      <p>The repository was already a project when this Windows session began. Its original <code>main</code> commit (<code>f474aae</code>) contained the B-lite scope, schemas, first optimizer and tests. The Mac branch added architecture and a small working data path. We based this PC's branch on that newer Mac branch, because local <code>main</code> was older.</p>
+      <ol class="steps">
+        <li><strong>Initial design on <code>main</code></strong><p>Docs chose B-lite: one PC, Dask, four operation families, eight resource settings, and an honest experiment. There was a first optimizer and unit tests, but no scored Dask dataset.</p></li>
+        <li><strong>Mac-side work on <code>cursor/context-and-microplan</code></strong><p>The team added the eight-setting grid, schemas, JSONL storage, tiny synthetic Parquet generators, a pandas collector, the 96-cell plan, and 20 passing tests. The Dask execution and full physical experiment were still pending. See the dated <a href="docs/SESSION_STATUS.md">Mac handoff</a>.</p></li>
+        <li><strong>This Windows PC on <code>codex/windows-dask</code></strong><p>You chose this 31.4 GiB RAM Windows PC for the experiment. We installed dependencies, implemented Dask workloads and collection, and validated a tiny LocalCluster job (T0). A pilot (T0b) explored 1 GB versus 2 GB worker limits.</p></li>
+        <li><strong>Freeze, measure, audit</strong><p>We fixed the input data hashes, family SLAs, and shuffled run order before the scored experiment. Then we executed and audited 96 Dask jobs, and committed the curated shareable table.</p></li>
+        <li><strong>Learn and demonstrate</strong><p>We trained a grouped runtime model, calibrated upper bounds, wired the recommendation CLI, compared descriptive baselines, made a report and explanation figure, and ran a separate tiny live demo. The full suite passed 29 tests at that checkpoint.</p></li>
+        <li><strong>Publish for collaboration</strong><p>The Windows branch was pushed to <code>origin/codex/windows-dask</code>. The team's next Git step is review and a pull request into <code>main</code>. See <a href="Ganant%20Work.md">Ganant Work.md</a> for the detailed checkpoints.</p></li>
+      </ol>
+      <div class="callout caution"><strong>Why older documents can disagree:</strong> Files such as <a href="docs/MICROPLAN.md">MICROPLAN</a>, <a href="docs/ARCHITECTURE.md">ARCHITECTURE</a>, and <a href="docs/SESSION_STATUS.md">SESSION_STATUS</a> preserve earlier plans or the Mac snapshot. Read <a href="PROGRESS.md">PROGRESS</a>, the <a href="reports/audit.md">run audit</a>, and the PC log for the current measured status. The original 16 GB plan was replaced by the selected 32 GB Windows host; worker caps stayed 1–2 GB.</div>
+    </section>
+
+    <section id="experiment">
+      <h2>5. What exactly did we test?</h2>
+      <div class="metric-grid"><div class="metric"><b>4</b><span>workload families</span></div><div class="metric"><b>8</b><span>resource configurations</span></div><div class="metric"><b>3</b><span>physical repeats of each pair</span></div></div>
+      <p><strong>4 × 8 × 3 = 96 scored jobs.</strong> Each ran in a fresh Dask LocalCluster, one job at a time, on the selected Windows PC. The four versioned Parquet inputs were about 175–198 MB each. They are synthetic so the team can control and reproduce the experiment.</p>
+      <div class="scroll"><table><thead><tr><th>Family</th><th>Plain-language operation</th><th>Frozen SLA</th></tr></thead><tbody><tr><td><code>scan_filter</code></td><td>Read files and keep matching rows</td><td>2.6 s</td></tr><tr><td><code>groupby</code></td><td>Group keys and calculate aggregates</td><td>7.9 s</td></tr><tr><td><code>skewed_join</code></td><td>Join when some keys are unusually common</td><td>4.3 s</td></tr><tr><td><code>sort_merge</code></td><td>Sort and merge data</td><td>13.1 s</td></tr></tbody></table></div>
+      <p>These deadlines were fixed from separate pilot runs: 1.5 × the median successful time of the reference <code>w1_t1_2g</code> setting, rounded up to a tenth of a second. Pilot jobs are excluded from the 96 scored rows. Dataset hashes and the randomized order were frozen first to make later choices auditable. See <a href="reports/matrix_preparation.md">matrix preparation</a>.</p>
+      <p>Each raw result was appended to a local JSONL log. An audit checked that all 96 planned family/setting/repeat cells were present exactly once and exported <a href="data/curated/runs.csv">runs.csv</a>. Large Parquet inputs and raw machine logs remain local and are ignored by Git.</p>
+    </section>
+
+    <section id="decision">
+      <h2>6. How does one recommendation work?</h2>
+      <p>Suppose a sort job arrives with a 13.1 second SLA. The command <code>recommend-model</code> creates one pre-run feature row per allowed setting, predicts each runtime and upper bound, calculates cost, checks the guards, and returns one setting or abstention.</p>
+      <div class="callout"><strong>Real frozen sort example:</strong> It chose <code>w1_t2_1g</code>. Its point runtime estimate was 3.30 s, and its upper estimate was 5.57 s, below the 13.1 s SLA. The three measured runtimes for this family/setting were 5.083, 5.566, and 5.342 s. This is an illustration from the measured table, not an independent validation case. <a href="reports/demo.md">Demo evidence</a>.</div>
+      <p>The formula is <strong>expected normalized cost = predicted seconds × (allocated vCPUs + allocated GB)</strong>. For <code>w1_t2_1g</code>, that is approximately <code>3.30 × (2 + 1) = 9.90</code> local cost units. The point estimate sets cost; the more cautious upper estimate tests the deadline. The formula is a comparison tool, not money.</p>
+      <h3>Try the selection rule</h3>
+      <p class="small">Teaching example with made-up predictions for three real grid settings. The cost formula and selection rule match the code; these numbers are not experiment results.</p>
+      <div class="demo">
+        <label for="deadline">Illustrative deadline: <output id="deadline-value">8</output> seconds</label>
+        <input id="deadline" type="range" min="2" max="15" step="0.5" value="8">
+        <div class="scroll"><table><thead><tr><th>Example setting</th><th>Point time</th><th>Upper time</th><th>CPU + GB units</th><th>Expected cost</th><th>Passes deadline?</th></tr></thead><tbody id="toy-rows"></tbody></table></div>
+        <div id="toy-decision" class="demo-output" role="status" aria-live="polite"></div>
+      </div>
+      <p class="small">The real optimizer also checks OOD state and the deterministic failure guard. Those are held green/clear in this teaching example. See <a href="safe_pipe/optimizer.py">optimizer.py</a> for the full conditions.</p>
+    </section>
+
+    <section id="results">
+      <h2>7. What do the results prove?</h2>
+      <div class="metric-grid"><div class="metric"><b>96/96</b><span>jobs succeeded and met SLA</span></div><div class="metric"><b>13.84%</b><span>test median absolute percentage runtime error</span></div><div class="metric"><b>24/24</b><span>held-out rows within the runtime upper bound</span></div></div>
+      <p>The model was tested on 24 rows from eight held-out family/setting pairs. All three repeats of a pair stayed in the same training, calibration, or test group. LightGBM's runtime MdAPE was 13.84%, versus 23.01% for a simple family-median baseline. The upper bound covered all 24 test rows; that does <strong>not</strong> mean it will cover every future job. See <a href="reports/runtime_model.md">runtime model report</a>.</p>
+      <p>In a same-table comparison, the selected settings had mean median normalized cost 7.524 versus 11.421 for the declared default, about 34.1% lower <em>in that table</em>. Some settings in the evaluation table were also used to train the model, so this is descriptive and cannot establish a general cost improvement. See <a href="reports/policy.md">policy report</a>.</p>
+      <div class="callout caution"><strong>Important limits:</strong> All 96 jobs succeeded, so there are no observed failure examples to train or validate a failure predictor and no measured safety advantage. Worker peak memory was not captured reliably. The OOD thresholds are cautious hand-set rules based on only one measured size per family. Dask memory warnings on some successful 1 GB sorts do not prove spill or failure.</div>
+    </section>
+
+    <section id="git">
+      <h2>8. What did we push to GitHub?</h2>
+      <p>The published branch is <a href="https://github.com/Aggdaksh/SAFE-Pipe1/tree/codex/windows-dask"><code>codex/windows-dask</code></a>. It contains the earlier Mac work plus this PC's Dask executor, frozen experiment definitions, audited 96-row CSV, model artifacts, tests, reports, demo notes, and <a href="Ganant%20Work.md">progress log</a>. The latest publication checkpoint before this explainer was commit <code>f5b6e3d</code>.</p>
+      <div class="two-col"><div class="tile"><strong>Shared through Git</strong><p>Source code, small configuration JSON files, curated CSV, model artifact, metrics, figures, and documentation.</p></div><div class="tile"><strong>Local to this PC</strong><p>Virtual environment, large generated Parquet files, raw JSONL logs, demo inputs, and the ignored PAT file <code>docs/Git.env</code>.</p></div></div>
+      <p>Git is the collaboration record; <code>main</code> has not yet been updated with this branch. Team members can fetch the branch, inspect the evidence, and review a pull request before merging. Follow <a href="docs/GIT_COLLABORATION.md">the Git collaboration guide</a>. Never put the PAT in a commit, screenshot, or shared lesson.</p>
+    </section>
+
+    <section id="next">
+      <h2>9. What is left?</h2>
+      <ul>
+        <li><strong>Team review and merge:</strong> review the published Windows branch and merge it into <code>main</code> through a pull request when accepted.</li>
+        <li><strong>Academic submission:</strong> adjust the report to the department template, obtain supervisor feedback, and formally submit the synopsis/report. The repository contains a <a href="reports/project_i_results.md">technical results draft</a>, not proof of submission.</li>
+        <li><strong>Stronger evidence, if the team wants broader claims:</strong> collect new workload profiles and an independent held-out policy test. Collect actual actionable failures before attempting failure ML, and reliable memory telemetry before claims about spilling.</li>
+        <li><strong>Optional comparison:</strong> TabPFN on an exported table has been proposed but not run.</li>
+      </ul>
+      <p>These are separate from the completed 96-run experiment. The <a href="PROGRESS.md">progress ledger</a> records current status and limitations.</p>
+    </section>
+
+    <section id="glossary">
+      <h2>10. Terms you can return to</h2>
+      <details><summary>SLA (service level agreement)</summary><p>Here, a per-family finish-time deadline in seconds. A candidate qualifies only when its predicted upper runtime is at or below that deadline.</p></details>
+      <details><summary>Worker, thread, and memory limit</summary><p>A worker is a Dask process. Threads let a worker handle more work concurrently. The 1 GB or 2 GB memory limit is per worker, not the PC's total RAM.</p></details>
+      <details><summary>Skew</summary><p>An uneven distribution of keys. A few very common keys may make a join or grouping more demanding than a balanced dataset of similar size.</p></details>
+      <details><summary>JSONL, CSV, and manifest</summary><p>JSONL stores one JSON result per line for append-only collection. CSV is the compact shareable table. A manifest describes a generated dataset and its fingerprints so we can check that later runs use the intended files.</p></details>
+      <details><summary>Model training, calibration, and test</summary><p>Training fits the runtime model. Calibration learns how much cushion to add. Test holds out family/setting pairs to estimate performance on pairs the fit did not see.</p></details>
+      <details><summary>LightGBM and conformal bound</summary><p>LightGBM is the tabular model used to predict successful runtime. Split conformal calibration uses held-out errors to create an upper estimate. The measured 24/24 test coverage is small-sample evidence, not a guarantee.</p></details>
+      <details><summary>OOD and abstain</summary><p>Out-of-distribution means a workload differs from the measured scope, such as a new family or a large input-size shift. To abstain means return no recommended setting instead of making a weakly supported choice.</p></details>
+      <details><summary>MdAPE and normalized cost</summary><p>MdAPE is median absolute percentage error: the typical relative gap between predicted and actual runtime in the test set. Normalized cost here is runtime multiplied by the sum of allocated CPU and GB units; it is not a cloud price.</p></details>
+      <details><summary>Branch and pull request</summary><p>A Git branch is a line of changes. The Windows work is on <code>codex/windows-dask</code>. A pull request lets teammates review those changes before merging them into <code>main</code>.</p></details>
+    </section>
+
+    <section id="try">
+      <h2>11. A short path to explore the real project</h2>
+      <ol>
+        <li>Read <a href="README.md">README</a> for scope and setup, then <a href="Ganant%20Work.md">Ganant Work.md</a> for the chronological record.</li>
+        <li>Open <a href="configs/dask_grid.json">the grid</a> and decode <code>w1_t2_1g</code>.</li>
+        <li>Open <a href="data/curated/runs.csv">the measured CSV</a>. Notice one row for each repeat of each family/setting pair.</li>
+        <li>Read <a href="reports/audit.md">the audit</a> before interpreting <a href="reports/runtime_model.md">model metrics</a> or <a href="reports/policy.md">cost numbers</a>.</li>
+        <li>On a configured Windows checkout, run the commands below from the repository root. The second command predicts and prints a recommendation; it does not rerun 96 jobs.</li>
+      </ol>
+      <pre><code>.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m safe_pipe.cli recommend-model --family sort_merge --sla 13.1</code></pre>
+      <p class="small">For a live tiny Dask execution, follow <a href="reports/demo.md">the separate demo instructions</a>. Its input size is different from the frozen experiment.</p>
+    </section>
+    <footer>Built from the repository's current reports and Git history. The linked files are the source of record; this page is an explanation for learning and handoff.</footer>
+  </main>
+</div>
+<script>
+  const toyCandidates = [
+    { name: 'A · w1_t1_1g', point: 4, upper: 6, units: 2 },
+    { name: 'B · w1_t2_1g', point: 3, upper: 4.5, units: 3 },
+    { name: 'C · w2_t2_2g', point: 1.5, upper: 2.25, units: 8 }
+  ];
+  const deadline = document.getElementById('deadline');
+  const deadlineValue = document.getElementById('deadline-value');
+  const rows = document.getElementById('toy-rows');
+  const decision = document.getElementById('toy-decision');
+  function renderToy() {
+    const limit = Number(deadline.value);
+    deadlineValue.textContent = String(limit);
+    rows.replaceChildren();
+    for (const item of toyCandidates) {
+      const row = document.createElement('tr');
+      for (const value of [item.name, item.point + ' s', item.upper + ' s', String(item.units), String(item.point * item.units), item.upper <= limit ? 'Yes' : 'No']) {
+        const cell = document.createElement('td');
+        cell.textContent = value;
+        row.appendChild(cell);
+      }
+      rows.appendChild(row);
+    }
+    const eligible = toyCandidates.filter(item => item.upper <= limit).sort((a,b) => a.point * a.units - b.point * b.units || a.upper - b.upper || a.name.localeCompare(b.name));
+    decision.textContent = eligible.length ? 'Recommendation: ' + eligible[0].name + '. Its upper time meets the deadline, and it has the lowest expected cost among eligible settings.' : 'Abstain: no setting has an upper time within this deadline.';
+  }
+  deadline.addEventListener('input', renderToy);
+  renderToy();
+</script>
+</body>
+</html>
