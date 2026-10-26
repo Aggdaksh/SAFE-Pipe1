@@ -1,0 +1,26 @@
+{
+  "data_version": "main-v1",
+  "rows": 96,
+  "unique_cells": 96,
+  "status_counts": {
+    "success": 96
+  },
+  "sla_misses": 0,
+  "raw_jsonl_sha256": "839d4c0408107245b14c16e28363a032432e4f887b8b640e16893b664057b9c5",
+  "curated_csv_sha256": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42",
+  "curated_parquet_sha256": "c66fbc2e3d61fa8ea79441ff67d9636e8a98b7a3e5e6a95f55662356b5409b73",
+  "model_pre_run_columns": [
+    "family",
+    "input_bytes",
+    "estimated_rows",
+    "file_count",
+    "partition_count",
+    "skew_score",
+    "config_id",
+    "n_workers",
+    "threads_per_worker",
+    "memory_limit_gb",
+    "allocated_vcpus",
+    "allocated_gb"
+  ]
+}

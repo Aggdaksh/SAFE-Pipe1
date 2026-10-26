@@ -1,0 +1,71 @@
+{
+  "data_version": "main-v1",
+  "seed": 2027,
+  "group": "family + config_id; all three repeats of each cell remain in one split",
+  "families": {
+    "scan_filter": {
+      "train": [
+        "w2_t1_2g",
+        "w2_t1_1g",
+        "w2_t2_2g"
+      ],
+      "calibration": [
+        "w1_t1_2g",
+        "w2_t2_1g",
+        "w1_t1_1g"
+      ],
+      "test": [
+        "w1_t2_2g",
+        "w1_t2_1g"
+      ]
+    },
+    "groupby": {
+      "train": [
+        "w1_t1_1g",
+        "w2_t2_1g",
+        "w1_t2_2g"
+      ],
+      "calibration": [
+        "w2_t2_2g",
+        "w2_t1_1g",
+        "w1_t1_2g"
+      ],
+      "test": [
+        "w1_t2_1g",
+        "w2_t1_2g"
+      ]
+    },
+    "skewed_join": {
+      "train": [
+        "w1_t2_2g",
+        "w2_t2_2g",
+        "w1_t1_1g"
+      ],
+      "calibration": [
+        "w2_t1_1g",
+        "w1_t1_2g",
+        "w2_t1_2g"
+      ],
+      "test": [
+        "w2_t2_1g",
+        "w1_t2_1g"
+      ]
+    },
+    "sort_merge": {
+      "train": [
+        "w1_t1_1g",
+        "w2_t1_2g",
+        "w1_t1_2g"
+      ],
+      "calibration": [
+        "w2_t2_1g",
+        "w1_t2_1g",
+        "w2_t2_2g"
+      ],
+      "test": [
+        "w1_t2_2g",
+        "w2_t1_1g"
+      ]
+    }
+  }
+}
