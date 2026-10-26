@@ -29,7 +29,7 @@ The original 16 GB plan is a conservative sizing reference. The actual host has 
 
 ## Current task
 
-The technical results draft and separate tiny live Dask demo are complete in the repository. Push the Windows branch when GitHub write access works, then get team review and formal DTU submission. The optional TabPFN comparison remains unrun. No failure classifier can be supported because all 96 jobs succeeded.
+The technical results draft and separate tiny live Dask demo are complete. The Windows branch has been pushed to `origin/codex/windows-dask`; the next collaboration step is team review and merge, followed by formal DTU submission. The optional TabPFN comparison remains unrun. No failure classifier can be supported because all 96 jobs succeeded.
 
 ## Design rules
 

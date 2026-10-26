@@ -33,4 +33,4 @@ The full Windows suite currently passes **29 tests** with `.[dev,dask,ml]` insta
 - Optional TabPFN comparison remains unrun. The formal DTU synopsis/report submission and supervisor decision are outside this repository's verified work.
 - The rule-based OOD thresholds are heuristics; only one dataset size per family was measured. Peak worker memory was not reliably collected (`null` in run records). Dask logged some memory warnings during successful 1 GB sort jobs.
 - Physical Parquet and raw JSONL remain local and ignored; the audited flat CSV and preparation hashes are committed for collaboration.
-- GitHub publication is blocked: `git push` returned HTTP 403 for `JEENERDS`, and `gh auth status` reports its token invalid. Local branch `codex/windows-dask` has the work. See [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md).
+- The Windows branch `codex/windows-dask` was pushed successfully to `origin` using the authorized `Aggdaksh` account. The PAT file `docs/Git.env` remains ignored. Team review and merge to `main` are still pending. See [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md).

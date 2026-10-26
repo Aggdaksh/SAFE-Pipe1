@@ -1,10 +1,10 @@
 # Git handoff for the Windows experiment branch
 
-The Windows work is on local branch `codex/windows-dask`, based on the team's Mac branch `cursor/context-and-microplan`. The current GitHub credential for `JEENERDS` returned HTTP 403 and `gh auth status` says its token is invalid. The repository owner must grant your GitHub account write access, or the branch must be pushed to a fork and proposed as a pull request.
+The Windows work is published on `origin/codex/windows-dask`, based on the team's Mac branch `cursor/context-and-microplan`. The authorized `Aggdaksh` account pushed it on 2026-10-26. The PAT is stored locally in ignored `docs/Git.env` and must never be committed or pasted into chat.
 
 ## On this Windows PC: authenticate and push
 
-Run these in a PowerShell terminal after signing in with a GitHub account that can write to `Aggdaksh/SAFE-Pipe1`:
+Git is already configured on this PC. If authentication needs to be restored, run these in a PowerShell terminal with an account that can write to `Aggdaksh/SAFE-Pipe1`:
 
 ```powershell
 gh auth login -h github.com -p https -w
@@ -14,11 +14,11 @@ git switch codex/windows-dask
 git push -u origin codex/windows-dask
 ```
 
-The login command opens a browser for interactive authentication. Never paste a token into chat or a repo file. If push still returns 403, confirm that the signed-in account has write access to this exact repository; authentication alone is insufficient. Do not force-push or replace the remote history.
+The login command opens a browser for interactive authentication. Never paste a token into chat or a tracked repo file. If push returns 403, confirm that the signed-in account has write access to this exact repository; authentication alone is insufficient. Do not force-push or replace the remote history.
 
 ## On another PC: get this work
 
-After the push succeeds:
+The branch is already pushed. On another PC:
 
 ```powershell
 git fetch origin

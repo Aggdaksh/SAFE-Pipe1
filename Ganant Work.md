@@ -66,13 +66,20 @@
 - On 2026-10-26, the user placed `docs/Git.env` for PAT authentication. At inspection it was **0 bytes**, so no token could be used. The file was untracked and is now explicitly ignored by Git. Commit `b623a74` contains only that `.gitignore` rule; it does not contain a credential.
 - Asked the user to save the PAT and reply when ready. Authentication and push have **not** been attempted with this new PAT. The previous push blocker (HTTP 403 for `JEENERDS`) still applies until a valid token with repository write access is supplied.
 
+## Checkpoint 10 — GitHub connection and first successful push
+
+- The user saved a PAT in ignored `docs/Git.env`. The line included a label before `=`; the first login attempt passed the full line and GitHub rejected it. Retrying with **only the value after `=`**, sent to `gh auth login --with-token` through stdin, succeeded. The token was never printed or added to Git.
+- Verified that the authenticated GitHub account is `Aggdaksh` and that repository push permission is `true`. Configured Git to use the GitHub CLI credential for `github.com`.
+- `git push -u origin codex/windows-dask` succeeded. The remote branch now contains the Windows implementation, 96-row curated CSV, fitted artifacts, reports, demo, and this log through commit `98f989e`. The branch tracks `origin/codex/windows-dask`.
+- This checkpoint replaces the earlier HTTP 403 blocker below. Teammates can fetch the branch now; a pull request into `main` is available for review.
+
 ## Git publication status
 
-The four implementation commits (`8c8e00c`, `7680811`, `efb6bcc`, `83c1b06`) exist **locally** on `codex/windows-dask`. A push retry after `83c1b06` again returned HTTP 403: the current credential is for `JEENERDS` and lacks write access to `Aggdaksh/SAFE-Pipe1`; `gh auth status` also reports that account's token is invalid. The optional GitHub connection is not installed. **No Windows commits have been pushed yet.** Follow [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md) once an account with write access is available. Do not reset or switch away from this branch before preserving the commits.
+**Published:** `codex/windows-dask` is now on `origin` under the authorized `Aggdaksh` account. The earlier `JEENERDS` HTTP 403 was resolved using the PAT value from ignored `docs/Git.env`. Do not add that file to Git. Follow [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md) for cross-PC fetch and review steps.
 
 ## Current work and next steps
 
-1. Restore GitHub write access with an authorized account, then run `git push -u origin codex/windows-dask`. Teammates can then pull the branch or merge it to `main` through review.
+1. Have the team review `origin/codex/windows-dask` and merge it to `main` through a pull request when ready. Continue pushing any new Windows commits to this tracked branch.
 2. Optional TabPFN/Colab comparison and formal DTU synopsis submission still need team decisions. Do not train a failure classifier or claim failure improvement from zero failures.
 
 ## Resume commands on this PC

@@ -29,6 +29,6 @@ Read [`reports/matrix_preparation.md`](reports/matrix_preparation.md), [`reports
 
 The four families are scan/filter, group-by, skewed join, and sort/merge. LightGBM predicts successful runtime; split conformal supplies an upper bound; a conservative rule-based OOD gate abstains outside measured scope. Failure handling remains deterministic because all 96 physical runs succeeded. TabPFN on Colab is optional and not run. Glue, Spark, LLM agents, and real-cluster claims are out of scope.
 
-For current tasks and cross-PC handoff, read [`context.md`](context.md), [`PROGRESS.md`](PROGRESS.md), [`Ganant Work.md`](Ganant%20Work.md), and [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md). The Windows branch has local commits but GitHub rejected the current credential with HTTP 403; the handoff guide explains how an account with repository write access can push it.
+For current tasks and cross-PC handoff, read [`context.md`](context.md), [`PROGRESS.md`](PROGRESS.md), [`Ganant Work.md`](Ganant%20Work.md), and [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md). The Windows branch is published at `origin/codex/windows-dask` for team review.
 
 The verified `profile → recommend-model → execute` sequence and its separate tiny live run are documented in [`reports/demo.md`](reports/demo.md). A technical results draft is in [`reports/project_i_results.md`](reports/project_i_results.md).
