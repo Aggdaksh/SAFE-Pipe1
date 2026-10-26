@@ -9,10 +9,10 @@
 
 | ID | Milestone | Exit criteria | Calendar | Depends |
 | --- | --- | --- | --- | --- |
-| M0 | Docs + contracts | Optimizer unit tests pass | done 2026-10-25 | — |
-| M1 | T0 Dask smoke | Tiny job + 50 MB 1g vs 2g; OS recorded | Week 1 | 16 GB PC |
-| M2 | Workload generators | Four families ~150–250 MB, fingerprints | Week 1 | M1 |
-| M3 | Collector | JSONL + timeout/OOM labels | Week 1 | M2 |
+| M0 | Docs + contracts | Optimizer unit tests pass | done 2026-10-25; Mac pandas slice 2026-10-26 (**20 tests**) | — |
+| M1 | T0 Dask smoke | Tiny job + 50 MB 1g vs 2g; OS recorded | **not started** (needs 16 GB PC) | 16 GB PC |
+| M2 | Workload generators | Four families ~150–250 MB, fingerprints | Tiny **done** on Mac; full scale waits M1/T0b | M1 |
+| M3 | Collector | JSONL + timeout/OOM labels | Pandas **done**; Dask collector waits M1 | M2 |
 | M4 | Matrix | **4×8×3 = 96** runs frozen | Weeks 2–3 | M3, overnight PC |
 | M5 | Models | LightGBM + conformal + OOD | Week 4 | M4 |
 | M6 | Policy + demo | CLI + SHAP + same-table baselines | Week 5 | M5 |

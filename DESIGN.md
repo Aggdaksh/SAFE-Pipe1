@@ -1,6 +1,6 @@
 # DESIGN.md
 
-**Updated:** 2026-10-25  
+**Updated:** 2026-10-26  
 **Status:** Approved design for B-lite. Implementation status is per component, not implied by this document.  
 **Canonical diagrams and contracts:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)  
 **Requirements:** [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md)
@@ -24,15 +24,15 @@ See mermaid diagrams in `docs/ARCHITECTURE.md`. Short path:
 
 | Component | Responsibility | Implemented? |
 | --- | --- | --- |
-| `schemas` | Pydantic contracts | Yes (v0) — extend `RunResult` before collector |
+| `schemas` | Pydantic contracts | Yes (`RunResult` has repeat/data_version/hardware/failure fields) |
 | `optimizer` | Feasible set + argmin cost / abstain | Yes (v0, supplied estimates) |
-| `adapters.dask` | LocalCluster factory | Partial (T0 helper, not run on PC) |
-| `configs/dask_grid.json` | Eight native configs | No |
-| `workloads` | Four generators + DAGs | No |
-| `features` | Pre-run profiler | No |
+| `grid` | Eight native configs | Yes (`configs/dask_grid.json`) |
+| `adapters.dask` | LocalCluster factory | Partial (T0 helper, **not run on 16 GB PC**) |
+| `workloads` | Four generators + DAGs | Tiny pandas generators + pandas execute. **No Dask DAG** |
+| `collector` / `store` | One cell → JSONL | Pandas collector yes; Dask collector no |
+| `features` | Pre-run profiler | No (manifest fields only) |
 | `models` | LightGBM, conformal, OOD | No |
-| `run_store` | JSONL/Parquet append-only | No |
-| `cli` | profile/train/recommend/execute | recommend stub only |
+| `cli` | recommend / grid / generate / collect | Yes (pandas collect). No `train` |
 | Glue adapter | — | Out of Project-I |
 
 ## Interfaces (stable)

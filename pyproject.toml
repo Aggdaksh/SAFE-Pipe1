@@ -18,8 +18,14 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+data = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "pyarrow>=16.0",
+]
 dask = [
   "dask[dataframe,distributed]>=2024.8.0",
+  "numpy>=1.26",
   "pandas>=2.2",
   "pyarrow>=16.0",
 ]
@@ -29,6 +35,9 @@ ml = [
 ]
 dev = [
   "pytest>=8.2",
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "pyarrow>=16.0",
 ]
 
 [project.scripts]
@@ -40,3 +49,4 @@ include = ["safe_pipe*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+pythonpath = ["."]

@@ -1,6 +1,6 @@
 # Micro-plan
 
-**Updated:** 2026-10-25  
+**Updated:** 2026-10-26  
 **Calendar:** [`PLAN_16GB.md`](PLAN_16GB.md)  
 **Requirements:** [`REQUIREMENTS.md`](REQUIREMENTS.md)  
 **Architecture:** [`ARCHITECTURE.md`](ARCHITECTURE.md)
@@ -13,9 +13,9 @@ Do not mark `DONE` without the acceptance check.
 | Slice | What “done” looks like | Risk it kills |
 | --- | --- | --- |
 | 0 | CLI recommend from JSON estimates + unit tests | Wrong SLA logic | **DONE** 2026-10-25 |
-| 1 | T0 LocalCluster on 16 GB PC | Dask/OS | **next** |
-| 2 | T0b 50 MB 1g vs 2g | Dead failure instrument |
-| 3 | One family generator + one collector row | Data/exec path |
+| 1 | T0 LocalCluster on 16 GB PC | Dask/OS | **next (not run)** |
+| 2 | T0b 50 MB 1g vs 2g | Dead failure instrument | guard only |
+| 3 | One family generator + one collector row | Data/exec path | **DONE pandas tiny** 2026-10-26 |
 | 4 | 48-run half matrix | Collector at night |
 | 5 | 96 freeze + leakage audit | Bad labels |
 | 6 | LightGBM + conformal on frozen table | Model/split bugs |
@@ -33,7 +33,7 @@ Evaluation/presentation: T-BASE, T-REP, T-SHAP.
 T0 → T0b → T-GEN → T-COL → T-MX1 → T-MX2 → T-AUDIT → T-ML → T-OOD → T-POL → T-BASE → T-REP
 ```
 
-Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP notebook scaffolding, `T-STORE` (no Dask), `configs/dask_grid.json`.
+Mac-parallel **done** 2026-10-26: T-GRID, T-STORE, tiny T-GEN, pandas T-COL, 20 tests. Remaining critical path still starts at T0 on the 16 GB PC.
 
 ## Task cards
 
@@ -42,7 +42,7 @@ Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP noteb
 - **Purpose:** Portable memory across chats.
 - **Files:** `context.md` (this process).
 - **Acceptance:** File exists; `PROJECT_CONTEXT.md` points to it; README lists it first.
-- **Status:** `IN REVIEW` (written this session).
+- **Status:** `DONE`.
 - **Effort:** 1 h.
 
 ### T-ARCH — Architecture + requirements + microplan
@@ -50,7 +50,7 @@ Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP noteb
 - **Purpose:** Phase 2 design before more code.
 - **Files:** `docs/REQUIREMENTS.md`, `docs/ARCHITECTURE.md`, `docs/INVESTIGATIONS.md`, `docs/MICROPLAN.md`, `DESIGN.md`.
 - **Acceptance:** Components, contracts, investigations, and task cards exist; optimizer already matches FR-05 tests.
-- **Status:** `IN REVIEW`.
+- **Status:** `DONE`.
 - **Effort:** 3–5 h.
 
 ### T-HW — Hardware card
@@ -76,7 +76,7 @@ Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP noteb
 
 - **Purpose:** See whether 1 GB vs 2 GB matters; pick dataset scale.
 - **Depends:** T0.
-- **Files:** `experiments/t0b_probe.py` (to add), `reports/t0b.md`.
+- **Files:** `experiments/t0b_probe.py` (guard only), `reports/t0b.md` (not written).
 - **Approach:** Generate ~50 MB parquet; run `w1_t1_1g` and `w1_t1_2g`; record wall time.
 - **Acceptance:** Written decision: freeze ~80 MB or ~200 MB; **do not** raise memory_limit.
 - **Status:** `NOT STARTED`.
@@ -88,7 +88,7 @@ Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP noteb
 - **Depends:** —.
 - **Files:** `configs/dask_grid.json`, tests for 8 ids.
 - **Acceptance:** Matches ADR-004 table; parser fills `allocated_*`.
-- **Status:** `NOT STARTED`.
+- **Status:** `DONE` (2026-10-26, pytest).
 - **Effort:** 1–2 h.
 - **Can run on Mac now.**
 
@@ -99,7 +99,7 @@ Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP noteb
 - **Files:** `safe_pipe/store/jsonl.py`, `tests/test_store.py`.
 - **Approach:** Write `RunResult.model_dump()` lines; read back.
 - **Acceptance:** Fixture round-trip; concurrent write not required (one job at a time).
-- **Status:** `NOT STARTED`.
+- **Status:** `DONE` (2026-10-26, `tests/test_store.py`).
 - **Effort:** 3–5 h.
 - **Can run on Mac now.**
 
@@ -111,7 +111,7 @@ Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP noteb
 - **Approach:** pandas/pyarrow write; Dask read in execute path; fixed seeds.
 - **Acceptance:** Tiny-data unit tests (MBs not 200 MB in CI); manifest schema documented.
 - **Risks:** Mac 8 GB swapping if someone generates 250 MB locally — use `--tiny` in CI.
-- **Status:** `NOT STARTED`.
+- **Status:** `DONE` for tiny data (2026-10-26). Scale after T0b still `NOT STARTED`.
 - **Effort:** 8–12 h.
 
 ### T-COL — Collector
@@ -121,7 +121,7 @@ Can proceed in parallel on the Mac: extra unit tests, synopsis paste, SHAP noteb
 - **Files:** `experiments/collect.py`, classification helper.
 - **Approach:** subprocess or client-side timeout; always `cluster.close()`.
 - **Acceptance:** One successful row and one timeout row in tests (timeout can be fake clock / tiny timeout).
-- **Status:** `NOT STARTED`.
+- **Status:** `DONE` for pandas (2026-10-26). Dask execute `NOT STARTED`.
 - **Effort:** 8–12 h.
 
 ### T-MX1 / T-MX2 — Matrix

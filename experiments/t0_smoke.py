@@ -1,11 +1,13 @@
-"""T0 — 30-minute Dask smoke on the experiment PC, not on the 8 GB coding laptop.
+"""T0 — Dask LocalCluster smoke.
 
-Success: LocalCluster starts, a tiny dataframe sum completes, the process exits.
-This is not the main matrix. Use 1 worker and a low memory_limit.
+Run this on the **16 GB experiment PC only**.
+Do not run it on the 8 GB coding Mac: worker caps of 1–2 GB plus processes will swap.
 """
 
 from __future__ import annotations
 
+import os
+import sys
 import time
 
 from safe_pipe.adapters.dask_local import local_client
@@ -13,6 +15,16 @@ from safe_pipe.schemas import DaskNativeConfig
 
 
 def main() -> None:
+    if os.environ.get("SAFE_PIPE_HOST", "").lower() == "8gb" and not os.environ.get(
+        "SAFE_PIPE_ALLOW_DASK_ON_8GB"
+    ):
+        print(
+            "Refusing T0 on the coding Mac (SAFE_PIPE_HOST=8gb). "
+            "Run this on the 16GB PC.",
+            file=sys.stderr,
+        )
+        raise SystemExit(2)
+
     config = DaskNativeConfig(n_workers=1, threads_per_worker=1, memory_limit="512MB")
     t0 = time.perf_counter()
     with local_client(config) as client:
@@ -32,6 +44,7 @@ def main() -> None:
                 "sum": total,
                 "elapsed_s": round(elapsed, 3),
                 "config": config.model_dump(),
+                "host_note": "official T0 is the 16GB experiment PC",
             }
         )
 

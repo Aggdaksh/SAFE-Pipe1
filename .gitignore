@@ -12,6 +12,7 @@ dist/
 build/
 data/raw/
 data/generated/
+data/runs/
 *.parquet
 .DS_Store
 .env

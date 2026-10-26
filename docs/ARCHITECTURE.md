@@ -1,7 +1,7 @@
 # Architecture
 
-**Updated:** 2026-10-25  
-**Status:** Approved for B-lite. Boxes marked *proposed* are not in the repo yet.  
+**Updated:** 2026-10-26  
+**Status:** Approved for B-lite. Profiler, OOD, models, and Dask execute are still proposed (`execute_dask` raises `NotImplementedError` on purpose). Grid, optimizer, JSONL store, and pandas execute are implemented.  
 **Companion:** [`DESIGN.md`](../DESIGN.md)
 
 ## Design constraints
@@ -50,8 +50,8 @@ flowchart TD
   end
 
   subgraph exec [Execute]
-    adp[dask_local adapter]
-    store[run_store - proposed]
+    adp[dask_local adapter - T0 not run]
+    store[run_store jsonl]
   end
 
   WS --> prof --> ood
@@ -68,9 +68,9 @@ flowchart TD
 
 ### `schemas` (implemented v0)
 
-Pydantic models in `safe_pipe/schemas.py`. Extend `RunResult` before the collector (hardware fingerprint, SLA used, predicted interval, failure category, data version, repeat_id). Until then, collector must not pretend those fields exist.
+Pydantic models in `safe_pipe/schemas.py`. `RunResult` already includes `repeat_id`, `data_version`, `hardware`, `sla_seconds`, `predicted_upper_s`, `failure_category`, `voided`, `backend`.
 
-### `candidate_set` (proposed, trivial)
+### `candidate_set` (implemented)
 
 Return the eight `ConfigurationSpec` rows from a YAML/JSON frozen file `configs/dask_grid.json`. Adapter may **prune** (never add) if a combo is illegal on a host.
 
@@ -126,15 +126,15 @@ Pick min `(expected_cost, runtime_upper_s, config_id)`.
 
 `cluster_kwargs`, `local_client`. Next: `submit_workload(client, family, paths, timeout_s) -> raw metrics`.
 
-### `run_store` (proposed)
+### `run_store` (implemented JSONL; Parquet compact not done)
 
 Append-only `data/runs/runs.jsonl`. Nightly compact to `data/curated/runs.parquet`.  
 Primary key: `run_id`. Never rewrite a row; add `voided=true` if a job is corrupt.
 
-### `cli` (stub)
+### `cli` (partial)
 
-Today: `recommend --estimates --sla`.  
-Next: `execute`, then `train` reading parquet.
+Today: `recommend`, `grid`, `generate` (tiny), `collect` (pandas).  
+Next: Dask `execute` / matrix loop on the 16 GB PC; `train` after freeze.
 
 ## Data flow for one scored job (collection)
 
@@ -181,16 +181,13 @@ We do not scale. We cap.
 
 ```
 safe_pipe/
-  schemas.py          # now
-  optimizer.py        # now
-  cli.py              # partial
-  adapters/dask_local.py
-  workloads/          # generators + DAG
-  features/profiler.py
-  models/runtime.py conformal.py ood.py
+  schemas.py optimizer.py grid.py cost.py memory.py classify.py matrix.py collector.py
+  adapters/dask_local.py      # LocalCluster helper; T0 not run on 16GB
+  workloads/generate.py execute_pandas.py
   store/jsonl.py
-  cost.py
+  features/profiler.py        # proposed
+  models/                     # proposed
 configs/dask_grid.json
-experiments/t0_smoke.py collect.py
-data/manifest.json runs/ curated/
+experiments/t0_smoke.py t0b_probe.py collect.py
+data/generated/ data/runs/    # gitignored
 ```

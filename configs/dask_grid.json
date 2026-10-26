@@ -1,0 +1,14 @@
+{
+  "backend": "dask_local",
+  "notes": "Worker memory_limit stays 1GB or 2GB even on a 16GB host (ADR-004). Do not run this grid on the 8GB coding Mac.",
+  "configs": [
+    {"config_id": "w1_t1_1g", "n_workers": 1, "threads_per_worker": 1, "memory_limit": "1GB"},
+    {"config_id": "w1_t2_1g", "n_workers": 1, "threads_per_worker": 2, "memory_limit": "1GB"},
+    {"config_id": "w1_t1_2g", "n_workers": 1, "threads_per_worker": 1, "memory_limit": "2GB"},
+    {"config_id": "w1_t2_2g", "n_workers": 1, "threads_per_worker": 2, "memory_limit": "2GB"},
+    {"config_id": "w2_t1_1g", "n_workers": 2, "threads_per_worker": 1, "memory_limit": "1GB"},
+    {"config_id": "w2_t2_1g", "n_workers": 2, "threads_per_worker": 2, "memory_limit": "1GB"},
+    {"config_id": "w2_t1_2g", "n_workers": 2, "threads_per_worker": 1, "memory_limit": "2GB"},
+    {"config_id": "w2_t2_2g", "n_workers": 2, "threads_per_worker": 2, "memory_limit": "2GB"}
+  ]
+}

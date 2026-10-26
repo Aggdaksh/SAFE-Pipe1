@@ -1,6 +1,6 @@
 # Requirements (Project-I, B-lite)
 
-**Updated:** 2026-10-25  
+**Updated:** 2026-10-26  
 **Priority labels:** Must / Should / Could / Out of scope.
 
 A requirement is accepted only if its **acceptance criteria** can be checked. Metrics are measured from the run store, never pre-filled.
@@ -17,11 +17,11 @@ A requirement is accepted only if its **acceptance criteria** can be checked. Me
 | --- | --- | --- | --- |
 | FR-01 | Must | Typed workload, objective, configuration, estimate, decision, run-result contracts | Invalid payloads raise validation errors; tests exist |
 | FR-02 | Must | Enumerate the **declared 8** Dask configs only | No 9th config in the scorer without an ADR |
-| FR-03 | Must | Start `LocalCluster` with explicit `n_workers`, `threads_per_worker`, `memory_limit` | T0 log shows those values |
-| FR-04 | Must | Execute one workload to completion, timeout, or OOM and persist a `RunResult` | One JSONL row round-trips |
+| FR-03 | Must | Start `LocalCluster` with explicit `n_workers`, `threads_per_worker`, `memory_limit` | T0 log shows those values — **open** (script exists, not run on 16 GB) |
+| FR-04 | Must | Execute one workload to completion, timeout, or OOM and persist a `RunResult` | Pandas JSONL **yes**; Dask persist **open** |
 | FR-05 | Must | Recommend cheapest feasible candidate using **conformal upper ≤ SLA**, `p_fail ≤ limit`, OOD ≠ red | Unit tests: upper-bound, red abstain, min cost |
 | FR-06 | Must | Abstain when the feasible set is empty | `action=abstain`, `config_id=null` |
-| FR-07 | Must | Four synthetic Parquet families with seeds and sha256 | `data/manifest.json` exists after T-GEN |
+| FR-07 | Must | Four synthetic Parquet families with seeds and sha256 | Tiny manifests **yes**; 150–250 MB **open** |
 | FR-08 | Must | Store only pre-run features on the prediction path | Leakage audit script or checklist signed in T-AUDIT |
 | FR-09 | Must | Treat timeout duration as censored, not success | Status `timeout`; runtime model training drops or censors it |
 | FR-10 | Must | Compare policy vs default, conservative, random on the **same** table | Evaluation script; no extra physical runs required |

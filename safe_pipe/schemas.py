@@ -32,6 +32,13 @@ class DecisionAction(str, Enum):
     ABSTAIN = "abstain"
 
 
+class FailureCategory(str, Enum):
+    NONE = "none"
+    ACTIONABLE = "actionable"
+    TRANSIENT = "transient"
+    NON_CONFIGURATION = "non_configuration"
+
+
 class WorkloadSpec(BaseModel):
     family: WorkloadFamily
     input_bytes: int = Field(gt=0)
@@ -91,6 +98,17 @@ class Decision(BaseModel):
     feasible_config_ids: list[str] = Field(default_factory=list)
 
 
+class DatasetManifest(BaseModel):
+    data_version: str
+    family: WorkloadFamily
+    seed: int
+    n_rows: int
+    n_files: int
+    input_bytes: int
+    path: str
+    sha256: str
+
+
 class RunResult(BaseModel):
     run_id: str
     workload: WorkloadSpec
@@ -99,3 +117,11 @@ class RunResult(BaseModel):
     engine_seconds: float | None = None
     peak_memory_bytes: int | None = None
     notes: str = ""
+    repeat_id: int = Field(ge=1, default=1)
+    data_version: str = "v0"
+    hardware: str = ""
+    sla_seconds: float | None = None
+    predicted_upper_s: float | None = None
+    failure_category: FailureCategory = FailureCategory.NONE
+    voided: bool = False
+    backend: str = "pandas_local"

@@ -1,123 +1,108 @@
 # context.md
 
 **Role:** Canonical project memory. A new chat or teammate should read this first.  
-**Updated:** 2026-10-25 (evening)  
-**How to update:** After every accepted decision, completed task, or scope change, edit the **Status**, **Current task**, and any section that would otherwise be a lie. Do not leave superseded facts in place. Point to ADRs instead of rewriting history in place.
+**Updated:** 2026-10-26  
+**How to update:** After every accepted decision, completed task, or scope change, edit **Status**, **Current task**, and any section that would otherwise be a lie.
 
 GitHub: https://github.com/Aggdaksh/SAFE-Pipe1  
-Local: `/Users/dakshaggarwal/safe-pipe`
+Local: `/Users/dakshaggarwal/safe-pipe`  
+Branch with the latest code+docs (if not yet merged): `cursor/context-and-microplan`
 
 ---
 
 ## One line
 
-SAFE-Pipe recommends the cheapest **safe** memory-capped Dask config under an SLA, or **abstains**. Project-I evidence is one **16 GB** PC, not Glue and not a cluster.
+SAFE-Pipe recommends the cheapest **safe** memory-capped Dask config under an SLA, or **abstains**. Project-I evidence must come from one **16 GB** PC. The 8 GB Mac only has tests, tiny pandas stand-ins, and docs.
 
 ## Problem
 
-Batch Dask jobs change runtime and reliability with size, skew, partitions, and worker memory. Defaults waste RAM on easy scans and spill/timeout on joins. Students cannot buy Glue DPU hours. The system must pick from a **declared** set of eight configs, using uncertainty and an out-of-distribution gate.
-
-## Users
-
-| User | Job |
-| --- | --- |
-| Team (experimenter) | Generate Parquet, run matrix, train, evaluate |
-| Examiner (demo) | Profile → recommend/abstain → run one job → predicted vs actual |
-
-Not a multi-tenant SaaS.
+Batch Dask jobs change runtime and reliability with size, skew, partitions, and worker memory. Defaults waste RAM on easy scans and spill/timeout on joins. The system picks from a **declared** set of eight configs, using uncertainty and an OOD gate.
 
 ## Frozen direction (do not silently expand)
 
-- **Option B-lite.** Original DTU PDF (176 Dask runs + Glue) is **not** the spec. See `docs/PHASE0_FEASIBILITY.md` and `docs/PHASE1_DECISION.md`.
-- **96** main runs: 4 families × 8 configs × **3 repeats** (16 GB buys repeats, not more knobs — ADR-004).
-- Worker `memory_limit` stays **1 GB or 2 GB**. Host has 16 GB; workers do not get 8 GB.
-- Models: LightGBM + split conformal + leave-one-family OOD. Failure **rules** unless ~30+ actionable positives. TabPFN on Colab is optional comparison, not the CLI brain.
-- Cost is **normalized** (`vCPU-seconds + GB-seconds`), not USD.
+- **B-lite.** The DTU PDF (176 Dask runs + Glue) is **not** the spec.
+- **96** main runs: 4 families × 8 configs × **3 repeats** (ADR-004).
+- Worker `memory_limit` stays **1 GB or 2 GB**. Host 16 GB is not given to workers.
+- Models (not started): LightGBM + split conformal + leave-one-family OOD. Failure **rules** unless ~30+ positives. TabPFN on Colab optional.
+- Cost: normalized vCPU-seconds + GB-seconds.
 
-**Out of Project-I:** Glue evidence, Spark, LLM, from-scratch DL policy, microservices, “distributed cluster” claims, 176-run tables.
+**Out:** Glue evidence, Spark, LLM, from-scratch DL policy, microservices, cluster claims.
 
-## Hardware split
+## Hardware
 
 | Machine | RAM | Use |
 | --- | --- | --- |
-| MacBook M3 (coding) | 8 GB | git, pytest, docs, LightGBM on CSV |
-| Experiment PC | **16 GB** (OS **unknown**) | T0, data gen, 96-run collector |
+| MacBook M3 (this coding laptop) | 8 GB | git, pytest, docs, tiny pandas generators |
+| Experiment PC | **16 GB**, OS **unknown** | Official T0, T0b, 96 Dask runs |
 
-Do not run the main matrix on the Mac.
+Do not run the 8-config Dask matrix on the Mac.
 
-## What exists in code (verified)
+## What exists in code (verified 2026-10-26)
+
+`pytest`: **20 passed** on the Mac (`.venv`, 2026-10-26).
 
 | Piece | State | Evidence |
 | --- | --- | --- |
-| Pydantic schemas v0 | DONE | `safe_pipe/schemas.py` |
-| Optimizer (upper-bound SLA, red OOD abstain, min cost) | DONE | `pytest` 8 passed 2026-10-25 |
-| CLI `recommend` from JSON | DONE | `examples/estimates.json` |
-| Dask LocalCluster helper + T0 script | WRITTEN, **not run** | `experiments/t0_smoke.py` |
-| Generators, run store, models | NOT STARTED | — |
+| Schemas + optimizer | DONE | upper-bound SLA, red OOD abstain |
+| Frozen 8-config grid | DONE | `configs/dask_grid.json`; `safe-pipe grid` |
+| JSONL run store | DONE | `tests/test_store.py` |
+| Tiny 4-family Parquet generators | DONE | `--tiny` default 2000 rows; CI uses 400 |
+| Pandas execute + collector | DONE | CLI `collect` wrote `success pandas_local w1_t1_1g` |
+| 96-cell planner | DONE | `planned_cells() == 96` |
+| Failure classifier | DONE | timeout → TIMEOUT; KilledWorker → OOM |
+| T0 Dask smoke script | WRITTEN, **not run on 16 GB PC** | `experiments/t0_smoke.py` |
+| T0b | GUARD only | exits 2 without `--i-am-on-16gb`; Dask body **not implemented** |
+| LightGBM / conformal / OOD / SHAP | NOT STARTED | — |
+| Glue | OUT OF SCOPE | — |
 
 ## Current task
 
-**Micro-planning and architecture docs** (this update).  
-**Next engineering task after docs:** T0 on the 16 GB PC (`python experiments/t0_smoke.py`) and record OS in this file.
+**Next engineering that produces Project-I evidence:** T0 on the 16 GB PC. Follow [`reports/HANDOFF_16GB.md`](reports/HANDOFF_16GB.md).
+
+Mac-side slice 0–3 (pandas) is implemented and tested. It is **not** a substitute for Dask results.
 
 ## Immediate next steps
 
-1. Keep this file honest after T0 (paste OS, Dask version, elapsed).
-2. T0b: 50 MB scan, `w1_t1_1g` vs `w1_t1_2g`.
-3. Implement generators only after T0b sets scale.
+1. Merge or push `cursor/context-and-microplan` if this session’s files are not on GitHub yet.
+2. On the 16 GB PC: clone, `pip install -e ".[dev,dask]"`, `python experiments/t0_smoke.py`, write `reports/t0.md` (OS, RAM, Dask version).
+3. Implement T0b Dask body (still behind `--i-am-on-16gb`).
+4. Only then generate 150–250 MB (or 80 MB if slow) and collect 96 Dask runs.
 
-## Requirements pointer
+## Requirements / architecture
 
-Full MoSCoW and acceptance: [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md).
-
-**Must (short):** schemas, memory-capped Dask adapter, optimizer with abstention, JSONL run store, grouped evaluation, synopsis matching the experiment.
-
-## Architecture pointer
-
-[`DESIGN.md`](DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). One Python package, in-process CLI, `LocalCluster` behind an adapter. No queue, no microservices.
-
-## Stack
-
-Python 3.11+, Pydantic v2, Dask distributed LocalCluster, LightGBM, scikit-learn, pytest, Parquet/JSONL. TabPFN only on Colab.
+[`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) · [`DESIGN.md`](DESIGN.md) · [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · [`docs/MICROPLAN.md`](docs/MICROPLAN.md)
 
 ## Experiment grid (declared)
 
-Configs: `w{1,2}_t{1,2}_{1g,2g}` — workers × threads × memory_limit.  
-Families: `scan_filter`, `groupby`, `skewed_join`, `sort_merge`.  
-Data: ~150–250 MB Parquet after T0b; shrink to ~80 MB if 50 MB already takes > 8 minutes.
+`w1_t1_1g` … `w2_t2_2g` as in `configs/dask_grid.json`.  
+Families: `scan_filter`, `groupby`, `skewed_join`, `sort_merge`.
+
+## CLI (Mac, no Dask)
+
+```bash
+pip install -e ".[dev]"
+pytest
+safe-pipe recommend --estimates examples/estimates.json --sla 20
+safe-pipe grid
+safe-pipe generate --dest data/generated
+safe-pipe collect --family scan_filter
+```
 
 ## Leakage and labels
 
-- Features for a run: only information known **before** that run.
-- Timeouts: censored lower bounds, never successful runtime.
-- Repeats of the same family+config stay in the same split group.
+Pre-run features only. Timeouts are censored, not success. Repeats of family+config stay in one split group.
 
-## Success (Project-I)
+## Success (Project-I) — still unmet
 
-- `safe-pipe recommend` uses fitted artifacts or clearly labeled demo JSON.
-- Frozen `data/curated/runs.parquet` with 96 rows (or a documented slip to 2 repeats / Option A).
-- Tables: MdAPE, 90% interval coverage, cost vs default/conservative/random, SLA misses, abstention on held-out family.
-- Numbers in the report equal the parquet. No invented Glue or DL wins.
-
-## Conventions
-
-- Status words: `NOT STARTED` \| `IN PROGRESS` \| `BLOCKED` \| `IN REVIEW` \| `DONE` \| `DEFERRED`.
-- `DONE` needs acceptance criteria **and** verification.
-- Secrets never in git. `.env.example` names only.
+Need frozen `data/curated/runs.parquet` from **Dask** on the 16 GB PC, then models and a report whose numbers equal that parquet.
 
 ## Doc map
 
 | File | Purpose |
 | --- | --- |
-| `context.md` | **This file.** Living memory |
-| `docs/REQUIREMENTS.md` | Functional / NFR / stories |
-| `docs/ARCHITECTURE.md` | Components, data flow, contracts |
-| `DESIGN.md` | Design goals, trade-offs, testing |
-| `docs/MICROPLAN.md` | Task cards, dependencies, vertical slices |
-| `docs/INVESTIGATIONS.md` | Experiments before we commit |
-| `docs/PLAN_16GB.md` | Six-week calendar |
-| `PROGRESS.md` | What is actually done |
-| `DECISIONS.md` | ADR index |
-| `docs/SYNOPSIS_BLITE.md` | Text for DTU |
-
-`PROJECT_CONTEXT.md` is a stub that points here so old links do not fork the truth.
+| `context.md` | **This file** |
+| `docs/SESSION_STATUS.md` | 2026-10-26 snapshot for the next chat |
+| `reports/HANDOFF_16GB.md` | Exact steps for the experiment PC |
+| `PROGRESS.md` | Status ledger |
+| `docs/MICROPLAN.md` | Task cards |
+| `docs/SYNOPSIS_BLITE.md` | DTU paste text |
