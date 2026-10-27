@@ -89,18 +89,19 @@
     <a href="#experiment">5. The experiment</a>
     <a href="#decision">6. A decision</a>
     <a href="#results">7. What results mean</a>
-    <a href="#git">8. What was pushed</a>
-    <a href="#next">9. What remains</a>
-    <a href="#glossary">10. Terms</a>
-    <a href="#try">11. Try it</a>
+    <a href="#updates">8. New changes &amp; status</a>
+    <a href="#git">9. Git branches</a>
+    <a href="#next">10. What remains</a>
+    <a href="#glossary">11. Terms</a>
+    <a href="#try">12. Try it</a>
   </nav>
   <main>
     <header>
-      <div class="eyebrow">A beginner's guided tour · 26 October 2026</div>
+      <div class="eyebrow">A beginner's guided tour · updated 28 October 2026</div>
       <h1>SAFE-Pipe, from the beginning</h1>
-      <p class="hero-summary">We run the same kind of data pipeline with different resource settings, learn how long each setting takes, and recommend a setting that should finish before a deadline at low resource cost.</p>
+      <p class="hero-summary">We run data pipelines under eight resource settings, learn how long each takes, and recommend a setting under a deadline. The newer advisor lets you choose how much to value speed versus configured resources.</p>
       <p>This page starts with ETL concepts and ends with the actual code, measurements, Git branch, and remaining work. It is a teaching guide; the linked reports and files hold the reproducible evidence.</p>
-      <div class="hero-meta"><span>One Windows experiment PC</span><span>Four workload families</span><span>Eight Dask settings</span><span>96 measured jobs</span></div>
+      <div class="hero-meta"><span>One Windows experiment PC</span><span>Four workload families</span><span>Eight Dask settings</span><span>96 measured jobs</span><span>New explained advisor</span></div>
     </header>
 
     <section id="start">
@@ -110,7 +111,7 @@
         <div class="tile"><strong>Too little capacity</strong><p>The job may run slowly, miss its deadline, or fail under memory pressure.</p></div>
         <div class="tile"><strong>Too much capacity</strong><p>The job may finish, but reserve more CPU and memory than necessary.</p></div>
       </div>
-      <p><strong>SAFE-Pipe's question:</strong> Before this job starts, which of our eight allowed Dask settings has the lowest estimated resource cost while its cautious runtime estimate meets the deadline? If the job is unlike our measured workloads, or no setting qualifies, the system can <em>abstain</em> and ask for a human decision.</p>
+      <p><strong>SAFE-Pipe's question:</strong> Before this job starts, which of our eight allowed Dask settings meets the deadline and best fits the chosen speed/resource preference? The historical command minimizes a simple resource-cost proxy; the newer advisor makes the preference explicit. If the job is outside the advisor's measured support, or no setting qualifies, it can <em>abstain</em> and ask for a human decision.</p>
       <div class="callout"><strong>Scope:</strong> This is a university Project-I prototype using synthetic data and one local PC. Its “cost” is a normalized measure of local resource use, not an AWS bill. It has not measured AWS Glue or a multi-machine cluster. <a href="docs/SYNOPSIS_BLITE.md">Read the B-lite synopsis</a>.</div>
     </section>
 
@@ -153,11 +154,11 @@
         <li><strong>List the allowed settings.</strong><p>The frozen <a href="configs/dask_grid.json">grid</a> has eight candidates. For example, <code>w1_t2_1g</code> means one worker, two threads, and a 1 GB memory limit for that worker.</p></li>
         <li><strong>Estimate runtime, with a cushion.</strong><p>A fitted LightGBM model predicts a typical successful runtime. A one-sided conformal calibration adds an <em>upper bound</em> used for the SLA check. The bound is a cautious estimate, not a promise.</p></li>
         <li><strong>Reject unsupported or unsafe choices.</strong><p>The out-of-distribution (OOD) gate marks an unfamiliar family or large size shift; a simple memory rule can reject a candidate. The failure field is a rule flag because no measured job failed.</p></li>
-        <li><strong>Choose or abstain.</strong><p>The <a href="safe_pipe/optimizer.py">optimizer</a> keeps candidates whose upper runtime is within the SLA and whose guards pass. Among those, it chooses the smallest expected normalized cost. If none qualify, it abstains.</p></li>
+        <li><strong>Choose or abstain.</strong><p>The <a href="safe_pipe/optimizer.py">historical optimizer</a> keeps candidates whose upper runtime is within the SLA and whose guards pass, then chooses the smallest legacy cost. The newer <a href="safe_pipe/advisor.py">advisor</a> checks support, deadline, budgets and a hard memory guard, then ranks eligible settings by an explicit speed/resource score. Both abstain if nothing qualifies.</p></li>
       </ol>
       <div class="worked">
         <span class="tag idea">Decode a setting</span><h3>What does <code>w2_t2_1g</code> buy?</h3>
-        <p><code>w2</code> means two worker processes; <code>t2</code> means two threads in each, so the project counts <strong>2 × 2 = 4 allocated vCPUs</strong>. <code>1g</code> means a 1 GB limit <em>for each worker</em>, so the counted memory is <strong>2 × 1 = 2 GB</strong>. If its predicted runtime were 3 seconds, its illustrative cost would be <code>3 × (4 + 2) = 18</code> normalized units. The PC itself has more RAM, but that does not change these worker limits. See <a href="safe_pipe/grid.py">grid.py</a> and <a href="safe_pipe/cost.py">cost.py</a>.</p>
+        <p><code>w2</code> means two worker processes; <code>t2</code> means two threads in each, giving <strong>2 × 2 = 4 configured threads</strong>. <code>1g</code> means a 1 GB limit <em>for each worker</em>, giving <strong>2 × 1 = 2 GB</strong> in the legacy accounting. If its predicted runtime were 3 seconds, the <em>old</em> illustrative cost would be <code>3 × (4 + 2) = 18</code> units. That older formula called the thread count “allocated vCPUs”; the new advisor labels it accurately as configured concurrency and uses a different normalized score. The PC itself has more RAM, but that does not change worker limits. See <a href="safe_pipe/grid.py">grid.py</a> and <a href="safe_pipe/cost.py">cost.py</a>.</p>
       </div>
       <p>At a high level, <a href="safe_pipe/workloads/generate.py">generate.py</a> makes repeatable Parquet inputs, <a href="safe_pipe/workloads/execute_dask.py">execute_dask.py</a> defines the Dask calculations, <a href="safe_pipe/collector.py">collector.py</a> times one run, <a href="safe_pipe/models/runtime.py">runtime.py</a> predicts duration, and <a href="safe_pipe/optimizer.py">optimizer.py</a> makes the final choice. The <a href="safe_pipe/cli.py">CLI</a> ties these parts together.</p>
       <div class="callout caution"><strong>A key rule:</strong> A prediction may use only information available <em>before</em> a run. Feeding the actual runtime or status into its own prediction would be data leakage and make the evaluation misleading.</div>
@@ -173,6 +174,7 @@
         <li><strong>Freeze, measure, audit</strong><p>We fixed the input data hashes, family SLAs, and shuffled run order before the scored experiment. Then we executed and audited 96 Dask jobs, and committed the curated shareable table.</p></li>
         <li><strong>Learn and demonstrate</strong><p>We trained a grouped runtime model, calibrated upper bounds, wired the recommendation CLI, compared descriptive baselines, made a report and explanation figure, and ran a separate tiny live demo. The full suite passed 29 tests at that checkpoint.</p></li>
         <li><strong>Publish for collaboration</strong><p>The Windows branch was pushed to <code>origin/codex/windows-dask</code>. The team's next Git step is review and a pull request into <code>main</code>. See <a href="Ganant%20Work.md">Ganant Work.md</a> for the detailed checkpoints.</p></li>
+        <li><strong>Explained advisor on a newer branch</strong><p>Commits <code>c3e328a</code> and <code>0d17438</code> on <code>codex/config-selection-policy</code> added balanced, resource and fastest selection modes, detailed rejection reasons, support checks, a data dictionary and a validation plan. They reused the original 96 measurements and model. The newer branch was checked out and tested on this Windows PC on 28 October. See the <a href="#updates">current-status section</a>.</p></li>
       </ol>
       <div class="callout caution"><strong>Why older documents can disagree:</strong> Files such as <a href="docs/MICROPLAN.md">MICROPLAN</a>, <a href="docs/ARCHITECTURE.md">ARCHITECTURE</a>, and <a href="docs/SESSION_STATUS.md">SESSION_STATUS</a> preserve earlier plans or the Mac snapshot. Read <a href="PROGRESS.md">PROGRESS</a>, the <a href="reports/audit.md">run audit</a>, and the PC log for the current measured status. The original 16 GB plan was replaced by the selected 32 GB Windows host; worker caps stayed 1–2 GB.</div>
     </section>
@@ -193,9 +195,9 @@
 
     <section id="decision">
       <h2>6. How does one recommendation work?</h2>
-      <p>Suppose a sort job arrives with a 13.1 second SLA. The command <code>recommend-model</code> creates one pre-run feature row per allowed setting, predicts each runtime and upper bound, calculates cost, checks the guards, and returns one setting or abstention.</p>
+      <p>First, the <strong>historical</strong> <code>recommend-model</code> path: suppose a sort job arrives with a 13.1 second SLA. It creates one pre-run feature row per allowed setting, predicts each runtime and upper bound, calculates the legacy cost, checks the guards, and returns one setting or abstention. The newer <code>advise</code> path is explained in <a href="#updates">section 8</a>.</p>
       <div class="callout"><strong>Real frozen sort example:</strong> It chose <code>w1_t2_1g</code>. Its point runtime estimate was 3.30 s, and its upper estimate was 5.57 s, below the 13.1 s SLA. The three measured runtimes for this family/setting were 5.083, 5.566, and 5.342 s. This is an illustration from the measured table, not an independent validation case. <a href="reports/demo.md">Demo evidence</a>.</div>
-      <p>The formula is <strong>expected normalized cost = predicted seconds × (allocated vCPUs + allocated GB)</strong>. For <code>w1_t2_1g</code>, that is approximately <code>3.30 × (2 + 1) = 9.90</code> local cost units. The point estimate sets cost; the more cautious upper estimate tests the deadline. The formula is a comparison tool, not money.</p>
+      <p>The <strong>legacy</strong> formula is <strong>expected normalized cost = predicted seconds × (allocated vCPUs + allocated GB)</strong>. For <code>w1_t2_1g</code>, that is approximately <code>3.30 × (2 + 1) = 9.90</code> local cost units. The point estimate sets cost; the more cautious upper estimate tests the deadline. This formula is a historical comparison tool, not money or the new advisor's dimensionless score.</p>
       <div class="worked">
         <span class="tag">Actual table comparison</span><h3>Prediction, deadline, and measurement are different numbers</h3>
         <p>The policy's <strong>3.30 s</strong> point estimate produced the <strong>9.90</strong> expected-cost score. Its <strong>5.57 s</strong> upper estimate passed the <strong>13.1 s</strong> deadline. After execution, the three actual runtimes had a <strong>5.342 s median</strong>, giving <strong>16.026</strong> median measured cost units. For the declared default <code>w1_t1_2g</code>, the sort-family median was <strong>6.946 s</strong> and <strong>20.839</strong> units. Both choices met this family's SLA; these same-table measurements are an illustration, not a new independent experiment. Sources: <a href="data/curated/runs.csv">CSV</a> and <a href="reports/policy.md">policy report</a>.</p>
@@ -212,7 +214,7 @@
         <div class="scroll"><table><thead><tr><th>Example setting</th><th>Point time</th><th>Upper time</th><th>CPU + GB units</th><th>Expected cost</th><th>Passes deadline?</th></tr></thead><tbody id="toy-rows"></tbody></table></div>
         <div id="toy-decision" class="demo-output" role="status" aria-live="polite"></div>
       </div>
-      <p class="small">The real optimizer also checks OOD state and the deterministic failure guard. Those are held green/clear in this teaching example. See <a href="safe_pipe/optimizer.py">optimizer.py</a> for the full conditions.</p>
+      <p class="small">The historical optimizer also checks OOD state and the deterministic failure guard. Those are held green/clear in this teaching example. The new advisor adds stricter profile and resource-budget checks. See <a href="safe_pipe/optimizer.py">optimizer.py</a> and <a href="safe_pipe/advisor.py">advisor.py</a> for the full conditions.</p>
     </section>
 
     <section id="results">
@@ -224,64 +226,85 @@
         <p>Suppose three timings for the same family and setting are <code>5.1, 5.3, 5.2 s</code>. Putting two in training and the third in test would let the model see almost the same situation beforehand. SAFE-Pipe keeps all three in one group. The real split used <strong>36 training rows / 12 pairs</strong>, <strong>36 calibration rows / 12 pairs</strong>, and <strong>24 test rows / 8 pairs</strong>. Those sets serve different purposes: fit the model, size its upper cushion, and evaluate unseen pairs. See the <a href="configs/model_split_main_v1.json">frozen split</a>.</p>
         <p>For intuition, if a model predicts <code>5 s</code> and the job takes <code>6 s</code>, its absolute percentage error on that row is <code>|6 − 5| / 6 ≈ 16.7%</code>. MdAPE is the median of such errors across test rows. The real conformal cushion is calculated from grouped <em>log-runtime</em> errors; its fitted multiplier is about <code>1.688</code>, which is why a 3.30 s point prediction becomes about 5.57 s upper. This simple example does not replace the actual calibration calculation.</p>
       </div>
-      <p>In a same-table comparison, the selected settings had mean median normalized cost 7.524 versus 11.421 for the declared default, about 34.1% lower <em>in that table</em>. Some settings in the evaluation table were also used to train the model, so this is descriptive and cannot establish a general cost improvement. See <a href="reports/policy.md">policy report</a>.</p>
-      <div class="callout caution"><strong>Important limits:</strong> All 96 jobs succeeded, so there are no observed failure examples to train or validate a failure predictor and no measured safety advantage. Worker peak memory was not captured reliably. The OOD thresholds are cautious hand-set rules based on only one measured size per family. Dask memory warnings on some successful 1 GB sorts do not prove spill or failure.</div>
+      <p>For the <strong>historical</strong> cost policy, a same-table comparison found mean median normalized cost 7.524 versus 11.421 for the declared default, about 34.1% lower <em>in that table</em>. Some settings in the evaluation table were also used to train the model, so this is descriptive and cannot establish a general cost improvement. These old cost numbers do not measure the new advisor's different score. See <a href="reports/policy.md">policy report</a>.</p>
+      <div class="callout caution"><strong>Important limits:</strong> All 96 jobs succeeded, so there are no observed failure examples to train or validate a failure predictor and no measured safety advantage. Worker peak memory was not captured reliably. The historical OOD thresholds are hand-set rules based on only one measured size per family; the new advisor uses exact descriptor matching instead. Dask memory warnings on some successful 1 GB sorts do not prove spill or failure.</div>
+    </section>
+
+    <section id="updates">
+      <h2>8. What changed, and what is the current status?</h2>
+      <p><strong>Checked on 28 October 2026:</strong> <code>origin/main</code> is still at <code>f474aae</code>, the original B-lite commit. I fetched it and ran a fast-forward-only pull on local <code>main</code>; Git reported “Already up to date.” This page's newer code lives on <code>codex/config-selection-policy</code>, which builds directly on <code>codex/windows-dask</code>. It has <strong>not been merged into main</strong>.</p>
+      <div class="scroll"><table><thead><tr><th>Branch</th><th>What it contains</th><th>Position at this check</th></tr></thead><tbody><tr><td><code>main</code></td><td>Original design, schemas and first optimizer</td><td><code>f474aae</code>; no newer main commit to pull</td></tr><tr><td><code>codex/windows-dask</code></td><td>The 96-run Dask study, model, demo and midterm handoff</td><td><code>c164657</code></td></tr><tr><td><code>codex/config-selection-policy</code></td><td>All Windows work plus the explained advisor and portability fixes</td><td>Feature commits <code>c3e328a</code> and <code>0d17438</code>; this is the checked-out branch</td></tr></tbody></table></div>
+      <h3>The newer advisor, in plain language</h3>
+      <p>The new <code>safe-pipe advise</code> command reuses the <strong>same fitted LightGBM model and the same 96-run table</strong>. It did not retrain the model or add physical jobs. It asks whether you prefer <em>balanced</em> speed and resources (the default), <em>resource</em> use, or the <em>fastest</em> predicted run. It reports every candidate's prediction, configured threads and memory, score components, deadline headroom, and rejection reasons. You can set thread/memory budgets or a deadline reserve. See <a href="docs/CONFIG_SELECTION.md">configuration selection</a> and <a href="safe_pipe/advisor.py">advisor.py</a>.</p>
+      <div class="worked">
+        <span class="tag">Verified on this Windows PC</span><h3>Same sort workload, three preferences</h3>
+        <p>For the frozen sort profile and its <strong>13.1 s engine deadline</strong>, the live CLI returned these choices. All times below are <em>model predictions</em> from the original artifact, not fresh measurements.</p>
+        <div class="scroll"><table><thead><tr><th>Preference</th><th>Chosen setting</th><th>Configured threads / memory</th><th>Point / upper time</th><th>Why it differs</th></tr></thead><tbody><tr><td>Balanced</td><td><code>w2_t2_1g</code></td><td>4 threads / 2 decimal GB</td><td>2.292 / 3.869 s</td><td>Trades some speed for less memory than fastest</td></tr><tr><td>Resource</td><td><code>w1_t2_1g</code></td><td>2 threads / 1 decimal GB</td><td>3.297 / 5.566 s</td><td>Minimizes the configured resource-time score</td></tr><tr><td>Fastest</td><td><code>w2_t2_2g</code></td><td>4 threads / 4 decimal GB</td><td>2.146 / 3.622 s</td><td>Minimizes predicted runtime</td></tr></tbody></table></div>
+        <p>The new balanced score combines the fraction of the deadline used with a resource-time term. For <code>w2_t2_1g</code>, the time ratio is about <code>2.292 / 13.1 = 0.175</code>; its resource mix is <code>0.5 × 4/4 + 0.5 × 2/4 = 0.75</code>. The balanced score is about <code>0.5 × 0.175 + 0.5 × (0.175 × 0.75) = 0.153</code>. These weights express a preference; they were not learned from outcomes. <strong>Do not compare this score numerically with the older 7.524 cost figure.</strong></p>
+      </div>
+      <p><strong>Safety and support changed too:</strong> the advisor accepts only an exact match to one of the four frozen workload descriptors; a changed size, row count, file count, partition count, format or skew tag causes abstention. It binds the model, index, grid and audited table to a support manifest. This is stricter than the older heuristic OOD colors. It does not inspect the calling PC's hardware or prove that a matching dataset's contents are identical. Its failure probability remains <code>null</code>. See the <a href="docs/DATA_DICTIONARY.md">new data dictionary</a>.</p>
+      <p>The team also added <a href="docs/INDEPENDENT_VALIDATION.md">a prospective validation plan</a>, cleanup/failure-label tests, and a LightGBM text-loading fix for Windows/Unix line endings. The new 20-scenario advisor replay uses the existing 96 rows and is <strong>descriptive, not an independent experiment</strong>. The original model, grid and scored CSV were not changed. The complete suite passed <strong>79 tests on this Windows PC</strong> after checkout; balanced, resource and fastest CLI calls succeeded here. The feature branch's <a href="reports/advisor_v1/REGRESSION_REVIEW.md">regression review</a> documents preserved historical decisions and the portability repair.</p>
+      <p>The earlier <a href="docs/MIDTERM_PRESENTATION_HANDOFF.md">midterm handoff</a> suggests a bounded follow-up of four new profiles and 96 runs. The newer <a href="docs/INDEPENDENT_VALIDATION.md">validation plan</a> sketches eight new profiles and 192 runs as one broader option. <strong>Neither plan has been approved, frozen or executed.</strong> The team should choose one before using a future-run count in a presentation.</p>
+      <div class="callout caution"><strong>Current evidence boundary:</strong> there are still only four measured workload profiles, 96 original physical runs, zero observed failures and no independent new-profile policy evaluation. The new advisor improves how choices are explained and constrained; it does not by itself prove lower cost or safer operation on new workloads.</div>
     </section>
 
     <section id="git">
-      <h2>8. What did we push to GitHub?</h2>
-      <p>The published branch is <a href="https://github.com/Aggdaksh/SAFE-Pipe1/tree/codex/windows-dask"><code>codex/windows-dask</code></a>. It contains the earlier Mac work plus this PC's Dask executor, frozen experiment definitions, audited 96-row CSV, model artifacts, tests, reports, demo notes, this explainer, and <a href="Ganant%20Work.md">progress log</a>.</p>
+      <h2>9. How do the Git branches fit together?</h2>
+      <p>The measured Windows baseline is published at <a href="https://github.com/Aggdaksh/SAFE-Pipe1/tree/codex/windows-dask"><code>codex/windows-dask</code></a>. The newer advisor work is published at <a href="https://github.com/Aggdaksh/SAFE-Pipe1/tree/codex/config-selection-policy"><code>codex/config-selection-policy</code></a>, the branch checked out for this updated lesson. It includes all earlier Windows commits. Neither branch is in <code>main</code> yet.</p>
       <div class="two-col"><div class="tile"><strong>Shared through Git</strong><p>Source code, small configuration JSON files, curated CSV, model artifact, metrics, figures, and documentation.</p></div><div class="tile"><strong>Local to this PC</strong><p>Virtual environment, large generated Parquet files, raw JSONL logs, demo inputs, and the ignored PAT file <code>docs/Git.env</code>.</p></div></div>
-      <p>Git is the collaboration record; <code>main</code> has not yet been updated with this branch. Team members can fetch the branch, inspect the evidence, and review a pull request before merging. Follow <a href="docs/GIT_COLLABORATION.md">the Git collaboration guide</a>. Never put the PAT in a commit, screenshot, or shared lesson.</p>
+      <p>Git is the collaboration record. Local <code>main</code> was refreshed from the remote on 28 October and had no new commits. Team members can fetch either published branch and review the newer advisor before deciding what to merge into <code>main</code>. Follow <a href="docs/GIT_COLLABORATION.md">the Git collaboration guide</a>. Never put the PAT in a commit, screenshot, or shared lesson.</p>
       <div class="worked">
         <span class="tag idea">Example teammate workflow</span><h3>How another PC receives this work</h3>
-        <p>In an existing clone, a teammate can run the following commands once to fetch this branch and switch to it. They will receive the committed CSV and code, but must install dependencies locally. They will <strong>not</strong> receive this PC's raw Parquet inputs, raw JSONL logs, virtual environment, or token.</p>
+        <p>In an existing clone, a teammate can run the following commands once to fetch the <strong>newer advisor branch</strong> and switch to it. They will receive the committed CSV and code, but must install dependencies locally. They will <strong>not</strong> receive this PC's raw Parquet inputs, raw JSONL logs, virtual environment, or token.</p>
         <pre><code>git fetch origin
-git switch --track origin/codex/windows-dask
+git switch --track origin/codex/config-selection-policy
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev,dask,ml]"</code></pre>
-        <p class="small">These setup commands are for Windows PowerShell. If the branch already exists locally, use <code>git switch codex/windows-dask</code> and <code>git pull --ff-only</code> instead. The <a href="docs/GIT_COLLABORATION.md">Git guide</a> has the full handoff.</p>
+        <p class="small">These setup commands are for Windows PowerShell. If the branch already exists locally, use <code>git switch codex/config-selection-policy</code> and <code>git pull --ff-only</code> instead. The <a href="docs/GIT_COLLABORATION.md">Git guide</a> has the full handoff.</p>
       </div>
     </section>
 
     <section id="next">
-      <h2>9. What is left?</h2>
+      <h2>10. What is left?</h2>
       <ul>
-        <li><strong>Team review and merge:</strong> review the published Windows branch and merge it into <code>main</code> through a pull request when accepted.</li>
+        <li><strong>Team review and merge:</strong> review the newer advisor branch and decide how to integrate it into <code>main</code> through a pull request. The remote <code>main</code> was still at its original commit when checked on 28 October.</li>
         <li><strong>Academic submission:</strong> adjust the report to the department template, obtain supervisor feedback, and formally submit the synopsis/report. The repository contains a <a href="reports/project_i_results.md">technical results draft</a>, not proof of submission.</li>
-        <li><strong>Stronger evidence, if the team wants broader claims:</strong> collect new workload profiles and an independent held-out policy test. Collect actual actionable failures before attempting failure ML, and reliable memory telemetry before claims about spilling.</li>
+        <li><strong>Stronger evidence:</strong> first test the frozen advisor prospectively on fresh executions of the same profiles, then plan new workload profiles and a genuinely independent policy test. Broader profile support needs a versioned feature contract, retraining and calibration. Collect actual actionable failures before attempting failure ML, and reliable memory telemetry before claims about spilling. See the <a href="docs/INDEPENDENT_VALIDATION.md">validation plan</a>.</li>
         <li><strong>Optional comparison:</strong> TabPFN on an exported table has been proposed but not run.</li>
       </ul>
       <p>These are separate from the completed 96-run experiment. The <a href="PROGRESS.md">progress ledger</a> records current status and limitations.</p>
     </section>
 
     <section id="glossary">
-      <h2>10. Terms you can return to</h2>
+      <h2>11. Terms you can return to</h2>
       <details><summary>SLA (service level agreement)</summary><p>Here, a per-family finish-time deadline in seconds. A candidate qualifies only when its predicted upper runtime is at or below that deadline.</p></details>
       <details><summary>Worker, thread, and memory limit</summary><p>A worker is a Dask process. Threads let a worker handle more work concurrently. The 1 GB or 2 GB memory limit is per worker, not the PC's total RAM.</p></details>
       <details><summary>Skew</summary><p>An uneven distribution of keys. A few very common keys may make a join or grouping more demanding than a balanced dataset of similar size.</p></details>
       <details><summary>JSONL, CSV, and manifest</summary><p>JSONL stores one JSON result per line for append-only collection. CSV is the compact shareable table. A manifest describes a generated dataset and its fingerprints so we can check that later runs use the intended files.</p></details>
       <details><summary>Model training, calibration, and test</summary><p>Training fits the runtime model. Calibration learns how much cushion to add. Test holds out family/setting pairs to estimate performance on pairs the fit did not see.</p></details>
       <details><summary>LightGBM and conformal bound</summary><p>LightGBM is the tabular model used to predict successful runtime. Split conformal calibration uses held-out errors to create an upper estimate. The measured 24/24 test coverage is small-sample evidence, not a guarantee.</p></details>
-      <details><summary>OOD and abstain</summary><p>Out-of-distribution means a workload differs from the measured scope, such as a new family or a large input-size shift. To abstain means return no recommended setting instead of making a weakly supported choice.</p></details>
-      <details><summary>MdAPE and normalized cost</summary><p>MdAPE is median absolute percentage error: the typical relative gap between predicted and actual runtime in the test set. Normalized cost here is runtime multiplied by the sum of allocated CPU and GB units; it is not a cloud price.</p></details>
-      <details><summary>Branch and pull request</summary><p>A Git branch is a line of changes. The Windows work is on <code>codex/windows-dask</code>. A pull request lets teammates review those changes before merging them into <code>main</code>.</p></details>
+      <details><summary>OOD, exact support and abstain</summary><p>Out-of-distribution means a workload differs from the measured scope, such as a new family or a large input-size shift. The historical policy uses heuristic green/yellow/red OOD states. The new advisor requires an exact frozen descriptor match before recommending. To abstain means return no setting instead of making a weakly supported choice.</p></details>
+      <details><summary>MdAPE, legacy cost and the new score</summary><p>MdAPE is median absolute percentage error: the typical relative gap between predicted and actual runtime in the test set. The older normalized-cost proxy multiplies predicted runtime by counted CPU and GB units. The newer advisor instead combines a deadline-relative time ratio with configured thread/memory-time using fixed references. Neither number is a cloud price, and the two scales should not be compared directly.</p></details>
+      <details><summary>Branch and pull request</summary><p>A Git branch is a line of changes. <code>codex/windows-dask</code> contains the measured prototype; <code>codex/config-selection-policy</code> builds on it with the newer advisor. A pull request lets teammates review the chosen branch before merging it into <code>main</code>.</p></details>
     </section>
 
     <section id="try">
-      <h2>11. A short path to explore the real project</h2>
+      <h2>12. A short path to explore the real project</h2>
       <ol>
         <li>Read <a href="README.md">README</a> for scope and setup, then <a href="Ganant%20Work.md">Ganant Work.md</a> for the chronological record.</li>
         <li>Open <a href="configs/dask_grid.json">the grid</a> and decode <code>w1_t2_1g</code>.</li>
         <li>Open <a href="data/curated/runs.csv">the measured CSV</a>. Notice one row for each repeat of each family/setting pair.</li>
         <li>Read <a href="reports/audit.md">the audit</a> before interpreting <a href="reports/runtime_model.md">model metrics</a> or <a href="reports/policy.md">cost numbers</a>.</li>
-        <li>On a configured Windows checkout, run the commands below from the repository root. The second command predicts and prints a recommendation; it does not rerun 96 jobs.</li>
+        <li>On a configured Windows checkout of <code>codex/config-selection-policy</code>, run the commands below from the repository root. The advisor commands predict and print recommendations; they do not rerun 96 jobs.</li>
       </ol>
       <pre><code>.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1
+.\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1 --mode resource
 .\.venv\Scripts\python.exe -m safe_pipe.cli recommend-model --family sort_merge --sla 13.1</code></pre>
+      <p class="small"><code>advise</code> is the newer explained interface and defaults to balanced mode. <code>recommend-model</code> remains available to reproduce the historical resource-cost policy. The two choices may differ even for the same workload.</p>
       <div class="worked">
-        <span class="tag">Verified CLI excerpt</span><h3>How to read the printed recommendation</h3>
-        <p>The real command prints a larger JSON object with the workload, objective, eight candidates, and decision. These are selected fields from the verified sort run, rounded here for reading:</p>
+        <span class="tag">Historical CLI excerpt</span><h3>How to read the older <code>recommend-model</code> result</h3>
+        <p>That command prints a larger JSON object with the workload, objective, eight candidates, and decision. These are selected fields from the verified sort run, rounded here for reading:</p>
         <pre><code>selected candidate: w1_t2_1g
 expected_runtime_s: 3.297
 runtime_upper_s: 5.566
@@ -289,11 +312,11 @@ expected_cost: 9.891
 ood_state: green
 decision.action: recommend
 decision.config_id: w1_t2_1g</code></pre>
-        <p>The upper <code>5.566</code> is below the SLA <code>13.1</code>. The <code>9.891</code> cost comes from the <em>predicted</em> runtime and resource allocation; it is not the measured run cost. The command also prints <code>p_fail: 0.0</code>, which is only the current deterministic memory-guard flag, not a calibrated chance of failure.</p>
+        <p>The upper <code>5.566</code> is below the SLA <code>13.1</code>. The <code>9.891</code> cost comes from the <em>predicted</em> runtime and old resource formula; it is not the measured run cost or the new advisor's score. The command also prints <code>p_fail: 0.0</code>, which is only a deterministic guard flag, not a calibrated chance of failure.</p>
       </div>
       <h3>Check your understanding</h3>
       <details><summary>Why are there 96 rows if there are only four workload families?</summary><p>Each family ran under eight settings, and each family/setting pair ran three times: <code>4 × 8 × 3 = 96</code>.</p></details>
-      <details><summary>If the point runtime is 3.3 s, why check 5.57 s against the SLA?</summary><p>The point estimate drives expected cost. The calibrated upper estimate adds a cushion for uncertainty and is the number used to decide whether the deadline is likely to be met.</p></details>
+      <details><summary>If the point runtime is 3.3 s, why check 5.57 s against the SLA?</summary><p>The point estimate drives the historical cost and the new advisor's ranking score. The calibrated upper estimate adds a cushion for uncertainty and is the number used to test deadline eligibility.</p></details>
       <details><summary>Does 96 successful jobs prove that the system reduces failures?</summary><p>No. With zero observed failures, there is no measured failure difference between policies and no positive failure examples for a learned failure model.</p></details>
       <p class="small">For a live tiny Dask execution, follow <a href="reports/demo.md">the separate demo instructions</a>. Its input size is different from the frozen experiment.</p>
     </section>

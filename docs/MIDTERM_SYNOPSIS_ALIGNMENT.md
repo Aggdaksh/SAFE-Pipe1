@@ -1,13 +1,13 @@
 # SAFE-Pipe midterm status against the submitted synopsis
 
-**Prepared:** 2026-10-26
+**Prepared:** 2026-10-26; updated 2026-10-28 for the newer advisor branch
 **Purpose:** Evidence-backed progress and gap analysis for the DTU IT401 Project-I midterm evaluation. This is a team briefing, not a claim that a supervisor has approved a revised synopsis or that a department submission has occurred.
 
 ## 1. Documents and interpretation
 
 - **Submitted baseline:** the user-supplied, three-page `SAFE-Pipe_Project_Synopsis_DTU-1.pdf` (pages 1–3). It is outside this Git repository. Its MD5 matches the synopsis previously assessed in [Phase 0 feasibility](PHASE0_FEASIBILITY.md). The PDF's text is a proposal; it is not evidence that every proposed feature has been implemented.
 - **Internal scope decision:** [ADR-001](adr/ADR-001-blite-scope.md), [ADR-002](adr/ADR-002-primary-backend-dask.md), and the [Phase 1 decision](PHASE1_DECISION.md) selected a feasible **B-lite** Project-I study: one local Dask PC, four families, eight candidates and 96 scored runs. [ADR-005](adr/ADR-005-experiment-host-32gb.md) records the user-selected Windows experiment host. These are repository decisions; **supervisor/department acceptance of the reduced scope is not documented here**.
-- **Current evidence:** [run audit](../reports/audit.md), [curated 96-row CSV](../data/curated/runs.csv), [runtime-model report](../reports/runtime_model.md), [policy report](../reports/policy.md), [technical results draft](../reports/project_i_results.md), [demo record](../reports/demo.md), and [Ganant PC log](../Ganant%20Work.md). The full local test suite passed **29 tests** on 2026-10-26.
+- **Current evidence:** [run audit](../reports/audit.md), [curated 96-row CSV](../data/curated/runs.csv), [runtime-model report](../reports/runtime_model.md), [policy report](../reports/policy.md), [technical results draft](../reports/project_i_results.md), [demo record](../reports/demo.md), and [Ganant PC log](../Ganant%20Work.md). The original Windows checkpoint passed **29 tests** on 2026-10-26. The newer `codex/config-selection-policy` branch added an [explained advisor](CONFIG_SELECTION.md), [data dictionary](DATA_DICTIONARY.md), and [validation plan](INDEPENDENT_VALIDATION.md); its full suite passed **79 tests on the Windows PC** on 2026-10-28. It reused the same 96 physical rows and runtime model.
 - **Midterm rubric:** no official midterm scoring or required slide/report format was supplied. The statuses below are technical assessments, not an official percentage or a prediction of marks.
 
 **How to read this review:** “Done” means implemented and backed by a linked artifact; “Partial” means some of the synopsis commitment is supported; “Changed scope” means the internal B-lite plan deliberately removed or reduced a submitted commitment; “Evidence-gated” means the synopsis itself says the feature should wait for enough observations; “Open” means no completed evidence was found.
@@ -78,8 +78,8 @@ The PDF says **fewer than 30 credible actionable failures means rules only**. Th
 
 | Deliverable | Current status | Evidence and next step |
 | --- | --- | --- |
-| Source, configs, curated records, limitations, reproduction notes | **Mostly done** | Code and versioned artifacts are on `origin/codex/windows-dask`; see [README](../README.md), [audit](../reports/audit.md), and [technical results draft](../reports/project_i_results.md). The [data README](../data/README.md) is a short storage note, **not a full field-by-field data dictionary**. |
-| Baseline and ablation results | **Partial** | Runtime family-median and policy default/conservative/random baselines exist. A formal ablation study is not documented. |
+| Source, configs, curated records, limitations, reproduction notes | **Mostly done** | Code and versioned artifacts are on `origin/codex/windows-dask` and its newer advisor descendant; see [README](../README.md), [audit](../reports/audit.md), and [technical results draft](../reports/project_i_results.md). The new [main-v1 data dictionary](DATA_DICTIONARY.md) now explains the fields and caveats. Formal final packaging and submission remain open. |
+| Baseline and ablation results | **Partial** | Runtime family-median and policy default/conservative/random baselines exist. The newer advisor has a [20-scenario descriptive mode/weight replay](../reports/advisor_v1/summary.json), but it reuses the same measured table. A prospective independent baseline comparison or formal causal ablation is not documented. |
 | Final report and demonstration | **Draft + verified demo, formal submission open** | [Technical report](../reports/project_i_results.md) is explicitly a draft; [demo instructions](../reports/demo.md) include a separate **tiny 30,783-byte** live run. The live sample is not one of the 96 scored jobs. Department formatting, supervisor review and formal submission are not verified. |
 | Manuscript | **Conditional, not a midterm requirement** | The synopsis says to prepare one only if evidence is strong; no publication or manuscript claim is made. |
 

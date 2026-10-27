@@ -1,6 +1,6 @@
 # Progress
 
-**Updated:** 2026-10-27. Canonical memory: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
+**Updated:** 2026-10-28. Canonical memory: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
 
 ## Verified work
 
@@ -21,7 +21,7 @@
 | Artifact/profile/grid binding and descriptive mode/weight replay | DONE for frozen main-v1 | `artifacts/main_v1/advisor_support.json`, `reports/advisor_v1/` |
 | Worker failure labeling and cluster cleanup regressions | FIXED in code | `safe_pipe/classify.py`, `tests/test_classify.py`, `tests/test_cluster_cleanup.py` |
 
-The original Windows checkpoint recorded **29 passing tests** with `.[dev,dask,ml]` installed. The new advisor adds regression tests; current verification is recorded in `reports/advisor_v1/VERIFICATION.md`. Dask tests skip on a coding machine without Dask.
+The original Windows checkpoint recorded **29 passing tests** with `.[dev,dask,ml]` installed. The newer advisor branch passed **79 tests on this Windows PC on 2026-10-28**; balanced, resource and fastest `advise` commands also succeeded here. The Mac regression review is in `reports/advisor_v1/VERIFICATION.md`. Dask tests skip on a coding machine without Dask.
 
 ## Measured outcomes
 
@@ -38,4 +38,4 @@ The original Windows checkpoint recorded **29 passing tests** with `.[dev,dask,m
 - Optional TabPFN comparison remains unrun. The formal DTU synopsis/report submission and supervisor decision are outside this repository's verified work.
 - The rule-based OOD thresholds are heuristics; only one dataset size per family was measured. Peak worker memory was not reliably collected (`null` in run records). Dask logged some memory warnings during successful 1 GB sort jobs.
 - Physical Parquet and raw JSONL remain local and ignored; the audited flat CSV and preparation hashes are committed for collaboration.
-- The Windows branch `codex/windows-dask` was pushed successfully to `origin` using the authorized `Aggdaksh` account. The PAT file `docs/Git.env` remains ignored. Team review and merge to `main` are still pending. See [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md).
+- The original Windows branch `codex/windows-dask` and its descendant `codex/config-selection-policy` are published on `origin`. On 2026-10-28, local `main` was pulled from `origin/main` and was already up to date at the original commit `f474aae`; the newer advisor changes are **not** on `main`. The PAT file `docs/Git.env` remains ignored. Team review and merge are pending. See [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md).

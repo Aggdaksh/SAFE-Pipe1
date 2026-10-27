@@ -5,6 +5,8 @@
 **For:** the agent preparing the DTU IT401 Project-I midterm PowerPoint.
 **Status:** factual brief plus a **proposed** extension of final-project scope. This file is not a revised approved synopsis, a slide deck, or evidence that future experiments have been run.
 
+**28 October branch update for the slide agent:** `codex/config-selection-policy` now adds an explained balanced/resource/fastest `advise` interface, a frozen-profile support gate and a descriptive 20-scenario replay. It reuses the same model and 96 physical jobs; no independent policy experiment was added. The full suite passed 79 tests on this Windows PC. See [configuration selection](CONFIG_SELECTION.md), the [current explainer](../PROJECT_EXPLAINER.html#updates) and [Git branch guide](GIT_COLLABORATION.md). This update does **not** turn the older 34.1% same-table result into a validated saving. The four-profile/96-run proposal below differs from the newer [eight-profile/192-run validation sketch](INDEPENDENT_VALIDATION.md); the team must select and freeze a plan before presenting future counts as commitments.
+
 ## 1. The position to present
 
 The team has built and measured a complete **first local Dask prototype**. The next meaningful phase is to test whether its choices hold up on **new input profiles**, add reliable resource telemetry and controlled stress evidence, and finish independent comparisons and the formal report. This is a defensible *roughly halfway* midterm story **if** the supervisor accepts that expanded final plan. Do not create a larger denominator merely to claim 50%. Do not state an exact 40–50% score: no official midterm rubric or agreed weighting has been supplied.

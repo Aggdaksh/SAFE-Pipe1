@@ -1,8 +1,8 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-10-26 (Asia/Kolkata)  
+**Updated:** 2026-10-28 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
-**Working branch:** `codex/windows-dask`, based on `origin/cursor/context-and-microplan`  
+**Working branch:** `codex/config-selection-policy`, descended from `codex/windows-dask` and `origin/cursor/context-and-microplan`<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
 
 ## Checkpoint 1 — Repository and environment
@@ -100,9 +100,16 @@
 - Created [`docs/MIDTERM_PRESENTATION_HANDOFF.md`](docs/MIDTERM_PRESENTATION_HANDOFF.md) with project/title-slide facts, verified evidence, exact quantitative caveats, a suggested slide sequence, speaker answers, and source links for another agent preparing the PowerPoint.
 - Proposed a substantive second phase: new held-out workload profiles and independent policy evaluation, reliable resource telemetry and controlled pressure checks, stronger baselines, then final documentation. This is a **proposal**, not completed work or supervisor-approved scope. The document avoids treating the old 176-run design as a percentage denominator and uses a milestone-based halfway narrative only conditionally.
 
+## Checkpoint 15 — Main sync and newer advisor branch on this PC
+
+- On 2026-10-28, fetched `origin` and verified live remote `main` remained at `f474aae`. Switched to local `main`, ran `git pull --ff-only origin main` (Already up to date), then created local `codex/config-selection-policy` tracking its remote. The new branch descends directly from `codex/windows-dask`; no newer commits came from `main` and no merge into `main` was performed.
+- Inspected feature commits `c3e328a` and `0d17438`: the explained balanced/resource/fastest advisor, exact frozen-profile support, artifact binding, data dictionary, independent-validation plan, cleanup/label regression tests, and cross-platform LightGBM text-loading fix. The original scored CSV/model and 96-job count remain unchanged; the 20-scenario replay is descriptive reuse of old rows.
+- Ran the full suite on this Windows checkout: **79 tests passed**. Verified `advise --family sort_merge --sla 13.1` locally: balanced chose `w2_t2_1g`, resource chose `w1_t2_1g`, and fastest chose `w2_t2_2g`.
+- Updated [`PROJECT_EXPLAINER.html`](PROJECT_EXPLAINER.html), the branch-sync guide and status docs so current code, branch locations and remaining independent validation are clear. The earlier `codex/windows-dask` branch remains a published historical checkpoint.
+
 ## Current work and next steps
 
-1. Have the team review `origin/codex/windows-dask` and merge it to `main` through a pull request when ready. Continue pushing any new Windows commits to this tracked branch.
+1. Have the team review `origin/codex/config-selection-policy` (which includes `codex/windows-dask`) and choose a pull request into `main` when ready. Continue pushing new advisor-branch documentation on the tracked `codex/config-selection-policy` branch. The older Windows branch remains a published checkpoint.
 2. Optional TabPFN/Colab comparison and formal DTU synopsis submission still need team decisions. Do not train a failure classifier or claim failure improvement from zero failures.
 
 ## Resume commands on this PC
