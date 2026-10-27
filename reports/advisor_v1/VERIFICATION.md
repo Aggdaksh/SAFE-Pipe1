@@ -2,6 +2,8 @@
 
 Date: 2026-10-27. Base: Windows checkpoint `c1646578210083604ac8a2349caa53725115043c`. Work branch: `codex/config-selection-policy`.
 
+Follow-up regression review: **79 tests passed** after fixing CRLF model-loading compatibility. Original predictions and legacy CLI decisions still match the Windows checkpoint. See [REGRESSION_REVIEW.md](REGRESSION_REVIEW.md) for the comparisons and testing limits. The 77-test result below records the initial advisor checkpoint.
+
 ## Checks executed
 
 - Complete suite: **77 passed in 6.77 seconds** on the coding Mac with `.[dev,dask,ml]` dependencies installed. Command: `python -B -m pytest -p no:cacheprovider -o addopts='' -q --tb=short`.

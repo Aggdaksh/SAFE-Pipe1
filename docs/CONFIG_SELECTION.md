@@ -59,6 +59,7 @@ The JSON includes the chosen configuration, all eight point/upper predictions, r
 ## Reproduce and inspect the evidence
 
 - `artifacts/main_v1/advisor_support.json` binds the original fitted files, index, grid and audited CSV. Text hashes normalize CRLF/LF to support Git checkouts on Windows and macOS.
+- Model loading also normalizes CRLF/LF before passing text to LightGBM; `.gitattributes` keeps model files LF. This preserves the byte offsets stored in the model format without rewriting the artifact.
 - `experiments/freeze_advisor_support.py` checks the original main-v1 table and refuses to overwrite an existing bundle. It does not fit a model and is deliberately scoped to this existing matrix.
 - `python -m experiments.evaluate_advisor --output reports/advisor_replay_new` writes three modes plus two resource-weight variations per family (20 scenarios). The directory must not already exist. The CSV hash is checked before replay.
 - `reports/advisor_v1/` contains the recorded replay from this change. These are reused measurements from the training/calibration/test source table, **not new physical jobs or independent validation**. Scenarios must not be counted as independent samples or used to choose weights for a subsequent claimed test.

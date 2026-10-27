@@ -1,0 +1,2 @@
+# LightGBM text models contain byte offsets; keep their files LF on every host.
+artifacts/**/runtime_model.txt text eol=lf

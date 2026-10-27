@@ -37,7 +37,11 @@ class RuntimePredictor:
     def __init__(self, model_path: Path, feature_names: list[str], upper_log_offset: float):
         import lightgbm as lgb
 
-        self.booster = lgb.Booster(model_file=str(model_path))
+        # LightGBM's text format stores byte lengths for trees. A Git checkout
+        # with CRLF line endings changes those offsets and can abort its native
+        # model_file loader. Universal-newline decoding restores the saved LF
+        # representation without modifying the artifact on disk.
+        self.booster = lgb.Booster(model_str=model_path.read_text(encoding="utf-8"))
         self.feature_names = feature_names
         self.upper_log_offset = upper_log_offset
 
