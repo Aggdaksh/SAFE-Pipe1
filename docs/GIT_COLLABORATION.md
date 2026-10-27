@@ -1,47 +1,44 @@
-# Git handoff across the Windows and advisor branches
+# Git collaboration guide
 
-## Verified branch state on 2026-10-28
+## Current state (28 October 2026)
 
-`git fetch origin` and `git pull --ff-only origin main` were run on this PC. Local and remote `main` were already at `f474aae`; there were **no new main commits** to integrate into the working branch. The newer code was on `origin/codex/config-selection-policy` at feature commits `c3e328a` and `0d17438`. That branch is a direct descendant of `codex/windows-dask` and includes its 96-run study. It is now also checked out locally as `codex/config-selection-policy` and tracks its remote branch. The complete Windows suite passed 79 tests on that checkout.
+The Windows study and explained advisor are integrated into `main`. On this PC, `main` was fast-forwarded from `f474aae` to `abb21f7`, tested (**79 passed**), and pushed to `origin/main`. The former `codex/windows-dask` and `codex/config-selection-policy` branches remain published checkpoints; their commits are already in `main`.
 
-To keep this PC current on the two branches without mixing them:
+The integrated work includes the 96-run local Dask study, curated CSV, runtime model and artifacts, CLI demo, three advisor modes, exact frozen-profile support gate, data dictionary, and independent-validation plan. The advisor's 20-scenario replay reuses the 96 measured rows; it is not a new physical experiment. See [PROGRESS](../PROGRESS.md) and [Ganant's log](../Ganant%20Work.md).
+
+## Update an existing clone on any PC
+
+Save or commit your own edits first, then run:
 
 ```powershell
 git fetch origin
 git switch main
 git pull --ff-only origin main
-git switch codex/config-selection-policy
-git pull --ff-only
 git status --short --branch
 ```
 
-On another PC with an existing clone, run `git fetch origin` then `git switch --track origin/codex/config-selection-policy` once. If the local branch already exists, switch to it and run `git pull --ff-only`. To inspect the two feature commits without merging, use `git log --oneline codex/windows-dask..codex/config-selection-policy` and `git diff --stat codex/windows-dask..codex/config-selection-policy` after fetching both branches. Review and merge by pull request when the team chooses its integration target; do not call the feature commits “main changes” before that merge.
+`--ff-only` stops if your local `main` has diverged, preserving your commits for review. If you have local edits that prevent switching or pulling, inspect `git status`, then commit them on a topic branch or stash them before retrying. Do not force-push shared history.
 
-The Windows work is published on `origin/codex/windows-dask`, based on the team's Mac branch `cursor/context-and-microplan`. The authorized `Aggdaksh` account pushed it on 2026-10-26. The PAT is stored locally in ignored `docs/Git.env` and must never be committed or pasted into chat.
+For a fresh clone, clone `Aggdaksh/SAFE-Pipe1`, switch to `main`, and install the dependencies described in [README](../README.md). Each PC needs its own virtual environment. Git includes the curated `data/curated/runs.csv` and model artifacts; generated Parquet inputs, raw JSONL runs, `.venv`, and credentials are ignored.
 
-## On this Windows PC: authenticate and push
+## Continue work and publish it
 
-Git is already configured on this PC. If authentication needs to be restored, run these in a PowerShell terminal with an account that can write to `Aggdaksh/SAFE-Pipe1`:
-
-```powershell
-gh auth login -h github.com -p https -w
-gh auth setup-git
-gh auth status
-git switch codex/config-selection-policy
-git push -u origin codex/config-selection-policy
-```
-
-The login command opens a browser for interactive authentication. Never paste a token into chat or a tracked repo file. If push returns 403, confirm that the signed-in account has write access to this exact repository; authentication alone is insufficient. Do not force-push or replace the remote history.
-
-## On another PC: get this work
-
-The newer advisor branch is already pushed. On another PC:
+Start a new topic branch from updated `main` so teammates can review a focused change:
 
 ```powershell
-git fetch origin
-git switch --track origin/codex/config-selection-policy
+git switch main
+git pull --ff-only origin main
+git switch -c your-topic-name
+# make changes, run relevant checks, then review git status and git diff
+git add <specific-files>
+git commit -m "Describe the change"
+git push -u origin your-topic-name
 ```
 
-If that branch already exists locally, use `git switch codex/config-selection-policy` followed by `git pull --ff-only`. To study the earlier Windows checkpoint, track `origin/codex/windows-dask` separately. Install dependencies in a local `.venv`; generated Parquet and raw JSONL are ignored. The committed `data/curated/runs.csv` is sufficient for model fitting and review. Read [`../Ganant Work.md`](../Ganant%20Work.md) and [`../context.md`](../context.md) before continuing.
+Then open a pull request targeting `main`. After review and merge, each PC should pull `main` again. The historical Windows and advisor branches do not need another merge.
 
-For integration into `main`, review a pull request from `codex/config-selection-policy` if the team wants the measured Windows study **and** the newer advisor together. It includes the Windows and Mac-side commits it was based on. The historical `codex/windows-dask` branch remains available for comparison.
+## Authentication on Ganant's Windows PC
+
+GitHub CLI authentication is already configured for the `Aggdaksh` account with repository write access. If credentials need restoring, use `gh auth login -h github.com -p https -w`, followed by `gh auth setup-git` and `gh auth status`. A 403 means the signed-in account may lack write permission to this repository.
+
+The local PAT file `docs/Git.env` is ignored. Never add it to Git, paste its value into chat, or include it in a screenshot. Use `git status` and `git diff --cached` to check a commit before pushing.

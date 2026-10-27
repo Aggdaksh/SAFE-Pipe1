@@ -1,6 +1,6 @@
 # SAFE-Pipe project context
 
-**Updated:** 2026-10-27. Read this file first when working from another PC.
+**Updated:** 2026-10-28. Read this file first when working from another PC.
 
 ## Purpose and scope
 
@@ -13,12 +13,12 @@ SAFE-Pipe recommends a configuration from eight declared local Dask configuratio
 | MacBook M3, 8 GB | Earlier coding, tiny pandas jobs, docs, unit tests |
 | Windows 11 PC, 31.4 GiB physical RAM | User-selected physical Dask experiment host (ADR-005) |
 
-The original 16 GB plan is a conservative sizing reference. The actual host has 32 GB marketed RAM; **worker caps and the eight-config grid stay unchanged**. Mac-side work was pushed to `cursor/context-and-microplan`; Windows Dask work is on `codex/windows-dask`. Pull the latest branch before editing on another PC. Generated Parquet, JSONL runs, and `.venv` are gitignored.
+The original 16 GB plan is a conservative sizing reference. The actual host has 32 GB marketed RAM; **worker caps and the eight-config grid stay unchanged**. The earlier Mac, Windows and advisor work is now included in `main` after a 2026-10-28 fast-forward merge. Their original branches remain as checkpoints. Pull `main` before editing on another PC. Generated Parquet, JSONL runs, and `.venv` are gitignored.
 
 ## Verified implementation
 
 - Schemas, optimizer, eight-config grid, JSONL store, tiny four-family Parquet generators, pandas collector, and 96-cell planner came from the Mac branch.
-- Windows `.venv` has `.[dev,dask]` installed under Python 3.14.6. The full suite has **24 passing tests**, including tiny Dask executions for all four families and a Dask collector timeout.
+- Windows `.venv` has `.[dev,dask,ml]` installed under Python 3.14.6. The merged `main` suite has **79 passing tests** on this PC, including tiny Dask executions, advisor regressions and the model-loading compatibility checks.
 - T0 passed on the selected Windows PC: one 512 MB Dask worker returned the expected sum. See [`reports/t0.md`](reports/t0.md).
 - T0b pilot compared 1 GB and 2 GB workers on two scan sizes and one sort size. The 136 MB sort took 10.58 s at 1 GB versus 4.53 s at 2 GB; both succeeded. See [`reports/t0b.md`](reports/t0b.md). No spill or OOM has been confirmed.
 - Dask execution and one-cell collection are implemented; the scored matrix is complete (96 jobs below).
@@ -30,7 +30,7 @@ The original 16 GB plan is a conservative sizing reference. The actual host has 
 
 ## Current task
 
-The balanced selection implementation is on `codex/config-selection-policy`, based on Windows checkpoint `c164657`. Its working clone is separate from the stale Mac planning checkout. The technical results draft and separate tiny live Dask demo are complete. Remaining experimental work is prospective evaluation on the original Windows host; broader profiles need new data and a revised model/support policy. See `docs/INDEPENDENT_VALIDATION.md`. Team review/merge and formal submission remain pending. Optional TabPFN remains unrun; no failure classifier is supported because all 96 measured jobs succeeded.
+The balanced selection implementation and the original Windows study are now merged into `main` and published. The technical results draft and separate tiny live Dask demo are complete. Remaining experimental work is prospective evaluation on the original Windows host; broader profiles need new data and a revised model/support policy. See `docs/INDEPENDENT_VALIDATION.md`. Formal submission remains pending. Optional TabPFN remains unrun; no failure classifier is supported because all 96 measured jobs succeeded.
 
 ## Design rules
 

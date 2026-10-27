@@ -112,7 +112,7 @@ The deck may be shorter if the allotted duration is limited; no official slide c
 
 - Build the PowerPoint from this brief and the [goal-by-goal review](MIDTERM_SYNOPSIS_ALIGNMENT.md). Check every numeric slide against its linked CSV, JSON or report before export.
 - Do not copy stale “not started” labels from older [architecture](ARCHITECTURE.md), [micro-plan](MICROPLAN.md) or Mac [session status](SESSION_STATUS.md); those are dated snapshots. [PROGRESS](../PROGRESS.md) and [Ganant Work](../Ganant%20Work.md) record the measured Windows state.
-- The branch is `codex/windows-dask`, published on `origin`; `main` has not been merged with it in this handoff. Follow the [Git collaboration guide](GIT_COLLABORATION.md). Generated Parquet, raw JSONL and the ignored PAT file are not in Git.
+- The Windows and advisor branches were fast-forwarded into `main` on 2026-10-28 and pushed to `origin/main`. The merged Windows suite passed **79 tests**. Follow the [Git collaboration guide](GIT_COLLABORATION.md). Generated Parquet, raw JSONL and the ignored PAT file are not in Git.
 - If the presentation needs exact student IDs, department template, official midterm rubric, duration, or proof of supervisor approval, obtain those from the user or the submitted PDF. They are not established by the repository.
 
 **Presentation agent deliverable requested by the user:** a clear midterm deck grounded in this brief, with completed work and proposed work visually separate, quantitative caveats visible, and a final slide asking the supervisor to confirm the revised scope.

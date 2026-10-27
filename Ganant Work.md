@@ -2,7 +2,7 @@
 
 **Updated:** 2026-10-28 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
-**Working branch:** `codex/config-selection-policy`, descended from `codex/windows-dask` and `origin/cursor/context-and-microplan`<br>
+**Working branch:** `main` (integrated Windows and advisor work)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
 
 ## Checkpoint 1 — Repository and environment
@@ -107,9 +107,15 @@
 - Ran the full suite on this Windows checkout: **79 tests passed**. Verified `advise --family sort_merge --sla 13.1` locally: balanced chose `w2_t2_1g`, resource chose `w1_t2_1g`, and fastest chose `w2_t2_2g`.
 - Updated [`PROJECT_EXPLAINER.html`](PROJECT_EXPLAINER.html), the branch-sync guide and status docs so current code, branch locations and remaining independent validation are clear. The earlier `codex/windows-dask` branch remains a published historical checkpoint.
 
+## Checkpoint 16 — Integrated and published on main
+
+- On 2026-10-28, verified `origin/main` was an ancestor of `codex/config-selection-policy`, switched to `main`, and fast-forwarded it from `f474aae` to `abb21f7`. No merge conflict or rewritten history occurred.
+- Ran the full Windows suite on merged `main`: **79 tests passed**. Pushed the integrated commit to central `origin/main` (`f474aae..abb21f7`). The 96 physical runs and model results did not change in this integration.
+- Updated the explainer, README, Git collaboration guide, and midterm handoff to point teammates at integrated `main`. The older topic branches remain historical checkpoints, already contained in `main`.
+
 ## Current work and next steps
 
-1. Have the team review `origin/codex/config-selection-policy` (which includes `codex/windows-dask`) and choose a pull request into `main` when ready. Continue pushing new advisor-branch documentation on the tracked `codex/config-selection-policy` branch. The older Windows branch remains a published checkpoint.
+1. Teammates should pull `origin/main` and review the integrated evidence. Start new work from updated `main` on a focused topic branch. Independent validation on new physical profiles is still needed before a general cost improvement claim.
 2. Optional TabPFN/Colab comparison and formal DTU synopsis submission still need team decisions. Do not train a failure classifier or claim failure improvement from zero failures.
 
 ## Resume commands on this PC
