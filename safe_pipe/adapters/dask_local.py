@@ -23,9 +23,11 @@ def local_client(config: DaskNativeConfig) -> Iterator[Any]:
     from dask.distributed import Client, LocalCluster
 
     cluster = LocalCluster(**cluster_kwargs(config))
-    client = Client(cluster)
     try:
-        yield client
+        client = Client(cluster)
+        try:
+            yield client
+        finally:
+            client.close()
     finally:
-        client.close()
         cluster.close()

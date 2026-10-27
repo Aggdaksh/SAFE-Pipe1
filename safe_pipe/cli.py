@@ -30,6 +30,20 @@ def main(argv: list[str] | None = None) -> int:
     fitted.add_argument("--index", type=Path, default=Path("configs/datasets_main_v1.json"))
     fitted.add_argument("--model-dir", type=Path, default=Path("artifacts/main_v1"))
 
+    advisor = sub.add_parser("advise", help="Explain balanced speed/resource selection and compare all candidates")
+    advisor_source = advisor.add_mutually_exclusive_group(required=True)
+    advisor_source.add_argument("--family", choices=[f.value for f in WorkloadFamily])
+    advisor_source.add_argument("--workload-json", type=Path)
+    advisor.add_argument("--sla", type=float, required=True, help="Engine deadline in seconds, excluding cluster startup")
+    advisor.add_argument("--mode", choices=["balanced", "resource", "fastest"], default="balanced")
+    advisor.add_argument("--thread-weight", type=float, default=0.5, help="Thread share of resource score; memory gets 1 minus this")
+    advisor.add_argument("--deadline-reserve", type=float, default=0.0, help="Optional fractional deadline headroom, not a probability")
+    advisor.add_argument("--max-threads", type=int)
+    advisor.add_argument("--max-memory-gb", type=float, help="Total configured memory budget in decimal GB")
+    advisor.add_argument("--compare-to", default="w1_t1_2g", help="In-grid comparison reference, not native Dask default")
+    advisor.add_argument("--index", type=Path, default=Path("configs/datasets_main_v1.json"))
+    advisor.add_argument("--model-dir", type=Path, default=Path("artifacts/main_v1"))
+
     profile = sub.add_parser("profile", help="Print a frozen pre-run workload profile")
     profile.add_argument("--family", required=True, choices=[f.value for f in WorkloadFamily])
     profile.add_argument("--index", type=Path, default=Path("configs/datasets_main_v1.json"))
@@ -65,6 +79,22 @@ def main(argv: list[str] | None = None) -> int:
         estimates = [CandidateEstimate.model_validate(row) for row in raw]
         decision = recommend(estimates, ObjectiveSpec(sla_seconds=args.sla, failure_limit=args.failure_limit))
         print(decision.model_dump_json(indent=2))
+        return 0
+    if args.cmd == "advise":
+        from safe_pipe.advisor import Preferences, frozen_profiles, load_advice
+        from safe_pipe.schemas import WorkloadSpec
+
+        try:
+            workload = (WorkloadSpec.model_validate_json(args.workload_json.read_text(encoding="utf-8"))
+                        if args.workload_json else frozen_profiles(args.index)[args.family])
+            preferences = Preferences(mode=args.mode, thread_weight=args.thread_weight,
+                                      deadline_reserve=args.deadline_reserve,
+                                      max_threads=args.max_threads, max_memory_gb=args.max_memory_gb)
+            report = load_advice(workload=workload, index=args.index, model_dir=args.model_dir,
+                                 sla_seconds=args.sla, preferences=preferences, compare_to=args.compare_to)
+        except (ValueError, KeyError, OSError) as exc:
+            parser.error(str(exc))
+        print(json.dumps(report, indent=2, allow_nan=False))
         return 0
     if args.cmd == "recommend-model":
         from safe_pipe.models.ood import OODGate

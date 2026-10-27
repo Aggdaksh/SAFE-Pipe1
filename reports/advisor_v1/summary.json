@@ -1,0 +1,8 @@
+{
+  "evaluation": "descriptive same-table replay; no fitting or independent improvement claim",
+  "table_sha256_lf": "00ff42d88a1b821816f6d88004a684aecaa3eddb37657a528128332d8eede652",
+  "distinct_workload_profiles": 4,
+  "scenarios": 20,
+  "accepted_scenarios": 20,
+  "note": "Weight/mode scenarios reuse the same measurements and are not independent experiments. No weights were tuned against these outcomes."
+}

@@ -1,0 +1,1344 @@
+{
+  "scan_filter": {
+    "policy_version": "normalized-resource-v1",
+    "workload": {
+      "family": "scan_filter",
+      "input_bytes": 198446552,
+      "estimated_rows": 23320000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 0.1,
+      "format": "parquet"
+    },
+    "preferences": {
+      "mode": "balanced",
+      "thread_weight": 0.5,
+      "deadline_reserve": 0.0,
+      "max_threads": null,
+      "max_memory_gb": null,
+      "thread_reference": 4,
+      "memory_reference_bytes": 4000000000
+    },
+    "engine_sla_seconds": 2.6,
+    "effective_deadline_seconds": 2.6,
+    "timing_scope": "Engine execution only; cluster startup and profiling are excluded by the frozen model.",
+    "prediction_target": "Original Windows benchmark environment; transfer to another host is unvalidated.",
+    "support": {
+      "status": "matched_frozen_profile",
+      "matched": true,
+      "mismatched_fields": [],
+      "note": "Descriptor match only; does not verify dataset contents or hardware compatibility."
+    },
+    "decision": {
+      "action": "recommend",
+      "config_id": "w2_t1_1g",
+      "reason": "minimum declared score among eligible candidates",
+      "eligible_config_ids": [
+        "w2_t1_1g",
+        "w2_t1_2g",
+        "w2_t2_2g",
+        "w2_t2_1g",
+        "w1_t2_1g",
+        "w1_t2_2g"
+      ]
+    },
+    "candidates": [
+      {
+        "config_id": "w1_t1_1g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 2.3377999543774073,
+        "runtime_upper_s": 3.946591755725134,
+        "deadline_headroom_s": -1.3465917557251341,
+        "configured_thread_seconds": 2.3377999543774073,
+        "configured_gb_seconds": 2.3377999543774073,
+        "score": 0.5619711428791845,
+        "score_components": {
+          "time_ratio": 0.8991538286066951,
+          "thread_component": 0.11239422857583689,
+          "memory_component": 0.11239422857583689,
+          "resource_score": 0.22478845715167378
+        },
+        "eligible": false,
+        "rejection_reasons": [
+          "runtime_upper_exceeds_deadline"
+        ],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.02397823292874257,
+          "predicted_runtime_reduction_percent": -1.0363042539738077,
+          "score_change": -0.049856716157722025,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_1g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 1.0967236864068919,
+        "runtime_upper_s": 1.851450399328379,
+        "deadline_headroom_s": 0.748549600671621,
+        "configured_thread_seconds": 2.1934473728137838,
+        "configured_gb_seconds": 1.0967236864068919,
+        "score": 0.2899990516941301,
+        "score_components": {
+          "time_ratio": 0.4218168024641892,
+          "thread_component": 0.1054542006160473,
+          "memory_component": 0.05272710030802365,
+          "resource_score": 0.15818130092407096
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.2170980350417728,
+          "predicted_runtime_reduction_percent": 52.60120188861214,
+          "score_change": -0.3218288073427764,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t1_2g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 2.3138217214486647,
+        "runtime_upper_s": 3.9061125452536656,
+        "deadline_headroom_s": -1.3061125452536655,
+        "configured_thread_seconds": 2.3138217214486647,
+        "configured_gb_seconds": 4.627643442897329,
+        "score": 0.6118278590369065,
+        "score_components": {
+          "time_ratio": 0.8899314313264095,
+          "thread_component": 0.11124142891580119,
+          "memory_component": 0.22248285783160238,
+          "resource_score": 0.33372428674740356
+        },
+        "eligible": false,
+        "rejection_reasons": [
+          "runtime_upper_exceeds_deadline"
+        ],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.0,
+          "predicted_runtime_reduction_percent": 0.0,
+          "score_change": 0.0,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_2g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 1.240190923945188,
+        "runtime_upper_s": 2.0936467497154627,
+        "deadline_headroom_s": 0.5063532502845374,
+        "configured_thread_seconds": 2.480381847890376,
+        "configured_gb_seconds": 2.480381847890376,
+        "score": 0.35774738190726574,
+        "score_components": {
+          "time_ratio": 0.47699650920968767,
+          "thread_component": 0.11924912730242192,
+          "memory_component": 0.11924912730242192,
+          "resource_score": 0.23849825460484383
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.0736307975034767,
+          "predicted_runtime_reduction_percent": 46.400757134879235,
+          "score_change": -0.25408047712964077,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_1g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 0.8811864441230072,
+        "runtime_upper_s": 1.487587998759615,
+        "deadline_headroom_s": 1.112412001240385,
+        "configured_thread_seconds": 1.7623728882460143,
+        "configured_gb_seconds": 1.7623728882460143,
+        "score": 0.2541883973431751,
+        "score_components": {
+          "time_ratio": 0.3389178631242335,
+          "thread_component": 0.08472946578105837,
+          "memory_component": 0.08472946578105837,
+          "resource_score": 0.16945893156211675
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.4326352773256574,
+          "predicted_runtime_reduction_percent": 61.91640713048092,
+          "score_change": -0.3576394616937314,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_1g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 0.818539015602654,
+        "runtime_upper_s": 1.3818288107448944,
+        "deadline_headroom_s": 1.2181711892551057,
+        "configured_thread_seconds": 3.274156062410616,
+        "configured_gb_seconds": 1.637078031205308,
+        "score": 0.27546986102012394,
+        "score_components": {
+          "time_ratio": 0.31482269830871307,
+          "thread_component": 0.15741134915435653,
+          "memory_component": 0.07870567457717827,
+          "resource_score": 0.23611702373153481
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.4952827058460108,
+          "predicted_runtime_reduction_percent": 64.62393761736433,
+          "score_change": -0.33635799801678257,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_2g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 0.7880736508307374,
+        "runtime_upper_s": 1.3303982521896716,
+        "deadline_headroom_s": 1.2696017478103285,
+        "configured_thread_seconds": 1.5761473016614749,
+        "configured_gb_seconds": 3.1522946033229498,
+        "score": 0.2652170940295751,
+        "score_components": {
+          "time_ratio": 0.3031052503195144,
+          "thread_component": 0.0757763125798786,
+          "memory_component": 0.1515526251597572,
+          "resource_score": 0.2273289377396358
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.5257480706179272,
+          "predicted_runtime_reduction_percent": 65.94060624786032,
+          "score_change": -0.3466107650073314,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_2g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 0.7103631050260532,
+        "runtime_upper_s": 1.1992100387450595,
+        "deadline_headroom_s": 1.4007899612549406,
+        "configured_thread_seconds": 2.8414524201042126,
+        "configured_gb_seconds": 2.8414524201042126,
+        "score": 0.2732165788561743,
+        "score_components": {
+          "time_ratio": 0.2732165788561743,
+          "thread_component": 0.13660828942808714,
+          "memory_component": 0.13660828942808714,
+          "resource_score": 0.2732165788561743
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.6034586164226114,
+          "predicted_runtime_reduction_percent": 69.29914269361683,
+          "score_change": -0.3386112801807322,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      }
+    ],
+    "failure_probability": null,
+    "limitations": [
+      "No learned failure probability is available; memory checks are heuristic.",
+      "Bounds come from the frozen cell-group calibration, not an independently validated selected-policy guarantee.",
+      "Resource weights are preferences. They were not learned or optimized on test outcomes.",
+      "Frozen feature encoding retains legacy nominal GB and skew tags. Scoring uses actual SI/IEC configured bytes.",
+      "No job is automatically executed, including after abstention."
+    ],
+    "evidence": {
+      "model_sha256": "18bb1159ce357232c4cc6052c2b97203304f975d0cc05529071dc0c071d8e602",
+      "profile_index_sha256": "a22e7eed9001893914b2becef42ca96fd6ac6f0452192d2639a1514474c4bf29",
+      "training_table_sha256_recorded": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42",
+      "known_workload_profiles": 4,
+      "training_rows": 36,
+      "calibration_rows": 36,
+      "test_rows": 24,
+      "test_config_groups": 8,
+      "bound_method": "main-v1 maximum-per-cell residual upper multiplier",
+      "upper_multiplier": 1.6881648698535343,
+      "policy_validation": "No independent new-profile policy evaluation yet.",
+      "recorded_executions": 96,
+      "recorded_failures": 0
+    }
+  },
+  "groupby": {
+    "policy_version": "normalized-resource-v1",
+    "workload": {
+      "family": "groupby",
+      "input_bytes": 198487831,
+      "estimated_rows": 14970000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 0.1,
+      "format": "parquet"
+    },
+    "preferences": {
+      "mode": "balanced",
+      "thread_weight": 0.5,
+      "deadline_reserve": 0.0,
+      "max_threads": null,
+      "max_memory_gb": null,
+      "thread_reference": 4,
+      "memory_reference_bytes": 4000000000
+    },
+    "engine_sla_seconds": 7.9,
+    "effective_deadline_seconds": 7.9,
+    "timing_scope": "Engine execution only; cluster startup and profiling are excluded by the frozen model.",
+    "prediction_target": "Original Windows benchmark environment; transfer to another host is unvalidated.",
+    "support": {
+      "status": "matched_frozen_profile",
+      "matched": true,
+      "mismatched_fields": [],
+      "note": "Descriptor match only; does not verify dataset contents or hardware compatibility."
+    },
+    "decision": {
+      "action": "recommend",
+      "config_id": "w2_t2_1g",
+      "reason": "minimum declared score among eligible candidates",
+      "eligible_config_ids": [
+        "w2_t2_1g",
+        "w2_t2_2g",
+        "w1_t2_1g",
+        "w1_t2_2g",
+        "w2_t1_1g",
+        "w2_t1_2g",
+        "w1_t1_1g",
+        "w1_t1_2g"
+      ]
+    },
+    "candidates": [
+      {
+        "config_id": "w1_t1_1g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 4.316435406935439,
+        "runtime_upper_s": 7.286854616980353,
+        "deadline_headroom_s": 0.6131453830196474,
+        "configured_thread_seconds": 4.316435406935439,
+        "configured_gb_seconds": 4.316435406935439,
+        "score": 0.34149014295375313,
+        "score_components": {
+          "time_ratio": 0.546384228726005,
+          "thread_component": 0.06829802859075063,
+          "memory_component": 0.06829802859075063,
+          "resource_score": 0.13659605718150125
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.027468993725847213,
+          "predicted_runtime_reduction_percent": -0.6404571889685462,
+          "score_change": -0.031758516423663896,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_1g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 2.0236200549977785,
+        "runtime_upper_s": 3.416204286778327,
+        "deadline_headroom_s": 4.4837957132216735,
+        "configured_thread_seconds": 4.047240109995557,
+        "configured_gb_seconds": 2.0236200549977785,
+        "score": 0.17610617567227504,
+        "score_components": {
+          "time_ratio": 0.25615443734149096,
+          "thread_component": 0.06403860933537274,
+          "memory_component": 0.03201930466768637,
+          "resource_score": 0.0960579140030591
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -2.2653463582118136,
+          "predicted_runtime_reduction_percent": 52.818001820549846,
+          "score_change": -0.19714248370514198,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t1_2g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 4.288966413209592,
+        "runtime_upper_s": 7.240482426762151,
+        "deadline_headroom_s": 0.6595175732378493,
+        "configured_thread_seconds": 4.288966413209592,
+        "configured_gb_seconds": 8.577932826419184,
+        "score": 0.373248659377417,
+        "score_components": {
+          "time_ratio": 0.5429071409126066,
+          "thread_component": 0.06786339261407583,
+          "memory_component": 0.13572678522815165,
+          "resource_score": 0.2035901778422275
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.0,
+          "predicted_runtime_reduction_percent": 0.0,
+          "score_change": 0.0,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_2g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 2.29847939177785,
+        "runtime_upper_s": 3.880212163281685,
+        "deadline_headroom_s": 4.019787836718315,
+        "configured_thread_seconds": 4.5969587835557,
+        "configured_gb_seconds": 4.5969587835557,
+        "score": 0.2182100688396693,
+        "score_components": {
+          "time_ratio": 0.2909467584528924,
+          "thread_component": 0.0727366896132231,
+          "memory_component": 0.0727366896132231,
+          "resource_score": 0.1454733792264462
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.990487021431742,
+          "predicted_runtime_reduction_percent": 46.409480272478675,
+          "score_change": -0.1550385905377477,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_1g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 2.302900742466073,
+        "runtime_upper_s": 3.8876761321908453,
+        "deadline_headroom_s": 4.012323867809155,
+        "configured_thread_seconds": 4.605801484932146,
+        "configured_gb_seconds": 4.605801484932146,
+        "score": 0.2186298173227284,
+        "score_components": {
+          "time_ratio": 0.2915064230969712,
+          "thread_component": 0.0728766057742428,
+          "memory_component": 0.0728766057742428,
+          "resource_score": 0.1457532115484856
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.9860656707435194,
+          "predicted_runtime_reduction_percent": 46.30639364828397,
+          "score_change": -0.15461884205468862,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_1g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 1.5107655769798716,
+        "runtime_upper_s": 2.5504213736414245,
+        "deadline_headroom_s": 5.349578626358576,
+        "configured_thread_seconds": 6.043062307919486,
+        "configured_gb_seconds": 3.021531153959743,
+        "score": 0.16733163036169463,
+        "score_components": {
+          "time_ratio": 0.19123614898479385,
+          "thread_component": 0.09561807449239693,
+          "memory_component": 0.04780903724619846,
+          "resource_score": 0.1434271117385954
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -2.7782008362297206,
+          "predicted_runtime_reduction_percent": 64.77553257757248,
+          "score_change": -0.2059170290157224,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_2g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 2.133448275470454,
+        "runtime_upper_s": 3.601612430298826,
+        "deadline_headroom_s": 4.298387569701174,
+        "configured_thread_seconds": 4.266896550940908,
+        "configured_gb_seconds": 8.533793101881816,
+        "score": 0.23629965076413256,
+        "score_components": {
+          "time_ratio": 0.2700567437304372,
+          "thread_component": 0.0675141859326093,
+          "memory_component": 0.1350283718652186,
+          "resource_score": 0.2025425577978279
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -2.155518137739138,
+          "predicted_runtime_reduction_percent": 50.2572864898255,
+          "score_change": -0.13694900861328446,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_2g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 1.3606452521096557,
+        "runtime_upper_s": 2.296993514944526,
+        "deadline_headroom_s": 5.603006485055474,
+        "configured_thread_seconds": 5.442581008438623,
+        "configured_gb_seconds": 5.442581008438623,
+        "score": 0.1722335762164121,
+        "score_components": {
+          "time_ratio": 0.1722335762164121,
+          "thread_component": 0.08611678810820605,
+          "memory_component": 0.08611678810820605,
+          "resource_score": 0.1722335762164121
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -2.9283211610999365,
+          "predicted_runtime_reduction_percent": 68.27568413874721,
+          "score_change": -0.20101508316100491,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      }
+    ],
+    "failure_probability": null,
+    "limitations": [
+      "No learned failure probability is available; memory checks are heuristic.",
+      "Bounds come from the frozen cell-group calibration, not an independently validated selected-policy guarantee.",
+      "Resource weights are preferences. They were not learned or optimized on test outcomes.",
+      "Frozen feature encoding retains legacy nominal GB and skew tags. Scoring uses actual SI/IEC configured bytes.",
+      "No job is automatically executed, including after abstention."
+    ],
+    "evidence": {
+      "model_sha256": "18bb1159ce357232c4cc6052c2b97203304f975d0cc05529071dc0c071d8e602",
+      "profile_index_sha256": "a22e7eed9001893914b2becef42ca96fd6ac6f0452192d2639a1514474c4bf29",
+      "training_table_sha256_recorded": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42",
+      "known_workload_profiles": 4,
+      "training_rows": 36,
+      "calibration_rows": 36,
+      "test_rows": 24,
+      "test_config_groups": 8,
+      "bound_method": "main-v1 maximum-per-cell residual upper multiplier",
+      "upper_multiplier": 1.6881648698535343,
+      "policy_validation": "No independent new-profile policy evaluation yet.",
+      "recorded_executions": 96,
+      "recorded_failures": 0
+    }
+  },
+  "skewed_join": {
+    "policy_version": "normalized-resource-v1",
+    "workload": {
+      "family": "skewed_join",
+      "input_bytes": 174604451,
+      "estimated_rows": 17040000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 1.2,
+      "format": "parquet"
+    },
+    "preferences": {
+      "mode": "balanced",
+      "thread_weight": 0.5,
+      "deadline_reserve": 0.0,
+      "max_threads": null,
+      "max_memory_gb": null,
+      "thread_reference": 4,
+      "memory_reference_bytes": 4000000000
+    },
+    "engine_sla_seconds": 4.3,
+    "effective_deadline_seconds": 4.3,
+    "timing_scope": "Engine execution only; cluster startup and profiling are excluded by the frozen model.",
+    "prediction_target": "Original Windows benchmark environment; transfer to another host is unvalidated.",
+    "support": {
+      "status": "matched_frozen_profile",
+      "matched": true,
+      "mismatched_fields": [],
+      "note": "Descriptor match only; does not verify dataset contents or hardware compatibility."
+    },
+    "decision": {
+      "action": "recommend",
+      "config_id": "w2_t1_1g",
+      "reason": "minimum declared score among eligible candidates",
+      "eligible_config_ids": [
+        "w2_t1_1g",
+        "w2_t1_2g",
+        "w2_t2_1g",
+        "w2_t2_2g",
+        "w1_t2_1g",
+        "w1_t2_2g",
+        "w1_t1_1g",
+        "w1_t1_2g"
+      ]
+    },
+    "candidates": [
+      {
+        "config_id": "w1_t1_1g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 2.3664003144196233,
+        "runtime_upper_s": 3.994873878813566,
+        "deadline_headroom_s": 0.3051261211864338,
+        "configured_thread_seconds": 2.3664003144196233,
+        "configured_gb_seconds": 2.3664003144196233,
+        "score": 0.3439535340726197,
+        "score_components": {
+          "time_ratio": 0.5503256545161915,
+          "thread_component": 0.06879070681452394,
+          "memory_component": 0.06879070681452394,
+          "resource_score": 0.13758141362904788
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.009088095226180481,
+          "predicted_runtime_reduction_percent": -0.3855278546551544,
+          "score_change": -0.03294231492633193,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_1g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 1.1530233212364864,
+        "runtime_upper_s": 1.946493465033283,
+        "deadline_headroom_s": 2.3535065349667166,
+        "configured_thread_seconds": 2.306046642472973,
+        "configured_gb_seconds": 1.1530233212364864,
+        "score": 0.18434965891862426,
+        "score_components": {
+          "time_ratio": 0.26814495842708985,
+          "thread_component": 0.06703623960677246,
+          "memory_component": 0.03351811980338623,
+          "resource_score": 0.1005543594101587
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.2042888979569564,
+          "predicted_runtime_reduction_percent": 51.08737349900155,
+          "score_change": -0.19254619008032736,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t1_2g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 2.357312219193443,
+        "runtime_upper_s": 3.9795316757188446,
+        "deadline_headroom_s": 0.32046832428115524,
+        "configured_thread_seconds": 2.357312219193443,
+        "configured_gb_seconds": 4.714624438386886,
+        "score": 0.3768958489989516,
+        "score_components": {
+          "time_ratio": 0.5482121439984751,
+          "thread_component": 0.06852651799980938,
+          "memory_component": 0.13705303599961877,
+          "resource_score": 0.20557955399942815
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.0,
+          "predicted_runtime_reduction_percent": 0.0,
+          "score_change": 0.0,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_2g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 1.3084916096957988,
+        "runtime_upper_s": 2.20894956798655,
+        "deadline_headroom_s": 2.09105043201345,
+        "configured_thread_seconds": 2.6169832193915976,
+        "configured_gb_seconds": 2.6169832193915976,
+        "score": 0.22822528076089516,
+        "score_components": {
+          "time_ratio": 0.3043003743478602,
+          "thread_component": 0.07607509358696506,
+          "memory_component": 0.07607509358696506,
+          "resource_score": 0.1521501871739301
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.048820609497644,
+          "predicted_runtime_reduction_percent": 44.49222300542349,
+          "score_change": -0.14867056823805647,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_1g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 0.8994964478284985,
+        "runtime_upper_s": 1.5184983037821136,
+        "deadline_headroom_s": 2.7815016962178865,
+        "configured_thread_seconds": 1.798992895656997,
+        "configured_gb_seconds": 1.798992895656997,
+        "score": 0.15688891531892415,
+        "score_components": {
+          "time_ratio": 0.20918522042523222,
+          "thread_component": 0.052296305106308054,
+          "memory_component": 0.052296305106308054,
+          "resource_score": 0.10459261021261611
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.4578157713649444,
+          "predicted_runtime_reduction_percent": 61.84228629094104,
+          "score_change": -0.22000693368002747,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_1g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 0.8815876005594298,
+        "runtime_upper_s": 1.4882652169628994,
+        "deadline_headroom_s": 2.8117347830371004,
+        "configured_thread_seconds": 3.526350402237719,
+        "configured_gb_seconds": 1.7631752011188595,
+        "score": 0.1793928256952328,
+        "score_components": {
+          "time_ratio": 0.2050203722231232,
+          "thread_component": 0.1025101861115616,
+          "memory_component": 0.0512550930557808,
+          "resource_score": 0.1537652791673424
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.475724618634013,
+          "predicted_runtime_reduction_percent": 62.60200098309141,
+          "score_change": -0.19750302330371883,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_2g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 0.8057005669252651,
+        "runtime_upper_s": 1.360155392704309,
+        "deadline_headroom_s": 2.939844607295691,
+        "configured_thread_seconds": 1.6114011338505303,
+        "configured_gb_seconds": 3.2228022677010606,
+        "score": 0.16395069675804816,
+        "score_components": {
+          "time_ratio": 0.18737222486634075,
+          "thread_component": 0.04684305621658519,
+          "memory_component": 0.09368611243317038,
+          "resource_score": 0.14052916864975556
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.5516116522681775,
+          "predicted_runtime_reduction_percent": 65.82121959216177,
+          "score_change": -0.21294515224090346,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_2g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 0.7895681113526664,
+        "runtime_upper_s": 1.332921147942175,
+        "deadline_headroom_s": 2.967078852057825,
+        "configured_thread_seconds": 3.1582724454106654,
+        "configured_gb_seconds": 3.1582724454106654,
+        "score": 0.183620491012248,
+        "score_components": {
+          "time_ratio": 0.183620491012248,
+          "thread_component": 0.091810245506124,
+          "memory_component": 0.091810245506124,
+          "resource_score": 0.183620491012248
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -1.5677441078407766,
+          "predicted_runtime_reduction_percent": 66.50557762675926,
+          "score_change": -0.19327535798670362,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      }
+    ],
+    "failure_probability": null,
+    "limitations": [
+      "No learned failure probability is available; memory checks are heuristic.",
+      "Bounds come from the frozen cell-group calibration, not an independently validated selected-policy guarantee.",
+      "Resource weights are preferences. They were not learned or optimized on test outcomes.",
+      "Frozen feature encoding retains legacy nominal GB and skew tags. Scoring uses actual SI/IEC configured bytes.",
+      "No job is automatically executed, including after abstention."
+    ],
+    "evidence": {
+      "model_sha256": "18bb1159ce357232c4cc6052c2b97203304f975d0cc05529071dc0c071d8e602",
+      "profile_index_sha256": "a22e7eed9001893914b2becef42ca96fd6ac6f0452192d2639a1514474c4bf29",
+      "training_table_sha256_recorded": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42",
+      "known_workload_profiles": 4,
+      "training_rows": 36,
+      "calibration_rows": 36,
+      "test_rows": 24,
+      "test_config_groups": 8,
+      "bound_method": "main-v1 maximum-per-cell residual upper multiplier",
+      "upper_multiplier": 1.6881648698535343,
+      "policy_validation": "No independent new-profile policy evaluation yet.",
+      "recorded_executions": 96,
+      "recorded_failures": 0
+    }
+  },
+  "sort_merge": {
+    "policy_version": "normalized-resource-v1",
+    "workload": {
+      "family": "sort_merge",
+      "input_bytes": 178382606,
+      "estimated_rows": 12770000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 0.1,
+      "format": "parquet"
+    },
+    "preferences": {
+      "mode": "balanced",
+      "thread_weight": 0.5,
+      "deadline_reserve": 0.0,
+      "max_threads": null,
+      "max_memory_gb": null,
+      "thread_reference": 4,
+      "memory_reference_bytes": 4000000000
+    },
+    "engine_sla_seconds": 13.1,
+    "effective_deadline_seconds": 13.1,
+    "timing_scope": "Engine execution only; cluster startup and profiling are excluded by the frozen model.",
+    "prediction_target": "Original Windows benchmark environment; transfer to another host is unvalidated.",
+    "support": {
+      "status": "matched_frozen_profile",
+      "matched": true,
+      "mismatched_fields": [],
+      "note": "Descriptor match only; does not verify dataset contents or hardware compatibility."
+    },
+    "decision": {
+      "action": "recommend",
+      "config_id": "w2_t2_1g",
+      "reason": "minimum declared score among eligible candidates",
+      "eligible_config_ids": [
+        "w2_t2_1g",
+        "w2_t2_2g",
+        "w1_t2_1g",
+        "w2_t1_1g",
+        "w1_t2_2g",
+        "w2_t1_2g",
+        "w1_t1_2g",
+        "w1_t1_1g"
+      ]
+    },
+    "candidates": [
+      {
+        "config_id": "w1_t1_1g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 7.601097504612301,
+        "runtime_upper_s": 12.831905779617848,
+        "deadline_headroom_s": 0.26809422038215125,
+        "configured_thread_seconds": 7.601097504612301,
+        "configured_gb_seconds": 7.601097504612301,
+        "score": 0.3626477817086021,
+        "score_components": {
+          "time_ratio": 0.5802364507337634,
+          "thread_component": 0.07252955634172042,
+          "memory_component": 0.07252955634172044,
+          "resource_score": 0.14505911268344085
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.7698087248602086,
+          "predicted_runtime_reduction_percent": -11.26886521240207,
+          "score_change": 0.004135488878101112,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_1g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 1000000000,
+        "total_memory_gb": 1.0,
+        "predicted_runtime_s": 3.2970529119413223,
+        "runtime_upper_s": 5.565968899987639,
+        "deadline_headroom_s": 7.534031100012361,
+        "configured_thread_seconds": 6.594105823882645,
+        "configured_gb_seconds": 3.2970529119413223,
+        "score": 0.17303235701982134,
+        "score_components": {
+          "time_ratio": 0.2516834283924674,
+          "thread_component": 0.06292085709811684,
+          "memory_component": 0.03146042854905842,
+          "resource_score": 0.09438128564717527
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -3.5342358678107697,
+          "predicted_runtime_reduction_percent": 51.736004460625765,
+          "score_change": -0.18547993581067967,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": -1000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t1_2g",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "configured_threads": 1,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 6.831288779752092,
+        "runtime_upper_s": 11.532341733802099,
+        "deadline_headroom_s": 1.5676582661979008,
+        "configured_thread_seconds": 6.831288779752092,
+        "configured_gb_seconds": 13.662577559504184,
+        "score": 0.358512292830501,
+        "score_components": {
+          "time_ratio": 0.5214724259352742,
+          "thread_component": 0.06518405324190928,
+          "memory_component": 0.13036810648381855,
+          "resource_score": 0.19555215972572781
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": 0.0,
+          "predicted_runtime_reduction_percent": 0.0,
+          "score_change": 0.0,
+          "configured_threads_change": 0,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w1_t2_2g",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 3.4703258309110994,
+        "runtime_upper_s": 5.858482154689394,
+        "deadline_headroom_s": 7.2415178453106055,
+        "configured_thread_seconds": 6.940651661822199,
+        "configured_gb_seconds": 6.940651661822199,
+        "score": 0.19868277657887973,
+        "score_components": {
+          "time_ratio": 0.26491036877183965,
+          "thread_component": 0.06622759219295991,
+          "memory_component": 0.06622759219295991,
+          "resource_score": 0.13245518438591983
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -3.3609629488409927,
+          "predicted_runtime_reduction_percent": 49.19954429101095,
+          "score_change": -0.15982951625162128,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_1g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 3.4632085257164373,
+        "runtime_upper_s": 5.84646697009174,
+        "deadline_headroom_s": 7.25353302990826,
+        "configured_thread_seconds": 6.926417051432875,
+        "configured_gb_seconds": 6.926417051432875,
+        "score": 0.19827529727384186,
+        "score_components": {
+          "time_ratio": 0.26436706303178914,
+          "thread_component": 0.06609176575794729,
+          "memory_component": 0.06609176575794729,
+          "resource_score": 0.13218353151589457
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -3.3680802540356547,
+          "predicted_runtime_reduction_percent": 49.30373114980336,
+          "score_change": -0.16023699555665916,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_1g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "1GB",
+        "memory_bytes_per_worker": 1000000000,
+        "total_memory_bytes": 2000000000,
+        "total_memory_gb": 2.0,
+        "predicted_runtime_s": 2.291982834605805,
+        "runtime_upper_s": 3.8692449036888434,
+        "deadline_headroom_s": 9.230755096311157,
+        "configured_thread_seconds": 9.16793133842322,
+        "configured_gb_seconds": 4.58396566921161,
+        "score": 0.15309045650992972,
+        "score_components": {
+          "time_ratio": 0.17496052172563398,
+          "thread_component": 0.08748026086281699,
+          "memory_component": 0.043740130431408494,
+          "resource_score": 0.13122039129422547
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -4.539305945146287,
+          "predicted_runtime_reduction_percent": 66.44874915258697,
+          "score_change": -0.2054218363205713,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 0,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t1_2g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "configured_threads": 2,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 3.233156686820632,
+        "runtime_upper_s": 5.458101537422636,
+        "deadline_headroom_s": 7.641898462577363,
+        "configured_thread_seconds": 6.466313373641264,
+        "configured_gb_seconds": 12.932626747282528,
+        "score": 0.21595512221130175,
+        "score_components": {
+          "time_ratio": 0.24680585395577345,
+          "thread_component": 0.06170146348894336,
+          "memory_component": 0.12340292697788673,
+          "resource_score": 0.18510439046683008
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -3.59813209293146,
+          "predicted_runtime_reduction_percent": 52.671351028173575,
+          "score_change": -0.14255717061919926,
+          "configured_threads_change": 1,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      },
+      {
+        "config_id": "w2_t2_2g",
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "configured_threads": 4,
+        "memory_limit_per_worker": "2GB",
+        "memory_bytes_per_worker": 2000000000,
+        "total_memory_bytes": 4000000000,
+        "total_memory_gb": 4.0,
+        "predicted_runtime_s": 2.1456188948037425,
+        "runtime_upper_s": 3.622158442301644,
+        "deadline_headroom_s": 9.477841557698355,
+        "configured_thread_seconds": 8.58247557921497,
+        "configured_gb_seconds": 8.58247557921497,
+        "score": 0.16378770189341546,
+        "score_components": {
+          "time_ratio": 0.16378770189341546,
+          "thread_component": 0.08189385094670773,
+          "memory_component": 0.08189385094670773,
+          "resource_score": 0.16378770189341546
+        },
+        "eligible": true,
+        "rejection_reasons": [],
+        "comparison": {
+          "reference_config_id": "w1_t1_2g",
+          "predicted_runtime_change_s": -4.68566988494835,
+          "predicted_runtime_reduction_percent": 68.59130152478188,
+          "score_change": -0.19472459093708555,
+          "configured_threads_change": 3,
+          "total_memory_bytes_change": 2000000000,
+          "interpretation": "Model-based whole-configuration comparison, not a causal or measured improvement."
+        }
+      }
+    ],
+    "failure_probability": null,
+    "limitations": [
+      "No learned failure probability is available; memory checks are heuristic.",
+      "Bounds come from the frozen cell-group calibration, not an independently validated selected-policy guarantee.",
+      "Resource weights are preferences. They were not learned or optimized on test outcomes.",
+      "Frozen feature encoding retains legacy nominal GB and skew tags. Scoring uses actual SI/IEC configured bytes.",
+      "No job is automatically executed, including after abstention."
+    ],
+    "evidence": {
+      "model_sha256": "18bb1159ce357232c4cc6052c2b97203304f975d0cc05529071dc0c071d8e602",
+      "profile_index_sha256": "a22e7eed9001893914b2becef42ca96fd6ac6f0452192d2639a1514474c4bf29",
+      "training_table_sha256_recorded": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42",
+      "known_workload_profiles": 4,
+      "training_rows": 36,
+      "calibration_rows": 36,
+      "test_rows": 24,
+      "test_config_groups": 8,
+      "bound_method": "main-v1 maximum-per-cell residual upper multiplier",
+      "upper_multiplier": 1.6881648698535343,
+      "policy_validation": "No independent new-profile policy evaluation yet.",
+      "recorded_executions": 96,
+      "recorded_failures": 0
+    }
+  }
+}

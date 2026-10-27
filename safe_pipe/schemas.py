@@ -81,6 +81,7 @@ class CandidateEstimate(BaseModel):
     p_fail: float = Field(ge=0.0, le=1.0)
     expected_cost: float = Field(ge=0)
     ood_state: OODState
+    guard_pass: bool = True
 
     @field_validator("runtime_upper_s")
     @classmethod

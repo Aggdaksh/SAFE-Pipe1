@@ -6,7 +6,13 @@ Preparing the Project-I midterm? Read the [synopsis-to-evidence status review](d
 
 For the agent building the midterm slides, use the [PowerPoint handoff brief](docs/MIDTERM_PRESENTATION_HANDOFF.md). It separates verified findings from a proposed expanded final phase.
 
-SAFE-Pipe selects the lowest expected normalized-cost configuration from eight declared memory-capped local Dask configurations that is predicted to meet a job deadline, or abstains. It is a DTU IT401 Group 45 project on **one PC**, not a Glue or multi-node study. The original 176-run/Glue synopsis is historical; see [`docs/PHASE1_DECISION.md`](docs/PHASE1_DECISION.md).
+SAFE-Pipe selects a configuration from eight declared memory-capped local Dask configurations under an engine deadline, or abstains. The new `advise` interface defaults to a balanced speed/resource score and explains every candidate. It is a DTU IT401 Group 45 project on **one PC**, not a Glue or multi-node study. The original 176-run/Glue synopsis is historical; see [`docs/PHASE1_DECISION.md`](docs/PHASE1_DECISION.md).
+
+## Balanced configuration advisor
+
+`advise` reuses the existing runtime model, with hard deadline/resource checks, a frozen-profile support check, corrected SI/IEC memory accounting, and model-based configuration comparisons. No new training or physical benchmark jobs were needed for this addition. Choose `balanced` (default), `resource`, or `fastest`; no learned failure probability is reported.
+
+The dimensionless score is `beta × (predicted_time / deadline) + (1 − beta) × resource_time_score`. Balanced mode uses `beta=0.5`; resource-time combines normalized configured threads and total memory with equal default weights. See [formula and examples](docs/CONFIG_SELECTION.md), [data dictionary](docs/DATA_DICTIONARY.md), and [next physical validation steps](docs/INDEPENDENT_VALIDATION.md). The checked-in [20-scenario replay](reports/advisor_v1/summary.json) reuses the old table and is descriptive, not independent validation.
 
 ## Current measured state
 
@@ -22,10 +28,11 @@ Python 3.11+ is required. On Windows PowerShell:
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev,dask,ml]"
 .\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe -m safe_pipe.cli recommend-model --family sort_merge --sla 13.1
+.\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1
+.\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1 --max-threads 2 --max-memory-gb 2
 ```
 
-On the coding Mac, `pip install -e ".[dev]"` runs the unit and tiny-data tests; Dask integration tests skip without the Dask extra. Existing model artifacts can be used after installing `.[ml]`. The `recommend-model` command prints eight candidate estimates, the selected configuration or abstention, and a note that failure probabilities are not calibrated.
+On the coding Mac, `pip install -e ".[dev]"` runs the unit and tiny-data tests; Dask integration tests skip without the Dask extra. Existing model artifacts can be used after installing `.[ml]`. `advise` targets the original Windows benchmark environment even when inference runs on another host. `recommend-model` remains available for reproducing the original main-v1 recommendation path.
 
 ## Reproduce the physical experiment on an authorized host
 
@@ -33,7 +40,7 @@ Read [`reports/matrix_preparation.md`](reports/matrix_preparation.md), [`reports
 
 ## Scope and limitations
 
-The four families are scan/filter, group-by, skewed join, and sort/merge. LightGBM predicts successful runtime; split conformal supplies an upper bound; a conservative rule-based OOD gate abstains outside measured scope. Failure handling remains deterministic because all 96 physical runs succeeded. TabPFN on Colab is optional and not run. Glue, Spark, LLM agents, and real-cluster claims are out of scope.
+The four families are scan/filter, group-by, skewed join, and sort/merge. LightGBM predicts successful runtime; split conformal supplies an upper estimate. The new advisor requires an exact frozen descriptor match; the historical path uses heuristic family/size gates. Only four workload profiles were measured, so broader workload or host transfer is unvalidated. Failure handling remains deterministic because all 96 physical runs succeeded. TabPFN on Colab is optional and not run. Glue, Spark, LLM agents, and real-cluster claims are out of scope.
 
 For current tasks and cross-PC handoff, read [`context.md`](context.md), [`PROGRESS.md`](PROGRESS.md), [`Ganant Work.md`](Ganant%20Work.md), and [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md). The Windows branch is published at `origin/codex/windows-dask` for team review.
 

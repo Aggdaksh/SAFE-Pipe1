@@ -50,6 +50,7 @@ def estimate_candidates(workload: WorkloadSpec, predictor: RuntimePredictor, ood
                 expected_runtime_s=float(expected_runtime),
                 runtime_upper_s=float(upper_runtime),
                 p_fail=1.0 if hard_memory_guard else 0.0,
+                guard_pass=not hard_memory_guard,
                 expected_cost=float(expected_runtime * (config.allocated_vcpus + config.allocated_gb)),
                 ood_state=state,
             )

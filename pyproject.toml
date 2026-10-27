@@ -37,6 +37,7 @@ ml = [
 ]
 dev = [
   "pytest>=8.2",
+  "psutil>=5.8",
   "numpy>=1.26",
   "pandas>=2.2",
   "pyarrow>=16.0",

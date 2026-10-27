@@ -1,6 +1,6 @@
 # Progress
 
-**Updated:** 2026-10-26. Canonical memory: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
+**Updated:** 2026-10-27. Canonical memory: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
 
 ## Verified work
 
@@ -17,8 +17,11 @@
 | Fitted CLI recommendation and same-table baselines | DONE, descriptive | `safe-pipe recommend-model`, `reports/policy.md` |
 | Feature-contribution demo figure | DONE | `reports/shap_sort_merge.png`, `reports/shap.md` |
 | Technical results draft and separate live Dask demo | DONE as repository draft | `reports/project_i_results.md`, `reports/demo.md` |
+| Balanced speed/resource advisor with budgets, reasons and comparisons | IMPLEMENTED; independent physical evaluation pending | `safe_pipe/advisor.py`, `docs/CONFIG_SELECTION.md`, ADR-006 |
+| Artifact/profile/grid binding and descriptive mode/weight replay | DONE for frozen main-v1 | `artifacts/main_v1/advisor_support.json`, `reports/advisor_v1/` |
+| Worker failure labeling and cluster cleanup regressions | FIXED in code | `safe_pipe/classify.py`, `tests/test_classify.py`, `tests/test_cluster_cleanup.py` |
 
-The full Windows suite currently passes **29 tests** with `.[dev,dask,ml]` installed. Dask tests skip on a coding machine without Dask.
+The original Windows checkpoint recorded **29 passing tests** with `.[dev,dask,ml]` installed. The new advisor adds regression tests; current verification is recorded in `reports/advisor_v1/VERIFICATION.md`. Dask tests skip on a coding machine without Dask.
 
 ## Measured outcomes
 
@@ -29,6 +32,8 @@ The full Windows suite currently passes **29 tests** with `.[dev,dask,ml]` insta
 
 ## Remaining and limits
 
+- Run the frozen advisor prospectively on the original Windows host. The new 20-scenario mode/weight replay uses existing records; it adds zero physical experiments. See `docs/INDEPENDENT_VALIDATION.md`.
+- Broader profile support needs new size/partition/skew profiles, a versioned feature contract, retraining and calibration. The new exact descriptor gate deliberately abstains on changed profiles.
 - Department formatting, supervisor review, and formal submission remain outside the verified repository draft.
 - Optional TabPFN comparison remains unrun. The formal DTU synopsis/report submission and supervisor decision are outside this repository's verified work.
 - The rule-based OOD thresholds are heuristics; only one dataset size per family was measured. Peak worker memory was not reliably collected (`null` in run records). Dask logged some memory warnings during successful 1 GB sort jobs.

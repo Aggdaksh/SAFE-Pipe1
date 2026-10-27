@@ -10,7 +10,9 @@ from safe_pipe.schemas import (
 
 
 def is_feasible(estimate: CandidateEstimate, objective: ObjectiveSpec) -> bool:
-    """A candidate is usable only if OOD is not red, the conformal upper meets the SLA, and p_fail is in budget."""
+    """Apply supplied upper/risk estimates and an unconditional hard guard."""
+    if not estimate.guard_pass:
+        return False
     if estimate.ood_state is OODState.RED:
         return False
     if estimate.runtime_upper_s > objective.sla_seconds:
@@ -41,6 +43,6 @@ def recommend(estimates: list[CandidateEstimate], objective: ObjectiveSpec) -> D
     return Decision(
         action=DecisionAction.RECOMMEND,
         config_id=best.config_id,
-        reason="lowest expected cost among candidates with conformal upper bound <= SLA",
+        reason="lowest supplied cost among candidates passing guards and runtime upper <= SLA",
         feasible_config_ids=ids,
     )

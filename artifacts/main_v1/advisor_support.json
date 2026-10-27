@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "table_sha256_lf": "00ff42d88a1b821816f6d88004a684aecaa3eddb37657a528128332d8eede652",
+  "artifact_sha256_lf": {
+    "runtime_model.txt": "18bb1159ce357232c4cc6052c2b97203304f975d0cc05529071dc0c071d8e602",
+    "runtime_meta.json": "c4c424f5403a94369e68bccbe5ff5b802cd04bc2c28a694d1c1d2baca7321a1c",
+    "runtime_metrics.json": "652e129cc05f8fad5bbb4aa132c4a5e7892533ffd0cb3aef04f7e645bba6beb9"
+  },
+  "profile_index_sha256_lf": "a22e7eed9001893914b2becef42ca96fd6ac6f0452192d2639a1514474c4bf29",
+  "profiles": {
+    "scan_filter": {
+      "family": "scan_filter",
+      "input_bytes": 198446552,
+      "estimated_rows": 23320000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 0.1,
+      "format": "parquet"
+    },
+    "groupby": {
+      "family": "groupby",
+      "input_bytes": 198487831,
+      "estimated_rows": 14970000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 0.1,
+      "format": "parquet"
+    },
+    "skewed_join": {
+      "family": "skewed_join",
+      "input_bytes": 174604451,
+      "estimated_rows": 17040000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 1.2,
+      "format": "parquet"
+    },
+    "sort_merge": {
+      "family": "sort_merge",
+      "input_bytes": 178382606,
+      "estimated_rows": 12770000,
+      "file_count": 16,
+      "partition_count": 16,
+      "skew_score": 0.1,
+      "format": "parquet"
+    }
+  },
+  "configurations": [
+    {
+      "config_id": "w1_t1_1g",
+      "native": {
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1GB",
+        "processes": true
+      },
+      "allocated_vcpus": 1.0,
+      "allocated_gb": 1.0
+    },
+    {
+      "config_id": "w1_t2_1g",
+      "native": {
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1GB",
+        "processes": true
+      },
+      "allocated_vcpus": 2.0,
+      "allocated_gb": 1.0
+    },
+    {
+      "config_id": "w1_t1_2g",
+      "native": {
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "2GB",
+        "processes": true
+      },
+      "allocated_vcpus": 1.0,
+      "allocated_gb": 2.0
+    },
+    {
+      "config_id": "w1_t2_2g",
+      "native": {
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "2GB",
+        "processes": true
+      },
+      "allocated_vcpus": 2.0,
+      "allocated_gb": 2.0
+    },
+    {
+      "config_id": "w2_t1_1g",
+      "native": {
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "1GB",
+        "processes": true
+      },
+      "allocated_vcpus": 2.0,
+      "allocated_gb": 2.0
+    },
+    {
+      "config_id": "w2_t2_1g",
+      "native": {
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "memory_limit": "1GB",
+        "processes": true
+      },
+      "allocated_vcpus": 4.0,
+      "allocated_gb": 2.0
+    },
+    {
+      "config_id": "w2_t1_2g",
+      "native": {
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "2GB",
+        "processes": true
+      },
+      "allocated_vcpus": 2.0,
+      "allocated_gb": 4.0
+    },
+    {
+      "config_id": "w2_t2_2g",
+      "native": {
+        "n_workers": 2,
+        "threads_per_worker": 2,
+        "memory_limit": "2GB",
+        "processes": true
+      },
+      "allocated_vcpus": 4.0,
+      "allocated_gb": 4.0
+    }
+  ],
+  "recorded_executions": 96,
+  "recorded_failures": 0,
+  "scope": "Frozen descriptor profiles on the recorded Windows benchmark host only.",
+  "feature_note": "main-v1 contains nominal memory and fixed skew tags; no feature relabeling or retraining occurred."
+}
