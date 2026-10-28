@@ -1,47 +1,104 @@
-# SAFE-Pipe (Project-I, B-lite)
+# SAFE-Pipe
 
-New to this project? Open the standalone [beginner's HTML lesson](PROJECT_EXPLAINER.html) in a browser. It explains the problem, the Git and experiment history, the measured results, and what remains.
+**A bounded configuration advisor for local Dask data pipelines.** SAFE-Pipe predicts the runtime of eight declared worker settings for a known batch workload, checks a deadline and resource limits, then recommends a setting or abstains with an explanation.
 
-Preparing the Project-I midterm? Read the [synopsis-to-evidence status review](docs/MIDTERM_SYNOPSIS_ALIGNMENT.md) for completed work, scope changes, remaining commitments, and a presentation-ready evidence path.
+This is Delhi Technological University IT401 Group 45's Project-I prototype. The evaluated backend is a memory-capped Dask `LocalCluster` on one Windows PC. The broader distributed and AWS Glue ideas in the submitted synopsis are not measured outcomes of this prototype.
 
-For the agent building the midterm slides, use the [PowerPoint handoff brief](docs/MIDTERM_PRESENTATION_HANDOFF.md). It separates verified findings from a proposed expanded final phase.
+## At a glance
 
-SAFE-Pipe selects a configuration from eight declared memory-capped local Dask configurations under an engine deadline, or abstains. The new `advise` interface defaults to a balanced speed/resource score and explains every candidate. It is a DTU IT401 Group 45 project on **one PC**, not a Glue or multi-node study. The original 176-run/Glue synopsis is historical; see [`docs/PHASE1_DECISION.md`](docs/PHASE1_DECISION.md).
+| Area | Current state |
+| --- | --- |
+| Workloads | Four frozen synthetic Parquet profiles: scan/filter, group-by, skewed join, and sort/merge |
+| Candidate settings | Eight combinations of 1-2 workers, 1-2 threads per worker, and 1-2 GB per worker |
+| Physical experiment | 4 profiles x 8 settings x 3 repeats = **96 scored Dask jobs** on a 31.4 GiB RAM Windows PC |
+| Runtime estimate | LightGBM point prediction plus a split-conformal upper estimate |
+| Advisor | `balanced` (default), `resource`, and `fastest` preference modes; support, deadline, memory, and optional budget checks |
+| Evidence status | First measured prototype complete; fresh-run and new-profile validation remain open |
 
-## Balanced configuration advisor
+For an introduction to the concepts and project history, open the [beginner-friendly explainer](PROJECT_EXPLAINER.html). For the midterm presentation, use the [synopsis-to-evidence review](docs/MIDTERM_SYNOPSIS_ALIGNMENT.md).
 
-`advise` reuses the existing runtime model, with hard deadline/resource checks, a frozen-profile support check, corrected SI/IEC memory accounting, and model-based configuration comparisons. No new training or physical benchmark jobs were needed for this addition. Choose `balanced` (default), `resource`, or `fastest`; no learned failure probability is reported.
+## How it works
 
-The dimensionless score is `beta × (predicted_time / deadline) + (1 − beta) × resource_time_score`. Balanced mode uses `beta=0.5`; resource-time combines normalized configured threads and total memory with equal default weights. See [formula and examples](docs/CONFIG_SELECTION.md), [data dictionary](docs/DATA_DICTIONARY.md), and [next physical validation steps](docs/INDEPENDENT_VALIDATION.md). The checked-in [20-scenario replay](reports/advisor_v1/summary.json) reuses the old table and is descriptive, not independent validation.
+```text
+Offline: frozen datasets -> 96 Dask runs -> audited results -> runtime model + upper estimate
 
-## Current measured state
+Request: workload profile + engine deadline + preferences
+           -> create eight candidate feature rows
+           -> predict runtime and upper estimate for each
+           -> check exact profile support, budgets, memory rule, and deadline
+           -> score eligible candidates -> recommendation or abstention
+```
 
-On the user-selected Windows experiment PC (31.4 GiB physical RAM), four synthetic Parquet families were run across eight configurations with three repeats: **96 physical Dask jobs**. Worker limits remained 1–2 GB. The audited table has **96 successes, zero SLA misses, and zero failures**. The curated shareable data is [`data/curated/runs.csv`](data/curated/runs.csv); large Parquet inputs and raw JSONL stay local. Dataset hashes, frozen SLAs, and randomized run order are in `configs/`.
+The model uses only information available before execution. The advisor does not execute a job; `execute` is a separate command. Its deadline concerns **Dask engine runtime**, excluding cluster startup, profiling, and advice time. See the [feature list](safe_pipe/features.py), [configuration-selection design](docs/CONFIG_SELECTION.md), and [data dictionary](docs/DATA_DICTIONARY.md).
 
-LightGBM on a grouped split gave 13.84% test MdAPE versus 23.01% for a family-median baseline; the conformal upper bound covered 24/24 held-out rows. The policy had 34.1% lower normalized cost than the declared default in a **descriptive same-table** comparison. The model trained on some cells in that table, and there were no failures, so these results do not establish independent cost or safety improvement. See [`reports/runtime_model.md`](reports/runtime_model.md), [`reports/policy.md`](reports/policy.md), and [`reports/audit.md`](reports/audit.md).
+## Quick start
 
-## Set up and verify
-
-Python 3.11+ is required. On Windows PowerShell:
+Python 3.11+ is required. From the repository root on Windows PowerShell:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev,dask,ml]"
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1
+```
+
+The final command prints a JSON report with all eight candidates, their predictions, eligibility and rejection reasons, scores, and the selected setting. The frozen sort/merge example chooses `w2_t2_1g` in balanced mode. Explore other preferences and a resource budget:
+
+```powershell
+.\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1 --mode resource
+.\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1 --mode fastest
 .\.venv\Scripts\python.exe -m safe_pipe.cli advise --family sort_merge --sla 13.1 --max-threads 2 --max-memory-gb 2
 ```
 
-On the coding Mac, `pip install -e ".[dev]"` runs the unit and tiny-data tests; Dask integration tests skip without the Dask extra. Existing model artifacts can be used after installing `.[ml]`. `advise` targets the original Windows benchmark environment even when inference runs on another host. `recommend-model` remains available for reproducing the original main-v1 recommendation path.
+On macOS or Linux, create and activate a local virtual environment, install `.[dev,ml]`, and replace the Windows Python path with `python`. Install `.[dask]` as well for Dask execution tests. Predictions still describe the original Windows experiment environment; running inference on another computer does not validate transfer to that host.
 
-## Reproduce the physical experiment on an authorized host
+`advise` is the current explained advisor. The older `recommend-model` command remains available to reproduce the original lowest-estimated-cost policy and its published comparison; the two commands use different selection objectives.
 
-Read [`reports/matrix_preparation.md`](reports/matrix_preparation.md), [`reports/t0.md`](reports/t0.md), and [`Ganant Work.md`](Ganant%20Work.md) first. `experiments/prepare_matrix_data.py` creates versioned synthetic inputs and refuses to replace frozen files. `experiments/pilot_sla.py` and `experiments/prepare_matrix_plan.py` freeze deadlines and order before scoring. `experiments/run_matrix.py` appends one Dask result at a time and can resume without repeating cells. `experiments/audit_runs.py` validates all 96 rows and exports CSV/Parquet. Do not rerun those commands into the existing `main-v1` records or treat pilot jobs as scored rows.
+## Verified results
+
+The [audited run table](data/curated/runs.csv) contains **96 successes, zero SLA misses, zero timeouts, and zero OOMs**. Input hashes, family deadlines, and shuffled run order were frozen before scoring. Worker limits were 1 GB or 2 GB per worker even though the host had 31.4 GiB physical RAM.
+
+| Measure | Observed result | Interpretation |
+| --- | ---: | --- |
+| LightGBM test MdAPE | 13.84% | Median absolute percentage error across 24 held-out runs |
+| Family-median baseline MdAPE | 23.01% | Simpler runtime predictor on the same split |
+| Upper-estimate coverage | 24/24 test runs | Observed on eight held-out family/configuration cells; not a future guarantee |
+| Historical policy vs declared default | 7.524 vs 11.421 mean normalized cost | 34.1% lower **in the same table**, not an independent saving estimate |
+
+The split kept each family/configuration cell's three repeats together: 36 training, 36 calibration, and 24 test rows. All four workload profiles are represented in the study, so it does not test entirely unseen profiles. The cost comparison reuses rows from the model's source table. See the [run audit](reports/audit.md), [runtime-model report](reports/runtime_model.md), and [policy report](reports/policy.md).
 
 ## Scope and limitations
 
-The four families are scan/filter, group-by, skewed join, and sort/merge. LightGBM predicts successful runtime; split conformal supplies an upper estimate. The new advisor requires an exact frozen descriptor match; the historical path uses heuristic family/size gates. Only four workload profiles were measured, so broader workload or host transfer is unvalidated. Failure handling remains deterministic because all 96 physical runs succeeded. TabPFN on Colab is optional and not run. Glue, Spark, LLM agents, and real-cluster claims are out of scope.
+- The advisor supports **exactly four frozen workload descriptors**. A different size, file count, partition count, format, or skew tag causes abstention. Matching descriptors alone do not verify dataset contents or another computer's performance.
+- All 96 scored jobs succeeded. SAFE-Pipe therefore has deterministic guards, **not a trained failure-probability model** or evidence of failure reduction.
+- Peak worker memory and disk spill were not reliably measured. Configured memory is not actual memory usage; memory-pressure warnings do not establish that spilling occurred.
+- The normalized resource scores are not currency, electricity use, CPU utilization, or cloud bills. The current `sort_merge` workload shuffles by key; it does not merge a second table.
+- The 20-scenario [advisor replay](reports/advisor_v1/summary.json) reuses historical measurements. It is descriptive, not a new physical experiment or independent validation.
 
-For current tasks and cross-PC handoff, read [`context.md`](context.md), [`PROGRESS.md`](PROGRESS.md), [`Ganant Work.md`](Ganant%20Work.md), and [`docs/GIT_COLLABORATION.md`](docs/GIT_COLLABORATION.md). On 2026-10-28, the Windows study and newer explained advisor were fast-forwarded into `main` and pushed to `origin/main`. The older `codex/windows-dask` and `codex/config-selection-policy` branches remain as checkpoints.
+The original 176-run/Glue synopsis and the reduced B-lite experiment have different designs; **96/176 is not a meaningful completion percentage**. Internal scope decisions are documented in [Phase 1](docs/PHASE1_DECISION.md). Supervisor acceptance of a revised scope is not recorded here.
 
-The verified `profile → recommend-model → execute` sequence and its separate tiny live run are documented in [`reports/demo.md`](reports/demo.md). A technical results draft is in [`reports/project_i_results.md`](reports/project_i_results.md).
+## Next work
+
+1. Save the frozen advisor's recommendations, then perform fresh runs on the same profiles and host to assess repeatability without retraining on those results.
+2. Build an evaluator that compares saved predictions and decisions with fresh runtimes, deadline outcomes, and predeclared baselines. The existing replay does not perform this fresh-run evaluation.
+3. Add reliable per-worker peak-memory and spill telemetry, with controlled checks that verify the measurements.
+4. Design separate new workload profiles, version the data/features and support rule, retrain and calibrate a new model, and test on untouched profiles before claiming broader support.
+5. Complete the department-formatted report and final demonstration.
+
+See the [independent-validation plan](docs/INDEPENDENT_VALIDATION.md) for the distinction between fresh repeats of the existing profiles and genuinely new-profile evaluation.
+
+## Repository guide
+
+| Location | Purpose |
+| --- | --- |
+| [`safe_pipe/`](safe_pipe/) | Schemas, workload execution, runtime inference, advisor, and CLI |
+| [`configs/`](configs/) | Frozen grid, dataset manifests, SLAs, run order, and split |
+| [`experiments/`](experiments/) | Preparation, execution, auditing, training, and replay scripts |
+| [`artifacts/main_v1/`](artifacts/main_v1/) | Fitted model and frozen support artifacts |
+| [`data/curated/runs.csv`](data/curated/runs.csv) | Shareable audited run table |
+| [`reports/`](reports/) | Experiment evidence, model results, policy comparison, and demo |
+| [`docs/`](docs/) | Architecture, decisions, data dictionary, validation plan, and midterm review |
+
+To reproduce the physical experiment, start with the [matrix preparation report](reports/matrix_preparation.md) and [PC work log](Ganant%20Work.md). Use new run stores for new experiments; do not append to the frozen `main-v1` records. The [demo record](reports/demo.md) explains the separate tiny live execution.
+
+For work across PCs, pull `main` and follow the [Git collaboration guide](docs/GIT_COLLABORATION.md). The Windows study and advisor are already on `origin/main`; earlier feature branches remain checkpoints. Generated Parquet, raw JSONL, virtual environments, and local credentials are not shared through Git. Current status is tracked in [PROGRESS](PROGRESS.md) and the [PC work log](Ganant%20Work.md).
