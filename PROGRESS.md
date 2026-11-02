@@ -1,8 +1,25 @@
 # Progress
 
-**Updated:** 2026-10-28. Canonical memory: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
+**Updated:** 2026-11-02. Canonical memory and research goal: [`context.md`](context.md). Original Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
 
-## Verified work
+## Active research branch
+
+`codex/partition-probe-research` is published; implementation/handoff checkpoint is `975b446`. It has not been merged into main. The objective is a defensible paper contribution around partition-aware adaptive probing; novelty and improvement remain unproven.
+
+| Research task | Status | Evidence / next action |
+| --- | --- | --- |
+| Isolated data/probe generation, supervised runner and telemetry | IMPLEMENTED | `safe_pipe/research/` |
+| Frozen plans, resume, analysis and evidence export | IMPLEMENTED | `experiments/probe_pilot.py`, `experiments/export_probe_evidence.py` |
+| Correctness/regression checks | PASSED on Mac | 120-test suite, then 2 added checks; 16 tiny Dask runs verified |
+| Preliminary larger Mac experiments | STOPPED / INCOMPLETE | Separate plans have 1 and 10 successful rows; 2 full groupby rows show spill; one unrecorded interrupted attempt is disclosed |
+| Other-laptop handoff | READY | [`docs/research/WINDOWS_HANDOFF.md`](docs/research/WINDOWS_HANDOFF.md) |
+| Windows screen | NOT RUN | 768-job development preset; small Windows checks must precede it |
+| Adaptive controller / new reliability model | NOT IMPLEMENTED / NOT TRAINED | Conditional on a useful gap after simple baselines |
+| Independent final study, paper and merge decision | PENDING | Follow-up design, evaluation and user review |
+
+**Execution constraint:** larger tests/experiments and training belong on the other laptop. This Mac is for preparation and small checks. See the [evidence ledger](reports/research_probe_v1/README.md) for exact counts/provenance and [canonical next steps](context.md#what-remains-in-order) for remaining work. The research setup does not complete the original advisor's prospective validation.
+
+## Verified baseline work (main-v1 / advisor)
 
 | Task | Status | Evidence |
 | --- | --- | --- |
