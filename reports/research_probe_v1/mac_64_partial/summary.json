@@ -1,0 +1,155 @@
+{
+  "schema_version": "probe-ranking-report-v1",
+  "role": "development_only",
+  "planned_cells": 64,
+  "recorded_cells": 1,
+  "missing_cells": [
+    "002a12abf0507a9b4737a9b5",
+    "02769cb8e3576432d43a5d72",
+    "05daa418af06ece814118e86",
+    "10e4f3a20cdc336a4e7cd716",
+    "13a377dbc8c2c2e04e6d8af3",
+    "1b01bc68c83446150c21f6bd",
+    "1c8268bfa800227284456713",
+    "1d7210eeded7501bf8795761",
+    "25b0d78c6dc1a802a9cefea1",
+    "25fae6ae3c02aa3bde85dc74",
+    "2f8c903fb09df99e60018e39",
+    "30d5acbce6a3ea026488f7e8",
+    "3156f40027f57405967d82e2",
+    "3181bcab2052489177575b6a",
+    "350abaaa8a1090f2b7cb92ee",
+    "3f0c5a676972aeeea74fd812",
+    "423f9f1906dc3ab6b6dab6b8",
+    "4491e229fa99f6e14a87e5bb",
+    "453ddc5eda60731b334de422",
+    "463cf5da6aaa5a5258eab14f",
+    "495530177da6f1599da74927",
+    "4f3b63272e81deeabac3d72f",
+    "54200814d99f9d7b53d3a777",
+    "608274391170366a9037cfea",
+    "6347cc9b67a7fbc822084ad1",
+    "65426e6d7c4951077d657dce",
+    "674eb9a710ca99bd92cb0712",
+    "67623dcef8bcaa6de0dc5a23",
+    "6d67523d1cea847d4ad0d886",
+    "6da6bb9a655576a371e8af0d",
+    "70220ccdee8e66f7005a7a85",
+    "71064150d83b3f7d77a653f5",
+    "726c633522f5d7f81b23d33c",
+    "7430a67df425302e5b4ef483",
+    "76e3d0817e6b085289d1bb2c",
+    "8a34013cf82ccb41f0b0f156",
+    "8b61f9003d1b410847740a0d",
+    "8dab289a6938690940468450",
+    "8e094c09f8bf9bb504b1586b",
+    "90fe32fb7b24da9e2fbbe9c2",
+    "912f85dfb9c5ef6436e5b7ec",
+    "98078a3cfe3dbb781f98c16d",
+    "98bd64261f7bcec15d901399",
+    "a17d80913ecfb5cab48036a1",
+    "aaf194e99120d9d4bb808c13",
+    "af2b1ed83dd96298d7265428",
+    "b10917f3bc9373f7f6ed785c",
+    "b1ec1e8854ae231fa836dda0",
+    "b353a4705e9f856eb87ef403",
+    "b8102f3c3ae9f3a91707eb3b",
+    "bb2019e5cafd203d1aef3a0e",
+    "c2c061128feecd8774b1cc8d",
+    "c52e21445957087bb0307380",
+    "c56ac7d51c47f4f621ed7c00",
+    "c80d7ab51e9a5f5dd999852d",
+    "cb691921c4b9b42a74b52aed",
+    "d5785a921025865a5262c54b",
+    "e1899e07d6fd2b67c7611024",
+    "e96539c441e4a3ec0680e5a0",
+    "eb04f38227bd0093a256a269",
+    "eb4397d45905171f8747d24a",
+    "f58c0353772a6b2749f83b48",
+    "f64a8b88a725061722736e12"
+  ],
+  "statuses": {
+    "success": 1
+  },
+  "ranking_tolerance": 0.05,
+  "method_notes": [
+    "Development proxy-ranking screen, not an adaptive-policy evaluation or a novelty result.",
+    "Ranks use execution time after cluster setup; all lifecycle timing remains in raw records.",
+    "A decisive pair requires > tolerance median gap and nonoverlapping observed repeat ranges; not a statistical confidence interval.",
+    "All candidates/repeats must succeed for a numerical ranking comparison; failures/incomplete groups are not silently dropped.",
+    "Full and probe outcomes share instances: this is paired descriptive analysis, not held-out prediction accuracy.",
+    "No end-to-end savings or deadline guarantee is computed from this matrix.",
+    "Large input partitions are a heuristic for expensive work, not measured post-shuffle working sets."
+  ],
+  "aggregates": [
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.790953083196655
+      ],
+      "median_engine_seconds": 1.790953083196655
+    }
+  ],
+  "comparisons": [
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    }
+  ],
+  "plan_sha256": "abe169034781bc1446c419efbbe01d45243f84a853bd7c5f6f32c8510754c3e2",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.4",
+    "logical_cpus": 10,
+    "versions": {
+      "dask": "2026.8.0",
+      "distributed": "2026.8.0",
+      "pandas": "3.1.0",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2"
+    }
+  },
+  "host_physical_bytes": 17179869184,
+  "raw_evidence": "Complete raw records and Parquet are local under the experiment directory; this is a compact export."
+}

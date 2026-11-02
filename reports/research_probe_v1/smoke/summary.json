@@ -1,0 +1,400 @@
+{
+  "schema_version": "probe-ranking-report-v1",
+  "role": "development_only",
+  "planned_cells": 16,
+  "recorded_cells": 16,
+  "missing_cells": [],
+  "statuses": {
+    "success": 16
+  },
+  "ranking_tolerance": 0.05,
+  "method_notes": [
+    "Development proxy-ranking screen, not an adaptive-policy evaluation or a novelty result.",
+    "Ranks use execution time after cluster setup; all lifecycle timing remains in raw records.",
+    "A decisive pair requires > tolerance median gap and nonoverlapping observed repeat ranges; not a statistical confidence interval.",
+    "All candidates/repeats must succeed for a numerical ranking comparison; failures/incomplete groups are not silently dropped.",
+    "Full and probe outcomes share instances: this is paired descriptive analysis, not held-out prediction accuracy.",
+    "No end-to-end savings or deadline guarantee is computed from this matrix.",
+    "Large input partitions are a heuristic for expensive work, not measured post-shuffle working sets."
+  ],
+  "aggregates": [
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "full",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.4318949168082327
+      ],
+      "median_engine_seconds": 1.4318949168082327
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "full",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.3595779158640653
+      ],
+      "median_engine_seconds": 1.3595779158640653
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.3986281659454107
+      ],
+      "median_engine_seconds": 1.3986281659454107
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.3878067918121815
+      ],
+      "median_engine_seconds": 1.3878067918121815
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.3948238750454038
+      ],
+      "median_engine_seconds": 1.3948238750454038
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.6817110830452293
+      ],
+      "median_engine_seconds": 1.6817110830452293
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.3838481658603996
+      ],
+      "median_engine_seconds": 1.3838481658603996
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.3723549169953912
+      ],
+      "median_engine_seconds": 1.3723549169953912
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "full",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.4883103328756988
+      ],
+      "median_engine_seconds": 1.4883103328756988
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "full",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.4052135839592665
+      ],
+      "median_engine_seconds": 1.4052135839592665
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.452604124788195
+      ],
+      "median_engine_seconds": 1.452604124788195
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.4058451671153307
+      ],
+      "median_engine_seconds": 1.4058451671153307
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.5190980830229819
+      ],
+      "median_engine_seconds": 1.5190980830229819
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.4370589589234442
+      ],
+      "median_engine_seconds": 1.4370589589234442
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.4703977501485497
+      ],
+      "median_engine_seconds": 1.4703977501485497
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 1,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.438885916955769
+      ],
+      "median_engine_seconds": 1.438885916955769
+    }
+  ],
+  "comparisons": [
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "uniform",
+      "evaluable": true,
+      "pairs": [
+        {
+          "a": "w1_t1_1g",
+          "b": "w1_t2_1g",
+          "state": "inverted"
+        }
+      ],
+      "pair_counts": {
+        "inverted": 1
+      },
+      "inversion_fraction_among_resolved": 1.0,
+      "proxy_selected_config": "w1_t1_1g",
+      "hindsight_median_best_config": "w1_t2_1g",
+      "selected_full_engine_regret": 0.05319077347487444,
+      "selection_distinguishable_from_best": true
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "uniform_memory",
+      "evaluable": true,
+      "pairs": [
+        {
+          "a": "w1_t1_1g",
+          "b": "w1_t2_1g",
+          "state": "probe_unresolved"
+        }
+      ],
+      "pair_counts": {
+        "probe_unresolved": 1
+      },
+      "inversion_fraction_among_resolved": null,
+      "proxy_selected_config": "w1_t2_1g",
+      "hindsight_median_best_config": "w1_t2_1g",
+      "selected_full_engine_regret": 0.0,
+      "selection_distinguishable_from_best": false
+    },
+    {
+      "instance_id": "groupby-2048-uneven",
+      "method": "partition_tail",
+      "evaluable": true,
+      "pairs": [
+        {
+          "a": "w1_t1_1g",
+          "b": "w1_t2_1g",
+          "state": "probe_unresolved"
+        }
+      ],
+      "pair_counts": {
+        "probe_unresolved": 1
+      },
+      "inversion_fraction_among_resolved": null,
+      "proxy_selected_config": "w1_t2_1g",
+      "hindsight_median_best_config": "w1_t2_1g",
+      "selected_full_engine_regret": 0.0,
+      "selection_distinguishable_from_best": false
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "uniform",
+      "evaluable": true,
+      "pairs": [
+        {
+          "a": "w1_t1_1g",
+          "b": "w1_t2_1g",
+          "state": "aligned"
+        }
+      ],
+      "pair_counts": {
+        "aligned": 1
+      },
+      "inversion_fraction_among_resolved": 0.0,
+      "proxy_selected_config": "w1_t2_1g",
+      "hindsight_median_best_config": "w1_t2_1g",
+      "selected_full_engine_regret": 0.0,
+      "selection_distinguishable_from_best": false
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "uniform_memory",
+      "evaluable": true,
+      "pairs": [
+        {
+          "a": "w1_t1_1g",
+          "b": "w1_t2_1g",
+          "state": "probe_unresolved"
+        }
+      ],
+      "pair_counts": {
+        "probe_unresolved": 1
+      },
+      "inversion_fraction_among_resolved": null,
+      "proxy_selected_config": "w1_t2_1g",
+      "hindsight_median_best_config": "w1_t2_1g",
+      "selected_full_engine_regret": 0.0,
+      "selection_distinguishable_from_best": false
+    },
+    {
+      "instance_id": "skewed_join-2048-uneven",
+      "method": "partition_tail",
+      "evaluable": true,
+      "pairs": [
+        {
+          "a": "w1_t1_1g",
+          "b": "w1_t2_1g",
+          "state": "probe_unresolved"
+        }
+      ],
+      "pair_counts": {
+        "probe_unresolved": 1
+      },
+      "inversion_fraction_among_resolved": null,
+      "proxy_selected_config": "w1_t2_1g",
+      "hindsight_median_best_config": "w1_t2_1g",
+      "selected_full_engine_regret": 0.0,
+      "selection_distinguishable_from_best": false
+    }
+  ],
+  "plan_sha256": "e33e65e5a469c400d5b6d349f56db57b7f8a38f925f1881f4a464f61111baa02",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.4",
+    "logical_cpus": 10,
+    "versions": {
+      "dask": "2026.8.0",
+      "distributed": "2026.8.0",
+      "pandas": "3.1.0",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2"
+    }
+  },
+  "host_physical_bytes": 17179869184,
+  "raw_evidence": "Complete raw records and Parquet are local under the experiment directory; this is a compact export."
+}

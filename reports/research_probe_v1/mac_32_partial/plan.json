@@ -1,0 +1,542 @@
+{
+  "schema_version": "partition-probe-pilot-v1",
+  "created_utc": "2026-10-31T14:55:39.588350+00:00",
+  "git_base_revision": "504f005efa24bfbf6fb5e43c99548a8400529bfe",
+  "preset": "mac-limited",
+  "role": "development_only",
+  "source_fingerprints": {
+    "experiments/probe_pilot.py": "6d10ccce2819ab2f3ddd0a4fff24a152a73bfd96e1cb8f9c00e36a7f0b7e6a1e",
+    "safe_pipe/research/probe_workloads.py": "04d407f6395cea64e6f5faaf5aa7106bf3e6882494d1002f9dfb091939366964",
+    "safe_pipe/research/probe_runner.py": "8d95cda2b459af19b1e545fef7a97cb908081676131c13dddfadcb185c36c01a",
+    "safe_pipe/research/probe_analysis.py": "fe763f14555131c2fd63e951cebfce3ea96b38c3a387f63b9556cf1a2c2364a5"
+  },
+  "seed": 20261031,
+  "fraction": 0.25,
+  "memory_floor_bytes": 536870912,
+  "memory_mapping": "floor + fraction * (target - floor); heuristic, not measured pressure equivalence",
+  "methods": [
+    "full",
+    "uniform",
+    "uniform_memory",
+    "partition_tail"
+  ],
+  "configs": [
+    {
+      "config_id": "w1_t1_1g",
+      "n_workers": 1,
+      "threads_per_worker": 1,
+      "memory_limit": "1000000000"
+    },
+    {
+      "config_id": "w1_t2_1g",
+      "n_workers": 1,
+      "threads_per_worker": 2,
+      "memory_limit": "1000000000"
+    }
+  ],
+  "recipes": [
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "family": "groupby",
+      "n_rows": 1000000,
+      "n_files": 8,
+      "seed": 731,
+      "n_keys": 500000,
+      "payload_columns": 16,
+      "hot_fraction": 0.25,
+      "partition_imbalance": 0.6
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "family": "skewed_join",
+      "n_rows": 1000000,
+      "n_files": 8,
+      "seed": 731,
+      "n_keys": 500000,
+      "payload_columns": 16,
+      "hot_fraction": 0.25,
+      "partition_imbalance": 0.6
+    }
+  ],
+  "repeats": 2,
+  "ranking_tolerance": 0.05,
+  "timeout_seconds": 180,
+  "datasets": {
+    "groupby-1000000-uneven": {
+      "full": "datasets/groupby-1000000-uneven/full",
+      "uniform": "datasets/groupby-1000000-uneven/uniform",
+      "uniform_memory": "datasets/groupby-1000000-uneven/uniform",
+      "partition_tail": "datasets/groupby-1000000-uneven/partition_tail"
+    },
+    "skewed_join-1000000-uneven": {
+      "full": "datasets/skewed_join-1000000-uneven/full",
+      "uniform": "datasets/skewed_join-1000000-uneven/uniform",
+      "uniform_memory": "datasets/skewed_join-1000000-uneven/uniform",
+      "partition_tail": "datasets/skewed_join-1000000-uneven/partition_tail"
+    }
+  },
+  "dataset_fingerprints": {
+    "groupby-1000000-uneven": {
+      "full": "b4e327bec78775b4296be7b1d0e796b931f59e95e1c4dd56ea1a3602ea012281",
+      "uniform": "5dabe5ebdacb7868ddd23be79630149f0c16f1d951e4825d49ff00d4ac810086",
+      "uniform_memory": "5dabe5ebdacb7868ddd23be79630149f0c16f1d951e4825d49ff00d4ac810086",
+      "partition_tail": "25261742fdde3f230501fc5444b2fb0903f9a3a9d7cc1092cbb3ee78cc2cfa98"
+    },
+    "skewed_join-1000000-uneven": {
+      "full": "ec70d153903b2acf338701ae54774cd71ab0baec797362fb47ec6de9daddb3a5",
+      "uniform": "a5c5bfbfab40f9585e80fa1d3bc95e2e769b20e7b5e73c1c145d55f7d0a5bdea",
+      "uniform_memory": "a5c5bfbfab40f9585e80fa1d3bc95e2e769b20e7b5e73c1c145d55f7d0a5bdea",
+      "partition_tail": "1e3e6f75f073ec80db4b97c8763daa4ab97e98035efcd21161fafa04e5d43717"
+    }
+  },
+  "cells": [
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "912f85dfb9c5ef6436e5b7ec"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform_memory",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "65426e6d7c4951077d657dce"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "partition_tail",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "6d67523d1cea847d4ad0d886"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "full",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "8b61f9003d1b410847740a0d"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "f87918a854a39d21d804b244"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "partition_tail",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "6da6bb9a655576a371e8af0d"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform_memory",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "2f8c903fb09df99e60018e39"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform_memory",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "4491e229fa99f6e14a87e5bb"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "full",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "4f3b63272e81deeabac3d72f"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "full",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "7430a67df425302e5b4ef483"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "726c633522f5d7f81b23d33c"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform_memory",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "3181bcab2052489177575b6a"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "partition_tail",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "e1899e07d6fd2b67c7611024"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "full",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t2_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "c2c061128feecd8774b1cc8d"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "partition_tail",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "f64a8b88a725061722736e12"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform",
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "cb691921c4b9b42a74b52aed"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "partition_tail",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "30d5acbce6a3ea026488f7e8"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform_memory",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "453ddc5eda60731b334de422"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "full",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "71064150d83b3f7d77a653f5"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "full",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "25fae6ae3c02aa3bde85dc74"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "98bd64261f7bcec15d901399"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "full",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "b1ec1e8854ae231fa836dda0"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "partition_tail",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "c52e21445957087bb0307380"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "10e4f3a20cdc336a4e7cd716"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform_memory",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "c56ac7d51c47f4f621ed7c00"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform_memory",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "54200814d99f9d7b53d3a777"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "partition_tail",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "c80d7ab51e9a5f5dd999852d"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "02769cb8e3576432d43a5d72"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "method": "uniform_memory",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t2_1g__uniform_memory",
+        "n_workers": 1,
+        "threads_per_worker": 2,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t2_1g"
+      },
+      "cell_id": "002a12abf0507a9b4737a9b5"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "uniform",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__uniform",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "b10917f3bc9373f7f6ed785c"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "partition_tail",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__partition_tail",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "1c8268bfa800227284456713"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "method": "full",
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w1_t1_1g__full",
+        "n_workers": 1,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000",
+        "base_config_id": "w1_t1_1g"
+      },
+      "cell_id": "495530177da6f1599da74927"
+    }
+  ]
+}

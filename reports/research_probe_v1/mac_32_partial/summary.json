@@ -1,0 +1,249 @@
+{
+  "schema_version": "probe-ranking-report-v1",
+  "role": "development_only",
+  "planned_cells": 32,
+  "recorded_cells": 10,
+  "missing_cells": [
+    "002a12abf0507a9b4737a9b5",
+    "02769cb8e3576432d43a5d72",
+    "10e4f3a20cdc336a4e7cd716",
+    "1c8268bfa800227284456713",
+    "25fae6ae3c02aa3bde85dc74",
+    "30d5acbce6a3ea026488f7e8",
+    "3181bcab2052489177575b6a",
+    "453ddc5eda60731b334de422",
+    "495530177da6f1599da74927",
+    "54200814d99f9d7b53d3a777",
+    "71064150d83b3f7d77a653f5",
+    "726c633522f5d7f81b23d33c",
+    "98bd64261f7bcec15d901399",
+    "b10917f3bc9373f7f6ed785c",
+    "b1ec1e8854ae231fa836dda0",
+    "c2c061128feecd8774b1cc8d",
+    "c52e21445957087bb0307380",
+    "c56ac7d51c47f4f621ed7c00",
+    "c80d7ab51e9a5f5dd999852d",
+    "cb691921c4b9b42a74b52aed",
+    "e1899e07d6fd2b67c7611024",
+    "f64a8b88a725061722736e12"
+  ],
+  "statuses": {
+    "success": 10
+  },
+  "ranking_tolerance": 0.05,
+  "method_notes": [
+    "Development proxy-ranking screen, not an adaptive-policy evaluation or a novelty result.",
+    "Ranks use execution time after cluster setup; all lifecycle timing remains in raw records.",
+    "A decisive pair requires > tolerance median gap and nonoverlapping observed repeat ranges; not a statistical confidence interval.",
+    "All candidates/repeats must succeed for a numerical ranking comparison; failures/incomplete groups are not silently dropped.",
+    "Full and probe outcomes share instances: this is paired descriptive analysis, not held-out prediction accuracy.",
+    "No end-to-end savings or deadline guarantee is computed from this matrix.",
+    "Large input partitions are a heuristic for expensive work, not measured post-shuffle working sets."
+  ],
+  "aggregates": [
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "full",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.0722541669383645
+      ],
+      "median_engine_seconds": 2.0722541669383645
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "full",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        4.284213416045532
+      ],
+      "median_engine_seconds": 4.284213416045532
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.5517603331245482
+      ],
+      "median_engine_seconds": 1.5517603331245482
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6805423330515623
+      ],
+      "median_engine_seconds": 1.6805423330515623
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6088604999240488
+      ],
+      "median_engine_seconds": 1.6088604999240488
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "full",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.0064430409111083
+      ],
+      "median_engine_seconds": 2.0064430409111083
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.5965035001281649
+      ],
+      "median_engine_seconds": 1.5965035001281649
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6027449171524495
+      ],
+      "median_engine_seconds": 1.6027449171524495
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6500655831769109
+      ],
+      "median_engine_seconds": 1.6500655831769109
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6180433749686927
+      ],
+      "median_engine_seconds": 1.6180433749686927
+    }
+  ],
+  "comparisons": [
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    }
+  ],
+  "plan_sha256": "4a605a6006cbc9d60c3b2c47170adecf7924ec107748815caf699cdfe1da1b06",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.4",
+    "logical_cpus": 10,
+    "versions": {
+      "dask": "2026.8.0",
+      "distributed": "2026.8.0",
+      "pandas": "3.1.0",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2"
+    }
+  },
+  "host_physical_bytes": 17179869184,
+  "raw_evidence": "Complete raw records and Parquet are local under the experiment directory; this is a compact export."
+}
