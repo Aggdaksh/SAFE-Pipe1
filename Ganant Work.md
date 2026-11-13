@@ -130,6 +130,12 @@
 - Exported a [monitored partial checkpoint](reports/research_probe_windows_mains_v1_partial/README.md). The user confirmed the charger connection, and execution resumed in bounded batches on the same plan. The local controller requests system-awake state while active and supports a `pause.requested` file at batch boundaries. The exported count is a snapshot; local raw records may advance.
 - The next 32 cells kept stable sampled mains and produced 31 successes plus one `KilledWorker` execution error on a full uneven two-million-row join at `w2_t1_1g`. Telemetry observed at least five restarts and about 1.489 GB summed sampled stored-spill peaks across lifetimes; cleanup left zero owned descendants. Preserved the ambiguous error without calling it confirmed OOM. The monitor stopped with **68/768 cells: 66 successes, one timeout, one execution error**; the compact export was updated to all 68 rows.
 
+## Checkpoint 19 — Completion request and resume preparation
+
+- The user requested finishing the screen. Rechecked the existing 68-cell plan, absent run lock, about 60 GiB free disk and available RAM. The PC again reported unplugged power; no further jobs were launched while awaiting a secure mains connection.
+- Reviewed the retained timeout and ambiguous `KilledWorker` as legitimate measured outcomes. Added local controller option `--continue-reviewed-failures` so those outcomes can remain while later cells proceed, provided cleanup reports zero survivors. Unknown errors, interruptions, cleanup leftovers, power/disk problems and command errors still stop execution. Checked the outcome guards with synthetic cases; frozen research source and model remain unchanged.
+- Wrote [completion and next decisions](docs/research/NEXT_STEPS.md): 700 planned attempts remain, rough runtime extrapolation is about 83 minutes before extra overhead/timeouts, followed by ranking/noise/baseline analysis and a conditional independent follow-up. The full screen is pending mains power, not a request to rerun failed cells.
+
 ## Current work and next steps
 
 1. Continue the existing monitored `windows-screen-mains-v1` development plan while power remains secure. Retain all failures and flagged power intervals; do not selectively retry or merge rows with the first diagnostic plan or Mac studies. Inspect statuses, restarts, spill and cleanup at each batch. Research remains separate from `main`.

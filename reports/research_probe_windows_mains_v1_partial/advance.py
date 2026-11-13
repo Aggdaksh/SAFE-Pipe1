@@ -27,9 +27,23 @@ def condition():
 def emit(value):
     print(json.dumps(value), flush=True)
 
+def needs_inspection(record, continue_reviewed_failures):
+    if record.get('owned_descendants_alive_after_cleanup') != 0:
+        return True
+    if record['status'] == 'success':
+        return False
+    if continue_reviewed_failures and record['status'] == 'timeout':
+        return False
+    if (continue_reviewed_failures and record['status'] == 'execution_error'
+            and 'KilledWorker:' in (record.get('error') or '')):
+        return False
+    return True
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--until', type=int, required=True)
+    parser.add_argument('--continue-reviewed-failures', action='store_true',
+                        help='Retain cleanly contained timeouts/KilledWorker outcomes and continue')
     args = parser.parse_args()
     with (RUN / 'conditions.jsonl').open('a') as conditions:
         while len(records()) < args.until:
@@ -61,7 +75,7 @@ def main():
                 '--plan', str(PLAN)], cwd=ROOT, capture_output=True, text=True)
             after = records()
             new = after[len(before):]
-            bad = [r['cell_id'] for r in new if r['status'] != 'success' or r['owned_descendants_alive_after_cleanup']]
+            bad = [r['cell_id'] for r in new if needs_inspection(r, args.continue_reviewed_failures)]
             emit(dict(completed=len(after), planned=768, new_statuses={s:sum(r['status']==s for r in new)
                 for s in {r['status'] for r in new}}, power_or_disk_violation=violation,
                 restarts=sum(r['telemetry'].get('observed_restarts_lower_bound',0) for r in new),
