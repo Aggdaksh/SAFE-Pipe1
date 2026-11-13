@@ -15,6 +15,7 @@
 | Windows research environment and tests | VERIFIED | Separate `.venv-research`; 43 targeted research tests passed, and the full suite exited successfully with three skips on the original Windows PC |
 | Windows smoke | COMPLETE | 16/16 tiny cells succeeded with telemetry and no owned descendants after cleanup |
 | Windows screen | DIAGNOSTIC PARTIAL | 36/768 cells succeeded; three sampled positive spill, and one full join observed at least two worker restarts. A post-batch check found the PC unplugged; power source was not recorded per cell. Start a fresh mains-powered plan for comparable rankings. [Checkpoint](reports/research_probe_windows_v1_partial/README.md) |
+| Second Windows screen with continuous conditions | PARTIAL / INSPECTION | 68/768: 66 successes, one timeout with a power interruption, one `KilledWorker` execution error in the next stable-power batch. Cleanup completed; ambiguous worker death is not relabelled OOM. [Monitored checkpoint](reports/research_probe_windows_mains_v1_partial/README.md) |
 | Adaptive controller / new reliability model | NOT IMPLEMENTED / NOT TRAINED | Conditional on a useful gap after simple baselines |
 | Independent final study, paper and merge decision | PENDING | Follow-up design, evaluation and user review |
 

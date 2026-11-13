@@ -38,6 +38,7 @@ Verified evidence must stay separated:
 | Mac 32-cell limited plan | 10 recorded successes; study stopped at the user's instruction | Partial data only; 2 full groupby runs recorded sampled disk spill |
 | Windows research smoke | 16/16 successful tiny cells on 2026-11-13; memory samples present and zero owned descendants after cleanup | Windows software/cleanup diagnostic only |
 | Windows research screen | 36/768 cells recorded, all successful; three cells sampled positive stored spill; one full join cell showed at least two worker restarts. Post-batch power check reported unplugged battery | Diagnostic development evidence only; power state was not controlled before each cell, so a fresh mains-powered plan is needed for comparable rankings |
+| Second Windows screen, initially verified mains | 68/768: 66 success, one timeout, one `KilledWorker` execution error. Power interruption affected the timeout; the next 32 cells had stable sampled mains | Partial development evidence; monitor stopped after worker death with clean cleanup. Inspect the failure before further bounded batches; preserve every outcome |
 
 The two observed groupby spill peaks were 71,066,898 and 92,031,812 bytes, with one worker lifetime observed in each. They show pressure in those particular runs, not a stable ranking or benefit from the proposed sampling method. One additional Mac-limited attempt was interrupted before the older runner wrote its row; the ledger names that evidence gap. Do not hide it or fabricate a replacement measurement.
 
@@ -54,7 +55,7 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Work on the other laptop
 
-1. On the original Windows PC, connect mains power and verify `power_plugged=True`. Prepare a **new** `windows-screen` plan in a new empty directory so battery-uncertain diagnostic rows are not mixed with controlled runs. Record power state and package/host conditions before and during batches; do not launch this matrix on the Mac.
+1. On the original Windows PC, continue `data/probes/windows-screen-mains-v1/plan.json` in bounded batches after verifying secure mains power. Continuous condition samples flag a power interruption during its first timeout; keep that limitation with the data. The user confirmed the charger connection after inspection. Do not generate a third dataset merely to replace this observation. The first battery-uncertain plan stays separate. See the [monitored checkpoint](reports/research_probe_windows_mains_v1_partial/README.md).
 2. Run the 12 instances × 8 configurations × 4 methods × 2 repeats = **768 physical jobs** in bounded batches only while conditions remain stable. Inspect failures, worker restarts, spill, disk and cleanup. Preserve failures/interruption rather than selectively replacing cells.
 3. Analyze whether proxy-ranking errors persist after the matched uniform-memory baseline. Confirm pressure and repeatability; two repeats are exploratory, not strong statistical evidence.
 4. If a useful gap remains, implement and test the adaptive policy; otherwise revise or abandon the candidate. Training a reliability model is conditional on the design and sufficient independent data, not an automatic next step.

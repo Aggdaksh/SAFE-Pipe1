@@ -122,9 +122,17 @@
 - A post-batch power check reported 100% battery but `power_plugged=False`. Power source was not recorded before each of the 36 cells. Preserve this as a diagnostic plan; prepare a new independent plan after connecting mains power for comparable method rankings. Do not silently mix battery-uncertain rows with later mains-powered rows.
 - Saved package versions, original revision and host/session notes with the ignored run data. Exported a [compact partial checkpoint](reports/research_probe_windows_v1_partial/README.md) for the team. Raw logs and generated Parquet remain local; continue the same plan only on this PC.
 
+## Checkpoint 18 — Monitored mains plan and preserved timeout
+
+- Verified the user's mains connection and prepared `data/probes/windows-screen-mains-v1/` at source revision `5516d1a`. Saved environment/revision, and sampled power, free disk and available RAM about every two seconds. The new data adds about 3.39 GiB; both local screen datasets together occupy about 6.78 GiB.
+- The initial four plus 32-cell batch recorded **35 successes and one 180-second execution timeout**. The full two-million-row uneven join at `w1_t2_1g` observed at least three worker restarts and about 1.365 GB summed sampled stored-spill peaks across lifetimes; cleanup left zero owned descendants.
+- Monitoring caught about 44 seconds unplugged during that timeout. Available RAM remained above 14.4 GiB and disk above 59.3 GiB. Retained the power interval and timeout as a confounded development observation, without attributing its cause solely to memory.
+- Exported a [monitored partial checkpoint](reports/research_probe_windows_mains_v1_partial/README.md). The user confirmed the charger connection, and execution resumed in bounded batches on the same plan. The local controller requests system-awake state while active and supports a `pause.requested` file at batch boundaries. The exported count is a snapshot; local raw records may advance.
+- The next 32 cells kept stable sampled mains and produced 31 successes plus one `KilledWorker` execution error on a full uneven two-million-row join at `w2_t1_1g`. Telemetry observed at least five restarts and about 1.489 GB summed sampled stored-spill peaks across lifetimes; cleanup left zero owned descendants. Preserved the ambiguous error without calling it confirmed OOM. The monitor stopped with **68/768 cells: 66 successes, one timeout, one execution error**; the compact export was updated to all 68 rows.
+
 ## Current work and next steps
 
-1. Connect this PC to mains power and verify it remains plugged in. Prepare a new research screen in a new empty directory, recording power state and host conditions before and during bounded batches. The 36-cell diagnostic plan and partial Mac studies remain separate. The research branch remains separate from `main` until evidence and an integration decision.
+1. Continue the existing monitored `windows-screen-mains-v1` development plan while power remains secure. Retain all failures and flagged power intervals; do not selectively retry or merge rows with the first diagnostic plan or Mac studies. Inspect statuses, restarts, spill and cleanup at each batch. Research remains separate from `main`.
 2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC

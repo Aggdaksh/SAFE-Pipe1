@@ -1,0 +1,1975 @@
+{
+  "schema_version": "probe-ranking-report-v1",
+  "role": "development_only",
+  "planned_cells": 768,
+  "recorded_cells": 68,
+  "missing_cells": [
+    "002a12abf0507a9b4737a9b5",
+    "017214e9961ab5bd86748f45",
+    "017cc4b6ab07961f2ec00134",
+    "01962ef5bfc042c98aa362e6",
+    "025cd2ef4ec8eb6d8c33b9b0",
+    "02769cb8e3576432d43a5d72",
+    "0349d82c6858fcb1ab8b778c",
+    "0356c48bbad5d2e14e5b089b",
+    "03828b350fb5b49408b6eea2",
+    "0488d91bbe5415d2341aea50",
+    "04e1cb37820fce1f6f098b66",
+    "05291099039502569899b463",
+    "058c3d6a7ca532b03c090698",
+    "0596655e45cb141813b7b887",
+    "05b422d4a084d1d1f30a5d4b",
+    "05daa418af06ece814118e86",
+    "06003939525ad0401e1ffa52",
+    "0607a449d259e47c1b3e827c",
+    "06113cce0124b484304c2fe4",
+    "07acce4a0a9faca389ea1c44",
+    "07c2ac304529ee6dc938380b",
+    "081c3189022862c1997b9be0",
+    "0873f577c073b4982216ee54",
+    "09064f9b7e3d99ad70e9a594",
+    "0945e3296f687c0e2ab45338",
+    "0996a9917ded03de3cd39f9b",
+    "099767654dd69914e7ef65e6",
+    "0a0025e95cd8eb0d06e69db6",
+    "0a9db79bd55e7b574cfe0a0d",
+    "0b6c47bfb74ff9015db54bde",
+    "0b839f832f2c7a5353fa2a43",
+    "0b8c25842e578c8e45ed4c3a",
+    "0bd8d1a2ab17890445f8314e",
+    "0bec4f7dfaad0d6453caa740",
+    "0bf3cb3eae840ed03ded8028",
+    "0c661bd737503da2360b6e06",
+    "0c66a1c270684809c5b643cd",
+    "0d8b40a52a3e374910d82e88",
+    "0e0078f49557a8bbe3510523",
+    "0e4b2da153ba95a1a92f6554",
+    "0efef7f9550096f1b7bf46a2",
+    "0f0a8a8fba44b7bfdd56da41",
+    "0f2e016427e2ea43720ea278",
+    "0f8921f9a438c7805974f174",
+    "0faf165a59f641dcf426024e",
+    "1038a2eeb33e1e8393b4d52e",
+    "104814bd071d7c5c80e99f3f",
+    "109d198de1ae5a2d760065d1",
+    "10e4f3a20cdc336a4e7cd716",
+    "11cc4fd88d73b917a2b68f7c",
+    "121cbf603aef1200c1bc239f",
+    "12b7d035b4c22ef8c69306e1",
+    "13797d49cf982789ade38864",
+    "137ba215be236f3e31c5a974",
+    "13a377dbc8c2c2e04e6d8af3",
+    "14124ff2feb5bc1e5af9858d",
+    "14204d6d83de952095e3e242",
+    "14adff0589c95fd9d4306f1a",
+    "14cf335fec37e4edf9e5d66f",
+    "152e6a0d271bded5e2b5b3d5",
+    "156cb27f49b90fc3c8900bf2",
+    "1642e2959c72b408da160907",
+    "16464d975ffa3d939657eafa",
+    "1654698996afbf97b7d80820",
+    "16813eb78242df1fb5887956",
+    "16c971889f0e8b9439da97fc",
+    "17df4edb8aca93e08b08c2fe",
+    "18696bf03e1b1ec0a3b6f939",
+    "188494a88713a5776e9aa846",
+    "1a2ad8d200ddd24c25824673",
+    "1b01bc68c83446150c21f6bd",
+    "1b191c5fa0aa1c55a362f43c",
+    "1b3d952a6b22f3265d2b049e",
+    "1c1ae027ea86e0f750082a3b",
+    "1c6ae0f45f7422cd4392e705",
+    "1c8268bfa800227284456713",
+    "1c9b98ea89e84b137b56fdb8",
+    "1ce5bd9c34f4603def7b17b6",
+    "1cff739e72106a68374a55cc",
+    "1d3b86c30aefa658f41f280f",
+    "1d7210eeded7501bf8795761",
+    "1dd9d9b2e62d40af55ddd3d5",
+    "1e549c79ec6ee5e3d4d00cb8",
+    "1e8a9b143fe3f31e06eb70a4",
+    "1ecb109542134dbe0b251fbb",
+    "1edc449b69e4937ef62c8661",
+    "1f5421a045a2646a9ab109e4",
+    "2002e6f70559147ba8ddf164",
+    "20041fadb9ed38451099b34e",
+    "20079142d59e124f12af97f5",
+    "2008c93358fefb4432120cac",
+    "20501796ea6dab93e5a9a0be",
+    "209e42b17e13f1c5e4bf8ce5",
+    "20ad6d68b343bae64ddbcaed",
+    "213918d3485941eb6cae4a90",
+    "2239a78c46c912de7cd2291c",
+    "225d825dd2e146e0c6ebed1c",
+    "2271fcbfa3920a3ea430f7d9",
+    "22757c43aa1136a1732cd852",
+    "227b7ffea8340a5ee4b797fa",
+    "236382acb209c1dc4ba9b033",
+    "24f321f3c02e261d99094924",
+    "25aa07af2fa7a0cd87eebdd3",
+    "25b0d78c6dc1a802a9cefea1",
+    "25fae6ae3c02aa3bde85dc74",
+    "26150251fc6be67ff31bd651",
+    "261858c72b864a3012aa6293",
+    "26649f5c21b5ab2d3182ed2a",
+    "2829c14d3f5db300864aa707",
+    "285b9cd7f4b6a4a3aae9e203",
+    "28d5987b0d3c8272382b720d",
+    "28f4f427baaf8d72c36fcbb4",
+    "2917c007cab9eaa397401acd",
+    "2b16f576f4a24b833040c979",
+    "2bc005c69657a517379062d7",
+    "2cc9c74ded8d6042b6bf465d",
+    "2d05f30c5e241e4e18430f75",
+    "2de0a24d836f95fe23fd4478",
+    "2f8f741a12805fa53db78c83",
+    "2fdd1c4bc37f8e6bb324da89",
+    "30aee6ddd5e9c97b8c50f70a",
+    "30d5acbce6a3ea026488f7e8",
+    "31166d0908d6f37192f05a59",
+    "3156f40027f57405967d82e2",
+    "3181bcab2052489177575b6a",
+    "3218fe67847fd7ebee5122f3",
+    "325cf02c51ffcfda0bccddc1",
+    "32bacfa5b014c9f2d328cac6",
+    "32d8eda54e8790d5876d6247",
+    "332da993df00c0f142a283fb",
+    "338a10309141143c629c87a9",
+    "345a2ce361814d240ce5ce98",
+    "350abaaa8a1090f2b7cb92ee",
+    "35932d90ba0a815013540aa0",
+    "359633aef666d0507c6f1f7b",
+    "359eb1939d133cadddf51523",
+    "360af42ce5ca983f26e66bac",
+    "37aba9b426a1a53bdf097357",
+    "3817f45738cd1ae824ab6473",
+    "38322f6ca8f63be30d70add1",
+    "387726dac7055c584f853e39",
+    "38aefd4bf42cc2c2427236a8",
+    "38c1203a723d6ae9529b778f",
+    "38e84eba0c3df450ac9d202b",
+    "39557bd640c09dccc67e96f9",
+    "39a134e40643fa8a071efe2d",
+    "3ae084c8321197637f728d70",
+    "3b3b16ffeaf09c708954975f",
+    "3bd352119728d33fdb04fd6a",
+    "3c0b75368d8fac499532c924",
+    "3c86ad2a9ec779622546261c",
+    "3dce4084cc1d5e88ef6247b9",
+    "3e2533af506331dfb51495e0",
+    "3ee2802f8d3a4aef0028bd26",
+    "3f0c5a676972aeeea74fd812",
+    "3f2071a662d913f5db969b1e",
+    "3f2613bc658d3f821a500165",
+    "3f4b87b99fbe2afbaa0141bb",
+    "3fb198fe17746ea73141ed9e",
+    "408456d193b38d7c51b89281",
+    "4123038d943575a2d61eecb6",
+    "423f9f1906dc3ab6b6dab6b8",
+    "429db225729e739dc3f17a83",
+    "42b102aee7bdab08155c53f8",
+    "43a3bb5c17393696dd09f45d",
+    "43cf96d182b96dd1b9e7c809",
+    "4474c961b1c72c2b6cd8129c",
+    "447f64fa4374be659718ee5b",
+    "4491e229fa99f6e14a87e5bb",
+    "453ddc5eda60731b334de422",
+    "454f1c5737ef5437abd85658",
+    "461ca97bcec332c27f33cc9f",
+    "463cf5da6aaa5a5258eab14f",
+    "47596312c839f390909ad045",
+    "47a4d50f14fb3d19c7fece97",
+    "48cf6613b118445bcb84806e",
+    "48ef082ac888eb5d3fe76bf1",
+    "48f294dea33d3d2feb25a239",
+    "490c6e5108a16d41b79f277d",
+    "495530177da6f1599da74927",
+    "4985ce44f9c0c1187d10d21d",
+    "4999e4b6b244120c4f8ba106",
+    "49cb568fb36b0faeae76cf8a",
+    "49dd1bad4ab7afe4b3db70da",
+    "4a2c6c7188aa197a81c892b8",
+    "4a41798954705ffc1b644ae2",
+    "4a96485cf97e3108572997d0",
+    "4ab7e891d5e8606bbf7038d0",
+    "4b1639a4994d6a04050a0930",
+    "4db026e0461b5a0e0545b4fe",
+    "4df33640996ffa3e0eb500fa",
+    "4e960ec154cbe21b9685f752",
+    "4eecb4dd9e87ed5bfffdf8cf",
+    "4f3b63272e81deeabac3d72f",
+    "4faf6d29c4ef3f89a7e64cbd",
+    "4fc8b55da764d52803b1fd56",
+    "4fd5346a783f56811b702e93",
+    "511ae018ac7a80b2b6ea0728",
+    "521514411b35a5f57b922d12",
+    "52a8d2ce3577eec1147870aa",
+    "535073ba2ede2cadebe1aca3",
+    "53a49b45f681e344b99ea704",
+    "54200814d99f9d7b53d3a777",
+    "543071624e28f629fc5e4047",
+    "54bea3349454a15725ff835b",
+    "5506b3939f29ee469dffc97d",
+    "5579fe542a40e7c52497a472",
+    "557d5c4c0338bd0ad1218a8b",
+    "55b5a26a0fe9c234c96ba198",
+    "55e34018f4efdefd3efb0763",
+    "55f49ad2967e72976017ce9e",
+    "560405959f3063c15b7121fc",
+    "570aa9ad33d48bd3c02f8bb4",
+    "57a4c7a61d0d19fd855f32e7",
+    "57bfe3b6e9a8a2c0f59ab7fd",
+    "57f81587c5bb1ff283aab2ed",
+    "583af26c594e3621799631a1",
+    "583f9be469a0d1b920cdadce",
+    "5847ed3f88643713b04775da",
+    "584bf6d69be04b55a80e9485",
+    "5878deec5a8944d2233114ab",
+    "58cc48e6d584faacf4ff7c99",
+    "58ce4f97d4ac9fb7c92cbfe8",
+    "596a3d52e5f55825e36c6fc8",
+    "5a46ebb25412fc59277ae7de",
+    "5ac9831e995ddd08ac59c8d7",
+    "5afff3f59c6c32bb281b8e50",
+    "5b22e6b1833b8696feee2127",
+    "5c89f48fa7f9c67903491ecc",
+    "5c8e82544fc459efc04c1a6b",
+    "5cfd5910ef968920a231eadc",
+    "5e040f39c178a35120ddc9ea",
+    "5e11912032cdb587d2e13592",
+    "5e682287149eb238d09397f9",
+    "5f23565ff4d3668e9adccc55",
+    "5fc02fddc172c1bb9b6d04de",
+    "5fd92d4ac3d350b4e6b73f2e",
+    "6048697087973979ec586a62",
+    "607574a68a63c52331cdf36b",
+    "608274391170366a9037cfea",
+    "611c8923df5e44073a6efc54",
+    "61c96eb98b37bce5dc56cc8e",
+    "61f29ba5fdfd70ccc76fabeb",
+    "62a0ad174c5dd2c48d7a3211",
+    "63474eed3a218005a18e095f",
+    "6347cc9b67a7fbc822084ad1",
+    "638e3618f252499bf5265833",
+    "644def7a6b6cfea11bc2ae64",
+    "6496889f4a9fac570e4769d8",
+    "65426e6d7c4951077d657dce",
+    "655a87f132b70dc53cb3977c",
+    "657e63e5fc5d84deef450ea7",
+    "65ce7b1697bd221474611548",
+    "65fc6b883696a24e6977471a",
+    "66530458120200480077a18b",
+    "674eb9a710ca99bd92cb0712",
+    "67533c5a0cb4b6b7212f0873",
+    "675b5317f257513ec0cc4fde",
+    "67623dcef8bcaa6de0dc5a23",
+    "67d869d48818e3844c5a51d5",
+    "68ad7cbbd1bfb64558dc1f42",
+    "68ee1760b79fff3b7d14ff92",
+    "6962d1f97296f51f35ad0239",
+    "698130631257336e88d4fc1e",
+    "698a36bc3631fb4319c7c600",
+    "69cc52adcdeaf9a4e0c83e6f",
+    "6a240393b95a18b77d6da9c0",
+    "6a40a82a1a1c3dc420e17389",
+    "6a5ee0baba26ec413482fa39",
+    "6ac02e9d9eb5df072b1ec24b",
+    "6ad3d1c0e41937bb7720d841",
+    "6b1b878adb8321a2d69e91ab",
+    "6bd62870bfbd4832953b6182",
+    "6c2510cbce72c74af29d3088",
+    "6ca36497a5e5fafb435710d2",
+    "6ccfecfa93230ca6ade20235",
+    "6ce32cf16326b56ab347ece7",
+    "6d76ee9fd8066ea412913472",
+    "6da6bb9a655576a371e8af0d",
+    "6e66f4de664b89e8f1e44284",
+    "6e769d4ee7ae9e46b2e51827",
+    "7014c3ac78954575c8174c5b",
+    "70220ccdee8e66f7005a7a85",
+    "71064150d83b3f7d77a653f5",
+    "71e59559a71498d99333decc",
+    "724323ecadeac44119358c31",
+    "724968429072ef89a17fbf3d",
+    "7275f1fa9e16e17158c04442",
+    "727e224503600e3225c64477",
+    "728486cdd28c7ad0bc71cc3e",
+    "73072ad910ed08e79a69805f",
+    "73e220709a6c30586ff248be",
+    "7430a67df425302e5b4ef483",
+    "74405769d7dd1a81b578100d",
+    "74b61051c59beb99ff57b77e",
+    "74d1c759970843e19e564c28",
+    "754c966aa17c5ba4c18aab04",
+    "75768796835827aa159e0ff8",
+    "769e05b4c28c961fa79e87c2",
+    "76ba741f398d4729d739b81d",
+    "770c21e022af21d5b819e857",
+    "77370465e83e74cec7300bee",
+    "773fbf7d4910d3044f5ee133",
+    "78966591da0f8768119649f8",
+    "78a67c22e72fefbf31a039c7",
+    "78ded53da02f82bb4b7fd005",
+    "7900a4a23ba10d82bb56cb3c",
+    "79212ce3232143c873b6a6fc",
+    "7925c2f99336a1b7b90dfcb7",
+    "7983109dc2b3cfa976a33b29",
+    "79ce4aedcc2fe6cbda3ce825",
+    "79dba824e44b2d1ce0ac0edf",
+    "7ac8732c456472e99edf9a23",
+    "7ada1546317664d724ce57f6",
+    "7bd1b3b72ed7aaf2041a984f",
+    "7bef637cef5453462a6a5aaf",
+    "7c71d3517452e1afeac457d7",
+    "7cd4020420cad92eeafc6878",
+    "7d118f2bc04ab93b2bcb8bb9",
+    "7d1acf87b88ad902ce5d3378",
+    "7d2f71ebbbe75a9f6dc4e76f",
+    "7d4856619406a595d0d92352",
+    "7ddbfaf2b4088cb00cd27f27",
+    "7e359734cd45fff0357c6854",
+    "7e5784a22dcdfac25253be67",
+    "7e789e2b0fb2ee69fde881e5",
+    "7e9f121ff6c1cbb5d5c2c845",
+    "7ea3142f2f6c1682e5ddea92",
+    "7f066dd26736facf7d345cc6",
+    "7f31710f682e1fc031caeae5",
+    "7f8aeb74c447eaf4d7ad614d",
+    "7fa358967b0ec7d3db4626be",
+    "7fde65daf32be569ea5b15f4",
+    "805119d169d0af07550f2ee4",
+    "812573a1e7b16ce7caedba49",
+    "81686612a8a7d4d8d1674fed",
+    "8170a92a8c3654e632629f60",
+    "82087aedb27fb98c95c0439c",
+    "829f9786e8c9598c13ffe286",
+    "82e6ebbc289e86989ab167ad",
+    "83233c1f4e5f84b454f22049",
+    "83573c6dfc850a277640b15e",
+    "8366fb909da24266b34d38c1",
+    "8479a746affb4e98f7901566",
+    "8526d59683d2594b4034a0c4",
+    "85be85c9c14de36d249aa07e",
+    "8618ef0846c8932e3a788582",
+    "86591d7f2c9fde106372a5d5",
+    "8688c44f2bb9ac2ffa258e9f",
+    "86890d6e0e26b08d1ad3ffe9",
+    "877fd8a4978519c936bb9b25",
+    "878b042d4bd8704b06aa6222",
+    "879a80f6dcbf062055af32c4",
+    "87be6105c20b3d7c2b89c5b1",
+    "87e4ba291fb1e7c010a61024",
+    "88c0ac1c70be1be4c5261906",
+    "88da915280e0b346f1f4d0ff",
+    "89041569158a36b0a1354012",
+    "891d74b14e36b08d01cadfaf",
+    "891f1d27e8358188b0b1b5d1",
+    "8945d09264a0fc4eb45703c1",
+    "89e1f04bf2c4f7a21d8c80d6",
+    "8a34013cf82ccb41f0b0f156",
+    "8a74aa10578cf4be9419484b",
+    "8b0228db24cd4ef9d0cba609",
+    "8b51edd37eda10b7a11fbe0a",
+    "8b61f9003d1b410847740a0d",
+    "8c008d1f74cd99ed43b06e70",
+    "8c240df74adce9826f27b705",
+    "8c9fe0c0050013d35bc1f92b",
+    "8caabd74273297eb95a81711",
+    "8cbdde5b6f76fddcec9e41da",
+    "8d054121a2908296013409c5",
+    "8dab289a6938690940468450",
+    "8ddee49aa9b93650872aba06",
+    "8dfc66acb3c3de8a3785358b",
+    "8dfd5492de8f5ee48e6e67a4",
+    "8e094c09f8bf9bb504b1586b",
+    "8e78ac6da967daefd19044a5",
+    "8eef30eab1986538e7e71ac8",
+    "8f09fca88e7bef9bdeb0ee9d",
+    "9080a1f1fbf88ab8163ba844",
+    "90fe32fb7b24da9e2fbbe9c2",
+    "912f85dfb9c5ef6436e5b7ec",
+    "91d305c1a9f1dbb3ba30c64f",
+    "91e86e3b93e4e904fc0bcfcc",
+    "9265d3824b560c0af41f02cd",
+    "931180790772a571e740cf6a",
+    "941fd9d047c5ec745dba67fb",
+    "946710e0b24162f87fc26f83",
+    "9546c8e15e2de3ac0b60e2b3",
+    "954eff90379731700a336388",
+    "95bbab246161f07ce524a03c",
+    "963ac5e0c3bbafea19e373a8",
+    "9676b5929ad72eab2e078006",
+    "96ff2f362ed9bf2c2c1de575",
+    "97e8bfb0c80a7f2dfc1d98e6",
+    "980355a0cc39656745be4b1d",
+    "98078a3cfe3dbb781f98c16d",
+    "986b6fd75b886f4e2e4a0509",
+    "98912445c25f4670681f0b15",
+    "98bd64261f7bcec15d901399",
+    "98c90ea51c9934dc6239e5ed",
+    "99a9da211bd4500c96dbd3a2",
+    "99fd08eaae36930b8d517e54",
+    "9afcc9bfe3e95900dbd5360e",
+    "9b102d7d7e7f00ec9c0238e1",
+    "9b79d7b8e186b1832c4512e8",
+    "9bbb97ac655449da402a822c",
+    "9bd1efec6bfafa0e15de3ad3",
+    "9c6174ca20b0d8f5d7ff2a59",
+    "9c771080259c89dd1efad54c",
+    "9cb7fa205534736f0d9b4cac",
+    "9cc1d5f1aa33824ed6b2cfe4",
+    "9d145640f97a8cf58cf01f51",
+    "9d3c36acc516b946f5f3ae2b",
+    "9dd953277a130e28dc01307f",
+    "9e29cb7dc43a116521c8b6ee",
+    "9e72b75ab2c7f9338151f3d3",
+    "9edf843927f713b398857301",
+    "9f416062a13e102dd9b1cde9",
+    "9f4eea6fcfbefd98fefed319",
+    "9f61555e3f9aed7b7fa9989a",
+    "9f87b11d571b1f590f01815d",
+    "a071ba7ccb9171a415e570c5",
+    "a17d80913ecfb5cab48036a1",
+    "a1a48b848e5b30796f952611",
+    "a1e03521377eddab269a9509",
+    "a201b87989a4609cbe1ee24d",
+    "a260dcc453b0ba540ffe5b26",
+    "a26bbc6ee88ab66393772238",
+    "a37a9b03e34194a31585a82e",
+    "a39c4ef4118d22234d1309b2",
+    "a498c487b395c52406ca7b71",
+    "a56c313a58e6ff47d66b540d",
+    "a587d807feeac0847eb9e599",
+    "a5fc04483217ef8d36c9dcf1",
+    "a619fd78d2a598f487696ce0",
+    "a66b38d09cf67cad7aec62b5",
+    "a69f293c2588d4b0d549cc0d",
+    "a6d75ee079f66e5fdbb1ba7b",
+    "a714cd8e77f251e83e5f0f6f",
+    "a74eefec5871dc015f151fd0",
+    "a7c9eb00d14f9cf88d97fab2",
+    "a829025cb39e6e9155831240",
+    "a842a3fedcf2bf7981ca6b15",
+    "a84ee2aa3421dd1146db2f3d",
+    "a850037e8e1a2635ccc5ff28",
+    "a9182c9bcc1a17f2dc3aa078",
+    "a92dcff408f3bbfd2b95cc39",
+    "a9558ef7121dab6f1b82c9ef",
+    "a955c3c4cd75c08b2056f981",
+    "a9975b638fbe05b5c4eacc95",
+    "a9a63e5c087b4008aece6dfe",
+    "a9bcc1c2feb64f9574ab2daf",
+    "aa154fd96ad89557226ab054",
+    "aa4a933da2817e28ce22d85f",
+    "aa7bd5275a045244253233da",
+    "aaa0cfc2e0f83851acaa7a16",
+    "aaabe20c0027a199b7e00ad7",
+    "aaf194e99120d9d4bb808c13",
+    "ab08995bd35157fc40c1debd",
+    "ab666b3f99ec5897dc21d3b7",
+    "abba0e9ad5426a0491637697",
+    "aca1edef2dbf03a04fac05a2",
+    "acc35cbd4814af83d449a881",
+    "acea3ef67b98c724dc53b72d",
+    "ad3fe1d417db9c7719181b11",
+    "ad54b77100fe36b515e290be",
+    "ade180bc4fa343c322db1630",
+    "ade55bad9cb317f5e9b4a411",
+    "ae4dac669663451f3d397002",
+    "ae7bbd14e734ca2593c8e49e",
+    "af2b1ed83dd96298d7265428",
+    "af3246860b7d683cbf354554",
+    "af8ab39c68ea4f2efd758837",
+    "afd48970355cabce7c1a7a9d",
+    "b0312dfe84af5e1c21d19bcb",
+    "b03f89de76605cc74c45eef7",
+    "b04bc3005f07e1d5477ba32e",
+    "b0aa60f7206be55f3044faf7",
+    "b0d4f52df1f9fab97bc8fe40",
+    "b0e1aabecb3b110c75e3b9e7",
+    "b0f0448d85c07c1165e01ac8",
+    "b10917f3bc9373f7f6ed785c",
+    "b1ec1e8854ae231fa836dda0",
+    "b204636d61cd5a891b8717ff",
+    "b238c7478f33a210c3ed5538",
+    "b242982ef4ef57b6412167fc",
+    "b2f2aac3c820fc7b155b1901",
+    "b3013d71c6dd71b0c171ee32",
+    "b353a4705e9f856eb87ef403",
+    "b35ecf43c121cd94d252c405",
+    "b37529fd25ee6e1627705a15",
+    "b43917d98cce6546ec1dc44e",
+    "b50dd0b1cee4ae79935aa047",
+    "b5765dc07d91f7ab8846af6b",
+    "b5998e0ed75137bb30414991",
+    "b6092269908f052e3edd39a1",
+    "b66c59a0bc91c1a7b38d7a75",
+    "b68a386c6f6d3748cff99a02",
+    "b7496ab1fecc4c1d882304cc",
+    "b7858493ce626a004f054e47",
+    "b78d98b526413c19c5f7d251",
+    "b7ae0d7aa0c13b4d75299660",
+    "b7e3f6cf7acc732d2509c811",
+    "b8102f3c3ae9f3a91707eb3b",
+    "b82415c7d0283b4a6be9884e",
+    "b824195b98aab22398ff7ddf",
+    "b94597ad46d8b91ad38174c2",
+    "baee042c3d73be93fde5cda2",
+    "bafefff670a30b54a3623d66",
+    "bb0e1751207c783926a61dc5",
+    "bb2019e5cafd203d1aef3a0e",
+    "bbac5637a7dbd9e3116aae0c",
+    "bc65a1696b8df7c937538a59",
+    "bce655fae605cbdd17c561d3",
+    "bcec42646b811ac0344a95f4",
+    "bd4979aa4faffd033c3c91a9",
+    "bd7406c0963137ffb6eaedf9",
+    "bdae2fffff624b5251ec4d5f",
+    "befb3c0a6ed4ac615b03b8e3",
+    "bf665494cd18dc0fb85258b0",
+    "bf85a9b0bda48462016f3a8d",
+    "bff7d91b0277c8f73556710b",
+    "c01d0ad3a42f7c23786fd428",
+    "c12e8362e2eb7968dd6301e5",
+    "c1b60288b419188acc12dd2b",
+    "c281308c8ad727f52e1e3abb",
+    "c2b9a926bf07fc0b1b00eab5",
+    "c2c061128feecd8774b1cc8d",
+    "c3d80b743e3d0b1515c13a04",
+    "c4014f54b6a23a1b18f32f0d",
+    "c41e50f42bc995fa051961c6",
+    "c44bc2d67f7b0bb9d79d6cde",
+    "c4db25ba01a29451fed0d33a",
+    "c52e21445957087bb0307380",
+    "c56ac7d51c47f4f621ed7c00",
+    "c58ca348b60c6ed13de4c130",
+    "c5a957099d79bcd3c0c1e9d4",
+    "c6158b240668b3acd22f4032",
+    "c65704b7adb8e5328aba131f",
+    "c663a9eca5afd14becb77305",
+    "c6f59b1d3398a704b67279b2",
+    "c75836359494fa70f521db78",
+    "c76ea2e1e04ae8dc7c4d8d81",
+    "c770fbcf4788ac4a5c10065b",
+    "c7b3a5c12ae82b5e9ac6331a",
+    "c80d7ab51e9a5f5dd999852d",
+    "c81af516b8570828fe3dccf9",
+    "c995e71c04122509fba7e695",
+    "c9d0fda2e3e0f2d263057e91",
+    "ca108e7794f123700aa9712d",
+    "ca215a0716a9854f500e2e21",
+    "cae6eb37903f93073439aefe",
+    "cb618eeb6d0d2b8418d929d6",
+    "cb8b58f8f390d628b33403e7",
+    "cc84fbadf11d3d7357163da8",
+    "cc8f5d0f662098617f82be9f",
+    "ccec5326726f2f798ee6f899",
+    "ccfbe65d7512fb9d239f6f89",
+    "cd29559c0a43d75b67112ac0",
+    "cdc7b69eb3c654b749e80e90",
+    "ce8de2fd40e1e5f32cadd86b",
+    "cef8b2480d8ff37fcb270b97",
+    "cf1f38edc350379d5ec3dd70",
+    "cf782b92ee6ec36de6291685",
+    "cf89eb2524209763b67ed6c8",
+    "cfd359a8ae06011310e4a06b",
+    "cffc95f34e58472ef5b0bbbb",
+    "d01a18ecc44d3822c6693227",
+    "d0b81d19fc80195e95ee5ca9",
+    "d0cf0993c08e9288af74cf9b",
+    "d14165f5578aa05d657fff4b",
+    "d181703d4b1ba5ccf007541c",
+    "d1f1576001e132d2acd1191e",
+    "d260166b795fff390eece292",
+    "d300f3b7ee57f5c80047bac2",
+    "d36023e8391a4a0cb78b12e1",
+    "d3674ddfbedec5713ef8c210",
+    "d3c08fb0c4c581c1b3e5d4e3",
+    "d3ff52d837e108bd3097318a",
+    "d41d7e499844ed2dfb656cc4",
+    "d43c08a517fba31e24457d74",
+    "d44814c6413af59626b40120",
+    "d55d3af76919363148c06802",
+    "d56a03c34018bbb400183b8e",
+    "d5785a921025865a5262c54b",
+    "d58d99b5612ace7e83355fbb",
+    "d5d00773e6a6c2126e7c9338",
+    "d5dd83775e416e2f53a820b1",
+    "d5e6a4420f9ebb47afed49bd",
+    "d5f01e3ca58fef8c947af6b2",
+    "d606d86ee464ebcf48befa01",
+    "d71d52fd0ad57d5635e69de9",
+    "d75876404b61f612a17c345b",
+    "d7a69562ab21c207170dcef9",
+    "d889d9ca280ea85e7cb5c6d3",
+    "d9428fe126fc6b4354439b1c",
+    "d97271f3397bbced391d7a18",
+    "d9eafe7042c3b76a3059d315",
+    "da0f305c669ef20e94d9b08b",
+    "daae747fe09d439f3d31db9f",
+    "dad2887f88a287526ae46eef",
+    "daef074a2e14e9785f7e6cf0",
+    "db258261012c02a40b7b2941",
+    "db62415780d3778f6a3db08e",
+    "de89d19b9111afb0f4470715",
+    "deb53a950c069425f08e973e",
+    "defdc989d0776cc5b43af408",
+    "df3b8aff6fe82c5ac536228f",
+    "df4c9b099287a87a86950b63",
+    "dfc3e50b2c7d6649271f2d04",
+    "dfef1bf644b5c3960387e40b",
+    "dff53af1045d901165c6893c",
+    "e08534a722b3c888e8753d60",
+    "e10b4a1a548243f8e0d6fae0",
+    "e14601fff9e8e4cefed74bb1",
+    "e1899e07d6fd2b67c7611024",
+    "e1e5669749d128df2c8c3283",
+    "e240608f25538de35a799597",
+    "e25017a97131f8ee21b8482f",
+    "e25ebe31b7e5a1df1fae1d6b",
+    "e32f23420fa70f55ab52ba47",
+    "e3832391a11ff64034f8c5f4",
+    "e48bab4bc38cc77024daa4c5",
+    "e4d9aea36e5b32206c64867d",
+    "e61ff0e69a1e0ca5bf73f80d",
+    "e63de9354d66ba719e2e5b5e",
+    "e8098f23cc991cd095b0f016",
+    "e84794dd08a2dc22c5ae483a",
+    "e86a6bed4b5981c54711d30d",
+    "e883cd10e191754c3e22ade2",
+    "e895e21f3d6bbf925979b3a5",
+    "e8c8bd0efcde658e4e053def",
+    "e90e28159685cbd2dda2ebae",
+    "e92470a93e26d6b7037e3b8e",
+    "e9465a19e9007c699d3fd6f7",
+    "e96539c441e4a3ec0680e5a0",
+    "e96c79c5656543b1937c0a04",
+    "e9a301c1a613b7bac0683330",
+    "ea412d2c3dfbc7651eebddd1",
+    "eaaea953ab47b43fbe1ca94a",
+    "eaeb684ad12e5c7cd1aeedc2",
+    "eb04f38227bd0093a256a269",
+    "eb3d06b841ff4d959652bffd",
+    "eb4397d45905171f8747d24a",
+    "ebcf89564acb5de359df9a0e",
+    "ec5479c2d2f8ac151bdee945",
+    "ec5b6c40ba354df8210b673d",
+    "edd0b02ce8b6364ed9527e36",
+    "ee5bd9e740e74fea2783e0fe",
+    "ee6ad248eff11b1df9fdff94",
+    "ef645ab2f73e0c1a7d4229a9",
+    "efc61e39e6a00f56af65ba68",
+    "f0ca8e548954f5faf10eecda",
+    "f146926bc5142060a34932cc",
+    "f18fd6056136f17599e41365",
+    "f19828b664bfb1862b43eb95",
+    "f23284b587100d4a3cec348f",
+    "f2e3ec70f317bcf3853ca18c",
+    "f32e6a592dbbfe68fcce1f5b",
+    "f38c0cf2c70d0352fc66f714",
+    "f3ed7bea5ca2bde89d880c29",
+    "f40d212124c1c05d5bfe753b",
+    "f4979f27d1c26ab16526b411",
+    "f49f3201731d1e8881f9cace",
+    "f4b0da75eff015c4735d3d2d",
+    "f547d5d3bbf5636a615f3fe2",
+    "f558b65a2c4a160ba4f4a51d",
+    "f55e16612bb055007e3066b9",
+    "f562fd5eb3e9b33d8ba8b40a",
+    "f58c0353772a6b2749f83b48",
+    "f5b1c82b0539d8100a492ae8",
+    "f61590451b26b5ff40abf07b",
+    "f64a8b88a725061722736e12",
+    "f67eab8652e32869853cc15c",
+    "f6cef3f6218c342a32007573",
+    "f7633e0ac35e028995f4e230",
+    "f77643072ee4e1b61a1236b2",
+    "f82dbb6952d3adc4600fa045",
+    "f86991be2e0310659c551899",
+    "f87918a854a39d21d804b244",
+    "fa07f5e0aa2b08008f5ca1c7",
+    "fa8f1912f8840936f655efc7",
+    "fad731c0b4ce1d0096a910d3",
+    "faffc95c1f974c846b896178",
+    "fb55692074268ebaae2c361a",
+    "fb5caeed0e10c318f690d316",
+    "fb98e6a47602453960839ceb",
+    "fc4e76f259b54f333eebffea",
+    "fc9eaeffb6a5fa8df44743d5",
+    "fcbb40ccd68aea3ac6d96358",
+    "fd8a99734f42400f9f2931d1",
+    "fdc4c823afd7975aaef3604d",
+    "fdcc45c9073006e9ca8ec91e",
+    "fe4add95641a2ec4b5356d6a",
+    "feaa83bca98ff3f978238ad3",
+    "ff2e629e2489b8cb9a8d9890",
+    "ffc54e1d49a2c63b7bc71fa6"
+  ],
+  "statuses": {
+    "success": 66,
+    "timeout": 1,
+    "execution_error": 1
+  },
+  "ranking_tolerance": 0.05,
+  "method_notes": [
+    "Development proxy-ranking screen, not an adaptive-policy evaluation or a novelty result.",
+    "Ranks use execution time after cluster setup; all lifecycle timing remains in raw records.",
+    "A decisive pair requires > tolerance median gap and nonoverlapping observed repeat ranges; not a statistical confidence interval.",
+    "All candidates/repeats must succeed for a numerical ranking comparison; failures/incomplete groups are not silently dropped.",
+    "Full and probe outcomes share instances: this is paired descriptive analysis, not held-out prediction accuracy.",
+    "No end-to-end savings or deadline guarantee is computed from this matrix.",
+    "Large input partitions are a heuristic for expensive work, not measured post-shuffle working sets."
+  ],
+  "aggregates": [
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "uniform",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.5387371000001622
+      ],
+      "median_engine_seconds": 1.5387371000001622
+    },
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3930887999999868
+      ],
+      "median_engine_seconds": 1.3930887999999868
+    },
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.7534289000000172
+      ],
+      "median_engine_seconds": 1.7534289000000172
+    },
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w2_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.265733100000034
+      ],
+      "median_engine_seconds": 1.265733100000034
+    },
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3929503999997905
+      ],
+      "median_engine_seconds": 1.3929503999997905
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "full",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.7594864000002417
+      ],
+      "median_engine_seconds": 1.7594864000002417
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6549808999998277
+      ],
+      "median_engine_seconds": 1.6549808999998277
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.2180122999998275
+      ],
+      "median_engine_seconds": 1.2180122999998275
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.5755570000001171
+      ],
+      "median_engine_seconds": 1.5755570000001171
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.2060868999997183
+      ],
+      "median_engine_seconds": 1.2060868999997183
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "full",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        5.070448200000101
+      ],
+      "median_engine_seconds": 5.070448200000101
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.2948326999999153
+      ],
+      "median_engine_seconds": 2.2948326999999153
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.4474480999997468
+      ],
+      "median_engine_seconds": 1.4474480999997468
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "uniform",
+      "target_config_id": "w2_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3148599999999533
+      ],
+      "median_engine_seconds": 1.3148599999999533
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.7165045000001555
+      ],
+      "median_engine_seconds": 2.7165045000001555
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.5449456999999711
+      ],
+      "median_engine_seconds": 1.5449456999999711
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        3.2683899000003294
+      ],
+      "median_engine_seconds": 3.2683899000003294
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.0339438000000882
+      ],
+      "median_engine_seconds": 2.0339438000000882
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.9487951000000976
+      ],
+      "median_engine_seconds": 1.9487951000000976
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.817522800000006
+      ],
+      "median_engine_seconds": 1.817522800000006
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.1728001000001314
+      ],
+      "median_engine_seconds": 2.1728001000001314
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3818105000000287
+      ],
+      "median_engine_seconds": 1.3818105000000287
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "full",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6307463000002826
+      ],
+      "median_engine_seconds": 1.6307463000002826
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "full",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3920367999999144
+      ],
+      "median_engine_seconds": 1.3920367999999144
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.7152572999998483
+      ],
+      "median_engine_seconds": 1.7152572999998483
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.4504519000001892
+      ],
+      "median_engine_seconds": 1.4504519000001892
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.014289700000063
+      ],
+      "median_engine_seconds": 1.014289700000063
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "uniform",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.2484929000002012
+      ],
+      "median_engine_seconds": 1.2484929000002012
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.094057399999656
+      ],
+      "median_engine_seconds": 1.094057399999656
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w2_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.02145419999988
+      ],
+      "median_engine_seconds": 1.02145419999988
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "full",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.0678210999999465
+      ],
+      "median_engine_seconds": 2.0678210999999465
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.0210455000001275
+      ],
+      "median_engine_seconds": 2.0210455000001275
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "uniform",
+      "target_config_id": "w2_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.5077251999996406
+      ],
+      "median_engine_seconds": 1.5077251999996406
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "uniform",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.2000416000000769
+      ],
+      "median_engine_seconds": 1.2000416000000769
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.597731400000157
+      ],
+      "median_engine_seconds": 1.597731400000157
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.4148780000000443
+      ],
+      "median_engine_seconds": 1.4148780000000443
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.5216772999997374
+      ],
+      "median_engine_seconds": 1.5216772999997374
+    },
+    {
+      "instance_id": "skewed_join-1000000-balanced",
+      "method": "full",
+      "target_config_id": "w2_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3452173999999104
+      ],
+      "median_engine_seconds": 1.3452173999999104
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.505119299999933
+      ],
+      "median_engine_seconds": 1.505119299999933
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.558702600000288
+      ],
+      "median_engine_seconds": 2.558702600000288
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6408314999998765
+      ],
+      "median_engine_seconds": 1.6408314999998765
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.7885652999998456
+      ],
+      "median_engine_seconds": 2.7885652999998456
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w2_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.4754410999998981
+      ],
+      "median_engine_seconds": 1.4754410999998981
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w2_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.1746099000001777
+      ],
+      "median_engine_seconds": 1.1746099000001777
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "full",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.6709971000000223
+      ],
+      "median_engine_seconds": 2.6709971000000223
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.9066766000000825
+      ],
+      "median_engine_seconds": 1.9066766000000825
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.4438552000001437
+      ],
+      "median_engine_seconds": 1.4438552000001437
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.1976328999999168
+      ],
+      "median_engine_seconds": 1.1976328999999168
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "uniform",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.868393599999763
+      ],
+      "median_engine_seconds": 1.868393599999763
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "uniform",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6320882999998503
+      ],
+      "median_engine_seconds": 1.6320882999998503
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "uniform",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.2414598000000296
+      ],
+      "median_engine_seconds": 1.2414598000000296
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "full",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "timeout": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [],
+      "median_engine_seconds": null
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "execution_error": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [],
+      "median_engine_seconds": null
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w2_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3091433999998117
+      ],
+      "median_engine_seconds": 1.3091433999998117
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.291670900000099
+      ],
+      "median_engine_seconds": 2.291670900000099
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "uniform",
+      "target_config_id": "w2_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.7003804000000855
+      ],
+      "median_engine_seconds": 1.7003804000000855
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.8114853000001858
+      ],
+      "median_engine_seconds": 1.8114853000001858
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.539954200000011
+      ],
+      "median_engine_seconds": 1.539954200000011
+    },
+    {
+      "instance_id": "skewed_join-500000-balanced",
+      "method": "full",
+      "target_config_id": "w1_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.9655073999997512
+      ],
+      "median_engine_seconds": 1.9655073999997512
+    },
+    {
+      "instance_id": "skewed_join-500000-balanced",
+      "method": "full",
+      "target_config_id": "w2_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.2964825000003657
+      ],
+      "median_engine_seconds": 1.2964825000003657
+    },
+    {
+      "instance_id": "skewed_join-500000-balanced",
+      "method": "partition_tail",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.208231699999942
+      ],
+      "median_engine_seconds": 1.208231699999942
+    },
+    {
+      "instance_id": "skewed_join-500000-balanced",
+      "method": "uniform_memory",
+      "target_config_id": "w2_t1_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.4289029000001392
+      ],
+      "median_engine_seconds": 1.4289029000001392
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.4724989999999707
+      ],
+      "median_engine_seconds": 1.4724989999999707
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "full",
+      "target_config_id": "w2_t2_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.185691300000144
+      ],
+      "median_engine_seconds": 1.185691300000144
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t1_1g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        2.1056759999996757
+      ],
+      "median_engine_seconds": 2.1056759999996757
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "partition_tail",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.6066619999996874
+      ],
+      "median_engine_seconds": 1.6066619999996874
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w1_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.8036773999997422
+      ],
+      "median_engine_seconds": 1.8036773999997422
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "uniform_memory",
+      "target_config_id": "w2_t2_2g",
+      "observed": 1,
+      "expected": 2,
+      "statuses": {
+        "success": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        1.3484969000001001
+      ],
+      "median_engine_seconds": 1.3484969000001001
+    }
+  ],
+  "comparisons": [
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-balanced",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-1000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-2000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-500000-balanced",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "groupby-500000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-balanced",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-balanced",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-balanced",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-1000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-2000000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-500000-balanced",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-500000-balanced",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-500000-balanced",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "uniform",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "uniform_memory",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    },
+    {
+      "instance_id": "skewed_join-500000-uneven",
+      "method": "partition_tail",
+      "evaluable": false,
+      "reason": "requires all declared candidates/repeats to succeed; failures retained separately"
+    }
+  ],
+  "plan_sha256": "b0dfbeecb7dde916c9c33f787cbfe0941149e646ef80f21f5aa5edf62d166ee0",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "logical_cpus": 16,
+    "versions": {
+      "dask": "2026.8.0",
+      "distributed": "2026.8.0",
+      "pandas": "3.1.0",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2"
+    }
+  },
+  "host_physical_bytes": 33711480832,
+  "raw_evidence": "Complete raw records and Parquet are local under the experiment directory; this is a compact export."
+}
