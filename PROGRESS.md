@@ -14,11 +14,11 @@
 | Preliminary larger Mac experiments | STOPPED / INCOMPLETE | Separate plans have 1 and 10 successful rows; 2 full groupby rows show spill; one unrecorded interrupted attempt is disclosed |
 | Windows research environment and tests | VERIFIED | Separate `.venv-research`; 43 targeted research tests passed, and the full suite exited successfully with three skips on the original Windows PC |
 | Windows smoke | COMPLETE | 16/16 tiny cells succeeded with telemetry and no owned descendants after cleanup |
-| Windows screen | PARTIAL | 36/768 cells succeeded; three sampled positive spill, and one full join observed at least two worker restarts. [Checkpoint](reports/research_probe_windows_v1_partial/README.md) |
+| Windows screen | DIAGNOSTIC PARTIAL | 36/768 cells succeeded; three sampled positive spill, and one full join observed at least two worker restarts. A post-batch check found the PC unplugged; power source was not recorded per cell. Start a fresh mains-powered plan for comparable rankings. [Checkpoint](reports/research_probe_windows_v1_partial/README.md) |
 | Adaptive controller / new reliability model | NOT IMPLEMENTED / NOT TRAINED | Conditional on a useful gap after simple baselines |
 | Independent final study, paper and merge decision | PENDING | Follow-up design, evaluation and user review |
 
-**Execution constraint:** larger tests/experiments and training belong on the Windows experiment PC. The Mac is for preparation and small checks. The Windows screen is a partial development study; no method ranking is yet evaluable. See the [Mac evidence ledger](reports/research_probe_v1/README.md), [Windows checkpoint](reports/research_probe_windows_v1_partial/README.md), and [canonical next steps](context.md#what-remains-in-order). The research setup does not complete the original advisor's prospective validation.
+**Execution constraint:** larger tests/experiments and training belong on the Windows experiment PC while connected to mains. The Mac is for preparation and small checks. The current Windows screen is a partial diagnostic study; no method ranking is yet evaluable. See the [Mac evidence ledger](reports/research_probe_v1/README.md), [Windows checkpoint](reports/research_probe_windows_v1_partial/README.md), and [canonical next steps](context.md#what-remains-in-order). The research setup does not complete the original advisor's prospective validation.
 
 ## Verified baseline work (main-v1 / advisor)
 

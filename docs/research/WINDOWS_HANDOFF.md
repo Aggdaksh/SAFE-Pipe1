@@ -15,16 +15,9 @@ This is an experiment framework. The adaptive probe-selection algorithm and reli
 
 ## Current Windows checkpoint (2026-11-13)
 
-This PC pulled the research branch at `2419360`, installed a separate ignored `.venv-research`, and passed all **43 targeted research tests**. A new Windows smoke plan recorded **16/16 successes**, memory samples and zero owned descendants after cleanup. A fresh `windows-screen-v1` plan was prepared on this PC; its datasets and probes occupy **3.39 GiB**. The first four and next 32 cells recorded **36/768 successes** with zero owned descendants and no stale run lock. Three cells showed sampled positive stored spill; one full two-million-row join at `w1_t2_1g` showed at least two worker restarts despite a successful final result. These are partial development observations, not method rankings. See the [compact checkpoint](../../reports/research_probe_windows_v1_partial/README.md).
+This PC pulled the research branch at `2419360`, installed a separate ignored `.venv-research`, and passed all **43 targeted research tests**. A new Windows smoke plan recorded **16/16 successes**, memory samples and zero owned descendants after cleanup. A `windows-screen-v1` plan was prepared on this PC; its datasets and probes occupy **3.39 GiB**. The first four and next 32 cells recorded **36/768 successes** with zero owned descendants and no stale run lock. Three cells showed sampled positive stored spill; one full two-million-row join at `w1_t2_1g` showed at least two worker restarts despite a successful final result. A later power check reported the laptop unplugged, and power source was not recorded per cell. These are diagnostic observations, not comparable method rankings. See the [compact checkpoint](../../reports/research_probe_windows_v1_partial/README.md).
 
-To continue **on this same Windows PC**, use the existing ignored `data/probes/windows-screen-v1/plan.json`. Do not run `prepare` again into that directory or copy it to another host. Check `git status`, then run one bounded batch and analyze it:
-
-```powershell
-.\.venv-research\Scripts\python.exe -m experiments.probe_pilot run --plan data/probes/windows-screen-v1/plan.json --max-runs 32
-.\.venv-research\Scripts\python.exe -m experiments.probe_pilot analyze --plan data/probes/windows-screen-v1/plan.json
-```
-
-Inspect statuses, restarts, spill, free disk and cleanup after each batch. Full screen completion and an independent final evaluation are still pending.
+For a comparable full screen, first connect mains power and verify it remains connected. Prepare a new plan in a **new empty output directory** using the detailed commands in section 3; keep `data/probes/windows-screen-v1/` and its 36 diagnostic rows intact. Record power state, package list, revision and session conditions before and during bounded batches. The old plan could be resumed for diagnostics only, but do not mix its rows with the new mains-powered study. Inspect statuses, restarts, spill, free disk and cleanup after each batch. Full screen completion and an independent final evaluation are still pending.
 
 ## 1. Get the branch and environment
 
@@ -78,7 +71,7 @@ The screen has 12 instances × 8 configurations × 4 methods × 2 repeats = **76
 The eight target configurations combine workers `{1, 2}`, threads per worker `{1, 2}` and worker caps `{1 GB, 2 GB}`. Each job starts a fresh cluster. Largest aggregate target cap is 4 GB, plus required host headroom. Local disk space is needed for generated Parquet, sample copies, logs and temporary spill files.
 
 ```powershell
-$RunDir = "data/probes/windows-screen-v1"
+$RunDir = "data/probes/windows-screen-mains-v1"
 .\.venv-research\Scripts\python.exe -m experiments.probe_pilot prepare --preset windows-screen --out-dir $RunDir
 .\.venv-research\Scripts\python.exe -m pip freeze | Out-File -Encoding utf8 "$RunDir/requirements.txt"
 git rev-parse HEAD | Out-File -Encoding utf8 "$RunDir/revision.txt"

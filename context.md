@@ -37,11 +37,11 @@ Verified evidence must stay separated:
 | Mac 64-cell development plan | 1 recorded success; next larger-cap cell refused before execution | Partial data only |
 | Mac 32-cell limited plan | 10 recorded successes; study stopped at the user's instruction | Partial data only; 2 full groupby runs recorded sampled disk spill |
 | Windows research smoke | 16/16 successful tiny cells on 2026-11-13; memory samples present and zero owned descendants after cleanup | Windows software/cleanup diagnostic only |
-| Windows research screen | 36/768 cells recorded, all successful; three cells sampled positive stored spill; one full join cell showed at least two worker restarts | Partial development evidence only; no complete ranking comparison or policy result |
+| Windows research screen | 36/768 cells recorded, all successful; three cells sampled positive stored spill; one full join cell showed at least two worker restarts. Post-batch power check reported unplugged battery | Diagnostic development evidence only; power state was not controlled before each cell, so a fresh mains-powered plan is needed for comparable rankings |
 
 The two observed groupby spill peaks were 71,066,898 and 92,031,812 bytes, with one worker lifetime observed in each. They show pressure in those particular runs, not a stable ranking or benefit from the proposed sampling method. One additional Mac-limited attempt was interrupted before the older runner wrote its row; the ledger names that evidence gap. Do not hide it or fabricate a replacement measurement.
 
-The two partial Mac plans cannot be pooled into a complete comparison. Historical source changed after their preparation. The fresh Windows plan is prepared at `data/probes/windows-screen-v1/` on the original Windows PC and is resumable there; do not regenerate it or move its ignored raw data to another host. A compact [36-cell checkpoint](reports/research_probe_windows_v1_partial/README.md) is committed separately. The first Mac smoke predates source fingerprints and some metadata. The ledger documents these provenance limits.
+The two partial Mac plans cannot be pooled into a complete comparison. Historical source changed after their preparation. The first Windows plan is preserved at `data/probes/windows-screen-v1/` as a diagnostic checkpoint; its 36 rows should not be mixed with a later mains-powered plan. A compact [36-cell checkpoint](reports/research_probe_windows_v1_partial/README.md) is committed separately. The first Mac smoke predates source fingerprints and some metadata. The ledger documents these provenance limits.
 
 ## What remains, in order
 
@@ -54,8 +54,8 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Work on the other laptop
 
-1. On the original Windows PC, resume the prepared `windows-screen` plan from 36/768 cells in bounded batches. Package versions, commit and host conditions are saved in the ignored run directory and compact checkpoint. Inspect each batch for failures, worker restarts, spill and cleanup; do not launch this matrix on the Mac.
-2. Complete the 12 instances × 8 configurations × 4 methods × 2 repeats = **768 physical jobs** only if bounded batches remain viable. Preserve failures/interruption rather than selectively replacing cells.
+1. On the original Windows PC, connect mains power and verify `power_plugged=True`. Prepare a **new** `windows-screen` plan in a new empty directory so battery-uncertain diagnostic rows are not mixed with controlled runs. Record power state and package/host conditions before and during batches; do not launch this matrix on the Mac.
+2. Run the 12 instances × 8 configurations × 4 methods × 2 repeats = **768 physical jobs** in bounded batches only while conditions remain stable. Inspect failures, worker restarts, spill, disk and cleanup. Preserve failures/interruption rather than selectively replacing cells.
 3. Analyze whether proxy-ranking errors persist after the matched uniform-memory baseline. Confirm pressure and repeatability; two repeats are exploratory, not strong statistical evidence.
 4. If a useful gap remains, implement and test the adaptive policy; otherwise revise or abandon the candidate. Training a reliability model is conditional on the design and sufficient independent data, not an automatic next step.
 5. Evaluate the final method on independent instances, with predeclared baselines and total request cost: preparation + all paid probes + a fresh selected full run. Preserve separate development and final-test data; do not tune on the latter.

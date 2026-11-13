@@ -4,6 +4,8 @@
 
 The prepared plan has **12 instances × 8 configurations × 4 methods × 2 repeats = 768 cells**. The first four plus a bounded 32-cell batch recorded **36 successes**. The plan and local raw log remain in ignored `data/probes/windows-screen-v1/` on this PC. The prepared datasets and probes occupy **3.39 GiB**; `runs.jsonl` and the other top-level run files were under 1 MB at this checkpoint. About **63 GiB** remained free on C: after the batch. Temporary Dask spill files may require additional space during individual jobs and are not represented by the retained dataset size.
 
+**Power-state limitation discovered after the batch:** the PC reported 100% battery with `power_plugged=False`. Power source was not recorded before each of these 36 cells. Preserve them as Windows diagnostics, but do not combine them with later mains-powered cells into a controlled ranking comparison. A fresh independent plan should be prepared after mains power is verified. This will generate another set of data files; the old directory stays intact for provenance.
+
 The [measurements](measurements.csv), [frozen plan](plan.json), [summary](summary.json), [generated report](REPORT.md), [package list](requirements.txt), [revision](revision.txt) and [session notes](SESSION_NOTES.md) preserve this checkpoint. The compact export excludes generated Parquet, raw JSONL and worker addresses/PIDs; it is not a full backup. Do not combine these rows with the separate incomplete Mac plans to make a complete comparison.
 
 ## Observed checks
@@ -15,7 +17,7 @@ The [measurements](measurements.csv), [frozen plan](plan.json), [summary](summar
 
 ## Continue on the same PC
 
-Use the existing ignored plan and unchanged research source/environment:
+The command below resumes the existing plan for **diagnostic work only**. For a comparable full study, connect mains power, verify `power_plugged=True`, choose a new empty output directory, prepare a new plan, and record power state before and during each batch. Do not silently replace the first 36 rows.
 
 ```powershell
 .\.venv-research\Scripts\python.exe -m experiments.probe_pilot run --plan data/probes/windows-screen-v1/plan.json --max-runs 32
