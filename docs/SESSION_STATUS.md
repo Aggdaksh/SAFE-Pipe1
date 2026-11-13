@@ -1,4 +1,4 @@
-# Resume SAFE-Pipe — 2026-11-13
+# Resume SAFE-Pipe — 2026-11-14
 
 Read **[the canonical project context](../context.md)** first. It contains the current goal, constraints, baseline history, verified research work and ordered next steps. This entry point replaces the obsolete October 26 session status; that version remains in Git history.
 
@@ -6,7 +6,7 @@ Read **[the canonical project context](../context.md)** first. It contains the c
 
 - Goal: develop and evaluate a defensible research-paper contribution, currently investigating partition-aware adaptive probing under memory pressure.
 - Branch: `codex/partition-probe-research`. The implementation/handoff was published at `975b446`; later context-only commits may follow. Check current Git status before editing.
-- Stage: Windows checks and 16-cell smoke passed. The first diagnostic plan has 36 successes. The second monitored plan is at 68/768: 66 successes, one power-confounded timeout, and one `KilledWorker` execution error in the next stable-power batch. The monitor stopped for inspection; cleanup completed. No adaptive controller, new model training or proven novelty yet. Keep the branch separate until integration is decided.
+- Stage: **Windows development collection complete:** 768/768 attempts, 759 successes, one timeout and eight execution errors. Audit passed with zero cleanup survivors. Ten instances support descriptive comparisons; the partition heuristic has no established overall advantage. No adaptive controller, new model or proven novelty yet. Keep the branch separate until integration is decided.
 - Constraint: **large experiments and training on the other laptop only**. On this Mac continue design/code/docs and small checks. Do not resume the old partial Mac plans.
 
 ## Read next
@@ -18,4 +18,4 @@ Read **[the canonical project context](../context.md)** first. It contains the c
 
 Useful work before heavy execution: specify the follow-up hypotheses/metrics, proposed adaptive decisions and cost accounting, factor-separated ablations, and paper outline. These are preparation tasks; performance conclusions must wait for measurements.
 
-The active ignored plan is `data/probes/windows-screen-mains-v1/plan.json` on Ganant's PC. Use the [Windows handoff](research/WINDOWS_HANDOFF.md) and [monitored checkpoint](../reports/research_probe_windows_mains_v1_partial/README.md); the live count may advance beyond that exported snapshot. The first 36-cell diagnostic plan stays intact. The original main-v1 study/model are separate.
+The completed ignored plan is `data/probes/windows-screen-mains-v1/plan.json` on Ganant's PC. No benchmark is active. Read the [completed evidence and audit](../reports/research_probe_windows_mains_v1_complete/README.md) and [next research decisions](research/NEXT_STEPS.md). Earlier partial exports and diagnostic plans remain historical; the original main-v1 study/model are separate.

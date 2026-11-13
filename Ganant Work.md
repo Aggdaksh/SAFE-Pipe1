@@ -1,6 +1,6 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-11-13 (Asia/Kolkata)<br>
+**Updated:** 2026-11-14 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
 **Working branch:** `codex/partition-probe-research` (research development; `main` retains the original advisor)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
@@ -136,9 +136,17 @@
 - Reviewed the retained timeout and ambiguous `KilledWorker` as legitimate measured outcomes. Added local controller option `--continue-reviewed-failures` so those outcomes can remain while later cells proceed, provided cleanup reports zero survivors. Unknown errors, interruptions, cleanup leftovers, power/disk problems and command errors still stop execution. Checked the outcome guards with synthetic cases; frozen research source and model remain unchanged.
 - Wrote [completion and next decisions](docs/research/NEXT_STEPS.md): 700 planned attempts remain, rough runtime extrapolation is about 83 minutes before extra overhead/timeouts, followed by ranking/noise/baseline analysis and a conditional independent follow-up. The full screen is pending mains power, not a request to rerun failed cells.
 
+## Checkpoint 20 — Completed and audited research screen
+
+- The monitored controller finished **768/768 attempts** at **2026-11-14 00:08:24 IST**: 759 success, one timeout, eight KilledWorker execution errors. All planned identities are present once; failures were preserved without selective retry. No benchmark remains active.
+- Verified frozen research source hashes, manifest identities and file hashes across all 36 physical dataset/probe directories. Every run reports zero owned descendants after cleanup; no run lock remains. Condition sampling covers all runs under the audit's ten-second-gap check; only the known timeout was flagged for observed unplugged power.
+- Sampled positive stored spill occurred in 30 cells; observed restarts in 13. All nine unsuccessful outcomes were full-input 1 GB worker configurations in the two largest uneven instances. The eight worker-death errors are not confirmed OOMs. All sampled-probe runs succeeded, which motivates reliability investigation without establishing a learned risk model.
+- Ten of twelve instances support descriptive ranking analysis; two failed full-reference instances remain unevaluable. Median selected full-engine regret: uniform 3.87%, uniform with scaled memory 0.11%, partition-tail 8.17%. Partition-tail was better/equal/worse than matched-memory uniform on 2/3/5 instances. These two-repeat development results do not establish a sampler benefit or statistical significance.
+- Created the [completed export and reproducible audit](reports/research_probe_windows_mains_v1_complete/README.md), retaining earlier partial snapshots separately. Updated canonical context, status and next decisions. Fixed dataset storage remains 3.39 GiB per plan (about 6.78 GiB for both); about 59.5 GiB remained free on C:. No model was retrained or research branch merged into main.
+
 ## Current work and next steps
 
-1. Continue the existing monitored `windows-screen-mains-v1` development plan while power remains secure. Retain all failures and flagged power intervals; do not selectively retry or merge rows with the first diagnostic plan or Mac studies. Inspect statuses, restarts, spill and cleanup at each batch. Research remains separate from `main`.
+1. Collection is complete. Review the completed screen's failures, repeat noise, and matched baselines. Preserve every raw record and power flag; prepare a separately declared follow-up only after deciding what useful gap remains. Research stays separate from `main`.
 2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC

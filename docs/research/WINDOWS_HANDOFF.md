@@ -1,5 +1,7 @@
 # Research experiments on the Windows PC
 
+**Completion update, 2026-11-14:** the monitored screen finished all **768 planned attempts** at 00:08 IST: 759 successes, one timeout and eight execution errors. Source/data identity and cleanup audits passed. No benchmark is running and no remaining cells need scheduling. See the [completed evidence](../../reports/research_probe_windows_mains_v1_complete/README.md) and [next decisions](NEXT_STEPS.md). The preparation/resume commands and earlier checkpoints below are retained as procedural history; do not rerun the completed plan.
+
 Prepared 2026-11-02; Windows checkpoint added 2026-11-13. Branch: `codex/partition-probe-research`.
 
 The current Mac is for preparation and small correctness checks. Larger benchmarks and any later model training are deferred to the other laptop at the user's request. **Do not merge this branch yet.**

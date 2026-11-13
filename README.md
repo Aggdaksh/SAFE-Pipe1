@@ -1,5 +1,7 @@
 # SAFE-Pipe
 
+**Research branch update (14 November 2026):** the separate 768-attempt Windows probe screen is complete and audited: 759 successes, one timeout, and eight execution errors. The partition heuristic has no established overall advantage over matched-memory uniform sampling. Read the [research results and limits](reports/research_probe_windows_mains_v1_complete/README.md) and [next decisions](docs/research/NEXT_STEPS.md). The original advisor and its evidence are described below.
+
 **A bounded configuration advisor for local Dask data pipelines.** SAFE-Pipe predicts the runtime of eight declared worker settings for a known batch workload, checks a deadline and resource limits, then recommends a setting or abstains with an explanation.
 
 This is Delhi Technological University IT401 Group 45's Project-I prototype. The evaluated backend is a memory-capped Dask `LocalCluster` on one Windows PC. The broader distributed and AWS Glue ideas in the submitted synopsis are not measured outcomes of this prototype.

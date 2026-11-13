@@ -1,21 +1,14 @@
 # Research screen completion and next decisions
 
-Updated 2026-11-13. Active development plan: ignored `data/probes/windows-screen-mains-v1/plan.json` on Ganant's original Windows PC. Snapshot: **68/768 cells, 66 successes, one timeout, one execution error; 700 unattempted cells remain**. The earlier 36-cell diagnostic plan is separate.
+Updated 2026-11-14. The development screen is **complete: 768/768 attempts, 759 success, one timeout, eight execution errors**. The earlier diagnostic plan remains separate. No benchmark is running. See the [completed evidence](../../reports/research_probe_windows_mains_v1_complete/README.md).
 
-## 1. Complete the existing screen
+## 1. Collection and integrity completed
 
-- Verify stable mains power, existing packages, unchanged research source, available memory and disk. Do not generate another dataset or repeat recorded cells.
-- Continue at most 32 new cells per batch, with power/disk sampling, the original supervisor timeout, host-memory check and owned-process cleanup. Save and analyze every outcome, including failures.
-- The two reviewed outcome types are a contained timeout and Dask `KilledWorker` with clean cleanup. These can remain recorded while later cells proceed. Interruptions, unknown errors, cleanup leftovers, low disk, command failures or power loss stop the controller for inspection.
-- The local controller supports the following command. It keeps Windows awake while active; creating `pause.requested` in the run directory stops at the next batch boundary. Recorded failures are never retried by this command.
+All planned identities are present exactly once. Frozen source and all 36 dataset/probe directory hashes match; cleanup left zero owned descendants and no run lock. Preserve the raw JSONL, inputs, condition samples and environment records. Do not rerun recorded failures.
 
-```powershell
-.\.venv-research\Scripts\python.exe data/probes/windows-screen-mains-v1/advance.py --until 768 --continue-reviewed-failures
-```
+The condition audit flags the original timeout's power interruption. Nine failures occurred on full inputs at 1 GB per worker within the largest uneven groupby/join instances; all probes succeeded. Worker deaths remain execution errors because their exact cause was not established.
 
-Completion means all 768 planned identities have recorded outcomes, not that every job succeeded. Audit uniqueness, plan/source/data identity, cleanup and condition intervals. The historical timeout overlaps a power disconnection and must stay flagged. Failed or power-confounded groups cannot support a clean performance comparison.
-
-The first 68 attempts averaged about 7.1 seconds of recorded lifecycle time. Extrapolating gives about 83 minutes for the remaining 700, before repeated audits/analysis or additional long timeouts. This is a rough planning estimate, not a deadline. Existing data is reused; temporary spill can increase working disk use.
+The initial descriptive comparison covers ten eligible instances. Median selected full-engine regret is 3.87% for uniform, 0.11% for uniform with scaled memory, and 8.17% for partition-tail. Against matched-memory uniform, partition-tail is better on two instances, equal on three and worse on five. Two repeats do not establish significance or a universal winner. The two failed full-reference instances remain unevaluable.
 
 ## 2. Analyze the research question
 

@@ -1,6 +1,6 @@
 # SAFE-Pipe project context
 
-**Updated:** 2026-11-13. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
+**Updated:** 2026-11-14. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
 
 ## Start here: current goal and execution constraints
 
@@ -17,7 +17,7 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 ## Current research state
 
-**Stage: development experiment framework ready; collecting the decisive evidence is next.** The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+**Stage: the first Windows development screen is complete and audited (768 attempts: 759 success, one timeout, eight execution errors).** See the [completed evidence](reports/research_probe_windows_mains_v1_complete/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
 
 Implemented separately from production code:
 
@@ -38,7 +38,7 @@ Verified evidence must stay separated:
 | Mac 32-cell limited plan | 10 recorded successes; study stopped at the user's instruction | Partial data only; 2 full groupby runs recorded sampled disk spill |
 | Windows research smoke | 16/16 successful tiny cells on 2026-11-13; memory samples present and zero owned descendants after cleanup | Windows software/cleanup diagnostic only |
 | Windows research screen | 36/768 cells recorded, all successful; three cells sampled positive stored spill; one full join cell showed at least two worker restarts. Post-batch power check reported unplugged battery | Diagnostic development evidence only; power state was not controlled before each cell, so a fresh mains-powered plan is needed for comparable rankings |
-| Second Windows screen, initially verified mains | 68/768: 66 success, one timeout, one `KilledWorker` execution error. Power interruption affected the timeout; the next 32 cells had stable sampled mains | Partial development evidence; monitor stopped after worker death with clean cleanup. Inspect the failure before further bounded batches; preserve every outcome |
+| Second Windows screen, initially verified mains | **768/768 complete:** 759 success, one timeout, eight KilledWorker execution errors; zero cleanup survivors | Ten evaluable instances; two large uneven full-reference failures. Thirty spill-positive and thirteen restart-positive cells. The timeout retains its power flag. Median regret: uniform 3.87%, scaled-memory uniform 0.11%, partition-tail 8.17%; descriptive results only |
 
 The two observed groupby spill peaks were 71,066,898 and 92,031,812 bytes, with one worker lifetime observed in each. They show pressure in those particular runs, not a stable ranking or benefit from the proposed sampling method. One additional Mac-limited attempt was interrupted before the older runner wrote its row; the ledger names that evidence gap. Do not hide it or fabricate a replacement measurement.
 
@@ -55,9 +55,8 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Work on the other laptop
 
-1. On the original Windows PC, continue `data/probes/windows-screen-mains-v1/plan.json` in bounded batches after verifying secure mains power. Continuous condition samples flag a power interruption during its first timeout; keep that limitation with the data. The user confirmed the charger connection after inspection. Do not generate a third dataset merely to replace this observation. The first battery-uncertain plan stays separate. See the [monitored checkpoint](reports/research_probe_windows_mains_v1_partial/README.md).
-   The user requested completing the remaining screen. **700 planned cells remain** at the current snapshot. The local controller can retain reviewed, cleanly contained timeout/`KilledWorker` outcomes using `--continue-reviewed-failures`; unknown errors and safety/condition problems still stop it. See [next steps](docs/research/NEXT_STEPS.md). At the subsequent readiness check the PC again reported unplugged, so execution awaits a stable mains connection.
-2. Run the 12 instances × 8 configurations × 4 methods × 2 repeats = **768 physical jobs** in bounded batches only while conditions remain stable. Inspect failures, worker restarts, spill, disk and cleanup. Preserve failures/interruption rather than selectively replacing cells.
+1. Collection is **complete**, ending 2026-11-14 at 00:08 IST. Preserve the existing 768 raw records and datasets; no benchmark remains active. All planned identities, source hashes, dataset hashes and cleanup checks passed. The first diagnostic plan and partial exports stay historical.
+2. Review the [completed report and audit](reports/research_probe_windows_mains_v1_complete/README.md), failure labels, flagged power interval and repeat noise. Follow [next decisions](docs/research/NEXT_STEPS.md); another collection needs a declared follow-up design rather than automatic repetition.
 3. Analyze whether proxy-ranking errors persist after the matched uniform-memory baseline. Confirm pressure and repeatability; two repeats are exploratory, not strong statistical evidence.
 4. If a useful gap remains, implement and test the adaptive policy; otherwise revise or abandon the candidate. Training a reliability model is conditional on the design and sufficient independent data, not an automatic next step.
 5. Evaluate the final method on independent instances, with predeclared baselines and total request cost: preparation + all paid probes + a fresh selected full run. Preserve separate development and final-test data; do not tune on the latter.

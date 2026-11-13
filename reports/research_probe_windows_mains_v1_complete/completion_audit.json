@@ -1,0 +1,61 @@
+{
+  "planned": 768,
+  "recorded": 768,
+  "statuses": {
+    "success": 759,
+    "timeout": 1,
+    "execution_error": 8
+  },
+  "missing_cells": 0,
+  "source_fingerprints_match": true,
+  "dataset_directories_verified": 36,
+  "cleanup_survivors": 0,
+  "run_lock_absent": true,
+  "first_started_utc": "2026-11-13T15:22:48.774544+00:00",
+  "last_finished_utc": "2026-11-13T18:38:24.126169+00:00",
+  "last_finished_ist": "2026-11-14T00:08:24.126169+05:30",
+  "power_flagged_cells": [
+    "67b332003c26acf0b486823b"
+  ],
+  "condition_sampling_uncovered_cells": [],
+  "spill_positive_cells": 30,
+  "restart_positive_cells": 13,
+  "method_summary": {
+    "uniform": {
+      "evaluable_instances": 10,
+      "median_selected_full_engine_regret": 0.03868710529323349,
+      "pair_counts": {
+        "reference_unresolved": 81,
+        "aligned": 100,
+        "probe_unresolved": 90,
+        "inverted": 9
+      }
+    },
+    "uniform_memory": {
+      "evaluable_instances": 10,
+      "median_selected_full_engine_regret": 0.0011474575820125121,
+      "pair_counts": {
+        "reference_unresolved": 81,
+        "aligned": 119,
+        "probe_unresolved": 70,
+        "inverted": 10
+      }
+    },
+    "partition_tail": {
+      "evaluable_instances": 10,
+      "median_selected_full_engine_regret": 0.08165447857760122,
+      "pair_counts": {
+        "reference_unresolved": 81,
+        "probe_unresolved": 73,
+        "aligned": 117,
+        "inverted": 9
+      }
+    }
+  },
+  "notes": [
+    "Descriptive engine-runtime rankings; not total request savings.",
+    "Pair counts share instances; they are not independent statistical samples.",
+    "Power flags conservatively include samples within five seconds of run boundaries.",
+    "Lifetime peak sums are not concurrent cluster peaks."
+  ]
+}
