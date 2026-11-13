@@ -1,8 +1,8 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-10-28 (Asia/Kolkata)<br>
+**Updated:** 2026-11-13 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
-**Working branch:** `main` (integrated Windows and advisor work)<br>
+**Working branch:** `codex/partition-probe-research` (research development; `main` retains the original advisor)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
 
 ## Checkpoint 1 — Repository and environment
@@ -113,10 +113,18 @@
 - Ran the full Windows suite on merged `main`: **79 tests passed**. Pushed the integrated commit to central `origin/main` (`f474aae..abb21f7`). The 96 physical runs and model results did not change in this integration.
 - Updated the explainer, README, Git collaboration guide, and midterm handoff to point teammates at integrated `main`. The older topic branches remain historical checkpoints, already contained in `main`.
 
+## Checkpoint 17 — Windows research pilot and disk check
+
+- On 2026-11-13, fetched `origin`; central `main` was still at `504f005` with no new commits. The new work was on `origin/codex/partition-probe-research` at `2419360`; checked out that tracking branch. The ignored PAT file was not read or staged.
+- Created ignored `.venv-research` with `.[dev,dask]` and known-working package versions. All **43 targeted research tests passed** on this Windows PC; the full suite also exited successfully with three skips. A fresh research smoke plan completed **16/16 successful cells**, sampled worker memory, and left zero owned worker descendants.
+- Prepared `data/probes/windows-screen-v1/` on this PC: 12 dataset instances, eight configurations, four methods and two repeats, or **768 planned cells**. The prepared Parquet/probe files occupy **3.39 GiB**. The first four plus one 32-cell batch recorded **36/768 successes**, sampled telemetry for every cell, zero owned descendants and no stale lock. Run files were under 1 MB; about 63 GiB remained free on C: after the batch.
+- Three of the 36 screen cells had sampled positive stored spill. The full `skewed_join-2000000-uneven` run at `w1_t2_1g` reported about **1.17 GB summed spill peaks across worker lifetimes** and at least **two worker restarts**, though the final job status was success. This does not establish a stable ranking, spill reduction or a policy improvement; the plan remains incomplete.
+- Saved package versions, original revision and host/session notes with the ignored run data. Exported a [compact partial checkpoint](reports/research_probe_windows_v1_partial/README.md) for the team. Raw logs and generated Parquet remain local; continue the same plan only on this PC.
+
 ## Current work and next steps
 
-1. Teammates should pull `origin/main` and review the integrated evidence. Start new work from updated `main` on a focused topic branch. Independent validation on new physical profiles is still needed before a general cost improvement claim.
-2. Optional TabPFN/Colab comparison and formal DTU synopsis submission still need team decisions. Do not train a failure classifier or claim failure improvement from zero failures.
+1. Resume the research screen in bounded batches from 36/768, inspecting failures, restarts, spill, disk and cleanup after each. Do not regenerate the prepared plan or mix it with the partial Mac studies. The research branch remains separate from `main` until evidence and an integration decision.
+2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC
 
@@ -125,6 +133,8 @@ git status --short --branch
 git log -4 --oneline
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe experiments/audit_runs.py
+
+.\.venv-research\Scripts\python.exe -m experiments.probe_pilot analyze --plan data/probes/windows-screen-v1/plan.json
 ```
 
 Running `audit_runs.py` regenerates local curated Parquet and CSV from ignored raw JSONL. It should reproduce 96 rows and zero SLA misses. The script does not rerun physical Dask jobs.

@@ -1,6 +1,6 @@
 # SAFE-Pipe project context
 
-**Updated:** 2026-11-02. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
+**Updated:** 2026-11-13. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
 
 ## Start here: current goal and execution constraints
 
@@ -13,7 +13,7 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 - **Latest explicit instruction:** large tests, benchmark generation/execution and any model training belong on the other laptop. This Mac is for code, research/design, documentation and small correctness checks. Do not restart the historical Mac matrices.
 - Hardware available: Windows PC plus Mac. Earlier planning allowed 4–6 weeks; this is a planning horizon, not a confirmed submission date. Do not assume cloud spending is needed or authorized by the current work.
 - The user's preferred advisor objective remains **balanced speed and resource use**. Research comparisons must state their objective and distinguish engine runtime from complete-request cost.
-- No heavy research job or new training is currently scheduled by this branch. Windows compatibility and performance must still be checked on that laptop.
+- The Windows experiment PC has now passed the small research checks and begun the development screen. No adaptive controller or new model has been trained.
 
 ## Current research state
 
@@ -36,11 +36,12 @@ Verified evidence must stay separated:
 | Research tiny smoke | 16/16 successes; scalar outputs checked against pandas | Small-input software diagnostics |
 | Mac 64-cell development plan | 1 recorded success; next larger-cap cell refused before execution | Partial data only |
 | Mac 32-cell limited plan | 10 recorded successes; study stopped at the user's instruction | Partial data only; 2 full groupby runs recorded sampled disk spill |
-| Windows research screen | Not run; preset describes 768 jobs | Pending development study, not a final held-out evaluation |
+| Windows research smoke | 16/16 successful tiny cells on 2026-11-13; memory samples present and zero owned descendants after cleanup | Windows software/cleanup diagnostic only |
+| Windows research screen | 36/768 cells recorded, all successful; three cells sampled positive stored spill; one full join cell showed at least two worker restarts | Partial development evidence only; no complete ranking comparison or policy result |
 
 The two observed groupby spill peaks were 71,066,898 and 92,031,812 bytes, with one worker lifetime observed in each. They show pressure in those particular runs, not a stable ranking or benefit from the proposed sampling method. One additional Mac-limited attempt was interrupted before the older runner wrote its row; the ledger names that evidence gap. Do not hide it or fabricate a replacement measurement.
 
-The two partial plans cannot be pooled into a complete comparison. Historical source changed after their preparation, so **prepare a fresh Windows plan** instead of resuming or editing the old plans. The first smoke predates source fingerprints and some metadata. The ledger documents these provenance limits.
+The two partial Mac plans cannot be pooled into a complete comparison. Historical source changed after their preparation. The fresh Windows plan is prepared at `data/probes/windows-screen-v1/` on the original Windows PC and is resumable there; do not regenerate it or move its ignored raw data to another host. A compact [36-cell checkpoint](reports/research_probe_windows_v1_partial/README.md) is committed separately. The first Mac smoke predates source fingerprints and some metadata. The ledger documents these provenance limits.
 
 ## What remains, in order
 
@@ -53,8 +54,8 @@ The two partial plans cannot be pooled into a complete comparison. Historical so
 
 ### Work on the other laptop
 
-1. Pull **the research branch**, install its separate environment and run the small Windows tests/smoke checks in the handoff. Record package versions, commit and host conditions.
-2. Prepare a fresh `windows-screen` plan: 12 instances × 8 configurations × 4 methods × 2 repeats = **768 physical jobs**. Run bounded batches; preserve failures/interruption and inspect telemetry. Do not launch this matrix on the current Mac.
+1. On the original Windows PC, resume the prepared `windows-screen` plan from 36/768 cells in bounded batches. Package versions, commit and host conditions are saved in the ignored run directory and compact checkpoint. Inspect each batch for failures, worker restarts, spill and cleanup; do not launch this matrix on the Mac.
+2. Complete the 12 instances × 8 configurations × 4 methods × 2 repeats = **768 physical jobs** only if bounded batches remain viable. Preserve failures/interruption rather than selectively replacing cells.
 3. Analyze whether proxy-ranking errors persist after the matched uniform-memory baseline. Confirm pressure and repeatability; two repeats are exploratory, not strong statistical evidence.
 4. If a useful gap remains, implement and test the adaptive policy; otherwise revise or abandon the candidate. Training a reliability model is conditional on the design and sufficient independent data, not an automatic next step.
 5. Evaluate the final method on independent instances, with predeclared baselines and total request cost: preparation + all paid probes + a fresh selected full run. Preserve separate development and final-test data; do not tune on the latter.

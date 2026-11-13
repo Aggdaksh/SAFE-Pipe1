@@ -1,6 +1,6 @@
 # Progress
 
-**Updated:** 2026-11-02. Canonical memory and research goal: [`context.md`](context.md). Original Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
+**Updated:** 2026-11-13. Canonical memory and research goal: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
 
 ## Active research branch
 
@@ -12,12 +12,13 @@
 | Frozen plans, resume, analysis and evidence export | IMPLEMENTED | `experiments/probe_pilot.py`, `experiments/export_probe_evidence.py` |
 | Correctness/regression checks | PASSED on Mac | 120-test suite, then 2 added checks; 16 tiny Dask runs verified |
 | Preliminary larger Mac experiments | STOPPED / INCOMPLETE | Separate plans have 1 and 10 successful rows; 2 full groupby rows show spill; one unrecorded interrupted attempt is disclosed |
-| Other-laptop handoff | READY | [`docs/research/WINDOWS_HANDOFF.md`](docs/research/WINDOWS_HANDOFF.md) |
-| Windows screen | NOT RUN | 768-job development preset; small Windows checks must precede it |
+| Windows research environment and tests | VERIFIED | Separate `.venv-research`; 43 targeted research tests passed, and the full suite exited successfully with three skips on the original Windows PC |
+| Windows smoke | COMPLETE | 16/16 tiny cells succeeded with telemetry and no owned descendants after cleanup |
+| Windows screen | PARTIAL | 36/768 cells succeeded; three sampled positive spill, and one full join observed at least two worker restarts. [Checkpoint](reports/research_probe_windows_v1_partial/README.md) |
 | Adaptive controller / new reliability model | NOT IMPLEMENTED / NOT TRAINED | Conditional on a useful gap after simple baselines |
 | Independent final study, paper and merge decision | PENDING | Follow-up design, evaluation and user review |
 
-**Execution constraint:** larger tests/experiments and training belong on the other laptop. This Mac is for preparation and small checks. See the [evidence ledger](reports/research_probe_v1/README.md) for exact counts/provenance and [canonical next steps](context.md#what-remains-in-order) for remaining work. The research setup does not complete the original advisor's prospective validation.
+**Execution constraint:** larger tests/experiments and training belong on the Windows experiment PC. The Mac is for preparation and small checks. The Windows screen is a partial development study; no method ranking is yet evaluable. See the [Mac evidence ledger](reports/research_probe_v1/README.md), [Windows checkpoint](reports/research_probe_windows_v1_partial/README.md), and [canonical next steps](context.md#what-remains-in-order). The research setup does not complete the original advisor's prospective validation.
 
 ## Verified baseline work (main-v1 / advisor)
 

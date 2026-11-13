@@ -1,6 +1,6 @@
-# Research experiments on the other laptop
+# Research experiments on the Windows PC
 
-Prepared 2026-11-02. Branch: `codex/partition-probe-research`.
+Prepared 2026-11-02; Windows checkpoint added 2026-11-13. Branch: `codex/partition-probe-research`.
 
 The current Mac is for preparation and small correctness checks. Larger benchmarks and any later model training are deferred to the other laptop at the user's request. **Do not merge this branch yet.**
 
@@ -12,6 +12,19 @@ The current Mac is for preparation and small correctness checks. Larger benchmar
 - Descriptive comparisons and compact evidence export.
 
 This is an experiment framework. The adaptive probe-selection algorithm and reliability model are not implemented or trained. Existing production models are unchanged. See [protocol](PROBE_PROTOCOL.md) and [current evidence](../../reports/research_probe_v1/README.md).
+
+## Current Windows checkpoint (2026-11-13)
+
+This PC pulled the research branch at `2419360`, installed a separate ignored `.venv-research`, and passed all **43 targeted research tests**. A new Windows smoke plan recorded **16/16 successes**, memory samples and zero owned descendants after cleanup. A fresh `windows-screen-v1` plan was prepared on this PC; its datasets and probes occupy **3.39 GiB**. The first four and next 32 cells recorded **36/768 successes** with zero owned descendants and no stale run lock. Three cells showed sampled positive stored spill; one full two-million-row join at `w1_t2_1g` showed at least two worker restarts despite a successful final result. These are partial development observations, not method rankings. See the [compact checkpoint](../../reports/research_probe_windows_v1_partial/README.md).
+
+To continue **on this same Windows PC**, use the existing ignored `data/probes/windows-screen-v1/plan.json`. Do not run `prepare` again into that directory or copy it to another host. Check `git status`, then run one bounded batch and analyze it:
+
+```powershell
+.\.venv-research\Scripts\python.exe -m experiments.probe_pilot run --plan data/probes/windows-screen-v1/plan.json --max-runs 32
+.\.venv-research\Scripts\python.exe -m experiments.probe_pilot analyze --plan data/probes/windows-screen-v1/plan.json
+```
+
+Inspect statuses, restarts, spill, free disk and cleanup after each batch. Full screen completion and an independent final evaluation are still pending.
 
 ## 1. Get the branch and environment
 
@@ -41,7 +54,7 @@ py -3 -m venv .venv-research
 
 This environment needs no LightGBM training or GPU. `.venv-research/` is ignored by Git. Do not update code or packages halfway through a plan. The runner checks research source hashes; it does not enforce a package lock or identical machine state. Keep one plan on one machine and environment. Save the environment below.
 
-Windows execution has **not yet been verified**; start with the small checks before the large screen. The old Mac results are not Windows validation.
+Windows execution is now verified for the targeted tests, tiny smoke and first 36 screen cells recorded above. On any different Windows checkout or after changing research source files, start with small checks again and prepare a new plan. The old Mac results are not Windows validation.
 
 ## 2. Small checks first
 

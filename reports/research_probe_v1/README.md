@@ -1,6 +1,6 @@
 # Research preparation status
 
-Updated 2026-11-02. Isolated branch: `codex/partition-probe-research`. Main and the production advisor/models have not been changed by this research work.
+Updated 2026-11-13. Isolated branch: `codex/partition-probe-research`. Main and the production advisor/models have not been changed by this research work. This file records the earlier Mac studies; the new [Windows partial checkpoint](../research_probe_windows_v1_partial/README.md) is separate.
 
 ## Recorded work
 
