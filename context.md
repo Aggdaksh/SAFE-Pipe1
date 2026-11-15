@@ -1,6 +1,6 @@
 # SAFE-Pipe project context
 
-**Updated:** 2026-11-14. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
+**Updated:** 2026-11-15. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
 
 ## Start here: current goal and execution constraints
 
@@ -13,11 +13,23 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 - **Latest explicit instruction:** large tests, benchmark generation/execution and any model training belong on the other laptop. This Mac is for code, research/design, documentation and small correctness checks. Do not restart the historical Mac matrices.
 - Hardware available: Windows PC plus Mac. Earlier planning allowed 4–6 weeks; this is a planning horizon, not a confirmed submission date. Do not assume cloud spending is needed or authorized by the current work.
 - The user's preferred advisor objective remains **balanced speed and resource use**. Research comparisons must state their objective and distinguish engine runtime from complete-request cost.
-- The Windows experiment PC has now passed the small research checks and begun the development screen. No adaptive controller or new model has been trained.
+- The Windows experiment PC completed the development screen; the Mac has now performed a reproducible post-hoc review. No adaptive controller or new model has been trained.
 
 ## Current research state
 
 **Stage: the first Windows development screen is complete and audited (768 attempts: 759 success, one timeout, eight execution errors).** See the [completed evidence](reports/research_probe_windows_mains_v1_complete/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+
+### Deep review and proposed next direction (2026-11-15)
+
+The user's latest request is deep analysis and a clear plan. The [reproducible review](reports/research_screen_review_20261114/README.md) recomputes the published metrics and adds fixed-config, overhead, repeat-variation and balanced-objective sensitivity checks. The [follow-up plan](docs/research/POST_SCREEN_PLAN.md) is proposed; no new pressure experiments or training were launched.
+
+- The 0.11% median scaled-memory engine regret covers ten complete recipes; mean is 4.09%, maximum 17.37%. A fixed `w2_t2_1g` has comparable speed results (0.08% median) but full-run failures. All 2 GB settings succeeded in their 24 observed full attempts each. Simple fixed/metadata baselines are mandatory.
+- Replaying the scaled-memory method's choices over all twelve recipes selects configurations with three unsuccessful recorded full outcomes across two recipes. This is descriptive replay, not a calibrated failure probability. Stable probe timings can share full-scale bias.
+- Full successful engine median is 1.636 s; scaled-memory probe median is 1.327 s. A constructed one-probe-per-config sweep plus sample-preparation estimate costs median 31.20 s versus 3.80 s for a fixed full job on the matched ten-recipe cohort. This excludes the selected final run and is not a measured online policy. A per-request eight-probe policy is unjustified at this tested scale.
+- Current published rankings optimize engine speed. The user's objective remains balanced speed/resources. A post-hoc balanced-score sensitivity analysis changes the ordering; do not select an objective after seeing which favors the method. Predeclare the objective and charge total request cost in the follow-up.
+- 768 attempts contain only twelve recipes, one generation seed and two repeats. The current data is insufficient for a general failure classifier. The original partition-tail speed claim remains unsupported; its occasional pressure signal is only a diagnostic hypothesis.
+- Recommendation: first improve diagnostics, then a bounded mechanism study (48 full attempts; add 96 probes only if informative; at most 288 further attempts across two new seeds if justified). Maximum 432 is a conditional budget, not a scheduled matrix. Keep key skew and input imbalance separate. All heavy work stays on Windows.
+- Build an adaptive controller only if mechanism, pre-decision information, profiling economics and baseline-comparison gates pass. Generic adaptive sampling/trust filtering overlaps Crispy, Ruya, MFTune, TUNA and Lynceus. A specific useful fidelity signal remains an open research question. If the gates fail, revise the use case/direction rather than force a novelty claim.
 
 Implemented separately from production code:
 
@@ -48,10 +60,10 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Useful preparation without heavy computation
 
-1. Specify the follow-up research hypotheses, primary metrics and stopping decisions before looking at larger results. The existing protocol defines the exploratory screen; final evaluation is still to be designed.
-2. Draft a precise adaptive-policy specification: what input information it may use, when to enlarge a probe, how uncertainty triggers further measurement or abstention, and how every probe/preparation cost is charged. Keep this a proposed design until the screen shows a gap worth solving.
-3. Plan ablations that separate input-partition imbalance, key skew, data size and seed. The current balanced/uneven recipes change multiple factors together, so they cannot identify each factor's effect.
-4. Prepare a paper outline and contribution-versus-prior-work table. Keep results/conclusion placeholders empty and revisit nearest papers before claiming novelty.
+1. Deep review, nearest-prior comparison and proposed staged design are now written in [POST_SCREEN_PLAN.md](docs/research/POST_SCREEN_PLAN.md). The next implementation task is persistent worker/nanny diagnosis and precise per-phase cost accounting, with tiny checks.
+2. Freeze a new Stage A manifest after instrumentation and Windows verification. The plan separates skew/imbalance and uses new seeds; exact final-test design remains pending. Do not automatically run later stages.
+3. Refine the candidate controller only if the diagnostic gates pass; generic rank stability is insufficient evidence of full-scale reliability. Keep original speed findings and the balanced sensitivity analysis distinct.
+4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 
 ### Work on the other laptop
 

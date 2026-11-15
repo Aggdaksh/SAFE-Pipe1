@@ -1,6 +1,6 @@
 # Progress
 
-**Updated:** 2026-11-14. Canonical memory and research goal: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
+**Updated:** 2026-11-15. Canonical memory and research goal: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
 
 ## Active research branch
 
@@ -17,6 +17,7 @@
 | Windows screen | DIAGNOSTIC PARTIAL | 36/768 cells succeeded; three sampled positive spill, and one full join observed at least two worker restarts. A post-batch check found the PC unplugged; power source was not recorded per cell. Start a fresh mains-powered plan for comparable rankings. [Checkpoint](reports/research_probe_windows_v1_partial/README.md) |
 | Second Windows screen with continuous conditions | COLLECTION COMPLETE | 768/768: 759 success, one power-flagged timeout, eight KilledWorker execution errors. Zero cleanup survivors; 30 spill-positive and 13 restart-positive cells. [Completed evidence](reports/research_probe_windows_mains_v1_complete/README.md) |
 | Adaptive controller / new reliability model | NOT IMPLEMENTED / NOT TRAINED | Conditional on a useful gap after simple baselines |
+| Deep screen review and staged follow-up plan | COMPLETE as analysis/proposal | Recomputed regrets, fixed baselines, replayed failures, probing overhead and objective sensitivity; [review](reports/research_screen_review_20261114/README.md), [plan](docs/research/POST_SCREEN_PLAN.md). No new heavy runs |
 | Independent final study, paper and merge decision | PENDING | Follow-up design, evaluation and user review |
 
 **Execution constraint:** larger tests/experiments and training belong on the Windows experiment PC while connected to mains. The Mac is for preparation and small checks. The current Windows screen is complete. Ten instances support descriptive rankings; two failed full-reference instances remain unevaluable. Partition-tail has not shown an overall benefit over matched-memory uniform sampling. See the [Mac evidence ledger](reports/research_probe_v1/README.md), [Windows checkpoint](reports/research_probe_windows_v1_partial/README.md), and [canonical next steps](context.md#what-remains-in-order). The research setup does not complete the original advisor's prospective validation.

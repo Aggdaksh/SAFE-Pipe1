@@ -2,6 +2,8 @@
 
 Updated 2026-11-14. The development screen is **complete: 768/768 attempts, 759 success, one timeout, eight execution errors**. The earlier diagnostic plan remains separate. No benchmark is running. See the [completed evidence](../../reports/research_probe_windows_mains_v1_complete/README.md).
 
+**2026-11-15 review:** the detailed [post-screen plan](POST_SCREEN_PLAN.md) now defines the proposed diagnostic stages and decision gates. Its [recomputed analysis](../../reports/research_screen_review_20261114/README.md) adds fixed baselines, selected-setting failures, repeat variation, overhead and objective sensitivity. Next: improve diagnosis/accounting and freeze Stage A; do not automatically launch another broad matrix or train a model.
+
 ## 1. Collection and integrity completed
 
 All planned identities are present exactly once. Frozen source and all 36 dataset/probe directory hashes match; cleanup left zero owned descendants and no run lock. Preserve the raw JSONL, inputs, condition samples and environment records. Do not rerun recorded failures.

@@ -1,0 +1,2445 @@
+{
+  "role": "posthoc_development_analysis_not_policy_validation",
+  "source_commit": "6c08ec9",
+  "input_sha256": {
+    "measurements.csv": "c3baef03747544e0beb40f2a2f7046f2a1c7b358e34e7a89e6fe69028f4b4dba",
+    "summary.json": "7bf15fb72c891da91524bf8ce59498a078d69f463b2e0c3be6bd563552b1ccc6",
+    "plan.json": "94b65aa60b424b6f9ca7072c09156d804c3bac718514f4aa9626672f63be93ea",
+    "completion_audit.json": "827c22d408d14a5094cfbfec9f05ff09a127cbabf283cd6c7f58afec7ec85728"
+  },
+  "recorded": 768,
+  "statuses": {
+    "success": 759,
+    "timeout": 1,
+    "execution_error": 8
+  },
+  "independent_recipe_count": 12,
+  "recipe_seeds": [
+    731
+  ],
+  "complete_instances": [
+    "groupby-1000000-balanced",
+    "groupby-1000000-uneven",
+    "groupby-2000000-balanced",
+    "groupby-500000-balanced",
+    "groupby-500000-uneven",
+    "skewed_join-1000000-balanced",
+    "skewed_join-1000000-uneven",
+    "skewed_join-2000000-balanced",
+    "skewed_join-500000-balanced",
+    "skewed_join-500000-uneven"
+  ],
+  "full_winner_changes_between_repeats_out_of_10": 4,
+  "methods": {
+    "uniform": {
+      "engine_regret_percent": {
+        "n": 10,
+        "median": 3.8687105293233492,
+        "mean": 4.99078543297804,
+        "min": 0.0,
+        "max": 17.371722184668805
+      },
+      "posthoc_balanced_score_regret_percent": {
+        "n": 10,
+        "median": 3.9036213694359834,
+        "mean": 13.56752588698851,
+        "min": 0.0,
+        "max": 73.6244504188186
+      },
+      "selected_vs_best_decisive_cases": 3,
+      "proxy_winner_changes_between_two_repeats_out_of_12": 7,
+      "selected_full_replay_failures_out_of_24": 1,
+      "balanced_selected_full_replay_failures_out_of_24": 3,
+      "estimated_sweep_plus_prep_to_fixed_full_ratio": {
+        "n": 10,
+        "median": 8.274976700346336,
+        "mean": 8.146109988637653,
+        "min": 7.236126051890395,
+        "max": 8.684837305996183
+      },
+      "selected_outcomes": [
+        {
+          "instance": "groupby-1000000-balanced",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_1g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-1000000-uneven",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-2000000-balanced",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "groupby-2000000-uneven",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "execution_error",
+            "execution_error"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w1_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-500000-balanced",
+          "selected_config": "w2_t1_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_2g",
+            "w2_t1_2g"
+          ]
+        },
+        {
+          "instance": "groupby-500000-uneven",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w2_t1_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-1000000-balanced",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w1_t2_2g"
+          ]
+        },
+        {
+          "instance": "skewed_join-1000000-uneven",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_2g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "skewed_join-2000000-balanced",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-2000000-uneven",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "execution_error",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "execution_error"
+          ],
+          "proxy_repeat_winners": [
+            "w1_t2_2g",
+            "w1_t2_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-500000-balanced",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-500000-uneven",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t1_1g"
+          ]
+        }
+      ]
+    },
+    "uniform_memory": {
+      "engine_regret_percent": {
+        "n": 10,
+        "median": 0.11474575820125121,
+        "mean": 4.086534220205227,
+        "min": 0.0,
+        "max": 17.371722184668805
+      },
+      "posthoc_balanced_score_regret_percent": {
+        "n": 10,
+        "median": 5.4392720390417315,
+        "mean": 7.7000841892737615,
+        "min": 0.0,
+        "max": 22.284542440049847
+      },
+      "selected_vs_best_decisive_cases": 2,
+      "proxy_winner_changes_between_two_repeats_out_of_12": 6,
+      "selected_full_replay_failures_out_of_24": 3,
+      "balanced_selected_full_replay_failures_out_of_24": 2,
+      "estimated_sweep_plus_prep_to_fixed_full_ratio": {
+        "n": 10,
+        "median": 8.235358365135099,
+        "mean": 8.135279672189647,
+        "min": 7.279922306595609,
+        "max": 8.692938480061029
+      },
+      "selected_outcomes": [
+        {
+          "instance": "groupby-1000000-balanced",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-1000000-uneven",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-2000000-balanced",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "groupby-2000000-uneven",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "execution_error"
+          ],
+          "balanced_proxy_config": "w1_t2_2g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-500000-balanced",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-500000-uneven",
+          "selected_config": "w2_t1_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_2g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_2g",
+            "w2_t1_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-1000000-balanced",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-1000000-uneven",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_2g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "skewed_join-2000000-balanced",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_1g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "skewed_join-2000000-uneven",
+          "selected_config": "w2_t1_1g",
+          "full_repeat_statuses": [
+            "execution_error",
+            "execution_error"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "execution_error",
+            "execution_error"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_1g",
+            "w2_t1_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-500000-balanced",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_1g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-500000-uneven",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_1g"
+          ]
+        }
+      ]
+    },
+    "partition_tail": {
+      "engine_regret_percent": {
+        "n": 10,
+        "median": 8.165447857760121,
+        "mean": 9.759564819150194,
+        "min": 0.0,
+        "max": 23.776655226010778
+      },
+      "posthoc_balanced_score_regret_percent": {
+        "n": 10,
+        "median": 3.260233879108898,
+        "mean": 5.331169225193255,
+        "min": 0.0,
+        "max": 22.284542440049847
+      },
+      "selected_vs_best_decisive_cases": 6,
+      "proxy_winner_changes_between_two_repeats_out_of_12": 9,
+      "selected_full_replay_failures_out_of_24": 1,
+      "balanced_selected_full_replay_failures_out_of_24": 3,
+      "estimated_sweep_plus_prep_to_fixed_full_ratio": {
+        "n": 10,
+        "median": 8.07094371144882,
+        "mean": 8.028226455400965,
+        "min": 7.098662609835115,
+        "max": 8.830807723078612
+      },
+      "selected_outcomes": [
+        {
+          "instance": "groupby-1000000-balanced",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_2g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-1000000-uneven",
+          "selected_config": "w2_t1_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w1_t2_2g",
+            "w2_t1_1g"
+          ]
+        },
+        {
+          "instance": "groupby-2000000-balanced",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-2000000-uneven",
+          "selected_config": "w2_t2_2g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "execution_error",
+            "execution_error"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_2g",
+            "w2_t2_2g"
+          ]
+        },
+        {
+          "instance": "groupby-500000-balanced",
+          "selected_config": "w2_t1_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_1g",
+            "w2_t1_2g"
+          ]
+        },
+        {
+          "instance": "groupby-500000-uneven",
+          "selected_config": "w1_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w1_t2_1g",
+            "w1_t2_2g"
+          ]
+        },
+        {
+          "instance": "skewed_join-1000000-balanced",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-1000000-uneven",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t2_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-2000000-balanced",
+          "selected_config": "w2_t1_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t1_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-2000000-uneven",
+          "selected_config": "w2_t2_1g",
+          "full_repeat_statuses": [
+            "execution_error",
+            "success"
+          ],
+          "balanced_proxy_config": "w1_t2_1g",
+          "balanced_full_statuses": [
+            "timeout",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t1_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-500000-balanced",
+          "selected_config": "w2_t1_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t1_2g",
+            "w2_t1_1g"
+          ]
+        },
+        {
+          "instance": "skewed_join-500000-uneven",
+          "selected_config": "w2_t1_1g",
+          "full_repeat_statuses": [
+            "success",
+            "success"
+          ],
+          "balanced_proxy_config": "w2_t1_1g",
+          "balanced_full_statuses": [
+            "success",
+            "success"
+          ],
+          "proxy_repeat_winners": [
+            "w2_t2_1g",
+            "w2_t1_1g"
+          ]
+        }
+      ]
+    }
+  },
+  "fixed_configs": {
+    "w1_t1_1g": {
+      "full_statuses_out_of_24": {
+        "success": 22,
+        "execution_error": 2
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 47.93216719540205,
+        "mean": 60.054716397698954,
+        "min": 25.020075167979417,
+        "max": 163.2862935443026
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 11.376799949108694,
+        "mean": 20.711155222249626,
+        "min": 0.0,
+        "max": 85.20666379891179
+      }
+    },
+    "w1_t1_2g": {
+      "full_statuses_out_of_24": {
+        "success": 24
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 42.82113526162931,
+        "mean": 59.10694190199996,
+        "min": 22.500014401863467,
+        "max": 180.00900949927058
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 23.393589096868528,
+        "mean": 31.770022997273255,
+        "min": 4.156276065465425,
+        "max": 116.66713889038269
+      }
+    },
+    "w1_t2_1g": {
+      "full_statuses_out_of_24": {
+        "success": 21,
+        "execution_error": 2,
+        "timeout": 1
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 26.229213720499487,
+        "mean": 34.92725776395641,
+        "min": 9.506890177456562,
+        "max": 110.41288646926368
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 2.607504469933475,
+        "mean": 12.069722183565938,
+        "min": 0.0,
+        "max": 73.6244504188186
+      }
+    },
+    "w1_t2_2g": {
+      "full_statuses_out_of_24": {
+        "success": 24
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 16.93930882537761,
+        "mean": 16.842026459051354,
+        "min": 3.5157738942946493,
+        "max": 32.58595329154026
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 4.5941575075106655,
+        "mean": 6.137042655998181,
+        "min": 0.0,
+        "max": 16.200806043118888
+      }
+    },
+    "w2_t1_1g": {
+      "full_statuses_out_of_24": {
+        "success": 22,
+        "execution_error": 2
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 19.822816900849794,
+        "mean": 19.566611270827284,
+        "min": 5.775612322572421,
+        "max": 38.31020952167188
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 6.173096950066325,
+        "mean": 8.783850398034632,
+        "min": 0.0,
+        "max": 37.784813985882316
+      }
+    },
+    "w2_t1_2g": {
+      "full_statuses_out_of_24": {
+        "success": 24
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 9.315913902431848,
+        "mean": 11.518988158073162,
+        "min": 0.0,
+        "max": 26.135054351967323
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 17.05451486219376,
+        "mean": 18.12490220130605,
+        "min": 7.7537288447142805,
+        "max": 33.668861909671556
+      }
+    },
+    "w2_t2_1g": {
+      "full_statuses_out_of_24": {
+        "success": 22,
+        "execution_error": 2
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 0.08047448101698995,
+        "mean": 3.670602638868903,
+        "min": 0.0,
+        "max": 17.4023563151817
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 8.809267779872155,
+        "mean": 10.024609597086068,
+        "min": 0.0,
+        "max": 23.26431808072005
+      }
+    },
+    "w2_t2_2g": {
+      "full_statuses_out_of_24": {
+        "success": 24
+      },
+      "engine_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 5.1765585552458475,
+        "mean": 4.736182753811919,
+        "min": 0.0,
+        "max": 13.143596580100802
+      },
+      "posthoc_balanced_score_regret_percent_on_10_complete_instances": {
+        "n": 10,
+        "median": 30.947712970951393,
+        "mean": 27.193523801584924,
+        "min": 12.550736344501722,
+        "max": 36.08915603113605
+      }
+    }
+  },
+  "successful_timings": {
+    "full": {
+      "setup_seconds": {
+        "n": 183,
+        "median": 0.784552099999928,
+        "mean": 0.7901426202186416,
+        "min": 0.6514337999997224,
+        "max": 1.062613699999929
+      },
+      "execution_seconds": {
+        "n": 183,
+        "median": 1.6362525999993522,
+        "mean": 2.0575542027322675,
+        "min": 1.16007990000071,
+        "max": 23.133639499999845
+      },
+      "total_seconds": {
+        "n": 183,
+        "median": 4.0553732000007585,
+        "mean": 4.499830326776067,
+        "min": 3.494819200001075,
+        "max": 25.809258899998895
+      }
+    },
+    "uniform": {
+      "setup_seconds": {
+        "n": 192,
+        "median": 0.7904393000007985,
+        "mean": 0.7979562255208137,
+        "min": 0.641631000000416,
+        "max": 1.2106401000000915
+      },
+      "execution_seconds": {
+        "n": 192,
+        "median": 1.3174616500000411,
+        "mean": 1.3710964510416492,
+        "min": 0.966343500000221,
+        "max": 2.558702600000288
+      },
+      "total_seconds": {
+        "n": 192,
+        "median": 3.735973599999852,
+        "mean": 3.80865603697913,
+        "min": 3.0669008000004396,
+        "max": 5.879424599999766
+      }
+    },
+    "uniform_memory": {
+      "setup_seconds": {
+        "n": 192,
+        "median": 0.7893169999999827,
+        "mean": 0.8007870671874144,
+        "min": 0.6445069999990665,
+        "max": 1.1891927000001488
+      },
+      "execution_seconds": {
+        "n": 192,
+        "median": 1.327255850000256,
+        "mean": 1.3824537807291957,
+        "min": 1.02145419999988,
+        "max": 2.7885652999998456
+      },
+      "total_seconds": {
+        "n": 192,
+        "median": 3.7270211499990182,
+        "mean": 3.823220495833238,
+        "min": 3.1631525999996484,
+        "max": 6.2265864000000875
+      }
+    },
+    "partition_tail": {
+      "setup_seconds": {
+        "n": 192,
+        "median": 0.7722160000002987,
+        "mean": 0.7919321052084479,
+        "min": 0.662020300000222,
+        "max": 1.2528956000001017
+      },
+      "execution_seconds": {
+        "n": 192,
+        "median": 1.3219136999996408,
+        "mean": 1.3676800552083914,
+        "min": 1.0041498000009597,
+        "max": 3.2683899000003294
+      },
+      "total_seconds": {
+        "n": 192,
+        "median": 3.7120617000000493,
+        "mean": 3.787919751041637,
+        "min": 3.0654816000005667,
+        "max": 7.304476199999954
+      }
+    }
+  },
+  "within_cell_two_repeat_relative_gap_percent": {
+    "full": {
+      "n": 89,
+      "median": 7.088410857552763,
+      "mean": 10.754060510935254,
+      "min": 0.08035343933767702,
+      "max": 48.34901247908589
+    },
+    "uniform": {
+      "n": 96,
+      "median": 9.476321025608103,
+      "mean": 13.437637858113737,
+      "min": 0.02974207715134014,
+      "max": 65.78935824803538
+    },
+    "uniform_memory": {
+      "n": 96,
+      "median": 8.467603352066476,
+      "mean": 12.75634245641559,
+      "min": 0.10204230819859106,
+      "max": 74.67028271929215
+    },
+    "partition_tail": {
+      "n": 96,
+      "median": 7.75964784783294,
+      "mean": 12.330007537758934,
+      "min": 0.044116862505205745,
+      "max": 95.31949483298699
+    }
+  },
+  "failures": [
+    {
+      "cell_id": "67b332003c26acf0b486823b",
+      "instance_id": "skewed_join-2000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "repeat_id": "1",
+      "status": "timeout",
+      "error": "total request wall limit of 180s reached; completion time is censored",
+      "spilled_disk_peak_bytes_sum": "1364653776",
+      "observed_restarts_lower_bound": "3",
+      "power_flagged": true
+    },
+    {
+      "cell_id": "6658f00706a92375628cb8b5",
+      "instance_id": "skewed_join-2000000-uneven",
+      "target_config_id": "w2_t1_1g",
+      "repeat_id": "1",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('group-taskshuffle-566d6a47bae0900cd633830898a0653e', 3) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:51531. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "1488800965",
+      "observed_restarts_lower_bound": "5",
+      "power_flagged": false
+    },
+    {
+      "cell_id": "4474c961b1c72c2b6cd8129c",
+      "instance_id": "skewed_join-2000000-uneven",
+      "target_config_id": "w2_t2_1g",
+      "repeat_id": "1",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('group-taskshuffle-76e80ad08b90166a92bb1fa25f5b8a12', 0) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:63130. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "1965928503",
+      "observed_restarts_lower_bound": "7",
+      "power_flagged": false
+    },
+    {
+      "cell_id": "387726dac7055c584f853e39",
+      "instance_id": "groupby-2000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "repeat_id": "1",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('read_parquet-chunk-reset_index-operation-c6d89bf67e79648108a03dec748f5bd4', 0) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:53611. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "0",
+      "observed_restarts_lower_bound": "3",
+      "power_flagged": false
+    },
+    {
+      "cell_id": "7ac8732c456472e99edf9a23",
+      "instance_id": "groupby-2000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "repeat_id": "1",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('read_parquet-chunk-reset_index-operation-a1ed6da7b50c406236fc8c82d0e620ea', 0) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:51253. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "73421226",
+      "observed_restarts_lower_bound": "3",
+      "power_flagged": false
+    },
+    {
+      "cell_id": "f67eab8652e32869853cc15c",
+      "instance_id": "skewed_join-2000000-uneven",
+      "target_config_id": "w1_t1_1g",
+      "repeat_id": "2",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('group-taskshuffle-a0dc40cf07952514ba3f4d3c9e805ed1', 3) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:53197. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "1255502122",
+      "observed_restarts_lower_bound": "4",
+      "power_flagged": false
+    },
+    {
+      "cell_id": "8dfd5492de8f5ee48e6e67a4",
+      "instance_id": "skewed_join-2000000-uneven",
+      "target_config_id": "w2_t1_1g",
+      "repeat_id": "2",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('split-taskshuffle-3fd73092a8cbc419fce5b1b9f9a72ce5', 1, 0) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:58164. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "992964780",
+      "observed_restarts_lower_bound": "3",
+      "power_flagged": false
+    },
+    {
+      "cell_id": "d9428fe126fc6b4354439b1c",
+      "instance_id": "groupby-2000000-uneven",
+      "target_config_id": "w2_t2_1g",
+      "repeat_id": "2",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('read_parquet-chunk-reset_index-operation-0a790a97e28fcd0b661ca38829db707a', 0) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:54202. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "136360044",
+      "observed_restarts_lower_bound": "3",
+      "power_flagged": false
+    },
+    {
+      "cell_id": "8945d09264a0fc4eb45703c1",
+      "instance_id": "groupby-2000000-uneven",
+      "target_config_id": "w1_t2_1g",
+      "repeat_id": "2",
+      "status": "execution_error",
+      "error": "KilledWorker: Attempted to run task ('read_parquet-chunk-reset_index-operation-8035502d947f023b78c3a79feef6dc8c', 0) on 4 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:59742. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.",
+      "spilled_disk_peak_bytes_sum": "43232735",
+      "observed_restarts_lower_bound": "3",
+      "power_flagged": false
+    }
+  ],
+  "cases": [
+    {
+      "instance": "groupby-1000000-balanced",
+      "method": "uniform",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 6.824005538063682,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 0.0,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.453270899999552,
+      "shared_sample_preparation_seconds": 0.6738253000003169,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.029599600000438,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.476449074492809
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "method": "uniform",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 10.504286261281282,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w1_t1_1g",
+      "balanced_score_regret_percent": 0.9757963176299178,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.565105399998856,
+      "shared_sample_preparation_seconds": 0.9676050999996733,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.219482949999474,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.236126051890395
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "method": "uniform",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 1.5415074104020432,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w2_t2_1g",
+      "balanced_score_regret_percent": 22.284542440049847,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.87481575000129,
+      "shared_sample_preparation_seconds": 1.4999800999999024,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.084237600000961,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.926766026049409
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "method": "uniform",
+      "selected": "w2_t1_2g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 6.9000193707803525,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w1_t2_2g",
+      "balanced_score_regret_percent": 6.819210974247358,
+      "one_probe_per_config_sweep_lifecycle_seconds": 28.60520479999809,
+      "shared_sample_preparation_seconds": 0.6208408000002237,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.496023050000076,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.359797742179554
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "method": "uniform",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t1_2g",
+      "engine_regret_percent": 0.3409083999370788,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t1_1g",
+      "balanced_hindsight_config": "w1_t2_1g",
+      "balanced_score_regret_percent": 22.78678042800555,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.03842580000105,
+      "shared_sample_preparation_seconds": 0.6730164999999033,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.6144867000002705,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.220100049060557
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "method": "uniform",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 6.195913648244655,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 0.0,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.937266350000755,
+      "shared_sample_preparation_seconds": 1.0738964000001943,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.7327623000005588,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.575730297639407
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "method": "uniform",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w2_t2_1g",
+      "balanced_score_regret_percent": 1.3772355522618573,
+      "one_probe_per_config_sweep_lifecycle_seconds": 32.007984399998804,
+      "shared_sample_preparation_seconds": 0.8845002999996723,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.7873460999999224,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.684837305996183
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "method": "uniform",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 17.371722184668805,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 73.6244504188186,
+      "one_probe_per_config_sweep_lifecycle_seconds": 31.66374114999985,
+      "shared_sample_preparation_seconds": 1.4460970999998608,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.918168600000172,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.450335253566745
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "method": "uniform",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t1_2g",
+      "engine_regret_percent": 0.22949151640250243,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t1_1g",
+      "balanced_hindsight_config": "w1_t2_1g",
+      "balanced_score_regret_percent": 1.8382472825622775,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.00952149999921,
+      "shared_sample_preparation_seconds": 0.5953919000003225,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.731803750000381,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.201104733869354
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "method": "uniform",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t1_1g",
+      "balanced_hindsight_config": "w1_t2_2g",
+      "balanced_score_regret_percent": 5.968995456309689,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.8135398000004,
+      "shared_sample_preparation_seconds": 0.8823173000000679,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.8050918500011903,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.329853351632117
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "method": "uniform_memory",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 6.824005538063682,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 3.8377733876050923,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.51574115000085,
+      "shared_sample_preparation_seconds": 0.6738253000003169,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.029599600000438,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.740115531577325
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "method": "uniform_memory",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 10.504286261281282,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w1_t1_1g",
+      "balanced_score_regret_percent": 9.46033876969221,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.749902950001342,
+      "shared_sample_preparation_seconds": 0.9676050999996733,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.219482949999474,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.279922306595609
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "method": "uniform_memory",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w2_t2_1g",
+      "balanced_score_regret_percent": 22.284542440049847,
+      "one_probe_per_config_sweep_lifecycle_seconds": 31.50149524999665,
+      "shared_sample_preparation_seconds": 1.4999800999999024,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.084237600000961,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.080204577223615
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "method": "uniform_memory",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t1_1g",
+      "balanced_hindsight_config": "w1_t2_2g",
+      "balanced_score_regret_percent": 6.528539071584527,
+      "one_probe_per_config_sweep_lifecycle_seconds": 28.292327649998242,
+      "shared_sample_preparation_seconds": 0.6208408000002237,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.496023050000076,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.270302579955196
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "method": "uniform_memory",
+      "selected": "w2_t1_2g",
+      "hindsight_best": "w2_t1_2g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t1_2g",
+      "balanced_hindsight_config": "w1_t2_1g",
+      "balanced_score_regret_percent": 11.865120270835462,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.340120700000853,
+      "shared_sample_preparation_seconds": 0.6730164999999033,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.6144867000002705,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.30356830473287
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "method": "uniform_memory",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t1_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 16.225060826632863,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.249449699999786,
+      "shared_sample_preparation_seconds": 1.0738964000001943,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.7327623000005588,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.391465510674305
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "method": "uniform_memory",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 5.935836701635999,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w1_t2_2g",
+      "balanced_hindsight_config": "w2_t2_1g",
+      "balanced_score_regret_percent": 1.2596649161235929,
+      "one_probe_per_config_sweep_lifecycle_seconds": 32.03866634999872,
+      "shared_sample_preparation_seconds": 0.8845002999996723,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.7873460999999224,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.692938480061029
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "method": "uniform_memory",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 17.371722184668805,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 0.0,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.98145189999832,
+      "shared_sample_preparation_seconds": 1.4460970999998608,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.918168600000172,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.27620051878236
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "method": "uniform_memory",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t1_2g",
+      "engine_regret_percent": 0.22949151640250243,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w1_t2_1g",
+      "balanced_score_regret_percent": 4.350005006498936,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.698139899999433,
+      "shared_sample_preparation_seconds": 0.5953919000003225,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.731803750000381,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.117664761979153
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "method": "uniform_memory",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w1_t2_2g",
+      "balanced_score_regret_percent": 1.1897972037150817,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.32101174999798,
+      "shared_sample_preparation_seconds": 0.8823173000000679,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.8050918500011903,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.200414150315002
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "method": "partition_tail",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 6.824005538063682,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 0.0,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.25466039999901,
+      "shared_sample_preparation_seconds": 0.7342413000001216,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.029599600000438,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.442154227927726
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "method": "partition_tail",
+      "selected": "w2_t1_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 18.99101603944031,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w1_t1_1g",
+      "balanced_score_regret_percent": 9.46033876969221,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.256474449998223,
+      "shared_sample_preparation_seconds": 0.696211399999811,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.219482949999474,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.098662609835115
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "method": "partition_tail",
+      "selected": "w2_t2_2g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w2_t2_1g",
+      "balanced_score_regret_percent": 22.284542440049847,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.598567050000156,
+      "shared_sample_preparation_seconds": 1.3059395000000222,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 4.084237600000961,
+      "sweep_plus_preparation_to_fixed_full_ratio": 7.811618635995289
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "method": "partition_tail",
+      "selected": "w2_t1_1g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 20.654617762259274,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w1_t2_2g",
+      "balanced_score_regret_percent": 4.244147617625793,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.121221450001258,
+      "shared_sample_preparation_seconds": 0.7514859000002616,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.496023050000076,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.830807723078612
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "method": "partition_tail",
+      "selected": "w1_t2_1g",
+      "hindsight_best": "w2_t1_2g",
+      "engine_regret_percent": 9.506890177456562,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w1_t2_1g",
+      "balanced_hindsight_config": "w1_t2_1g",
+      "balanced_score_regret_percent": 0.0,
+      "one_probe_per_config_sweep_lifecycle_seconds": 28.69378504999895,
+      "shared_sample_preparation_seconds": 0.4738403000001199,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.6144867000002705,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.06964522790937
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "method": "partition_tail",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 0.0,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.424727400001757,
+      "shared_sample_preparation_seconds": 1.0629284000001462,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.7327623000005588,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.435483770289148
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "method": "partition_tail",
+      "selected": "w2_t2_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 0.0,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w1_t1_1g",
+      "balanced_hindsight_config": "w2_t2_1g",
+      "balanced_score_regret_percent": 2.276320140592003,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.539105699998345,
+      "shared_sample_preparation_seconds": 0.6854533000000629,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.7873460999999224,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.244442988719475
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "method": "partition_tail",
+      "selected": "w2_t1_1g",
+      "hindsight_best": "w2_t2_2g",
+      "engine_regret_percent": 11.089468561730985,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w2_t1_1g",
+      "balanced_score_regret_percent": 0.0,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.30516839999973,
+      "shared_sample_preparation_seconds": 1.3232374999997774,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.918168600000172,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.07224219498827
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "method": "partition_tail",
+      "selected": "w2_t1_1g",
+      "hindsight_best": "w2_t1_2g",
+      "engine_regret_percent": 6.752994886540353,
+      "choice_decisive_under_existing_screen": false,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w1_t2_1g",
+      "balanced_score_regret_percent": 4.350005006498936,
+      "one_probe_per_config_sweep_lifecycle_seconds": 29.203812800001515,
+      "shared_sample_preparation_seconds": 0.7035793999998532,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.731803750000381,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.0141921182212
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "method": "partition_tail",
+      "selected": "w2_t1_1g",
+      "hindsight_best": "w2_t2_1g",
+      "engine_regret_percent": 23.776655226010778,
+      "choice_decisive_under_existing_screen": true,
+      "balanced_proxy_config": "w2_t1_1g",
+      "balanced_hindsight_config": "w1_t2_2g",
+      "balanced_score_regret_percent": 10.69633827747376,
+      "one_probe_per_config_sweep_lifecycle_seconds": 30.809485550000545,
+      "shared_sample_preparation_seconds": 0.6320457000001625,
+      "fixed_w2_t2_2g_full_lifecycle_seconds": 3.8050918500011903,
+      "sweep_plus_preparation_to_fixed_full_ratio": 8.263015057045436
+    }
+  ],
+  "posthoc_tail_spill_warning_by_instance_config": [
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-balanced",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-1000000-uneven",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-balanced",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w1_t1_1g",
+      "full_any_failure": true,
+      "full_execution_error": true,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": true,
+      "tail_spill_positive_repeats": 2
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w1_t2_1g",
+      "full_any_failure": true,
+      "full_execution_error": true,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": true,
+      "tail_spill_positive_repeats": 2
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": true,
+      "tail_spill_positive_repeats": 2
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w2_t2_1g",
+      "full_any_failure": true,
+      "full_execution_error": true,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": true,
+      "tail_spill_positive_repeats": 2
+    },
+    {
+      "instance": "groupby-2000000-uneven",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-balanced",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "groupby-500000-uneven",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-balanced",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-1000000-uneven",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-balanced",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w1_t1_1g",
+      "full_any_failure": true,
+      "full_execution_error": true,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w1_t2_1g",
+      "full_any_failure": true,
+      "full_execution_error": false,
+      "full_power_flag": true,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w2_t1_1g",
+      "full_any_failure": true,
+      "full_execution_error": true,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": true,
+      "tail_spill_positive_repeats": 1
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w2_t2_1g",
+      "full_any_failure": true,
+      "full_execution_error": true,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-2000000-uneven",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-balanced",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w1_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w1_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w1_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w1_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w2_t1_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w2_t1_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w2_t2_1g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    },
+    {
+      "instance": "skewed_join-500000-uneven",
+      "config": "w2_t2_2g",
+      "full_any_failure": false,
+      "full_execution_error": false,
+      "full_power_flag": false,
+      "tail_any_sampled_spill": false,
+      "tail_spill_positive_repeats": 0
+    }
+  ],
+  "limits": [
+    "Twelve recipes, one generation seed, two runtime repeats; not 768 independent workloads.",
+    "The hindsight winner and repeat ranges are noisy; no significance claim.",
+    "Selection replay uses existing full outcomes, not newly executed policy requests.",
+    "Balanced retrospective replay multiplies proxy runtime by target-resource weight; no calibrated full-runtime or deadline claim.",
+    "Sweep overhead sums median recorded lifecycles for one probe per config and one shared preparation; no actual online sweep was executed.",
+    "Two-repeat selection is charged only one probe/config in the overhead illustration, intentionally optimistic.",
+    "Successful-only timing summaries do not describe failure latency; failure records are retained separately."
+  ]
+}

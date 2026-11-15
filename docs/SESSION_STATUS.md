@@ -1,4 +1,4 @@
-# Resume SAFE-Pipe — 2026-11-14
+# Resume SAFE-Pipe — 2026-11-15
 
 Read **[the canonical project context](../context.md)** first. It contains the current goal, constraints, baseline history, verified research work and ordered next steps. This entry point replaces the obsolete October 26 session status; that version remains in Git history.
 
@@ -16,6 +16,6 @@ Read **[the canonical project context](../context.md)** first. It contains the c
 3. [Research protocol](research/PROBE_PROTOCOL.md) — methods, closest prior work and interpretation limits.
 4. [Windows handoff](research/WINDOWS_HANDOFF.md) — small verification, fresh plan, batches, resume and export.
 
-Useful work before heavy execution: specify the follow-up hypotheses/metrics, proposed adaptive decisions and cost accounting, factor-separated ablations, and paper outline. These are preparation tasks; performance conclusions must wait for measurements.
+The deep post-hoc analysis and [staged follow-up proposal](research/POST_SCREEN_PLAN.md) are complete. Read the [review](../reports/research_screen_review_20261114/README.md): fixed baselines are strong, full-scale reliability is not captured by successful small probes, and eight-probe overhead dominates these short jobs. The next code task is persistent failure diagnostics and phase-cost accounting, followed by a frozen 48-attempt Stage A design. The larger 432-attempt maximum is conditional, not scheduled. No new training or pressure experiments were run on the Mac.
 
 The completed ignored plan is `data/probes/windows-screen-mains-v1/plan.json` on Ganant's PC. No benchmark is active. Read the [completed evidence and audit](../reports/research_probe_windows_mains_v1_complete/README.md) and [next research decisions](research/NEXT_STEPS.md). Earlier partial exports and diagnostic plans remain historical; the original main-v1 study/model are separate.
