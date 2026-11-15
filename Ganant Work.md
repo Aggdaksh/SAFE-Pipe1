@@ -153,9 +153,17 @@
 - At 1 GB: groupby imbalance-only failed 3/3, combined join failed 3/3, and imbalance-only join failed 1/3. Combined groupby succeeded 3/3. Preserve the family interactions and single-seed limitation; these observations do not validate a general failure probability or adaptive policy.
 - Published the [Stage A evidence and audit](reports/research_stage_a_windows_v1/README.md), validation record, packages/revision and session notes. Raw records/logs and 2.53 GiB of generated data stay ignored locally. Stopped at the explicit interpretation gate; no Stage B/C, training or main merge.
 
+## Checkpoint 22 — Pulled Stage A review and Stage B assignment
+
+- Fetched and fast-forwarded the research branch from `77362b6` to `c623a36`, receiving `02de929` (Stage A interpretation) and `c623a36` (bounded Stage B implementation/specification). Local tracked files matched the remote after the pull; earlier untracked viva artifacts remained local.
+- Read the Stage A review, Stage B specification and Windows handoff. Stage A interpretation supports investigating probe fidelity, with fixed/metadata baselines and total profiling costs retained. The new assignment is 96 probe attempts: eight exact Stage A instances, two fact-row fractions, two mapped worker caps and three repeats. Full Stage A inputs/outcomes are reused and not rerun.
+- Remaining work: new Windows targeted tests (including `test_probe_stage_b.py`), compatibility/source/data/diagnostic verification, sample preparation, four initial attempts and reviewed batches, then Stage B analyze/audit/export and interpretation. The earlier 54 tests validate Stage A's revision only. No Stage B runtime tests or attempts were run during this pull/check.
+- Confirmed the local Stage A plan/raw outcomes exist, the Stage B output directory does not yet exist, mains is connected, and about 45.6 GiB is free on C:. The preparation command still needs its full pinned-parent compatibility audit; file existence alone does not establish it.
+- Stage C, extra seeds, training, final controller and main merge remain conditional. Read [`docs/research/STAGE_B_WINDOWS.md`](docs/research/STAGE_B_WINDOWS.md) before execution.
+
 ## Current work and next steps
 
-1. Stage A is complete. Review its factor-specific outcomes and diagnostics alongside the deep screen review. Declare any Stage B probe budget, observable reliability signal and economic baseline before new collection. Research stays separate from `main`.
+1. Stage A collection and interpretation are complete. Stage B's 96-probe specification and code are prepared; Windows validation, compatibility audit, sample preparation and collection remain. Follow the Stage B handoff and stop for review after its fixed budget. Research stays separate from `main`.
 2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC
