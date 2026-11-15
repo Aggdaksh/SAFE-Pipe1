@@ -60,7 +60,7 @@ Acceptance: small success and controlled termination checks yield usable diagnos
 
 ## 3. A bounded diagnostic study, with early stopping
 
-Do not immediately launch another broad matrix. Stage A below is now specified for Windows execution after validation; B/C are conditional proposals. This is mechanism discovery, not an unseen final benchmark.
+Stage A is complete. Its [interpretation review](STAGE_A_REVIEW.md) supports preparing the bounded Stage B diagnostic protocol, while highlighting a strong file-metadata baseline and unresolved profiling economics. B/C are not scheduled automatically. This is mechanism discovery, not an unseen final benchmark.
 
 First fix two families (groupby, unique-dimension join), 2M fact rows, eight input files, sixteen payload columns and key cardinality 1M. At each family use the four combinations:
 
@@ -155,7 +155,7 @@ These are planning allowances from the next active work period, not a promised s
 | Phase | Deliverable | Where | Rough allowance / decision |
 | --- | --- | --- | --- |
 | Completed now | Recomputed review, reproducible analysis, figure and this plan | Mac, existing records | Done; no new training/runs |
-| Instrumentation | Persistent diagnosis and phase-cost contract; targeted tests | Code/specification prepared; Windows verification pending | Next action before Stage A |
+| Instrumentation | Persistent diagnosis and phase-cost contract; targeted tests | Windows validation complete: 54 tests; retained diagnostics audited | Done for Stage A |
 | Bounded diagnosis | Stage A, then gated B/C; evidence against simple baselines | Windows only | 2–4 working days including interpretation; stop after each gate |
 | Conditional method | Controller, simple comparisons and ablations | Mac code; small Windows development | Roughly one week if a gap survives |
 | Independent evaluation | Frozen methods on new groups; all costs/outcomes | Windows only | Roughly one week, budget fixed after pilot |

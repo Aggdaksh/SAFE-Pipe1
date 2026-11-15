@@ -6,6 +6,8 @@ Updated 2026-11-14. The development screen is **complete: 768/768 attempts, 759 
 
 ## 1. Collection and integrity completed
 
+**Stage A interpretation completed:** see [STAGE_A_REVIEW.md](STAGE_A_REVIEW.md). The compact evidence supports within-seed memory-pressure repeatability and motivates preparing a bounded 96-probe Stage B protocol. A simple file-imbalance rule also selects only successful recorded outcomes, so it is a mandatory baseline; this post-hoc replay is not independent validation. No additional jobs or training were launched. The sections below preserve the original screen chronology.
+
 All planned identities are present exactly once. Frozen source and all 36 dataset/probe directory hashes match; cleanup left zero owned descendants and no run lock. Preserve the raw JSONL, inputs, condition samples and environment records. Do not rerun recorded failures.
 
 The condition audit flags the original timeout's power interruption. Nine failures occurred on full inputs at 1 GB per worker within the largest uneven groupby/join instances; all probes succeeded. Worker deaths remain execution errors because their exact cause was not established.

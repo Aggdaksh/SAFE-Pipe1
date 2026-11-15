@@ -32,6 +32,8 @@ The user requested code improvements and a concrete plan, with all execution on 
 
 ### Deep review and proposed next direction (2026-11-15)
 
+**Post-Stage A interpretation:** [STAGE_A_REVIEW.md](docs/research/STAGE_A_REVIEW.md) cross-checks the committed compact evidence. Within-seed memory-pressure/repeatability is supported; cross-seed generality and an adaptive-policy benefit remain open. A post-hoc file-imbalance rule selects 24/24 successful recorded outcomes (12 at 1 GB, 12 at 2 GB); this is a mandatory simple baseline, not independent validation or actual memory-use savings. Successful jobs still have a pooled median lifecycle of 4.869 s. Recommend preparing the bounded 96-probe Stage B protocol on the same immutable eight inputs, with false reassurance, unnecessary warnings, metadata comparisons and complete overhead declared before collection. No Stage B implementation/execution or training was started by this review. Full raw diagnostics remain on Windows; the Mac review checked compact records and source/protocol consistency only.
+
 The prior request was deep analysis and a clear plan. The [reproducible review](reports/research_screen_review_20261114/README.md) recomputes the published metrics and adds fixed-config, overhead, repeat-variation and balanced-objective sensitivity checks. The [follow-up plan](docs/research/POST_SCREEN_PLAN.md) now has a concrete Stage A specification; later stages remain proposed. No new pressure experiments or training were launched.
 
 - The 0.11% median scaled-memory engine regret covers ten complete recipes; mean is 4.09%, maximum 17.37%. A fixed `w2_t2_1g` has comparable speed results (0.08% median) but full-run failures. All 2 GB settings succeeded in their 24 observed full attempts each. Simple fixed/metadata baselines are mandatory.
@@ -72,7 +74,7 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 ### Useful preparation without heavy computation
 
 1. Deep review, Stage A Windows validation, collection and audit are complete. The Mac remains for static checks only; all execution occurred on Windows.
-2. Review [Stage A evidence](reports/research_stage_a_windows_v1/README.md) and the [post-screen gates](docs/research/POST_SCREEN_PLAN.md). Declare any Stage B plan only after interpretation; final evaluation remains pending. No automatic later stages.
+2. Stage A interpretation is recorded in [STAGE_A_REVIEW.md](docs/research/STAGE_A_REVIEW.md). Next: prepare a bounded Stage B protocol using the same eight inputs, keeping fixed and file-metadata baselines and full cost accounting. Windows-only validation/execution and final evaluation remain pending. No automatic later stages.
 3. Refine the candidate controller only if the diagnostic gates pass; generic rank stability is insufficient evidence of full-scale reliability. Keep original speed findings and the balanced sensitivity analysis distinct.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 
