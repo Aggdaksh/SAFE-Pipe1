@@ -29,7 +29,7 @@ def stage_a_definition() -> dict:
 
 
 def require_windows(preset: str) -> None:
-    if preset in {"windows-screen", "windows-stage-a"} and platform.system() != "Windows":
+    if preset in {"windows-screen", "windows-stage-a", "windows-stage-b"} and platform.system() != "Windows":
         raise ValueError("This experiment's preparation and execution are Windows-only")
 
 
@@ -37,7 +37,9 @@ def source_fingerprints() -> dict[str, str]:
     root = Path(__file__).resolve().parents[1]
     files = ["experiments/probe_pilot.py", "safe_pipe/research/probe_workloads.py",
              "safe_pipe/research/probe_runner.py", "safe_pipe/research/probe_analysis.py",
-             "safe_pipe/research/probe_diagnostics.py", "configs/research_stage_a_v1.json"]
+             "safe_pipe/research/probe_diagnostics.py", "configs/research_stage_a_v1.json",
+             "experiments/probe_stage_b.py", "safe_pipe/research/probe_fidelity.py",
+             "configs/research_stage_b_v1.json", "experiments/export_probe_evidence.py"]
     return {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in files}
 
 
@@ -169,6 +171,9 @@ def load_plan(path: Path) -> tuple[dict, str]:
     for cell in plan["cells"]:
         if canonical_hash({k: v for k, v in cell.items() if k != "cell_id"})[:24] != cell["cell_id"]:
             raise ValueError("Cell parameters do not match frozen identity")
+    if plan.get("preset") == "windows-stage-b":
+        from experiments.probe_stage_b import validate_plan
+        validate_plan(plan)
     return plan, canonical_hash(plan)
 
 
@@ -220,6 +225,9 @@ def run(path: Path, max_runs: int) -> None:
                 manifest = load_manifest(dataset, verify=dataset not in audited)
                 if canonical_hash(manifest) != plan["dataset_fingerprints"][instance_id][method]:
                     raise ValueError("Dataset manifest differs from frozen plan")
+                if plan["preset"] == "windows-stage-b":
+                    from experiments.probe_stage_b import validate_sample
+                    validate_sample(plan, instance_id, method, manifest)
                 audited.add(dataset)
         audit_seconds = time.monotonic() - batch_started
         batch_id = datetime.now(timezone.utc).isoformat()

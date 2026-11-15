@@ -8,6 +8,7 @@
 
 | Research task | Status | Evidence / next action |
 | --- | --- | --- |
+| Stage B sample reuse, 96-cell protocol, fidelity report and baseline/cost replay | IMPLEMENTED; WINDOWS VALIDATION/RUNS PENDING | [Windows handoff](docs/research/STAGE_B_WINDOWS.md). Static checks only on Mac; 16 shared samples to prepare on Windows, no training |
 | Isolated data/probe generation, supervised runner and telemetry | IMPLEMENTED | `safe_pipe/research/` |
 | Frozen plans, resume, analysis and evidence export | IMPLEMENTED | `experiments/probe_pilot.py`, `experiments/export_probe_evidence.py` |
 | Correctness/regression checks | PASSED on Mac | 120-test suite, then 2 added checks; 16 tiny Dask runs verified |

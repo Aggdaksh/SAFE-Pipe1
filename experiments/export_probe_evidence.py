@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 from pathlib import Path
 
@@ -17,6 +18,7 @@ def export(plan_path: Path, out: Path) -> None:
     if out.exists() and any(out.iterdir()):
         raise ValueError("Evidence destination must be empty")
     out.mkdir(parents=True, exist_ok=True)
+    fidelity_by_cell = {r["cell_id"]: r for r in summary.get("probe_outcomes", [])}
     rows = []
     for r in records:
         t = r.get("telemetry") or {}
@@ -25,6 +27,11 @@ def export(plan_path: Path, out: Path) -> None:
         rows.append({
             "cell_id": r["cell_id"], "run_id": r["run_id"], "instance_id": r["instance_id"],
             "method": r["method"], "target_config_id": r["target_config_id"], "repeat_id": r["repeat_id"],
+            "fraction": r.get("fraction", d.get("fraction")),
+            "sample_seed": r.get("sample_seed", (d.get("sampling") or {}).get("seed")),
+            "parent_dataset_sha256": d.get("parent_sha256"),
+            "fidelity_signal": fidelity_by_cell.get(r["cell_id"], {}).get("signal"),
+            "fidelity_quality_issues": json.dumps(fidelity_by_cell.get(r["cell_id"], {}).get("quality_issues", [])),
             "status": r["status"], "result_value": r.get("result_value"),
             "started_utc": r.get("started_utc"), "finished_utc": r.get("finished_utc"),
             "effective_memory_bytes": r["config"]["memory_limit"],
@@ -65,6 +72,16 @@ def export(plan_path: Path, out: Path) -> None:
     summary["environment"] = records[0]["environment"] if records else None
     summary["host_physical_bytes"] = records[0]["host_budget"]["physical_bytes"] if records else None
     summary["raw_evidence"] = "Complete raw records and Parquet are local under the experiment directory; this is a compact export."
+    if plan.get("preset") == "windows-stage-b":
+        summary["reference_sha256"] = plan["reference_sha256"]
+        summary["reference_plan_sha256"] = plan["reference"]["plan_sha256"]
+        audit_path = plan_path.parent / "completion_audit.json"
+        if audit_path.exists():
+            audit = json.loads(audit_path.read_text(encoding="utf-8"))
+            if (audit.get("plan_sha256") != fingerprint or audit.get("recorded") != len(records)
+                    or audit.get("runs_sha256") != hashlib.sha256((plan_path.parent / "runs.jsonl").read_bytes()).hexdigest()):
+                raise ValueError("Completion audit is stale or belongs to another experiment")
+            (out / "completion_audit.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
     batches = plan_path.parent / "batches.jsonl"
     if batches.exists():
         batch_rows = [json.loads(line) for line in batches.read_text().splitlines() if line.strip()]

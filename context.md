@@ -17,9 +17,19 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 ## Current research state
 
-**Stage: the 768-attempt screen and 48-attempt Stage A are complete and audited; interpretation gates the next stage.** See the [screen evidence](reports/research_probe_windows_mains_v1_complete/README.md) and [Stage A results](reports/research_stage_a_windows_v1/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+**Stage: the screen and Stage A are complete; Stage B code/specification are prepared, with Windows validation and collection pending.** See the [screen evidence](reports/research_probe_windows_mains_v1_complete/README.md) and [Stage A results](reports/research_stage_a_windows_v1/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
 
-### Latest implementation and Windows-only handoff (2026-11-15)
+### Latest user request and Stage B handoff (2026-11-15)
+
+The user authorized Stage B code preparation and will execute it on Windows. Read [STAGE_B_WINDOWS.md](docs/research/STAGE_B_WINDOWS.md) next. **Code/specification prepared; no Stage B samples/jobs or new execution tests have run on the Mac.** Static checks only. The old 54-test Windows result does not validate this update.
+
+- `experiments/probe_stage_b.py` prepares samples from the exact completed Stage A plan/raw data/diagnostics and published outcomes, verifies unchanged collector/operator/diagnostic sources and the same environment, and provides Windows preparation/run/audit commands.
+- [Stage B specification](configs/research_stage_b_v1.json): 8 original instances × 2 fact fractions (1/8, 1/4) × 2 target caps × 3 repeats = 96 new probe attempts. Only 16 sample directories are prepared; samples are non-nested and shared across caps/repeats. Full inputs/dimension semantics are unchanged. Fraction, effective memory, sample seed and reference provenance are frozen per cell/plan.
+- `safe_pipe/research/probe_fidelity.py` retains quiet/warning/unknown evidence and mixed full outcomes, reports 32 group comparisons, fixed/file-metadata baselines, and a declared balanced probe-choice replay. Costs charge all six probes and shared preparation once per instance/fraction. Historical replay is not fresh online validation or a calibrated classifier.
+- Runner/source checks, resumable failed attempts, sample validation, compact export and a final raw-evidence audit are integrated. No main merge or model training.
+- Next: pull the branch on Windows; run the targeted checks including `tests/test_probe_stage_b.py`; prepare from `data/probes/windows-stage-a-v1/plan.json` into a new sibling `data/probes/windows-stage-b-v1`; inspect the first four attempts, then bounded batches up to 96. Audit/export and stop for interpretation. Stage C remains conditional.
+
+### Stage A implementation and completed collection (2026-11-15)
 
 The user requested code improvements and a concrete plan, with all execution on Windows. Read [STAGE_A_WINDOWS.md](docs/research/STAGE_A_WINDOWS.md) next. Windows validation and all **48 Stage A attempts are now complete: 41 success, seven execution errors**, with 54 targeted tests and pip check passed. All seven errors have retained Dask nanny memory-termination evidence; all 24 attempts at 2 GB succeeded. Read the [Stage A results and audit](reports/research_stage_a_windows_v1/README.md). No Stage B or training was started.
 
@@ -74,7 +84,7 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 ### Useful preparation without heavy computation
 
 1. Deep review, Stage A Windows validation, collection and audit are complete. The Mac remains for static checks only; all execution occurred on Windows.
-2. Stage A interpretation is recorded in [STAGE_A_REVIEW.md](docs/research/STAGE_A_REVIEW.md). Next: prepare a bounded Stage B protocol using the same eight inputs, keeping fixed and file-metadata baselines and full cost accounting. Windows-only validation/execution and final evaluation remain pending. No automatic later stages.
+2. Stage A interpretation is recorded in [STAGE_A_REVIEW.md](docs/research/STAGE_A_REVIEW.md). Stage B code and protocol are now prepared. Follow [STAGE_B_WINDOWS.md](docs/research/STAGE_B_WINDOWS.md) for Windows validation, preparation, bounded collection, audit and export. No automatic later stages.
 3. Refine the candidate controller only if the diagnostic gates pass; generic rank stability is insufficient evidence of full-scale reliability. Keep original speed findings and the balanced sensitivity analysis distinct.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 

@@ -21,6 +21,9 @@ def _order(a: list[float], b: list[float], tolerance: float) -> int:
 
 
 def summarize(plan: dict[str, Any], records: list[dict[str, Any]]) -> dict[str, Any]:
+    if plan.get("preset") == "windows-stage-b":
+        from safe_pipe.research.probe_fidelity import summarize_stage_b
+        return summarize_stage_b(plan, records)
     expected = {c["cell_id"]: c for c in plan["cells"]}
     seen: set[str] = set()
     groups: dict[tuple[str, str, str], list[dict[str, Any]]] = defaultdict(list)
@@ -147,6 +150,9 @@ def mechanism_summary(plan: dict, records: list[dict]) -> dict:
 
 
 def markdown_report(summary: dict[str, Any]) -> str:
+    if summary.get("schema_version") == "stage-b-fidelity-report-v1":
+        from safe_pipe.research.probe_fidelity import markdown_stage_b
+        return markdown_stage_b(summary)
     if "mechanism" in summary:
         mechanism = summary["mechanism"]
         lines = ["# Stage A mechanism diagnosis", "",

@@ -1,6 +1,6 @@
 # Research experiments on the Windows PC
 
-**Latest handoff (2026-11-15): Stage A is complete.** The new diagnostics passed 54 targeted Windows tests, and all 48 full-input attempts were collected and audited (41 success, seven execution errors with nanny memory-termination evidence). Review [results](../../reports/research_stage_a_windows_v1/README.md) and [the Stage A interpretation gate](STAGE_A_WINDOWS.md) before any next stage. All execution remains Windows-only. The commands below describe the historical screen, not a new run.
+**Latest handoff (2026-11-15): use [STAGE_B_WINDOWS.md](STAGE_B_WINDOWS.md).** Stage A is complete and interpreted; the 96-probe Stage B code and specification are prepared, with Windows validation/collection pending. All execution remains Windows-only. The commands below describe the historical screen, not a new run.
 
 **Completion update, 2026-11-14:** the monitored screen finished all **768 planned attempts** at 00:08 IST: 759 successes, one timeout and eight execution errors. Source/data identity and cleanup audits passed. No benchmark is running and no remaining cells need scheduling. See the [completed evidence](../../reports/research_probe_windows_mains_v1_complete/README.md) and [next decisions](NEXT_STEPS.md). The preparation/resume commands and earlier checkpoints below are retained as procedural history; do not rerun the completed plan.
 

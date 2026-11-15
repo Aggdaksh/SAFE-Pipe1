@@ -1,0 +1,41 @@
+{
+  "protocol_id": "stage-b-probe-fidelity-v1",
+  "role": "development_diagnosis_not_independent_policy_evaluation",
+  "required_platform": "Windows",
+  "reference_export": "reports/research_stage_a_windows_v1/plan.json",
+  "reference_plan_sha256": "e24a92204d6184334c59740af70b908c1bd94a442d3497ba4f4db874dec06cbd",
+  "reference_protocol_id": "stage-a-mechanism-v1",
+  "compatible_execution_sources": [
+    "safe_pipe/research/probe_runner.py",
+    "safe_pipe/research/probe_workloads.py",
+    "safe_pipe/research/probe_diagnostics.py"
+  ],
+  "methods": [
+    {"id": "uniform_memory_f0125", "fraction": 0.125},
+    {"id": "uniform_memory_f0250", "fraction": 0.25}
+  ],
+  "sampling_method": "uniform",
+  "sample_seed": 2026111601,
+  "sample_design": "one deterministic, non-nested sample per instance/fraction; reused across both caps and all repeats",
+  "order_seed": 20261116,
+  "memory_floor_bytes": 536870912,
+  "memory_mapping": "round(floor + fraction * (target_memory_bytes - floor))",
+  "expected_instances": 8,
+  "expected_target_configs": 2,
+  "repeats": 3,
+  "planned_cells": 96,
+  "timeout_seconds": 180,
+  "minimum_free_disk_bytes": 10737418240,
+  "require_mains": true,
+  "metadata_baseline_max_file_share_threshold": 0.25,
+  "low_memory_config": "w2_t1_1g",
+  "high_memory_config": "w2_t1_2g",
+  "balanced_weights": {"time": 0.5, "threads": 0.25, "memory": 0.25},
+  "normalization_threads": 4,
+  "normalization_memory_bytes": 4000000000,
+  "warning_rule": "execution_error/timeout OR positive nanny termination/spill/paused samples/observed restarts; quality issues yield unknown",
+  "quiet_rule": "success with complete clean diagnostics, conditions and telemetry, and all declared warning signals zero",
+  "selection_rule": "per fraction, among configs with three quiet repeats choose lowest median probe lifecycle times balanced target-allocation weight; tie by config id; fallback to high-memory config if none eligible",
+  "comparison_unit": "instance/target-cap/fraction group; do not pair separate-session repeats or treat repeat rows as independent workloads",
+  "stage_gate": "Stop after 96 attempts for review; no automatic Stage C, training or main merge"
+}
