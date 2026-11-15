@@ -17,18 +17,18 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 ## Current research state
 
-**Stage: the first Windows development screen is complete and audited (768 attempts: 759 success, one timeout, eight execution errors).** See the [completed evidence](reports/research_probe_windows_mains_v1_complete/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+**Stage: the 768-attempt screen and 48-attempt Stage A are complete and audited; interpretation gates the next stage.** See the [screen evidence](reports/research_probe_windows_mains_v1_complete/README.md) and [Stage A results](reports/research_stage_a_windows_v1/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
 
 ### Latest implementation and Windows-only handoff (2026-11-15)
 
-The user requested code improvements and a concrete plan, with all execution on Windows. Read [STAGE_A_WINDOWS.md](docs/research/STAGE_A_WINDOWS.md) next. Code and the [48-attempt design specification](configs/research_stage_a_v1.json) are prepared; **Windows tests, actual dataset/plan preparation and all Stage A runs are pending**. Static parsing/compilation is not runtime validation. Historical passing test counts below do not validate these changes.
+The user requested code improvements and a concrete plan, with all execution on Windows. Read [STAGE_A_WINDOWS.md](docs/research/STAGE_A_WINDOWS.md) next. Windows validation and all **48 Stage A attempts are now complete: 41 success, seven execution errors**, with 54 targeted tests and pip check passed. All seven errors have retained Dask nanny memory-termination evidence; all 24 attempts at 2 GB succeeded. Read the [Stage A results and audit](reports/research_stage_a_windows_v1/README.md). No Stage B or training was started.
 
 - Durable per-attempt worker/nanny logs, scheduler events, active memory thresholds, timestamps, observed exit codes/signals and evidence hashes survive temporary-spill cleanup. Unknown worker death remains unknown; nanny termination evidence is not an OS OOM claim.
 - Expanded phase accounting retains nested graph/compute time, telemetry flush, supervisor/scratch cleanup, preflight, unaccounted time and shared preparation/audit/persistence costs. Failed attempts retain their incurred cost.
 - Power/RAM/free-disk snapshots accompany runs. Batches stop for condition/infrastructure or diagnostic-write issues. A persistent attempt marker blocks silent retries after a crash before row persistence.
 - Stage A fixes two families, four independently varied skew/imbalance patterns, two memory caps at fixed concurrency, three repeats and seed 911: 48 full-input attempts. Independent RNG streams preserve the same ordered rows when only file boundaries change. Order seed: 20261115. No probes in this stage.
 - Windows-only preparation/run guards and frozen environment/source/data checks are implemented. Stage A has a mechanism report and compact diagnostic export; tests are added/extended for Windows execution.
-- Next action: pull the research branch on Windows, run the targeted checks, prepare the fresh Stage A directory, inspect four initial attempts, then resume in bounded batches. Stop after 48 for interpretation. Stage B/C and a controller remain conditional. No new model, paper result or merge is claimed.
+- Next action: interpret the completed Stage A. Audit verified 48 identities, eight datasets, 546 diagnostic hashes and 37 raw nanny messages; all power/cleanup checks passed. Nine attempts had memory-termination evidence, including two eventual successes. Groupby imbalance-only failed 3/3 at 1 GB while both-pattern groupby succeeded 3/3; join both failed 3/3. Preserve these interactions and the single-seed limitation. Stage B/C remain conditional; no new model, paper result or merge is claimed.
 
 ### Deep review and proposed next direction (2026-11-15)
 
@@ -71,8 +71,8 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Useful preparation without heavy computation
 
-1. Deep review and staged design are written. Instrumentation/accounting improvements and the Stage A design specification are implemented; static checks only on this Mac. Runtime validation is pending on Windows.
-2. Follow [the Stage A handoff](docs/research/STAGE_A_WINDOWS.md): Windows checks first, then materialize the frozen specification into datasets/source/data manifests and collect 48 full attempts. The final-test design remains pending. Do not automatically run later stages.
+1. Deep review, Stage A Windows validation, collection and audit are complete. The Mac remains for static checks only; all execution occurred on Windows.
+2. Review [Stage A evidence](reports/research_stage_a_windows_v1/README.md) and the [post-screen gates](docs/research/POST_SCREEN_PLAN.md). Declare any Stage B plan only after interpretation; final evaluation remains pending. No automatic later stages.
 3. Refine the candidate controller only if the diagnostic gates pass; generic rank stability is insufficient evidence of full-scale reliability. Keep original speed findings and the balanced sensitivity analysis distinct.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 

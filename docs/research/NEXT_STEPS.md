@@ -2,7 +2,7 @@
 
 Updated 2026-11-14. The development screen is **complete: 768/768 attempts, 759 success, one timeout, eight execution errors**. The earlier diagnostic plan remains separate. No benchmark is running. See the [completed evidence](../../reports/research_probe_windows_mains_v1_complete/README.md).
 
-**2026-11-15 update:** the detailed [post-screen plan](POST_SCREEN_PLAN.md) defines diagnostic stages and decision gates. Its [recomputed analysis](../../reports/research_screen_review_20261114/README.md) adds fixed baselines, selected-setting failures, repeat variation, overhead and objective sensitivity. Diagnosis/accounting code and the 48-attempt Stage A specification are now prepared. Next: follow [STAGE_A_WINDOWS.md](STAGE_A_WINDOWS.md) for Windows tests, preparation and bounded collection. All runtime checks, generation and physical runs belong on Windows; none have been run for this update. Do not automatically launch later stages or train a model.
+**2026-11-15 update:** the detailed [post-screen plan](POST_SCREEN_PLAN.md) defines diagnostic stages and decision gates. Its [recomputed analysis](../../reports/research_screen_review_20261114/README.md) adds fixed baselines, selected-setting failures, repeat variation, overhead and objective sensitivity. Diagnosis/accounting code passed 54 targeted Windows tests, and Stage A completed all 48 attempts: 41 successes and seven execution errors with nanny memory-termination evidence. See [results and audit](../../reports/research_stage_a_windows_v1/README.md). Next: interpret factor-specific outcomes before declaring Stage B. All runtime checks, generation and physical runs belong on Windows. Do not automatically launch later stages or train a model.
 
 ## 1. Collection and integrity completed
 

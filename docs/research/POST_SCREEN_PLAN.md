@@ -1,8 +1,8 @@
 # Research plan after the completed screen
 
-Drafted 2026-11-14; updated 2026-11-15. Status: **Stage A design specified and collection code prepared; Windows validation/execution pending.** Later stages remain conditional proposals, informed by a post-hoc development analysis. This is not a frozen final-test protocol. All execution tests, generation, physical runs and training belong on Windows; the Mac is for editing/static checks only. Branch: `codex/partition-probe-research`; baseline evidence: `6c08ec9`.
+Drafted 2026-11-14; updated 2026-11-15. Status: **Stage A Windows validation and 48-attempt collection completed; interpretation required.** Later stages remain conditional proposals, informed by a post-hoc development analysis. This is not a frozen final-test protocol. All execution tests, generation, physical runs and training belong on Windows; the Mac is for editing/static checks only. Branch: `codex/partition-probe-research`; baseline evidence: `6c08ec9`.
 
-Next actionable instructions: [STAGE_A_WINDOWS.md](STAGE_A_WINDOWS.md). The [versioned Stage A specification](../../configs/research_stage_a_v1.json) fixes 48 full-input attempts, generation seed 911 and order seed 20261115. Actual dataset manifests/source/environment fingerprints are created on Windows after checks pass. No new experiments have run for this update.
+Next actionable instructions: [STAGE_A_WINDOWS.md](STAGE_A_WINDOWS.md). The [versioned Stage A specification](../../configs/research_stage_a_v1.json) fixes 48 full-input attempts, generation seed 911 and order seed 20261115. Windows preparation and execution are now complete, with 54 targeted tests passed and 48 retained outcomes (41 success, seven errors). Read the [Stage A evidence](../../reports/research_stage_a_windows_v1/README.md); no later stage has started.
 
 Read [the deep review](../../reports/research_screen_review_20261114/README.md) for recomputed results and [the original completed report](../../reports/research_probe_windows_mains_v1_complete/README.md) for collection provenance. The original 96-run LightGBM advisor remains a separate baseline project. No main merge is planned here.
 
@@ -161,4 +161,4 @@ These are planning allowances from the next active work period, not a promised s
 | Independent evaluation | Frozen methods on new groups; all costs/outcomes | Windows only | Roughly one week, budget fixed after pilot |
 | Paper/artifact | Methods and evidence-driven results, limitations, reproducibility | Both | Begin outline now; finish after evaluation |
 
-Do not begin a full classifier, a larger neural model, or another undirected 768-job sweep merely to demonstrate activity. The instrumentation contract and Stage A design specification are prepared. Next: validate on Windows, create the physical plan/data manifests there, then collect the bounded 48 attempts and review. All execution remains on Windows. Merge into main only after review and the user's integration decision.
+Do not begin a full classifier, a larger neural model, or another undirected 768-job sweep merely to demonstrate activity. Windows validation and all 48 Stage A attempts are complete and audited. Next: review the factor-specific outcomes and retained diagnostics before declaring any Stage B plan. All execution remains on Windows. Merge into main only after review and the user's integration decision.

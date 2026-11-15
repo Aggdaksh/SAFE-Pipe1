@@ -1,0 +1,26 @@
+{
+  "planned": 48,
+  "recorded": 48,
+  "statuses": {
+    "execution_error": 7,
+    "success": 41
+  },
+  "missing": 0,
+  "dataset_directories_verified": 8,
+  "diagnostic_files_hash_verified": 546,
+  "raw_nanny_memory_messages_verified": 37,
+  "source_environment_protocol_match": true,
+  "cleanup_survivors": 0,
+  "unresolved_attempt_markers": 0,
+  "power_flagged": 0,
+  "sampled_conditions_checked": 336,
+  "min_sampled_free_disk_bytes": 49443860480,
+  "min_sampled_available_ram_bytes": 4291891200,
+  "successful_scalar_inconsistencies": [],
+  "failure_categories": {
+    "worker_death_with_nanny_memory_termination_evidence": 7,
+    "completed": 41
+  },
+  "nanny_memory_positive_attempts": 9,
+  "completed_utc": "2026-11-15T15:51:09.529496+00:00"
+}

@@ -2,7 +2,7 @@
 
 Updated 2026-11-15. Branch: `codex/partition-probe-research`.
 
-**Current status: code and experiment specification prepared; Windows validation and all new physical runs are pending.** The Mac is for editing and static syntax checks only. Do not run pytest, generate Parquet, execute Dask jobs or train models on the Mac. Do not merge this research branch yet.
+**Current status: Windows validation, all 48 attempts and the completion audit are finished.** Results: 41 successes and seven execution errors, all seven with Dask nanny memory-termination evidence; all 24 attempts at 2 GB succeeded. No power flags or cleanup survivors were recorded. See the [completed Stage A evidence](../../reports/research_stage_a_windows_v1/README.md). The commands below document the completed procedure; do not rerun its recorded cells. Stage B and training remain pending interpretation. The Mac is for editing and static syntax checks only. Do not run pytest, generate Parquet, execute Dask jobs or train models on the Mac. Do not merge this research branch yet.
 
 ## What this stage answers
 

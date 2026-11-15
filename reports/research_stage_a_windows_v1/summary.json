@@ -1,0 +1,759 @@
+{
+  "schema_version": "probe-ranking-report-v1",
+  "role": "development_only",
+  "planned_cells": 48,
+  "recorded_cells": 48,
+  "missing_cells": [],
+  "statuses": {
+    "execution_error": 7,
+    "success": 41
+  },
+  "ranking_tolerance": 0.05,
+  "method_notes": [
+    "Development proxy-ranking screen, not an adaptive-policy evaluation or a novelty result.",
+    "Ranks use execution time after cluster setup; all lifecycle timing remains in raw records.",
+    "A decisive pair requires > tolerance median gap and nonoverlapping observed repeat ranges; not a statistical confidence interval.",
+    "All candidates/repeats must succeed for a numerical ranking comparison; failures/incomplete groups are not silently dropped.",
+    "Full and probe outcomes share instances: this is paired descriptive analysis, not held-out prediction accuracy.",
+    "No end-to-end savings or deadline guarantee is computed from this matrix.",
+    "Large input partitions are a heuristic for expensive work, not measured post-shuffle working sets."
+  ],
+  "aggregates": [
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        2.460892099974444,
+        2.744494200014742,
+        1.9992679000133649
+      ],
+      "median_engine_seconds": 2.460892099974444
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        2.675736999983201,
+        2.314010199974291,
+        2.3224210999906063
+      ],
+      "median_engine_seconds": 2.3224210999906063
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        3.6559672000003047,
+        2.8248935000156052,
+        2.310657699999865
+      ],
+      "median_engine_seconds": 2.8248935000156052
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        2.209369099989999,
+        2.9114217000023928,
+        3.059841600013897
+      ],
+      "median_engine_seconds": 2.9114217000023928
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        2.040693699993426,
+        2.1584406000038143,
+        2.3346257000230253
+      ],
+      "median_engine_seconds": 2.1584406000038143
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.872109799995087,
+        2.2813431000104174,
+        2.1008535999862943
+      ],
+      "median_engine_seconds": 2.1008535999862943
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "execution_error": 3
+      },
+      "complete_success": false,
+      "engine_seconds": [],
+      "median_engine_seconds": null
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        2.7143465999979526,
+        2.349207999999635,
+        2.3449549000069965
+      ],
+      "median_engine_seconds": 2.349207999999635
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.8812041000055615,
+        1.8361166999966372,
+        1.6592612000240479
+      ],
+      "median_engine_seconds": 1.8361166999966372
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.84809580000001,
+        1.7657212000049185,
+        1.693224899994675
+      ],
+      "median_engine_seconds": 1.7657212000049185
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "execution_error": 3
+      },
+      "complete_success": false,
+      "engine_seconds": [],
+      "median_engine_seconds": null
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.974056799983373,
+        2.1743735000200104,
+        2.0087034000025596
+      ],
+      "median_engine_seconds": 2.0087034000025596
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        1.788733900000807,
+        1.9517355000134557,
+        2.136159600020619
+      ],
+      "median_engine_seconds": 1.9517355000134557
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        2.0463287999737076,
+        2.113716599997133,
+        1.8454219000122976
+      ],
+      "median_engine_seconds": 2.0463287999737076
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_1g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 2,
+        "execution_error": 1
+      },
+      "complete_success": false,
+      "engine_seconds": [
+        3.529442700004438,
+        8.544014000013703
+      ],
+      "median_engine_seconds": 6.036728350009071
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "method": "full",
+      "target_config_id": "w2_t1_2g",
+      "observed": 3,
+      "expected": 3,
+      "statuses": {
+        "success": 3
+      },
+      "complete_success": true,
+      "engine_seconds": [
+        2.371388100000331,
+        2.5978931999998167,
+        2.012246900005266
+      ],
+      "median_engine_seconds": 2.371388100000331
+    }
+  ],
+  "comparisons": [],
+  "mechanism": {
+    "groups": [
+      {
+        "instance_id": "groupby-2000000-balanced-s911",
+        "config_id": "w2_t1_1g",
+        "family": "groupby",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          2.460892099974444,
+          2.744494200014742,
+          1.9992679000133649
+        ],
+        "attempt_lifecycle_seconds": [
+          4.884614500013413,
+          5.144414699985646,
+          4.268303199991351
+        ]
+      },
+      {
+        "instance_id": "groupby-2000000-balanced-s911",
+        "config_id": "w2_t1_2g",
+        "family": "groupby",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          2.675736999983201,
+          2.314010199974291,
+          2.3224210999906063
+        ],
+        "attempt_lifecycle_seconds": [
+          5.815580399997998,
+          5.136666200007312,
+          5.040906800015364
+        ]
+      },
+      {
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "config_id": "w2_t1_1g",
+        "family": "groupby",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          2.040693699993426,
+          2.1584406000038143,
+          2.3346257000230253
+        ],
+        "attempt_lifecycle_seconds": [
+          4.495247999991989,
+          4.430046400026185,
+          5.555203799973242
+        ]
+      },
+      {
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "config_id": "w2_t1_2g",
+        "family": "groupby",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          1.872109799995087,
+          2.2813431000104174,
+          2.1008535999862943
+        ],
+        "attempt_lifecycle_seconds": [
+          4.263869900023565,
+          4.713047500001267,
+          4.720282100024633
+        ]
+      },
+      {
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "config_id": "w2_t1_1g",
+        "family": "groupby",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 3,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 3,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [],
+        "attempt_lifecycle_seconds": [
+          8.156831300002523,
+          8.581282200000715,
+          6.803912200004561
+        ]
+      },
+      {
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "config_id": "w2_t1_2g",
+        "family": "groupby",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          2.7143465999979526,
+          2.349207999999635,
+          2.3449549000069965
+        ],
+        "attempt_lifecycle_seconds": [
+          5.426642600010382,
+          4.917686800006777,
+          5.096616800001357
+        ]
+      },
+      {
+        "instance_id": "groupby-2000000-both-s911",
+        "config_id": "w2_t1_1g",
+        "family": "groupby",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 3,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 1,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          3.6559672000003047,
+          2.8248935000156052,
+          2.310657699999865
+        ],
+        "attempt_lifecycle_seconds": [
+          6.081607500003884,
+          5.254965000000084,
+          4.787593299988657
+        ]
+      },
+      {
+        "instance_id": "groupby-2000000-both-s911",
+        "config_id": "w2_t1_2g",
+        "family": "groupby",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          2.209369099989999,
+          2.9114217000023928,
+          3.059841600013897
+        ],
+        "attempt_lifecycle_seconds": [
+          4.869211699988227,
+          5.6363548999943305,
+          5.802063200011617
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "config_id": "w2_t1_1g",
+        "family": "skewed_join",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          1.8812041000055615,
+          1.8361166999966372,
+          1.6592612000240479
+        ],
+        "attempt_lifecycle_seconds": [
+          4.245753199997125,
+          4.367296100012027,
+          4.023522600007709
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "config_id": "w2_t1_2g",
+        "family": "skewed_join",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          1.84809580000001,
+          1.7657212000049185,
+          1.693224899994675
+        ],
+        "attempt_lifecycle_seconds": [
+          4.626011999993352,
+          4.221209299983457,
+          3.939337699994212
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "config_id": "w2_t1_1g",
+        "family": "skewed_join",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          1.788733900000807,
+          1.9517355000134557,
+          2.136159600020619
+        ],
+        "attempt_lifecycle_seconds": [
+          4.278740000008838,
+          4.339323799998965,
+          5.0167336000013165
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "config_id": "w2_t1_2g",
+        "family": "skewed_join",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.0,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          2.0463287999737076,
+          2.113716599997133,
+          1.8454219000122976
+        ],
+        "attempt_lifecycle_seconds": [
+          4.523623100016266,
+          4.969391499995254,
+          4.345470500004012
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "config_id": "w2_t1_1g",
+        "family": "skewed_join",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 2,
+          "execution_error": 1
+        },
+        "condition_flagged": 0,
+        "spill_positive": 3,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 2,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          3.529442700004438,
+          8.544014000013703
+        ],
+        "attempt_lifecycle_seconds": [
+          5.970780499977991,
+          10.560240299993893,
+          10.845261799986474
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "config_id": "w2_t1_2g",
+        "family": "skewed_join",
+        "hot_fraction": 0.0,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          2.371388100000331,
+          2.5978931999998167,
+          2.012246900005266
+        ],
+        "attempt_lifecycle_seconds": [
+          5.136372200009646,
+          5.314137199980905,
+          4.5293062000127975
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-both-s911",
+        "config_id": "w2_t1_1g",
+        "family": "skewed_join",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 3,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 3,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [],
+        "attempt_lifecycle_seconds": [
+          14.45581700000912,
+          12.996817799983546,
+          10.001667800010182
+        ]
+      },
+      {
+        "instance_id": "skewed_join-2000000-both-s911",
+        "config_id": "w2_t1_2g",
+        "family": "skewed_join",
+        "hot_fraction": 0.25,
+        "partition_imbalance": 0.6,
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "condition_flagged": 0,
+        "spill_positive": 0,
+        "spill_unknown": 0,
+        "nanny_memory_positive": 0,
+        "diagnosis_unknown": 0,
+        "diagnosis_unavailable": 0,
+        "successful_engine_seconds": [
+          1.974056799983373,
+          2.1743735000200104,
+          2.0087034000025596
+        ],
+        "attempt_lifecycle_seconds": [
+          4.413953300012508,
+          4.952857199998107,
+          4.58925449999515
+        ]
+      }
+    ],
+    "inconsistent_successful_results": [],
+    "gate": "MANUAL REVIEW REQUIRED; no automatic Stage B or model training",
+    "limits": "One generation seed and three runtime repeats. This isolates declared factors; it is not an independent final study or proof of general failure probability. Result agreement across configs is a consistency check, not a large-input correctness oracle."
+  },
+  "plan_sha256": "e24a92204d6184334c59740af70b908c1bd94a442d3497ba4f4db874dec06cbd",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "logical_cpus": 16,
+    "versions": {
+      "dask": "2026.8.0",
+      "distributed": "2026.8.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2",
+      "cloudpickle": "3.1.2",
+      "tornado": "6.6.1"
+    }
+  },
+  "host_physical_bytes": 33711480832,
+  "raw_evidence": "Complete raw records and Parquet are local under the experiment directory; this is a compact export.",
+  "batch_accounting": {
+    "verification_seconds_shared_total": 16.778778200008674,
+    "row_persistence_seconds_total": 0.49497739991056733,
+    "scope": "Shared collection audit and persistence, not per-request online policy costs"
+  }
+}

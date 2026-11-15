@@ -1,6 +1,6 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-11-14 (Asia/Kolkata)<br>
+**Updated:** 2026-11-15 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
 **Working branch:** `codex/partition-probe-research` (research development; `main` retains the original advisor)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
@@ -144,9 +144,18 @@
 - Ten of twelve instances support descriptive ranking analysis; two failed full-reference instances remain unevaluable. Median selected full-engine regret: uniform 3.87%, uniform with scaled memory 0.11%, partition-tail 8.17%. Partition-tail was better/equal/worse than matched-memory uniform on 2/3/5 instances. These two-repeat development results do not establish a sampler benefit or statistical significance.
 - Created the [completed export and reproducible audit](reports/research_probe_windows_mains_v1_complete/README.md), retaining earlier partial snapshots separately. Updated canonical context, status and next decisions. Fixed dataset storage remains 3.39 GiB per plan (about 6.78 GiB for both); about 59.5 GiB remained free on C:. No model was retrained or research branch merged into main.
 
+## Checkpoint 21 — Pulled new tasks and completed Stage A
+
+- On 2026-11-15, fetched and fast-forwarded `codex/partition-probe-research` from `6c08ec9` to `73de101`, receiving the deep review and Windows-only diagnostic/mechanism-study handoff. Central `main` remains the baseline at `504f005`; no merge was performed.
+- Kept the existing research environment. `pip check` found no broken requirements; all **54 targeted Windows tests passed**. Prepared the frozen Stage A plan: eight instances, full inputs only, generation seed 911, order seed 20261115, two worker-memory settings and three repeats, for **48 attempts**.
+- Verified the first four attempts' raw nanny logs against the diagnostic summary, then continued in batches of at most eight. All **48/48 attempts** are retained: **41 success, seven execution errors**, each error carrying nanny memory-termination evidence. All 24 attempts at 2 GB per worker succeeded. Nine attempts had nanny evidence, including two eventual successes. OS OOM remains unproven.
+- Audited frozen source/environment/protocol, eight datasets, 546 durable diagnostic-file hashes, and 37 raw nanny memory messages. No unresolved attempt markers, power flags, log-write/truncation problems or owned cleanup survivors were found. Successful scalar results are consistent across configurations and repeats for each instance.
+- At 1 GB: groupby imbalance-only failed 3/3, combined join failed 3/3, and imbalance-only join failed 1/3. Combined groupby succeeded 3/3. Preserve the family interactions and single-seed limitation; these observations do not validate a general failure probability or adaptive policy.
+- Published the [Stage A evidence and audit](reports/research_stage_a_windows_v1/README.md), validation record, packages/revision and session notes. Raw records/logs and 2.53 GiB of generated data stay ignored locally. Stopped at the explicit interpretation gate; no Stage B/C, training or main merge.
+
 ## Current work and next steps
 
-1. Collection is complete. Review the completed screen's failures, repeat noise, and matched baselines. Preserve every raw record and power flag; prepare a separately declared follow-up only after deciding what useful gap remains. Research stays separate from `main`.
+1. Stage A is complete. Review its factor-specific outcomes and diagnostics alongside the deep screen review. Declare any Stage B probe budget, observable reliability signal and economic baseline before new collection. Research stays separate from `main`.
 2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC

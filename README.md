@@ -1,5 +1,7 @@
 # SAFE-Pipe
 
+**Stage A update (15 November 2026):** the follow-up mechanism study is complete: 48 attempts, 41 successes and seven execution errors with retained Dask nanny memory-termination evidence. Windows validation passed 54 targeted tests. Read the [Stage A results and limits](reports/research_stage_a_windows_v1/README.md); later stages remain gated on interpretation.
+
 **Research branch update (14 November 2026):** the separate 768-attempt Windows probe screen is complete and audited: 759 successes, one timeout, and eight execution errors. The partition heuristic has no established overall advantage over matched-memory uniform sampling. Read the [research results and limits](reports/research_probe_windows_mains_v1_complete/README.md) and [next decisions](docs/research/NEXT_STEPS.md). The original advisor and its evidence are described below.
 
 **A bounded configuration advisor for local Dask data pipelines.** SAFE-Pipe predicts the runtime of eight declared worker settings for a known batch workload, checks a deadline and resource limits, then recommends a setting or abstains with an explanation.
