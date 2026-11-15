@@ -1,6 +1,8 @@
 # Research plan after the completed screen
 
-Drafted 2026-11-14; reviewed 2026-11-15. Status: proposed staged follow-up, informed by a **post-hoc development analysis**. This is not a frozen final-test protocol or authorization to start heavy work on the Mac. Branch: `codex/partition-probe-research`; baseline evidence: `6c08ec9`.
+Drafted 2026-11-14; updated 2026-11-15. Status: **Stage A design specified and collection code prepared; Windows validation/execution pending.** Later stages remain conditional proposals, informed by a post-hoc development analysis. This is not a frozen final-test protocol. All execution tests, generation, physical runs and training belong on Windows; the Mac is for editing/static checks only. Branch: `codex/partition-probe-research`; baseline evidence: `6c08ec9`.
+
+Next actionable instructions: [STAGE_A_WINDOWS.md](STAGE_A_WINDOWS.md). The [versioned Stage A specification](../../configs/research_stage_a_v1.json) fixes 48 full-input attempts, generation seed 911 and order seed 20261115. Actual dataset manifests/source/environment fingerprints are created on Windows after checks pass. No new experiments have run for this update.
 
 Read [the deep review](../../reports/research_screen_review_20261114/README.md) for recomputed results and [the original completed report](../../reports/research_probe_windows_mains_v1_complete/README.md) for collection provenance. The original 96-run LightGBM advisor remains a separate baseline project. No main merge is planned here.
 
@@ -46,7 +48,7 @@ Report completion/failure/abstention first, then successful-request latency and 
 
 ## 2. Finish instrumentation before new pressure experiments
 
-Small code/check work can be done on the Mac; process-heavy validation stays on Windows.
+Code and static checks can be done on the Mac; all runtime validation stays on Windows. Durable logs/events, conservative cause summaries, explicit phase accounting, condition sampling and interrupted-attempt protection are implemented, but not yet runtime-validated for this update. The historical data remains unchanged.
 
 - Persist worker and nanny logs, restart events, exit codes where available, timestamps and the active memory-threshold settings. Separate confirmed nanny memory termination, confirmed OS termination, unknown worker death, execution timeout and user interruption. Never relabel archived `KilledWorker` records as OOM without evidence.
 - Record per-worker baseline RSS before workload execution and individual worker peak/lifetime data. Do not use summed lifetime peaks as one worker's headroom or concurrent cluster use.
@@ -58,7 +60,7 @@ Acceptance: small success and controlled termination checks yield usable diagnos
 
 ## 3. A bounded diagnostic study, with early stopping
 
-Do not immediately launch another broad matrix. The following is an explicit **proposed** design for mechanism discovery, not an unseen final benchmark.
+Do not immediately launch another broad matrix. Stage A below is now specified for Windows execution after validation; B/C are conditional proposals. This is mechanism discovery, not an unseen final benchmark.
 
 First fix two families (groupby, unique-dimension join), 2M fact rows, eight input files, sixteen payload columns and key cardinality 1M. At each family use the four combinations:
 
@@ -69,7 +71,7 @@ First fix two families (groupby, unique-dimension join), 2M fact rows, eight inp
 | Input imbalance only | 0 | 0.60 |
 | Both | 0.25 | 0.60 |
 
-Use target settings `w2_t1_1g` and `w2_t1_2g`. They hold worker/thread concurrency fixed while changing per-worker capacity. This is a mechanism test, not a substitute for later eight-config evaluation. Use new generation seeds, for example 911, 1223 and 1709, fixed before collecting results. Randomize matched blocks and keep library/host conditions consistent.
+Use target settings `w2_t1_1g` and `w2_t1_2g`. They hold worker/thread concurrency fixed while changing per-worker capacity. This is a mechanism test, not a substitute for later eight-config evaluation. Stage A fixes generation seed 911 and random order seed 20261115; candidate later seeds are 1223 and 1709. Independent column RNG streams ensure changing file boundaries preserves the ordered row values, while hot-key changes preserve payloads and the join dimension. This generator differs from the legacy interleaved mode; test those invariants on Windows. Randomize the 16 cells within each repeat block and keep library/host conditions consistent.
 
 **Stage A: 48 full-input attempts.** Two families × four patterns × two caps × three repeats, using seed 911. Stop for interpretation before proceeding: are failures/pressure reproducible and diagnosable, and does the skew/imbalance separation explain anything? Three repeats are a diagnostic start, not statistically conclusive.
 
@@ -153,10 +155,10 @@ These are planning allowances from the next active work period, not a promised s
 | Phase | Deliverable | Where | Rough allowance / decision |
 | --- | --- | --- | --- |
 | Completed now | Recomputed review, reproducible analysis, figure and this plan | Mac, existing records | Done; no new training/runs |
-| Instrumentation | Persistent diagnosis and phase-cost contract; tiny checks | Mac code, Windows verification | 1–2 focused days |
+| Instrumentation | Persistent diagnosis and phase-cost contract; targeted tests | Code/specification prepared; Windows verification pending | Next action before Stage A |
 | Bounded diagnosis | Stage A, then gated B/C; evidence against simple baselines | Windows only | 2–4 working days including interpretation; stop after each gate |
 | Conditional method | Controller, simple comparisons and ablations | Mac code; small Windows development | Roughly one week if a gap survives |
 | Independent evaluation | Frozen methods on new groups; all costs/outcomes | Windows only | Roughly one week, budget fixed after pilot |
 | Paper/artifact | Methods and evidence-driven results, limitations, reproducibility | Both | Begin outline now; finish after evaluation |
 
-Do not begin a full classifier, a larger neural model, or another undirected 768-job sweep merely to demonstrate activity. The immediate deliverable after this plan is the instrumentation contract and a frozen Stage A manifest. Heavy execution remains on the other laptop. Merge into main only after review and the user's integration decision.
+Do not begin a full classifier, a larger neural model, or another undirected 768-job sweep merely to demonstrate activity. The instrumentation contract and Stage A design specification are prepared. Next: validate on Windows, create the physical plan/data manifests there, then collect the bounded 48 attempts and review. All execution remains on Windows. Merge into main only after review and the user's integration decision.

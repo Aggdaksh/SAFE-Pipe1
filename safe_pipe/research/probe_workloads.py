@@ -40,12 +40,15 @@ def _fraction(value: Any, name: str, *, positive: bool = False) -> float:
 
 def _recipe(recipe: dict) -> dict:
     allowed = {"instance_id", "family", "n_rows", "n_files", "seed", "n_keys",
-               "hot_fraction", "payload_columns", "partition_imbalance"}
+               "hot_fraction", "payload_columns", "partition_imbalance", "generation_mode"}
     if set(recipe) - allowed:
         raise ValueError(f"unknown recipe fields: {sorted(set(recipe) - allowed)}")
     family = recipe.get("family", "groupby")
     if family not in FAMILIES:
         raise ValueError(f"family must be one of {sorted(FAMILIES)}")
+    mode = recipe.get("generation_mode", "legacy_interleaved")
+    if mode not in {"legacy_interleaved", "independent_columns_v1"}:
+        raise ValueError("unknown generation_mode")
     normalized = {
         "family": family,
         "n_rows": _integer(recipe.get("n_rows", 2000), "n_rows"),
@@ -55,6 +58,7 @@ def _recipe(recipe: dict) -> dict:
         "hot_fraction": _fraction(recipe.get("hot_fraction", 0.0), "hot_fraction"),
         "payload_columns": _integer(recipe.get("payload_columns", 4), "payload_columns"),
         "partition_imbalance": _fraction(recipe.get("partition_imbalance", 0.0), "partition_imbalance"),
+        "generation_mode": mode,
     }
     if normalized["n_rows"] < normalized["n_files"]:
         raise ValueError("n_rows must be >= n_files")
@@ -138,15 +142,25 @@ def generate_instance(dest: Path, recipe: dict) -> dict:
     recipe = _recipe(recipe)
     _empty_dest(dest)
     rng = np.random.default_rng(recipe["seed"])
+    # Independent streams preserve the same ordered rows when only file
+    # boundaries change. The legacy generator remains available for old recipes.
+    streams = [rng] * (recipe["payload_columns"] + 3)
+    if recipe["generation_mode"] == "independent_columns_v1":
+        streams = [np.random.default_rng(s) for s in
+                   np.random.SeedSequence(recipe["seed"]).spawn(recipe["payload_columns"] + 3)]
+    key_rng, hot_rng, *remaining = streams
+    payload_rngs, rng = remaining[:-1], remaining[-1]
     files: list[dict] = []
     for index, rows in enumerate(_counts(recipe["n_rows"], recipe["n_files"],
                                         recipe["partition_imbalance"])):
-        keys = rng.integers(1, recipe["n_keys"], size=rows, dtype=np.int64)
-        keys[rng.random(rows) < recipe["hot_fraction"]] = 0
+        keys = key_rng.integers(1, recipe["n_keys"], size=rows, dtype=np.int64)
+        keys[hot_rng.random(rows) < recipe["hot_fraction"]] = 0
         frame = pd.DataFrame({"key": keys})
         for col in range(recipe["payload_columns"]):
-            frame[f"payload_{col}"] = rng.random(rows)
-        files.append(_write(dest, frame, "left", index))
+            frame[f"payload_{col}"] = payload_rngs[col].random(rows)
+        file_record = _write(dest, frame, "left", index)
+        file_record["hot_key_rows"] = int(np.count_nonzero(keys == 0))
+        files.append(file_record)
     if recipe["family"] == "skewed_join":
         offset = 0
         # Unique-key dimension: no accidental quadratic join explosion.

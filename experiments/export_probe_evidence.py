@@ -20,6 +20,7 @@ def export(plan_path: Path, out: Path) -> None:
     rows = []
     for r in records:
         t = r.get("telemetry") or {}
+        diagnostic = r.get("diagnostics") or {}
         d = r["dataset"]
         rows.append({
             "cell_id": r["cell_id"], "run_id": r["run_id"], "instance_id": r["instance_id"],
@@ -36,13 +37,27 @@ def export(plan_path: Path, out: Path) -> None:
                                    "cumulative_spill_write_bytes_observed", "paused_samples", "samples_total",
                                    "worker_count_observed", "observed_restarts_lower_bound", "missing_initial_worker_records")},
             "owned_descendants_alive_after_cleanup": r.get("owned_descendants_alive_after_cleanup"),
+            "failure_category": diagnostic.get("failure_category"),
+            "nanny_memory_termination_count": diagnostic.get("nanny_memory_termination_count"),
+            "worker_exit_statuses": json.dumps([{k: e.get(k) for k in ("exit_status", "signal", "phase")}
+                                               for e in diagnostic.get("worker_exit_events", [])]),
+            "worker_removals_before_cleanup": diagnostic.get("worker_removals_before_cleanup"),
+            "diagnostics_retained": diagnostic.get("retained"),
+            "diagnostic_file_count": len(diagnostic["files"]) if "files" in diagnostic else None,
+            "diagnostic_log_truncated": diagnostic.get("log_truncated"),
+            "diagnostic_malformed_lines": diagnostic.get("malformed_log_lines"),
+            "diagnostic_write_errors": diagnostic.get("log_write_errors"),
+            "memory_settings": json.dumps(r.get("memory_settings"), sort_keys=True),
+            "condition_flags": json.dumps((r.get("conditions") or {}).get("flags", [])),
+            "condition_samples": (r.get("conditions") or {}).get("samples"),
             "optimized_task_count": (r.get("graph") or {}).get("task_count"),
             "optimized_task_prefixes": json.dumps((r.get("graph") or {}).get("task_prefix_counts", {}), sort_keys=True),
             "error": r.get("error"),
         })
     if rows:
         with (out / "measurements.csv").open("w", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
+            # A timeout before setup has fewer timing fields than a completed job.
+            writer = csv.DictWriter(f, fieldnames=list(dict.fromkeys(k for row in rows for k in row)), lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
     summary.pop("telemetry_by_cell")
@@ -50,6 +65,13 @@ def export(plan_path: Path, out: Path) -> None:
     summary["environment"] = records[0]["environment"] if records else None
     summary["host_physical_bytes"] = records[0]["host_budget"]["physical_bytes"] if records else None
     summary["raw_evidence"] = "Complete raw records and Parquet are local under the experiment directory; this is a compact export."
+    batches = plan_path.parent / "batches.jsonl"
+    if batches.exists():
+        batch_rows = [json.loads(line) for line in batches.read_text().splitlines() if line.strip()]
+        summary["batch_accounting"] = {
+            "verification_seconds_shared_total": sum(r.get("verification_seconds_shared", 0) for r in batch_rows),
+            "row_persistence_seconds_total": sum(r.get("row_persistence_seconds", 0) for r in batch_rows),
+            "scope": "Shared collection audit and persistence, not per-request online policy costs"}
     (out / "summary.json").write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n")
     (out / "plan.json").write_text(json.dumps(plan, indent=2) + "\n")
     (out / "REPORT.md").write_text(markdown_report(summary))

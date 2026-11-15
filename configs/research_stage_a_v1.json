@@ -1,0 +1,32 @@
+{
+  "protocol_id": "stage-a-mechanism-v1",
+  "role": "development_mechanism_diagnosis_not_final_test",
+  "required_platform": "Windows",
+  "generation_seed": 911,
+  "generation_mode": "independent_columns_v1",
+  "order_seed": 20261115,
+  "families": ["groupby", "skewed_join"],
+  "n_rows": 2000000,
+  "n_files": 8,
+  "n_keys": 1000000,
+  "payload_columns": 16,
+  "patterns": [
+    {"name": "balanced", "hot_fraction": 0.0, "partition_imbalance": 0.0},
+    {"name": "key_skew_only", "hot_fraction": 0.25, "partition_imbalance": 0.0},
+    {"name": "partition_imbalance_only", "hot_fraction": 0.0, "partition_imbalance": 0.60},
+    {"name": "both", "hot_fraction": 0.25, "partition_imbalance": 0.60}
+  ],
+  "configs": [
+    {"config_id": "w2_t1_1g", "n_workers": 2, "threads_per_worker": 1, "memory_limit": "1000000000"},
+    {"config_id": "w2_t1_2g", "n_workers": 2, "threads_per_worker": 1, "memory_limit": "2000000000"}
+  ],
+  "methods": ["full"],
+  "repeats": 3,
+  "planned_cells": 48,
+  "timeout_seconds": 180,
+  "minimum_free_disk_bytes": 10737418240,
+  "require_mains": true,
+  "primary_question": "Do independently varied key skew and input-file imbalance cause repeatable memory pressure or worker death at fixed concurrency?",
+  "outcome_policy": "Keep every physical attempt, including failures, interruptions and condition flags. No automatic retries or later stages.",
+  "stage_gate": "Review all 48 outcomes and diagnostics before declaring any Stage B plan. This stage diagnoses a mechanism; it does not validate an adaptive controller."
+}

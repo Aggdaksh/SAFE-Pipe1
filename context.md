@@ -10,7 +10,7 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 - Active branch: **`codex/partition-probe-research`**, based on `origin/main` at `504f005`. Implementation/handoff checkpoint **`975b446`** was pushed and its remote SHA verified. Later documentation commits may follow it.
 - The user's authorization is to investigate on a separate branch, then consider merging if evidence justifies the contribution. **No merge now.** The original advisor remains the baseline on main.
-- **Latest explicit instruction:** large tests, benchmark generation/execution and any model training belong on the other laptop. This Mac is for code, research/design, documentation and small correctness checks. Do not restart the historical Mac matrices.
+- **Latest explicit instruction (2026-11-15): all runs are on Windows.** This includes execution tests, dataset generation, Dask benchmarks and training. This Mac is for code, research/design, documentation and static syntax/compile checks only. Do not run pytest here or restart the historical Mac matrices.
 - Hardware available: Windows PC plus Mac. Earlier planning allowed 4–6 weeks; this is a planning horizon, not a confirmed submission date. Do not assume cloud spending is needed or authorized by the current work.
 - The user's preferred advisor objective remains **balanced speed and resource use**. Research comparisons must state their objective and distinguish engine runtime from complete-request cost.
 - The Windows experiment PC completed the development screen; the Mac has now performed a reproducible post-hoc review. No adaptive controller or new model has been trained.
@@ -19,9 +19,20 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 **Stage: the first Windows development screen is complete and audited (768 attempts: 759 success, one timeout, eight execution errors).** See the [completed evidence](reports/research_probe_windows_mains_v1_complete/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
 
+### Latest implementation and Windows-only handoff (2026-11-15)
+
+The user requested code improvements and a concrete plan, with all execution on Windows. Read [STAGE_A_WINDOWS.md](docs/research/STAGE_A_WINDOWS.md) next. Code and the [48-attempt design specification](configs/research_stage_a_v1.json) are prepared; **Windows tests, actual dataset/plan preparation and all Stage A runs are pending**. Static parsing/compilation is not runtime validation. Historical passing test counts below do not validate these changes.
+
+- Durable per-attempt worker/nanny logs, scheduler events, active memory thresholds, timestamps, observed exit codes/signals and evidence hashes survive temporary-spill cleanup. Unknown worker death remains unknown; nanny termination evidence is not an OS OOM claim.
+- Expanded phase accounting retains nested graph/compute time, telemetry flush, supervisor/scratch cleanup, preflight, unaccounted time and shared preparation/audit/persistence costs. Failed attempts retain their incurred cost.
+- Power/RAM/free-disk snapshots accompany runs. Batches stop for condition/infrastructure or diagnostic-write issues. A persistent attempt marker blocks silent retries after a crash before row persistence.
+- Stage A fixes two families, four independently varied skew/imbalance patterns, two memory caps at fixed concurrency, three repeats and seed 911: 48 full-input attempts. Independent RNG streams preserve the same ordered rows when only file boundaries change. Order seed: 20261115. No probes in this stage.
+- Windows-only preparation/run guards and frozen environment/source/data checks are implemented. Stage A has a mechanism report and compact diagnostic export; tests are added/extended for Windows execution.
+- Next action: pull the research branch on Windows, run the targeted checks, prepare the fresh Stage A directory, inspect four initial attempts, then resume in bounded batches. Stop after 48 for interpretation. Stage B/C and a controller remain conditional. No new model, paper result or merge is claimed.
+
 ### Deep review and proposed next direction (2026-11-15)
 
-The user's latest request is deep analysis and a clear plan. The [reproducible review](reports/research_screen_review_20261114/README.md) recomputes the published metrics and adds fixed-config, overhead, repeat-variation and balanced-objective sensitivity checks. The [follow-up plan](docs/research/POST_SCREEN_PLAN.md) is proposed; no new pressure experiments or training were launched.
+The prior request was deep analysis and a clear plan. The [reproducible review](reports/research_screen_review_20261114/README.md) recomputes the published metrics and adds fixed-config, overhead, repeat-variation and balanced-objective sensitivity checks. The [follow-up plan](docs/research/POST_SCREEN_PLAN.md) now has a concrete Stage A specification; later stages remain proposed. No new pressure experiments or training were launched.
 
 - The 0.11% median scaled-memory engine regret covers ten complete recipes; mean is 4.09%, maximum 17.37%. A fixed `w2_t2_1g` has comparable speed results (0.08% median) but full-run failures. All 2 GB settings succeeded in their 24 observed full attempts each. Simple fixed/metadata baselines are mandatory.
 - Replaying the scaled-memory method's choices over all twelve recipes selects configurations with three unsuccessful recorded full outcomes across two recipes. This is descriptive replay, not a calibrated failure probability. Stable probe timings can share full-scale bias.
@@ -60,8 +71,8 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Useful preparation without heavy computation
 
-1. Deep review, nearest-prior comparison and proposed staged design are now written in [POST_SCREEN_PLAN.md](docs/research/POST_SCREEN_PLAN.md). The next implementation task is persistent worker/nanny diagnosis and precise per-phase cost accounting, with tiny checks.
-2. Freeze a new Stage A manifest after instrumentation and Windows verification. The plan separates skew/imbalance and uses new seeds; exact final-test design remains pending. Do not automatically run later stages.
+1. Deep review and staged design are written. Instrumentation/accounting improvements and the Stage A design specification are implemented; static checks only on this Mac. Runtime validation is pending on Windows.
+2. Follow [the Stage A handoff](docs/research/STAGE_A_WINDOWS.md): Windows checks first, then materialize the frozen specification into datasets/source/data manifests and collect 48 full attempts. The final-test design remains pending. Do not automatically run later stages.
 3. Refine the candidate controller only if the diagnostic gates pass; generic rank stability is insufficient evidence of full-scale reliability. Keep original speed findings and the balanced sensitivity analysis distinct.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 
@@ -85,7 +96,7 @@ SAFE-Pipe recommends a configuration from eight declared local Dask configuratio
 | Machine | Role |
 | --- | --- |
 | Earlier Mac environment described as 8 GB | Historical coding/docs/tiny checks; not the current measured hardware fact |
-| Current Mac, 16 GiB observed in research run records | Code, research/design, documentation and small correctness checks only |
+| Current Mac, 16 GiB observed in historical research records | Code, research/design, documentation and static checks only; all execution tests now belong on Windows |
 | Windows 11 PC, 31.4 GiB physical RAM in the original study | Physical experiment host (ADR-005); intended research laptop, environment to be verified again |
 
 The original 16 GB plan is a conservative historical sizing reference. The original Windows host has 32 GB marketed RAM; **production worker caps and the eight-config grid stay unchanged**. The earlier Mac, Windows and advisor work is included in `main` after a 2026-10-28 fast-forward merge. Their original branches remain checkpoints. Pull `main` for baseline work, but pull **`codex/partition-probe-research` for the current research task**. Generated Parquet, raw JSONL runs and virtual environments are gitignored.

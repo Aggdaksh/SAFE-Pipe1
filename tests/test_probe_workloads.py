@@ -134,3 +134,25 @@ def test_bad_recipes_leave_no_destination(tmp_path, change):
 def test_bad_probe_parameters(tmp_path, fraction, method):
     with pytest.raises(ValueError):
         make_probe(tmp_path / "missing", tmp_path / "probe", fraction, method, 1)
+
+
+@pytest.mark.parametrize("family", ["groupby", "skewed_join"])
+def test_stage_a_changes_file_boundaries_without_changing_ordered_rows(tmp_path, family):
+    import pandas as pd
+
+    common = recipe(family, generation_mode="independent_columns_v1", hot_fraction=0)
+    generate_instance(tmp_path / "balanced", {**common, "partition_imbalance": 0})
+    generate_instance(tmp_path / "imbalanced", {**common, "partition_imbalance": .6})
+    hot = generate_instance(tmp_path / "hot", {**common, "partition_imbalance": .6, "hot_fraction": .25})
+    a = pd.read_parquet(tmp_path / "balanced" / "left")
+    b = pd.read_parquet(tmp_path / "imbalanced" / "left")
+    c = pd.read_parquet(tmp_path / "hot" / "left")
+    pd.testing.assert_frame_equal(a, b)
+    pd.testing.assert_frame_equal(a.drop(columns="key"), c.drop(columns="key"))
+    assert ((a.key == c.key) | (c.key == 0)).all()
+    assert sum(f.get("hot_key_rows", 0) for f in hot["files"]) == int((c.key == 0).sum())
+    if family == "skewed_join":
+        pd.testing.assert_frame_equal(pd.read_parquet(tmp_path / "balanced" / "right"),
+                                      pd.read_parquet(tmp_path / "hot" / "right"))
+    assert float(build_probe_result(tmp_path / "hot").compute(scheduler="synchronous")) == pytest.approx(
+        reference_value(tmp_path / "hot"), rel=1e-12)

@@ -92,3 +92,21 @@ def test_preset_sizes_and_mac_worker_cap():
         assert len(recipes) * len(configs) * repeats * 4 == expected
         if preset != "windows-screen":
             assert all(c["n_workers"] == 1 and int(c["memory_limit"]) <= 2_000_000_000 for c in configs)
+
+
+def test_mechanism_report_retains_missing_failure_and_unknown_evidence():
+    from safe_pipe.research.probe_analysis import mechanism_summary, markdown_report
+    plan = {"recipes": [{"instance_id": "x", "family": "groupby", "hot_fraction": .25,
+                         "partition_imbalance": 0}], "configs": [{"config_id": "a"}, {"config_id": "b"}],
+            "repeats": 3}
+    rows = [{"instance_id": "x", "target_config_id": "a", "status": "execution_error",
+             "diagnostics": {"failure_category": "worker_death_unknown_cause"},
+             "conditions": {"flags": ["mains_lost_or_unknown"]}}]
+    mechanism = mechanism_summary(plan, rows)
+    group = mechanism["groups"][0]
+    assert group["statuses"] == {"execution_error": 1}
+    assert group["observed"] == 1 and group["expected"] == 3
+    assert group["spill_unknown"] == group["diagnosis_unknown"] == group["condition_flagged"] == 1
+    assert mechanism["groups"][1]["observed"] == 0
+    report = markdown_report({"mechanism": mechanism, "recorded_cells": 1, "planned_cells": 6})
+    assert "MANUAL REVIEW" in report and "execution_error" in report
