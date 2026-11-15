@@ -1,6 +1,6 @@
 # Stage B: Windows handoff and frozen diagnostic protocol
 
-Prepared 2026-11-15 on `codex/partition-probe-research`. **Implementation/specification prepared; new Windows validation, sample generation and all 96 attempts are pending.** The Mac has only edited code and performed static syntax/document checks. No new tests, benchmarks or training have run there. The earlier 54 passing Windows tests validate Stage A's revision, not these changes.
+Prepared 2026-11-15 on `codex/partition-probe-research`. **Windows validation, sample generation, all 96 attempts and the completion audit are complete.** On 2026-11-16, 74 targeted tests passed and 96/96 probes were successful and quiet. Eight comparison groups are false-reassurance candidates; see the [completed results](../../reports/research_stage_b_windows_v1/README.md). The commands below preserve the completed procedure; do not rerun recorded cells. No later stage was launched. The Mac has only edited code and performed static syntax/document checks. No new tests, benchmarks or training have run there. The earlier 54 passing Windows tests validate Stage A's revision, not these changes.
 
 ## Purpose and fixed scope
 

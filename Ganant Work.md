@@ -1,6 +1,6 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-11-15 (Asia/Kolkata)<br>
+**Updated:** 2026-11-16 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
 **Working branch:** `codex/partition-probe-research` (research development; `main` retains the original advisor)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
@@ -161,9 +161,24 @@
 - Confirmed the local Stage A plan/raw outcomes exist, the Stage B output directory does not yet exist, mains is connected, and about 45.6 GiB is free on C:. The preparation command still needs its full pinned-parent compatibility audit; file existence alone does not establish it.
 - Stage C, extra seeds, training, final controller and main merge remain conditional. Read [`docs/research/STAGE_B_WINDOWS.md`](docs/research/STAGE_B_WINDOWS.md) before execution.
 
+## Checkpoint 23 — Stage B started on Windows
+
+- On 2026-11-16, verified the research branch at `beb8709`, no active benchmark, stable mains, about 44.7 GiB free disk and 6.9 GiB available RAM. Stage B had no existing output directory.
+- Kept the existing environment: `pip check` passed and **74 targeted Windows tests passed**. Captured the actual test output before preparation; no packages changed.
+- Prepared `data/probes/windows-stage-b-v1/` after the prescribed pinned Stage A provenance/source/data/diagnostic compatibility checks. This created **16 samples and 96 planned attempts**, reusing Stage A full inputs/outcomes without rerunning them. Samples occupy **1.04 GiB**.
+- Recorded package/revision/session conditions, inspected four initial quiet successful probes, and continued reviewed batches of eight with source/environment/power/diagnostic/cleanup checks. Every outcome is retained; no Stage C or training is scheduled. Live counts and raw diagnostics are in the ignored run directory until export.
+
+## Checkpoint 24 — Completed and audited Stage B
+
+- Finished the frozen 96-attempt Stage B plan on 2026-11-16 at **00:20:51 IST**. All 96 attempts succeeded and were classified quiet, with no warning/unknown probes or successful-scalar inconsistencies. The reference Stage A outcomes, including seven errors, were not rerun or replaced.
+- Final source/environment/sample/diagnostic audit passed: 16 sample directories, 961 diagnostic-file hashes, zero quality flags, no unresolved markers/lock and zero owned cleanup survivors. Actual Windows test output (74 passed), packages/revision, raw session notes and the audit are retained in the [completed export](reports/research_stage_b_windows_v1/README.md).
+- All 32 comparison groups are eligible. Eight are false-reassurance candidates: quiet probes paired with historical full warnings in four instance/1-GB-target combinations at both fractions. None are unnecessary-warning candidates. These correlated development groups are not calibrated classifier error rates.
+- Both probe-choice replays selected 1 GB on all eight instances, mapping to 17/24 historical full successes; fixed 2 GB and file-metadata replays each map to 24/24. No selected full jobs were newly executed. Median six-probe plus preparation cost is 24.62 s at 1/8 and 26.38 s at 1/4, versus 4.96 s for the same-cohort historical fixed-2-GB full comparator. This does not establish online savings or independent reliability.
+- Preserved the negative fidelity/economics findings and updated canonical context, progress and handoff. Generated samples remain local (1.04 GiB), raw diagnostics about 1.81 MB; about 43.6 GiB remained free disk. Stopped after Stage B for interpretation, with no Stage C, extra seeds, classifier, training or main merge.
+
 ## Current work and next steps
 
-1. Stage A collection and interpretation are complete. Stage B's 96-probe specification and code are prepared; Windows validation, compatibility audit, sample preparation and collection remain. Follow the Stage B handoff and stop for review after its fixed budget. Research stays separate from `main`.
+1. Stage B is complete and audited. Review the quiet-probe/full-pressure discrepancies, strong metadata baseline and profiling cost before declaring any revised use case or further experiment. Preserve every raw result and provenance record. Research stays separate from `main`.
 2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC

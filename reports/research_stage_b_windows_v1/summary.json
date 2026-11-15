@@ -1,0 +1,5531 @@
+{
+  "schema_version": "stage-b-fidelity-report-v1",
+  "role": "development_diagnosis_not_independent_policy_evaluation",
+  "planned_cells": 96,
+  "recorded_cells": 96,
+  "missing_cells": [],
+  "statuses": {
+    "success": 96
+  },
+  "fidelity_groups": [
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.460892099974444,
+          2.744494200014742,
+          1.9992679000133649
+        ],
+        "median_successful_engine_seconds": 2.460892099974444,
+        "attempt_lifecycle_seconds": [
+          4.884614500013413,
+          5.144414699985646,
+          4.268303199991351
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.3709282000199892,
+          1.4588492999901064,
+          1.328912599972682
+        ],
+        "median_successful_engine_seconds": 1.3709282000199892,
+        "attempt_lifecycle_seconds": [
+          3.8615156000014395,
+          4.096322199999122,
+          3.996509899996454
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.460892099974444,
+          2.744494200014742,
+          1.9992679000133649
+        ],
+        "median_successful_engine_seconds": 2.460892099974444,
+        "attempt_lifecycle_seconds": [
+          4.884614500013413,
+          5.144414699985646,
+          4.268303199991351
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.4543886999890674,
+          1.4707725000043865,
+          1.239382800005842
+        ],
+        "median_successful_engine_seconds": 1.4543886999890674,
+        "attempt_lifecycle_seconds": [
+          3.9369374999951106,
+          3.8228569999919273,
+          3.530061500001466
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.675736999983201,
+          2.314010199974291,
+          2.3224210999906063
+        ],
+        "median_successful_engine_seconds": 2.3224210999906063,
+        "attempt_lifecycle_seconds": [
+          5.815580399997998,
+          5.136666200007312,
+          5.040906800015364
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.603801699995529,
+          1.269567300012568,
+          1.4282286000088789
+        ],
+        "median_successful_engine_seconds": 1.4282286000088789,
+        "attempt_lifecycle_seconds": [
+          4.420132900006138,
+          3.6215591999934986,
+          3.8513368999992963
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.675736999983201,
+          2.314010199974291,
+          2.3224210999906063
+        ],
+        "median_successful_engine_seconds": 2.3224210999906063,
+        "attempt_lifecycle_seconds": [
+          5.815580399997998,
+          5.136666200007312,
+          5.040906800015364
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.7762947999872267,
+          1.2616401999839582,
+          1.2899130999867339
+        ],
+        "median_successful_engine_seconds": 1.2899130999867339,
+        "attempt_lifecycle_seconds": [
+          4.326465599995572,
+          3.499600300012389,
+          3.4842370999976993
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.6559672000003047,
+          2.8248935000156052,
+          2.310657699999865
+        ],
+        "median_successful_engine_seconds": 2.8248935000156052,
+        "attempt_lifecycle_seconds": [
+          6.081607500003884,
+          5.254965000000084,
+          4.787593299988657
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.260561700008111,
+          1.5607556000177283,
+          1.161693700007163
+        ],
+        "median_successful_engine_seconds": 1.260561700008111,
+        "attempt_lifecycle_seconds": [
+          3.76325459999498,
+          4.312234799988801,
+          3.600472499994794
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.6559672000003047,
+          2.8248935000156052,
+          2.310657699999865
+        ],
+        "median_successful_engine_seconds": 2.8248935000156052,
+        "attempt_lifecycle_seconds": [
+          6.081607500003884,
+          5.254965000000084,
+          4.787593299988657
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.12157690001186,
+          1.6372561999887694,
+          1.281121100008022
+        ],
+        "median_successful_engine_seconds": 1.6372561999887694,
+        "attempt_lifecycle_seconds": [
+          4.58994679999887,
+          4.242713599989656,
+          3.510848799982341
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.209369099989999,
+          2.9114217000023928,
+          3.059841600013897
+        ],
+        "median_successful_engine_seconds": 2.9114217000023928,
+        "attempt_lifecycle_seconds": [
+          4.869211699988227,
+          5.6363548999943305,
+          5.802063200011617
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.3641034000029322,
+          1.1944298000016715,
+          1.5989964000182226
+        ],
+        "median_successful_engine_seconds": 1.3641034000029322,
+        "attempt_lifecycle_seconds": [
+          3.5488227999885567,
+          3.6419960999919567,
+          4.172828500013566
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.209369099989999,
+          2.9114217000023928,
+          3.059841600013897
+        ],
+        "median_successful_engine_seconds": 2.9114217000023928,
+        "attempt_lifecycle_seconds": [
+          4.869211699988227,
+          5.6363548999943305,
+          5.802063200011617
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.9014486000232864,
+          1.4749712999910116,
+          1.2583467999938875
+        ],
+        "median_successful_engine_seconds": 1.4749712999910116,
+        "attempt_lifecycle_seconds": [
+          4.547367299994221,
+          3.9212511999940034,
+          3.8499062999908347
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.040693699993426,
+          2.1584406000038143,
+          2.3346257000230253
+        ],
+        "median_successful_engine_seconds": 2.1584406000038143,
+        "attempt_lifecycle_seconds": [
+          4.495247999991989,
+          4.430046400026185,
+          5.555203799973242
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.4166229000256862,
+          1.3016360999899916,
+          1.3876816999982111
+        ],
+        "median_successful_engine_seconds": 1.3876816999982111,
+        "attempt_lifecycle_seconds": [
+          3.905876700009685,
+          3.9104340000194497,
+          4.038403100013966
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.040693699993426,
+          2.1584406000038143,
+          2.3346257000230253
+        ],
+        "median_successful_engine_seconds": 2.1584406000038143,
+        "attempt_lifecycle_seconds": [
+          4.495247999991989,
+          4.430046400026185,
+          5.555203799973242
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.4598085000179708,
+          1.583587200002512,
+          1.4245045999996364
+        ],
+        "median_successful_engine_seconds": 1.4598085000179708,
+        "attempt_lifecycle_seconds": [
+          3.8444984999950975,
+          4.187178599997424,
+          3.8080912999866996
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.872109799995087,
+          2.2813431000104174,
+          2.1008535999862943
+        ],
+        "median_successful_engine_seconds": 2.1008535999862943,
+        "attempt_lifecycle_seconds": [
+          4.263869900023565,
+          4.713047500001267,
+          4.720282100024633
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.0631498000002466,
+          1.2117623999947682,
+          1.2893918000045232
+        ],
+        "median_successful_engine_seconds": 1.2117623999947682,
+        "attempt_lifecycle_seconds": [
+          3.448535500006983,
+          3.7037808999884874,
+          3.622582899988629
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.872109799995087,
+          2.2813431000104174,
+          2.1008535999862943
+        ],
+        "median_successful_engine_seconds": 2.1008535999862943,
+        "attempt_lifecycle_seconds": [
+          4.263869900023565,
+          4.713047500001267,
+          4.720282100024633
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.3437969999795314,
+          1.2332633000041824,
+          1.310867699998198
+        ],
+        "median_successful_engine_seconds": 1.310867699998198,
+        "attempt_lifecycle_seconds": [
+          3.748931600013748,
+          3.538432500005001,
+          3.5682180000003427
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          8.156831300002523,
+          8.581282200000715,
+          6.803912200004561
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.233119100012118,
+          1.1425803999882191,
+          1.6581868000212125
+        ],
+        "median_successful_engine_seconds": 1.233119100012118,
+        "attempt_lifecycle_seconds": [
+          3.5258026999945287,
+          3.3075593000103254,
+          4.627681599988136
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          8.156831300002523,
+          8.581282200000715,
+          6.803912200004561
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.5189794000179972,
+          1.8310901999939233,
+          1.7970785000070464
+        ],
+        "median_successful_engine_seconds": 1.7970785000070464,
+        "attempt_lifecycle_seconds": [
+          3.7634906000166666,
+          4.3705037999898195,
+          4.680573899997398
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.7143465999979526,
+          2.349207999999635,
+          2.3449549000069965
+        ],
+        "median_successful_engine_seconds": 2.349207999999635,
+        "attempt_lifecycle_seconds": [
+          5.426642600010382,
+          4.917686800006777,
+          5.096616800001357
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.652080300002126,
+          1.531358200008981,
+          1.266846099984832
+        ],
+        "median_successful_engine_seconds": 1.531358200008981,
+        "attempt_lifecycle_seconds": [
+          4.409822199988412,
+          4.114715400006389,
+          3.3927121000015177
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.7143465999979526,
+          2.349207999999635,
+          2.3449549000069965
+        ],
+        "median_successful_engine_seconds": 2.349207999999635,
+        "attempt_lifecycle_seconds": [
+          5.426642600010382,
+          4.917686800006777,
+          5.096616800001357
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.6265798000094946,
+          1.3676339999947231,
+          1.9149997000058647
+        ],
+        "median_successful_engine_seconds": 1.6265798000094946,
+        "attempt_lifecycle_seconds": [
+          4.206611200002953,
+          3.513510499993572,
+          4.501415699982317
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8812041000055615,
+          1.8361166999966372,
+          1.6592612000240479
+        ],
+        "median_successful_engine_seconds": 1.8361166999966372,
+        "attempt_lifecycle_seconds": [
+          4.245753199997125,
+          4.367296100012027,
+          4.023522600007709
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.5515923000057228,
+          1.8321790000190958,
+          1.2186183000158053
+        ],
+        "median_successful_engine_seconds": 1.5515923000057228,
+        "attempt_lifecycle_seconds": [
+          4.020250400004443,
+          4.401672300009523,
+          3.59510949999094
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8812041000055615,
+          1.8361166999966372,
+          1.6592612000240479
+        ],
+        "median_successful_engine_seconds": 1.8361166999966372,
+        "attempt_lifecycle_seconds": [
+          4.245753199997125,
+          4.367296100012027,
+          4.023522600007709
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.5161536000086926,
+          1.6022815000033006,
+          1.5794613999896683
+        ],
+        "median_successful_engine_seconds": 1.5794613999896683,
+        "attempt_lifecycle_seconds": [
+          4.235247200005688,
+          4.331604599981802,
+          4.628310400003102
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.84809580000001,
+          1.7657212000049185,
+          1.693224899994675
+        ],
+        "median_successful_engine_seconds": 1.7657212000049185,
+        "attempt_lifecycle_seconds": [
+          4.626011999993352,
+          4.221209299983457,
+          3.939337699994212
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.541273299983004,
+          1.4670822999905795,
+          1.3086119000217877
+        ],
+        "median_successful_engine_seconds": 1.4670822999905795,
+        "attempt_lifecycle_seconds": [
+          4.044156300020404,
+          4.169251599989366,
+          3.7468034000194166
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.84809580000001,
+          1.7657212000049185,
+          1.693224899994675
+        ],
+        "median_successful_engine_seconds": 1.7657212000049185,
+        "attempt_lifecycle_seconds": [
+          4.626011999993352,
+          4.221209299983457,
+          3.939337699994212
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.5809440000157338,
+          1.2915337999875192,
+          1.5217603000055533
+        ],
+        "median_successful_engine_seconds": 1.5217603000055533,
+        "attempt_lifecycle_seconds": [
+          3.9164335999812465,
+          3.745380700012902,
+          4.086592000006931
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          14.45581700000912,
+          12.996817799983546,
+          10.001667800010182
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.431263200007379,
+          1.371066099993186,
+          1.65073179997853
+        ],
+        "median_successful_engine_seconds": 1.431263200007379,
+        "attempt_lifecycle_seconds": [
+          3.9174961999815423,
+          3.744523199973628,
+          4.311237299989443
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          14.45581700000912,
+          12.996817799983546,
+          10.001667800010182
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.460716900008265,
+          1.5225313000264578,
+          1.6616861999791581
+        ],
+        "median_successful_engine_seconds": 1.5225313000264578,
+        "attempt_lifecycle_seconds": [
+          3.749397700012196,
+          3.864259399997536,
+          4.173408000002382
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.974056799983373,
+          2.1743735000200104,
+          2.0087034000025596
+        ],
+        "median_successful_engine_seconds": 2.0087034000025596,
+        "attempt_lifecycle_seconds": [
+          4.413953300012508,
+          4.952857199998107,
+          4.58925449999515
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.6789172999851871,
+          1.2794334999925923,
+          1.144034199998714
+        ],
+        "median_successful_engine_seconds": 1.2794334999925923,
+        "attempt_lifecycle_seconds": [
+          4.742471200006548,
+          3.8406353000027593,
+          3.375810500001535
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.974056799983373,
+          2.1743735000200104,
+          2.0087034000025596
+        ],
+        "median_successful_engine_seconds": 2.0087034000025596,
+        "attempt_lifecycle_seconds": [
+          4.413953300012508,
+          4.952857199998107,
+          4.58925449999515
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.3323346999823116,
+          1.5881672000105027,
+          1.6413447000086308
+        ],
+        "median_successful_engine_seconds": 1.5881672000105027,
+        "attempt_lifecycle_seconds": [
+          3.923444499989273,
+          3.977503700007219,
+          4.057411800022237
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.788733900000807,
+          1.9517355000134557,
+          2.136159600020619
+        ],
+        "median_successful_engine_seconds": 1.9517355000134557,
+        "attempt_lifecycle_seconds": [
+          4.278740000008838,
+          4.339323799998965,
+          5.0167336000013165
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.432325400004629,
+          1.2099530000123195,
+          1.195731199986767
+        ],
+        "median_successful_engine_seconds": 1.2099530000123195,
+        "attempt_lifecycle_seconds": [
+          3.7238818999903742,
+          3.4794962000160012,
+          3.3404152000148315
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.788733900000807,
+          1.9517355000134557,
+          2.136159600020619
+        ],
+        "median_successful_engine_seconds": 1.9517355000134557,
+        "attempt_lifecycle_seconds": [
+          4.278740000008838,
+          4.339323799998965,
+          5.0167336000013165
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.7174010000017006,
+          1.7656439999991562,
+          1.8088219000201207
+        ],
+        "median_successful_engine_seconds": 1.7656439999991562,
+        "attempt_lifecycle_seconds": [
+          4.317539599986048,
+          4.685030399996322,
+          4.747632000013255
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.0463287999737076,
+          2.113716599997133,
+          1.8454219000122976
+        ],
+        "median_successful_engine_seconds": 2.0463287999737076,
+        "attempt_lifecycle_seconds": [
+          4.523623100016266,
+          4.969391499995254,
+          4.345470500004012
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8098486000089906,
+          1.5395817999960855,
+          1.3127785999968182
+        ],
+        "median_successful_engine_seconds": 1.5395817999960855,
+        "attempt_lifecycle_seconds": [
+          4.5378079999936745,
+          4.0318355000054,
+          3.7153624999918975
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.0463287999737076,
+          2.113716599997133,
+          1.8454219000122976
+        ],
+        "median_successful_engine_seconds": 2.0463287999737076,
+        "attempt_lifecycle_seconds": [
+          4.523623100016266,
+          4.969391499995254,
+          4.345470500004012
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.5796800999960396,
+          1.2340276999748312,
+          1.8374826999788638
+        ],
+        "median_successful_engine_seconds": 1.5796800999960396,
+        "attempt_lifecycle_seconds": [
+          4.0517098999989685,
+          3.3880050999869127,
+          4.379367899993667
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 2,
+          "execution_error": 1
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "mixed_completion",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.529442700004438,
+          8.544014000013703
+        ],
+        "median_successful_engine_seconds": 6.036728350009071,
+        "attempt_lifecycle_seconds": [
+          5.970780499977991,
+          10.560240299993893,
+          10.845261799986474
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.3582663999986835,
+          1.3359228000044823,
+          1.5797487999952864
+        ],
+        "median_successful_engine_seconds": 1.3582663999986835,
+        "attempt_lifecycle_seconds": [
+          3.9188651999866124,
+          3.8371576000063214,
+          4.312766000017291
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 2,
+          "execution_error": 1
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "mixed_completion",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.529442700004438,
+          8.544014000013703
+        ],
+        "median_successful_engine_seconds": 6.036728350009071,
+        "attempt_lifecycle_seconds": [
+          5.970780499977991,
+          10.560240299993893,
+          10.845261799986474
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.90644770002109,
+          1.6066919000004418,
+          1.4366331000055652
+        ],
+        "median_successful_engine_seconds": 1.6066919000004418,
+        "attempt_lifecycle_seconds": [
+          4.363112600025488,
+          3.7206331999914255,
+          3.6503110000048764
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": true,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.371388100000331,
+          2.5978931999998167,
+          2.012246900005266
+        ],
+        "median_successful_engine_seconds": 2.371388100000331,
+        "attempt_lifecycle_seconds": [
+          5.136372200009646,
+          5.314137199980905,
+          4.5293062000127975
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.2807354000105988,
+          1.3954456000064965,
+          1.245711100025801
+        ],
+        "median_successful_engine_seconds": 1.2807354000105988,
+        "attempt_lifecycle_seconds": [
+          3.630332600005204,
+          4.01299309998285,
+          3.6379554999875836
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "full": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.371388100000331,
+          2.5978931999998167,
+          2.012246900005266
+        ],
+        "median_successful_engine_seconds": 2.371388100000331,
+        "attempt_lifecycle_seconds": [
+          5.136372200009646,
+          5.314137199980905,
+          4.5293062000127975
+        ]
+      },
+      "probe": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8901699999987613,
+          1.3756425000028685,
+          1.7654119999788236
+        ],
+        "median_successful_engine_seconds": 1.7654119999788236,
+        "attempt_lifecycle_seconds": [
+          4.724197500006994,
+          3.847962200001348,
+          4.455276400025468
+        ]
+      },
+      "comparison_available": true,
+      "false_reassurance_candidate": false,
+      "unnecessary_warning_candidate": false
+    }
+  ],
+  "baseline_replays": [
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.460892099974444,
+          2.744494200014742,
+          1.9992679000133649
+        ],
+        "median_successful_engine_seconds": 2.460892099974444,
+        "attempt_lifecycle_seconds": [
+          4.884614500013413,
+          5.144414699985646,
+          4.268303199991351
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.884614500013413,
+      "median_successful_full_end_to_end_seconds": 4.928036900004372,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.6634608750100597,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.675736999983201,
+          2.314010199974291,
+          2.3224210999906063
+        ],
+        "median_successful_engine_seconds": 2.3224210999906063,
+        "attempt_lifecycle_seconds": [
+          5.815580399997998,
+          5.136666200007312,
+          5.040906800015364
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.136666200007312,
+      "median_successful_full_end_to_end_seconds": 5.195084400009364,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.494582925006398,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.460892099974444,
+          2.744494200014742,
+          1.9992679000133649
+        ],
+        "median_successful_engine_seconds": 2.460892099974444,
+        "attempt_lifecycle_seconds": [
+          4.884614500013413,
+          5.144414699985646,
+          4.268303199991351
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.884614500013413,
+      "median_successful_full_end_to_end_seconds": 4.928036900004372,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.6634608750100597,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.460892099974444,
+          2.744494200014742,
+          1.9992679000133649
+        ],
+        "median_successful_engine_seconds": 2.460892099974444,
+        "attempt_lifecycle_seconds": [
+          4.884614500013413,
+          5.144414699985646,
+          4.268303199991351
+        ]
+      },
+      "probe_preparation_seconds_once": 1.0574454999878071,
+      "probe_attempt_seconds_sum": 24.063827899983153,
+      "profiling_seconds": 25.12127339997096,
+      "probe_configured_gb_seconds_proxy": 31.340286461033873,
+      "probe_configured_thread_seconds_proxy": 47.694753399991896,
+      "median_successful_full_lifecycle_seconds": 4.884614500013413,
+      "median_successful_full_end_to_end_seconds": 4.928036900004372,
+      "constructed_successful_request_seconds": 30.049310299975332,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.6634608750100597,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.460892099974444,
+          2.744494200014742,
+          1.9992679000133649
+        ],
+        "median_successful_engine_seconds": 2.460892099974444,
+        "attempt_lifecycle_seconds": [
+          4.884614500013413,
+          5.144414699985646,
+          4.268303199991351
+        ]
+      },
+      "probe_preparation_seconds_once": 1.5277189999760594,
+      "probe_attempt_seconds_sum": 22.748944299994037,
+      "profiling_seconds": 24.276663299970096,
+      "probe_configured_gb_seconds_proxy": 35.155282960507726,
+      "probe_configured_thread_seconds_proxy": 45.20031799998833,
+      "median_successful_full_lifecycle_seconds": 4.884614500013413,
+      "median_successful_full_end_to_end_seconds": 4.928036900004372,
+      "constructed_successful_request_seconds": 29.204700199974468,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.6634608750100597,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.6559672000003047,
+          2.8248935000156052,
+          2.310657699999865
+        ],
+        "median_successful_engine_seconds": 2.8248935000156052,
+        "attempt_lifecycle_seconds": [
+          6.081607500003884,
+          5.254965000000084,
+          4.787593299988657
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.254965000000084,
+      "median_successful_full_end_to_end_seconds": 5.3158488999761175,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.941223750000063,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.209369099989999,
+          2.9114217000023928,
+          3.059841600013897
+        ],
+        "median_successful_engine_seconds": 2.9114217000023928,
+        "attempt_lifecycle_seconds": [
+          4.869211699988227,
+          5.6363548999943305,
+          5.802063200011617
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.6363548999943305,
+      "median_successful_full_end_to_end_seconds": 5.693644899991341,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.931810537495039,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.209369099989999,
+          2.9114217000023928,
+          3.059841600013897
+        ],
+        "median_successful_engine_seconds": 2.9114217000023928,
+        "attempt_lifecycle_seconds": [
+          4.869211699988227,
+          5.6363548999943305,
+          5.802063200011617
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.6363548999943305,
+      "median_successful_full_end_to_end_seconds": 5.693644899991341,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.931810537495039,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.6559672000003047,
+          2.8248935000156052,
+          2.310657699999865
+        ],
+        "median_successful_engine_seconds": 2.8248935000156052,
+        "attempt_lifecycle_seconds": [
+          6.081607500003884,
+          5.254965000000084,
+          4.787593299988657
+        ]
+      },
+      "probe_preparation_seconds_once": 1.0215948999975808,
+      "probe_attempt_seconds_sum": 23.25633719994221,
+      "profiling_seconds": 24.27793209993979,
+      "probe_configured_gb_seconds_proxy": 30.247082274741683,
+      "probe_configured_thread_seconds_proxy": 46.07921859994531,
+      "median_successful_full_lifecycle_seconds": 5.254965000000084,
+      "median_successful_full_end_to_end_seconds": 5.3158488999761175,
+      "constructed_successful_request_seconds": 29.593780999915907,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.941223750000063,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.6559672000003047,
+          2.8248935000156052,
+          2.310657699999865
+        ],
+        "median_successful_engine_seconds": 2.8248935000156052,
+        "attempt_lifecycle_seconds": [
+          6.081607500003884,
+          5.254965000000084,
+          4.787593299988657
+        ]
+      },
+      "probe_preparation_seconds_once": 1.2960936999879777,
+      "probe_attempt_seconds_sum": 24.95909289989504,
+      "profiling_seconds": 26.255186599883018,
+      "probe_configured_gb_seconds_proxy": 38.350772427956684,
+      "probe_configured_thread_seconds_proxy": 49.32406799989985,
+      "median_successful_full_lifecycle_seconds": 5.254965000000084,
+      "median_successful_full_end_to_end_seconds": 5.3158488999761175,
+      "constructed_successful_request_seconds": 31.571035499859136,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.941223750000063,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.040693699993426,
+          2.1584406000038143,
+          2.3346257000230253
+        ],
+        "median_successful_engine_seconds": 2.1584406000038143,
+        "attempt_lifecycle_seconds": [
+          4.495247999991989,
+          4.430046400026185,
+          5.555203799973242
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.495247999991989,
+      "median_successful_full_end_to_end_seconds": 4.524167900002794,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.3714359999939916,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.872109799995087,
+          2.2813431000104174,
+          2.1008535999862943
+        ],
+        "median_successful_engine_seconds": 2.1008535999862943,
+        "attempt_lifecycle_seconds": [
+          4.263869900023565,
+          4.713047500001267,
+          4.720282100024633
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.713047500001267,
+      "median_successful_full_end_to_end_seconds": 4.754771700012498,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.123916562501108,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.040693699993426,
+          2.1584406000038143,
+          2.3346257000230253
+        ],
+        "median_successful_engine_seconds": 2.1584406000038143,
+        "attempt_lifecycle_seconds": [
+          4.495247999991989,
+          4.430046400026185,
+          5.555203799973242
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.495247999991989,
+      "median_successful_full_end_to_end_seconds": 4.524167900002794,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.3714359999939916,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.040693699993426,
+          2.1584406000038143,
+          2.3346257000230253
+        ],
+        "median_successful_engine_seconds": 2.1584406000038143,
+        "attempt_lifecycle_seconds": [
+          4.495247999991989,
+          4.430046400026185,
+          5.555203799973242
+        ]
+      },
+      "probe_preparation_seconds_once": 0.8075529000198003,
+      "probe_attempt_seconds_sum": 22.78908279997995,
+      "profiling_seconds": 23.59663569999975,
+      "probe_configured_gb_seconds_proxy": 29.612194890635635,
+      "probe_configured_thread_seconds_proxy": 45.2592262000544,
+      "median_successful_full_lifecycle_seconds": 4.495247999991989,
+      "median_successful_full_end_to_end_seconds": 4.524167900002794,
+      "constructed_successful_request_seconds": 28.120803600002546,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.3714359999939916,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.040693699993426,
+          2.1584406000038143,
+          2.3346257000230253
+        ],
+        "median_successful_engine_seconds": 2.1584406000038143,
+        "attempt_lifecycle_seconds": [
+          4.495247999991989,
+          4.430046400026185,
+          5.555203799973242
+        ]
+      },
+      "probe_preparation_seconds_once": 1.255720699991798,
+      "probe_attempt_seconds_sum": 22.866186799976276,
+      "profiling_seconds": 24.121907499968074,
+      "probe_configured_gb_seconds_proxy": 35.05217658164933,
+      "probe_configured_thread_seconds_proxy": 45.390700999996625,
+      "median_successful_full_lifecycle_seconds": 4.495247999991989,
+      "median_successful_full_end_to_end_seconds": 4.524167900002794,
+      "constructed_successful_request_seconds": 28.64607539997087,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.3714359999939916,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          8.156831300002523,
+          8.581282200000715,
+          6.803912200004561
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": null,
+      "median_successful_full_end_to_end_seconds": null,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": null,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.7143465999979526,
+          2.349207999999635,
+          2.3449549000069965
+        ],
+        "median_successful_engine_seconds": 2.349207999999635,
+        "attempt_lifecycle_seconds": [
+          5.426642600010382,
+          4.917686800006777,
+          5.096616800001357
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.096616800001357,
+      "median_successful_full_end_to_end_seconds": 5.158775999996578,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.459539700001187,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.7143465999979526,
+          2.349207999999635,
+          2.3449549000069965
+        ],
+        "median_successful_engine_seconds": 2.349207999999635,
+        "attempt_lifecycle_seconds": [
+          5.426642600010382,
+          4.917686800006777,
+          5.096616800001357
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.096616800001357,
+      "median_successful_full_end_to_end_seconds": 5.158775999996578,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.459539700001187,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          8.156831300002523,
+          8.581282200000715,
+          6.803912200004561
+        ]
+      },
+      "probe_preparation_seconds_once": 1.0139018999761902,
+      "probe_attempt_seconds_sum": 23.63623409991851,
+      "profiling_seconds": 24.6501359998947,
+      "probe_configured_gb_seconds_proxy": 30.78835562869172,
+      "probe_configured_thread_seconds_proxy": 46.75658659997862,
+      "median_successful_full_lifecycle_seconds": null,
+      "median_successful_full_end_to_end_seconds": null,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": null,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          8.156831300002523,
+          8.581282200000715,
+          6.803912200004561
+        ]
+      },
+      "probe_preparation_seconds_once": 1.281909400015138,
+      "probe_attempt_seconds_sum": 25.33243979999679,
+      "profiling_seconds": 26.61434920001193,
+      "probe_configured_gb_seconds_proxy": 38.79055690009797,
+      "probe_configured_thread_seconds_proxy": 50.072211399965454,
+      "median_successful_full_lifecycle_seconds": null,
+      "median_successful_full_end_to_end_seconds": null,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": null,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8812041000055615,
+          1.8361166999966372,
+          1.6592612000240479
+        ],
+        "median_successful_engine_seconds": 1.8361166999966372,
+        "attempt_lifecycle_seconds": [
+          4.245753199997125,
+          4.367296100012027,
+          4.023522600007709
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.245753199997125,
+      "median_successful_full_end_to_end_seconds": 4.273273900005734,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.184314899997844,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.84809580000001,
+          1.7657212000049185,
+          1.693224899994675
+        ],
+        "median_successful_engine_seconds": 1.7657212000049185,
+        "attempt_lifecycle_seconds": [
+          4.626011999993352,
+          4.221209299983457,
+          3.939337699994212
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.221209299983457,
+      "median_successful_full_end_to_end_seconds": 4.290469299972756,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 3.6935581374855246,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8812041000055615,
+          1.8361166999966372,
+          1.6592612000240479
+        ],
+        "median_successful_engine_seconds": 1.8361166999966372,
+        "attempt_lifecycle_seconds": [
+          4.245753199997125,
+          4.367296100012027,
+          4.023522600007709
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.245753199997125,
+      "median_successful_full_end_to_end_seconds": 4.273273900005734,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.184314899997844,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8812041000055615,
+          1.8361166999966372,
+          1.6592612000240479
+        ],
+        "median_successful_engine_seconds": 1.8361166999966372,
+        "attempt_lifecycle_seconds": [
+          4.245753199997125,
+          4.367296100012027,
+          4.023522600007709
+        ]
+      },
+      "probe_preparation_seconds_once": 0.9805803000053857,
+      "probe_attempt_seconds_sum": 24.286484200012637,
+      "profiling_seconds": 25.267064500018023,
+      "probe_configured_gb_seconds_proxy": 31.51156172395723,
+      "probe_configured_thread_seconds_proxy": 47.954487000068184,
+      "median_successful_full_lifecycle_seconds": 4.245753199997125,
+      "median_successful_full_end_to_end_seconds": 4.273273900005734,
+      "constructed_successful_request_seconds": 29.540338400023757,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.184314899997844,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.8812041000055615,
+          1.8361166999966372,
+          1.6592612000240479
+        ],
+        "median_successful_engine_seconds": 1.8361166999966372,
+        "attempt_lifecycle_seconds": [
+          4.245753199997125,
+          4.367296100012027,
+          4.023522600007709
+        ]
+      },
+      "probe_preparation_seconds_once": 1.5699041999760084,
+      "probe_attempt_seconds_sum": 25.14417210003012,
+      "profiling_seconds": 26.714076300006127,
+      "probe_configured_gb_seconds_proxy": 38.43320195368388,
+      "probe_configured_thread_seconds_proxy": 49.88713699998334,
+      "median_successful_full_lifecycle_seconds": 4.245753199997125,
+      "median_successful_full_end_to_end_seconds": 4.273273900005734,
+      "constructed_successful_request_seconds": 30.98735020001186,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.184314899997844,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          14.45581700000912,
+          12.996817799983546,
+          10.001667800010182
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": null,
+      "median_successful_full_end_to_end_seconds": null,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": null,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.974056799983373,
+          2.1743735000200104,
+          2.0087034000025596
+        ],
+        "median_successful_engine_seconds": 2.0087034000025596,
+        "attempt_lifecycle_seconds": [
+          4.413953300012508,
+          4.952857199998107,
+          4.58925449999515
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.58925449999515,
+      "median_successful_full_end_to_end_seconds": 4.647963099996559,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.015597687495756,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.974056799983373,
+          2.1743735000200104,
+          2.0087034000025596
+        ],
+        "median_successful_engine_seconds": 2.0087034000025596,
+        "attempt_lifecycle_seconds": [
+          4.413953300012508,
+          4.952857199998107,
+          4.58925449999515
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.58925449999515,
+      "median_successful_full_end_to_end_seconds": 4.647963099996559,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.015597687495756,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          14.45581700000912,
+          12.996817799983546,
+          10.001667800010182
+        ]
+      },
+      "probe_preparation_seconds_once": 0.9939022000180557,
+      "probe_attempt_seconds_sum": 24.11971789994277,
+      "profiling_seconds": 25.113620099960826,
+      "probe_configured_gb_seconds_proxy": 31.4576265357572,
+      "probe_configured_thread_seconds_proxy": 47.86434739991091,
+      "median_successful_full_lifecycle_seconds": null,
+      "median_successful_full_end_to_end_seconds": null,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": null,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "execution_error": 3
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "none_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [],
+        "median_successful_engine_seconds": null,
+        "attempt_lifecycle_seconds": [
+          14.45581700000912,
+          12.996817799983546,
+          10.001667800010182
+        ]
+      },
+      "probe_preparation_seconds_once": 1.2617985999968369,
+      "probe_attempt_seconds_sum": 23.960160400078166,
+      "profiling_seconds": 25.221959000075003,
+      "probe_configured_gb_seconds_proxy": 36.97423459394666,
+      "probe_configured_thread_seconds_proxy": 47.490850200061686,
+      "median_successful_full_lifecycle_seconds": null,
+      "median_successful_full_end_to_end_seconds": null,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": null,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.788733900000807,
+          1.9517355000134557,
+          2.136159600020619
+        ],
+        "median_successful_engine_seconds": 1.9517355000134557,
+        "attempt_lifecycle_seconds": [
+          4.278740000008838,
+          4.339323799998965,
+          5.0167336000013165
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.339323799998965,
+      "median_successful_full_end_to_end_seconds": 4.412208899972029,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.254492849999224,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.0463287999737076,
+          2.113716599997133,
+          1.8454219000122976
+        ],
+        "median_successful_engine_seconds": 2.0463287999737076,
+        "attempt_lifecycle_seconds": [
+          4.523623100016266,
+          4.969391499995254,
+          4.345470500004012
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.523623100016266,
+      "median_successful_full_end_to_end_seconds": 4.552118400024483,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 3.958170212514233,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.788733900000807,
+          1.9517355000134557,
+          2.136159600020619
+        ],
+        "median_successful_engine_seconds": 1.9517355000134557,
+        "attempt_lifecycle_seconds": [
+          4.278740000008838,
+          4.339323799998965,
+          5.0167336000013165
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 4.339323799998965,
+      "median_successful_full_end_to_end_seconds": 4.412208899972029,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.254492849999224,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.788733900000807,
+          1.9517355000134557,
+          2.136159600020619
+        ],
+        "median_successful_engine_seconds": 1.9517355000134557,
+        "attempt_lifecycle_seconds": [
+          4.278740000008838,
+          4.339323799998965,
+          5.0167336000013165
+        ]
+      },
+      "probe_preparation_seconds_once": 0.9453645000176039,
+      "probe_attempt_seconds_sum": 23.04280770002515,
+      "profiling_seconds": 23.988172200042754,
+      "probe_configured_gb_seconds_proxy": 30.226658350110164,
+      "probe_configured_thread_seconds_proxy": 45.65759860002436,
+      "median_successful_full_lifecycle_seconds": 4.339323799998965,
+      "median_successful_full_end_to_end_seconds": 4.412208899972029,
+      "constructed_successful_request_seconds": 28.400381100014783,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.254492849999224,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          1.788733900000807,
+          1.9517355000134557,
+          2.136159600020619
+        ],
+        "median_successful_engine_seconds": 1.9517355000134557,
+        "attempt_lifecycle_seconds": [
+          4.278740000008838,
+          4.339323799998965,
+          5.0167336000013165
+        ]
+      },
+      "probe_preparation_seconds_once": 1.5335413999855518,
+      "probe_attempt_seconds_sum": 25.764680599968415,
+      "profiling_seconds": 27.298221999953967,
+      "probe_configured_gb_seconds_proxy": 39.28529185513361,
+      "probe_configured_thread_seconds_proxy": 51.138569799950346,
+      "median_successful_full_lifecycle_seconds": 4.339323799998965,
+      "median_successful_full_end_to_end_seconds": 4.412208899972029,
+      "constructed_successful_request_seconds": 31.710430899925996,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 3.254492849999224,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "policy": "fixed_1gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 2,
+          "execution_error": 1
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "mixed_completion",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.529442700004438,
+          8.544014000013703
+        ],
+        "median_successful_engine_seconds": 6.036728350009071,
+        "attempt_lifecycle_seconds": [
+          5.970780499977991,
+          10.560240299993893,
+          10.845261799986474
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 8.408021149982233,
+      "median_successful_full_end_to_end_seconds": 8.459981299980427,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 6.3060158624866745,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "policy": "fixed_2gb",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.371388100000331,
+          2.5978931999998167,
+          2.012246900005266
+        ],
+        "median_successful_engine_seconds": 2.371388100000331,
+        "attempt_lifecycle_seconds": [
+          5.136372200009646,
+          5.314137199980905,
+          4.5293062000127975
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.136372200009646,
+      "median_successful_full_end_to_end_seconds": 5.181917500012787,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.49432567500844,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "policy": "file_metadata",
+      "evaluable": true,
+      "selected_config": "w2_t1_2g",
+      "fallback_used": null,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 3
+        },
+        "signals": {
+          "quiet": 3
+        },
+        "completion": "all_completed",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          2.371388100000331,
+          2.5978931999998167,
+          2.012246900005266
+        ],
+        "median_successful_engine_seconds": 2.371388100000331,
+        "attempt_lifecycle_seconds": [
+          5.136372200009646,
+          5.314137199980905,
+          4.5293062000127975
+        ]
+      },
+      "probe_preparation_seconds_once": null,
+      "probe_attempt_seconds_sum": null,
+      "profiling_seconds": null,
+      "probe_configured_gb_seconds_proxy": null,
+      "probe_configured_thread_seconds_proxy": null,
+      "median_successful_full_lifecycle_seconds": 5.136372200009646,
+      "median_successful_full_end_to_end_seconds": 5.181917500012787,
+      "constructed_successful_request_seconds": null,
+      "configured_total_memory_bytes": 4000000000,
+      "median_successful_full_balanced_resource_seconds": 4.49432567500844,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "policy": "uniform_memory_f0125",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 2,
+          "execution_error": 1
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "mixed_completion",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.529442700004438,
+          8.544014000013703
+        ],
+        "median_successful_engine_seconds": 6.036728350009071,
+        "attempt_lifecycle_seconds": [
+          5.970780499977991,
+          10.560240299993893,
+          10.845261799986474
+        ]
+      },
+      "probe_preparation_seconds_once": 1.0361015000089537,
+      "probe_attempt_seconds_sum": 23.56111339997733,
+      "profiling_seconds": 24.597214899986284,
+      "probe_configured_gb_seconds_proxy": 30.59579120826381,
+      "probe_configured_thread_seconds_proxy": 46.700139999971725,
+      "median_successful_full_lifecycle_seconds": 8.408021149982233,
+      "median_successful_full_end_to_end_seconds": 8.459981299980427,
+      "constructed_successful_request_seconds": 33.05719619996671,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 6.3060158624866745,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "policy": "uniform_memory_f0250",
+      "evaluable": true,
+      "selected_config": "w2_t1_1g",
+      "fallback_used": false,
+      "selected_full_outcomes": {
+        "observed": 3,
+        "expected": 3,
+        "statuses": {
+          "success": 2,
+          "execution_error": 1
+        },
+        "signals": {
+          "warning": 3
+        },
+        "completion": "mixed_completion",
+        "complete_known": true,
+        "successful_engine_seconds": [
+          3.529442700004438,
+          8.544014000013703
+        ],
+        "median_successful_engine_seconds": 6.036728350009071,
+        "attempt_lifecycle_seconds": [
+          5.970780499977991,
+          10.560240299993893,
+          10.845261799986474
+        ]
+      },
+      "probe_preparation_seconds_once": 1.5081075000052806,
+      "probe_attempt_seconds_sum": 24.99357940000482,
+      "profiling_seconds": 26.5016869000101,
+      "probe_configured_gb_seconds_proxy": 38.83505241364627,
+      "probe_configured_thread_seconds_proxy": 49.5229858001112,
+      "median_successful_full_lifecycle_seconds": 8.408021149982233,
+      "median_successful_full_end_to_end_seconds": 8.459981299980427,
+      "constructed_successful_request_seconds": 34.96166819999053,
+      "configured_total_memory_bytes": 2000000000,
+      "median_successful_full_balanced_resource_seconds": 6.3060158624866745,
+      "scope": "historical replay; completion and warnings precede conditional successful-time summaries; rule/controller overhead unmeasured"
+    }
+  ],
+  "probe_outcomes": [
+    {
+      "cell_id": "6b57ad560dae34f35d12bf1c",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4001338.150924354,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.9014486000232864,
+      "total_seconds": 4.547367299994221,
+      "end_to_end_seconds": 4.576687299966579
+    },
+    {
+      "cell_id": "c06408acf725f2139336a286",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4001262.2645090334,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.8901699999987613,
+      "total_seconds": 4.724197500006994,
+      "end_to_end_seconds": 4.777725200023269
+    },
+    {
+      "cell_id": "a9fa30aab6a3e1d8e190f485",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 2000650.144732706,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.603801699995529,
+      "total_seconds": 4.420132900006138,
+      "end_to_end_seconds": 4.44624400002067
+    },
+    {
+      "cell_id": "eef28bf3826b8704d09517ed",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4000325.589370814,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4543886999890674,
+      "total_seconds": 3.9369374999951106,
+      "end_to_end_seconds": 3.959732299990719
+    },
+    {
+      "cell_id": "22cc3ee88a5798808666ea25",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1977933.5356247744,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6789172999851871,
+      "total_seconds": 4.742471200006548,
+      "end_to_end_seconds": 4.770979399996577
+    },
+    {
+      "cell_id": "5a955843b8903639a6b4304f",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 3956830.22785165,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5796800999960396,
+      "total_seconds": 4.0517098999989685,
+      "end_to_end_seconds": 4.078728299995419
+    },
+    {
+      "cell_id": "a1d6ba15ef55d7c324a55311",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 3955936.611421121,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3323346999823116,
+      "total_seconds": 3.923444499989273,
+      "end_to_end_seconds": 3.9475330999994185
+    },
+    {
+      "cell_id": "96a4d294b0237bb89e0d8c31",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1999670.4430280183,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.260561700008111,
+      "total_seconds": 3.76325459999498,
+      "end_to_end_seconds": 3.7858318999933545
+    },
+    {
+      "cell_id": "9ff9dbea22a209504ced30f9",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4001338.150924354,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 2.12157690001186,
+      "total_seconds": 4.58994679999887,
+      "end_to_end_seconds": 4.61055879999185
+    },
+    {
+      "cell_id": "202dc2d6f662add1eeed83b1",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4000851.29376043,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6265798000094946,
+      "total_seconds": 4.206611200002953,
+      "end_to_end_seconds": 4.2294905000017025
+    },
+    {
+      "cell_id": "4e3058065af18e7f7635de73",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 3999640.5106582753,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5809440000157338,
+      "total_seconds": 3.9164335999812465,
+      "end_to_end_seconds": 3.9377995999820996
+    },
+    {
+      "cell_id": "f21679a6bc9d2d424e249d8a",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 2001022.5063547804,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.652080300002126,
+      "total_seconds": 4.409822199988412,
+      "end_to_end_seconds": 4.433298299962189
+    },
+    {
+      "cell_id": "c60f9465b8836ca7cf32a268",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4000674.2891869554,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4598085000179708,
+      "total_seconds": 3.8444984999950975,
+      "end_to_end_seconds": 3.867308899993077
+    },
+    {
+      "cell_id": "c26a1dff5d6bfd42790f7429",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4000325.589370814,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.7762947999872267,
+      "total_seconds": 4.326465599995572,
+      "end_to_end_seconds": 4.349061100016115
+    },
+    {
+      "cell_id": "e15bbd6aa47966b7bd0a9784",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 2000407.8298529917,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4166229000256862,
+      "total_seconds": 3.905876700009685,
+      "end_to_end_seconds": 3.9424539000028744
+    },
+    {
+      "cell_id": "c984af8762a078ec66ae81f6",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4000674.2891869554,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3437969999795314,
+      "total_seconds": 3.748931600013748,
+      "end_to_end_seconds": 3.7780336000141688
+    },
+    {
+      "cell_id": "44b450f24b797c36324ceca3",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 3999640.5106582753,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5161536000086926,
+      "total_seconds": 4.235247200005688,
+      "end_to_end_seconds": 4.267733400018187
+    },
+    {
+      "cell_id": "af617881e201c3d5317b6b74",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1977760.512152175,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.432325400004629,
+      "total_seconds": 3.7238818999903742,
+      "end_to_end_seconds": 3.7571836999850348
+    },
+    {
+      "cell_id": "9790d5e97ec655a2b1fa7aa4",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 3955936.611421121,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.460716900008265,
+      "total_seconds": 3.749397700012196,
+      "end_to_end_seconds": 3.778919600037625
+    },
+    {
+      "cell_id": "aa9077c7efc19ce25966b4bf",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4001262.2645090334,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.90644770002109,
+      "total_seconds": 4.363112600025488,
+      "end_to_end_seconds": 4.4016626000229735
+    },
+    {
+      "cell_id": "ab4133a7b0ca96a297efe48a",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 3956830.22785165,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.7174010000017006,
+      "total_seconds": 4.317539599986048,
+      "end_to_end_seconds": 4.35325709998142
+    },
+    {
+      "cell_id": "9226eb11aea1cc07c0d89688",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 2000650.144732706,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3709282000199892,
+      "total_seconds": 3.8615156000014395,
+      "end_to_end_seconds": 3.886601399979554
+    },
+    {
+      "cell_id": "4c82ba7d34cd4465d68a6662",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1999645.2737060585,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.541273299983004,
+      "total_seconds": 4.044156300020404,
+      "end_to_end_seconds": 4.07095140000456
+    },
+    {
+      "cell_id": "07c971f9c8f2b6ada53348a3",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1977760.512152175,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.8098486000089906,
+      "total_seconds": 4.5378079999936745,
+      "end_to_end_seconds": 4.565235399990343
+    },
+    {
+      "cell_id": "38a4d28e44d3b36c1e8ba309",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1998607.7602251247,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3582663999986835,
+      "total_seconds": 3.9188651999866124,
+      "end_to_end_seconds": 3.948032299987972
+    },
+    {
+      "cell_id": "b6723801ba4e1e1cec63dd5f",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1999645.2737060585,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5515923000057228,
+      "total_seconds": 4.020250400004443,
+      "end_to_end_seconds": 4.048450500005856
+    },
+    {
+      "cell_id": "85b69bdcdfa4972e5226f917",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 2000407.8298529917,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.0631498000002466,
+      "total_seconds": 3.448535500006983,
+      "end_to_end_seconds": 3.4707215999951586
+    },
+    {
+      "cell_id": "debf56c419be97660e900436",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 2001022.5063547804,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.233119100012118,
+      "total_seconds": 3.5258026999945287,
+      "end_to_end_seconds": 3.55804839998018
+    },
+    {
+      "cell_id": "4380fdf82d9dad79237208a2",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1977933.5356247744,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.431263200007379,
+      "total_seconds": 3.9174961999815423,
+      "end_to_end_seconds": 3.946730999974534
+    },
+    {
+      "cell_id": "fd80e46f4eb6406f069895a2",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1999670.4430280183,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3641034000029322,
+      "total_seconds": 3.5488227999885567,
+      "end_to_end_seconds": 3.582106099987868
+    },
+    {
+      "cell_id": "67ddb14d46f8f075c29980ae",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 1998607.7602251247,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2807354000105988,
+      "total_seconds": 3.630332600005204,
+      "end_to_end_seconds": 3.6527949000301305
+    },
+    {
+      "cell_id": "16192b89552f7c809900985d",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 1,
+      "status": "success",
+      "result_value": 4000851.29376043,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5189794000179972,
+      "total_seconds": 3.7634906000166666,
+      "end_to_end_seconds": 3.8004007000126876
+    },
+    {
+      "cell_id": "12c276788396bdf8daba2a61",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4000851.29376043,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.8310901999939233,
+      "total_seconds": 4.3705037999898195,
+      "end_to_end_seconds": 4.4053132999979425
+    },
+    {
+      "cell_id": "f6c060ed2aeb3a8980a5962f",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1999645.2737060585,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.8321790000190958,
+      "total_seconds": 4.401672300009523,
+      "end_to_end_seconds": 4.426912800001446
+    },
+    {
+      "cell_id": "78318442341648539d817a5b",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4000674.2891869554,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.583587200002512,
+      "total_seconds": 4.187178599997424,
+      "end_to_end_seconds": 4.208566499990411
+    },
+    {
+      "cell_id": "a81fd577688f93bf96b2f269",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 3955936.611421121,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5881672000105027,
+      "total_seconds": 3.977503700007219,
+      "end_to_end_seconds": 4.001695200015092
+    },
+    {
+      "cell_id": "8d0522968debca379bd5878e",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1999670.4430280183,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5607556000177283,
+      "total_seconds": 4.312234799988801,
+      "end_to_end_seconds": 4.3388202999776695
+    },
+    {
+      "cell_id": "d642970ceb17b85a631f873a",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4000325.589370814,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4707725000043865,
+      "total_seconds": 3.8228569999919273,
+      "end_to_end_seconds": 3.8528345999948215
+    },
+    {
+      "cell_id": "f4a42dc8fc8030e8db0d1b86",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4001262.2645090334,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6066919000004418,
+      "total_seconds": 3.7206331999914255,
+      "end_to_end_seconds": 3.749448799964739
+    },
+    {
+      "cell_id": "a05b71066a5c93b763208386",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 3999640.5106582753,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6022815000033006,
+      "total_seconds": 4.331604599981802,
+      "end_to_end_seconds": 4.355289299972355
+    },
+    {
+      "cell_id": "011e608fb0a31b37e9e812cd",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1977933.5356247744,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2794334999925923,
+      "total_seconds": 3.8406353000027593,
+      "end_to_end_seconds": 3.868212000001222
+    },
+    {
+      "cell_id": "9dcd83a05e154240f1518f44",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 2000407.8298529917,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2117623999947682,
+      "total_seconds": 3.7037808999884874,
+      "end_to_end_seconds": 3.724345499969786
+    },
+    {
+      "cell_id": "0c95019b0d9f73744ba029f3",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 2000407.8298529917,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3016360999899916,
+      "total_seconds": 3.9104340000194497,
+      "end_to_end_seconds": 3.935129500023322
+    },
+    {
+      "cell_id": "31f8915b3780dce8a8abb6ed",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1977760.512152175,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5395817999960855,
+      "total_seconds": 4.0318355000054,
+      "end_to_end_seconds": 4.059497600013856
+    },
+    {
+      "cell_id": "6aaa2c209e2fae905eb904ec",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1998607.7602251247,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3359228000044823,
+      "total_seconds": 3.8371576000063214,
+      "end_to_end_seconds": 3.8668120999936946
+    },
+    {
+      "cell_id": "ac2796992c757d79c93c3c67",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 2000650.144732706,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.269567300012568,
+      "total_seconds": 3.6215591999934986,
+      "end_to_end_seconds": 3.640769099991303
+    },
+    {
+      "cell_id": "cd6bed7bf5ded7cb4c640160",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4000674.2891869554,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2332633000041824,
+      "total_seconds": 3.538432500005001,
+      "end_to_end_seconds": 3.5757503999921028
+    },
+    {
+      "cell_id": "440c98c898923518a8b260a3",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 3999640.5106582753,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2915337999875192,
+      "total_seconds": 3.745380700012902,
+      "end_to_end_seconds": 3.769406200008234
+    },
+    {
+      "cell_id": "f52e3ecc6463de979babff67",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1977760.512152175,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2099530000123195,
+      "total_seconds": 3.4794962000160012,
+      "end_to_end_seconds": 3.5479801000037696
+    },
+    {
+      "cell_id": "382921eca4b5f52cc4eef312",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4000851.29376043,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3676339999947231,
+      "total_seconds": 3.513510499993572,
+      "end_to_end_seconds": 3.5378369000100065
+    },
+    {
+      "cell_id": "a94c3c05bc5e1f61cccfecaf",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 2001022.5063547804,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.1425803999882191,
+      "total_seconds": 3.3075593000103254,
+      "end_to_end_seconds": 3.3368613999919035
+    },
+    {
+      "cell_id": "5be8460b56f1e75f72bcf355",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 3956830.22785165,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2340276999748312,
+      "total_seconds": 3.3880050999869127,
+      "end_to_end_seconds": 3.4166592999827117
+    },
+    {
+      "cell_id": "3d76afdfc988189e47c073f5",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 3955936.611421121,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5225313000264578,
+      "total_seconds": 3.864259399997536,
+      "end_to_end_seconds": 3.9136639999924228
+    },
+    {
+      "cell_id": "3c102cfd52d96c2642a77379",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 2000650.144732706,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4588492999901064,
+      "total_seconds": 4.096322199999122,
+      "end_to_end_seconds": 4.192498899996281
+    },
+    {
+      "cell_id": "b2144c6346fde05aa48287f8",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1999645.2737060585,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4670822999905795,
+      "total_seconds": 4.169251599989366,
+      "end_to_end_seconds": 4.19795649999287
+    },
+    {
+      "cell_id": "4926774cdba5d04c109dd93b",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4001338.150924354,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4749712999910116,
+      "total_seconds": 3.9212511999940034,
+      "end_to_end_seconds": 4.063942299981136
+    },
+    {
+      "cell_id": "13e61d33b6a10b82fc9bda17",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4001338.150924354,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6372561999887694,
+      "total_seconds": 4.242713599989656,
+      "end_to_end_seconds": 4.2692171999951825
+    },
+    {
+      "cell_id": "37cac76f23736f565e0690ee",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1999670.4430280183,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.1944298000016715,
+      "total_seconds": 3.6419960999919567,
+      "end_to_end_seconds": 3.6986252999922726
+    },
+    {
+      "cell_id": "b94406e0166d9de82a253654",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1998607.7602251247,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3954456000064965,
+      "total_seconds": 4.01299309998285,
+      "end_to_end_seconds": 4.04908179998165
+    },
+    {
+      "cell_id": "706b4f62a8389956bb0497fe",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4001262.2645090334,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3756425000028685,
+      "total_seconds": 3.847962200001348,
+      "end_to_end_seconds": 3.904466699983459
+    },
+    {
+      "cell_id": "22ffb338b46cffc3dfa8bc00",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 4000325.589370814,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2616401999839582,
+      "total_seconds": 3.499600300012389,
+      "end_to_end_seconds": 3.522242200007895
+    },
+    {
+      "cell_id": "14ec42968c257dd617fd02b3",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 1977933.5356247744,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.371066099993186,
+      "total_seconds": 3.744523199973628,
+      "end_to_end_seconds": 3.7801382999750786
+    },
+    {
+      "cell_id": "84b8a4cb967b94c94cf92794",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 2001022.5063547804,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.531358200008981,
+      "total_seconds": 4.114715400006389,
+      "end_to_end_seconds": 4.138568700000178
+    },
+    {
+      "cell_id": "71a4f3d174e684dc11fbb8c2",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 2,
+      "status": "success",
+      "result_value": 3956830.22785165,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.7656439999991562,
+      "total_seconds": 4.685030399996322,
+      "end_to_end_seconds": 4.714245999988634
+    },
+    {
+      "cell_id": "a90fd6a226891767e19afb58",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 2000650.144732706,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4282286000088789,
+      "total_seconds": 3.8513368999992963,
+      "end_to_end_seconds": 3.875234300008742
+    },
+    {
+      "cell_id": "ea0a09f6443f0602f2c27c42",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1977760.512152175,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.195731199986767,
+      "total_seconds": 3.3404152000148315,
+      "end_to_end_seconds": 3.36528610001551
+    },
+    {
+      "cell_id": "2a97b207b3d0a2166c0692fc",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1977933.5356247744,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.144034199998714,
+      "total_seconds": 3.375810500001535,
+      "end_to_end_seconds": 3.4034035000076983
+    },
+    {
+      "cell_id": "c34a2752e737130844b136d4",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1999645.2737060585,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2186183000158053,
+      "total_seconds": 3.59510949999094,
+      "end_to_end_seconds": 3.6776694000000134
+    },
+    {
+      "cell_id": "6aa534ecd0f7b9f4e03b1342",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1998607.7602251247,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5797487999952864,
+      "total_seconds": 4.312766000017291,
+      "end_to_end_seconds": 4.349388700007694
+    },
+    {
+      "cell_id": "94877a566152ff3ff7aaa144",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4000674.2891869554,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.310867699998198,
+      "total_seconds": 3.5682180000003427,
+      "end_to_end_seconds": 3.5951759000017773
+    },
+    {
+      "cell_id": "b5a6d70c948852c0645910f0",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 2001022.5063547804,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.266846099984832,
+      "total_seconds": 3.3927121000015177,
+      "end_to_end_seconds": 3.4214670000073966
+    },
+    {
+      "cell_id": "0e77393a1c5828651f1f7fba",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1998607.7602251247,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.245711100025801,
+      "total_seconds": 3.6379554999875836,
+      "end_to_end_seconds": 3.6950035999761894
+    },
+    {
+      "cell_id": "ffffd1966c2a8fb2e7644188",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 3955936.611421121,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6413447000086308,
+      "total_seconds": 4.057411800022237,
+      "end_to_end_seconds": 4.086613000021316
+    },
+    {
+      "cell_id": "fbdc97d7439bf49f6d0e108e",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1999670.4430280183,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5989964000182226,
+      "total_seconds": 4.172828500013566,
+      "end_to_end_seconds": 4.199366499989992
+    },
+    {
+      "cell_id": "a570e110424277f01df29fe2",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1999670.4430280183,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.161693700007163,
+      "total_seconds": 3.600472499994794,
+      "end_to_end_seconds": 3.651587100001052
+    },
+    {
+      "cell_id": "13fde21bf139fdf03c33af22",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4000325.589370814,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.239382800005842,
+      "total_seconds": 3.530061500001466,
+      "end_to_end_seconds": 3.553264099988155
+    },
+    {
+      "cell_id": "be57a81219e44eed54dc92e8",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 3955936.611421121,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6616861999791581,
+      "total_seconds": 4.173408000002382,
+      "end_to_end_seconds": 4.231735500012292
+    },
+    {
+      "cell_id": "7b9fed0863df1890b8db21b5",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 2000407.8298529917,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3876816999982111,
+      "total_seconds": 4.038403100013966,
+      "end_to_end_seconds": 4.067735899996478
+    },
+    {
+      "cell_id": "6f9aa645939a103e5cffc59d",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1999645.2737060585,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3086119000217877,
+      "total_seconds": 3.7468034000194166,
+      "end_to_end_seconds": 3.8645436000078917
+    },
+    {
+      "cell_id": "8b691dd5ed38acffc6287a3d",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 3956830.22785165,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.8088219000201207,
+      "total_seconds": 4.747632000013255,
+      "end_to_end_seconds": 4.791945200006012
+    },
+    {
+      "cell_id": "54318344853cf7a868d4a176",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 3999640.5106582753,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5794613999896683,
+      "total_seconds": 4.628310400003102,
+      "end_to_end_seconds": 4.6885813000262715
+    },
+    {
+      "cell_id": "0dfa4962bd0a5c088a103789",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 2001022.5063547804,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.6581868000212125,
+      "total_seconds": 4.627681599988136,
+      "end_to_end_seconds": 4.747990299976664
+    },
+    {
+      "cell_id": "884c9bebbfd4f75751eab5d3",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4001338.150924354,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2583467999938875,
+      "total_seconds": 3.8499062999908347,
+      "end_to_end_seconds": 3.907340399979148
+    },
+    {
+      "cell_id": "1d2cacc29b814f047ccaa855",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 3956830.22785165,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.8374826999788638,
+      "total_seconds": 4.379367899993667,
+      "end_to_end_seconds": 4.409844700014219
+    },
+    {
+      "cell_id": "cafc52b593a75cc022c357b8",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4000674.2891869554,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4245045999996364,
+      "total_seconds": 3.8080912999866996,
+      "end_to_end_seconds": 3.8413514999847393
+    },
+    {
+      "cell_id": "aeae69f3a98f5be44059bab3",
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 2000407.8298529917,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2893918000045232,
+      "total_seconds": 3.622582899988629,
+      "end_to_end_seconds": 3.648696399992332
+    },
+    {
+      "cell_id": "041c78b2b0edb68dbaa3f0e7",
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 3999640.5106582753,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.5217603000055533,
+      "total_seconds": 4.086592000006931,
+      "end_to_end_seconds": 4.125362300022971
+    },
+    {
+      "cell_id": "b390cfb34d132365af38eee6",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4001262.2645090334,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.4366331000055652,
+      "total_seconds": 3.6503110000048764,
+      "end_to_end_seconds": 3.6767781999951694
+    },
+    {
+      "cell_id": "04bbc6cfd75249d8c5d1a6d0",
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4001338.150924354,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.281121100008022,
+      "total_seconds": 3.510848799982341,
+      "end_to_end_seconds": 3.531346899981145
+    },
+    {
+      "cell_id": "f37704f9f6d912b0302cefa3",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4000325.589370814,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.2899130999867339,
+      "total_seconds": 3.4842370999976993,
+      "end_to_end_seconds": 3.5118099999963306
+    },
+    {
+      "cell_id": "a943ef070b2f36469ea67e7f",
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1977760.512152175,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.3127785999968182,
+      "total_seconds": 3.7153624999918975,
+      "end_to_end_seconds": 3.747624800016638
+    },
+    {
+      "cell_id": "6f64788851106ed2e94ee70a",
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4001262.2645090334,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.7654119999788236,
+      "total_seconds": 4.455276400025468,
+      "end_to_end_seconds": 4.483497900015209
+    },
+    {
+      "cell_id": "a21bd7af5f79974e70b2f7b9",
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 2000650.144732706,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.328912599972682,
+      "total_seconds": 3.996509899996454,
+      "end_to_end_seconds": 4.022480199986603
+    },
+    {
+      "cell_id": "ec4e4afc0ec42e29ba2d5e4a",
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 1977933.5356247744,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.65073179997853,
+      "total_seconds": 4.311237299989443,
+      "end_to_end_seconds": 4.350253699987661
+    },
+    {
+      "cell_id": "7e4bf0ef7f41a03ea6aaf5e6",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4000851.29376043,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.9149997000058647,
+      "total_seconds": 4.501415699982317,
+      "end_to_end_seconds": 4.570821099972818
+    },
+    {
+      "cell_id": "b6742066dbae2dbc66aff7b4",
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "repeat_id": 3,
+      "status": "success",
+      "result_value": 4000851.29376043,
+      "signal": "quiet",
+      "warnings": [],
+      "quality_issues": [],
+      "signals": {
+        "nanny_termination": 0,
+        "spill_bytes": 0,
+        "paused_samples": 0,
+        "restarts": 0
+      },
+      "failure_category": "completed",
+      "execution_seconds": 1.7970785000070464,
+      "total_seconds": 4.680573899997398,
+      "end_to_end_seconds": 4.788577300001634
+    }
+  ],
+  "inconsistent_successful_results": [],
+  "comparison_counts": {
+    "eligible_groups": 32,
+    "false_reassurance_candidate_groups": 8,
+    "unnecessary_warning_candidate_groups": 0
+  },
+  "method_notes": [
+    "One generated seed, one non-nested sample per fraction, three runtime repeats; eight workload instances.",
+    "Full references are historical Stage A executions; no synchronous repeat pairing or independent policy evaluation.",
+    "Warning includes failure, nanny termination, spill, pauses or restarts; quality gaps are unknown, never quiet.",
+    "Mixed full outcomes remain mixed; group discrepancy counts are not calibrated false-positive/negative rates.",
+    "Join samples retain the entire dimension; scaled memory may create proxy-only pressure.",
+    "Probe preparation is charged once per instance/fraction; three repeats per candidate are all charged in diagnostic replay.",
+    "Configured GB-seconds/thread-seconds are lifecycle allocation proxies, not measured utilization; preparation resource use is unmeasured.",
+    "Replays use historical full outcomes, exclude unmeasured controller/metadata overhead, and do not establish online savings.",
+    "Stop after Stage B for review; no automatic training, Stage C or main merge."
+  ],
+  "plan_sha256": "3089ce43b33c7a09cf8c2297daf27c228014b7eb85ae036b550c27dada5937d7",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "logical_cpus": 16,
+    "versions": {
+      "dask": "2026.8.0",
+      "distributed": "2026.8.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2",
+      "cloudpickle": "3.1.2",
+      "tornado": "6.6.1"
+    }
+  },
+  "host_physical_bytes": 33711480832,
+  "raw_evidence": "Complete raw records and Parquet are local under the experiment directory; this is a compact export.",
+  "reference_sha256": "c5e0c73d1480bdc97b31a33c705f32bfc577360aebb317e75a65bb75d06800cc",
+  "reference_plan_sha256": "e24a92204d6184334c59740af70b908c1bd94a442d3497ba4f4db874dec06cbd",
+  "batch_accounting": {
+    "verification_seconds_shared_total": 15.056922499963548,
+    "row_persistence_seconds_total": 0.742098400281975,
+    "scope": "Shared collection audit and persistence, not per-request online policy costs"
+  }
+}

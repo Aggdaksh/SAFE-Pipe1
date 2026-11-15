@@ -1,0 +1,16 @@
+{
+  "planned": 96,
+  "recorded": 96,
+  "statuses": {
+    "success": 96
+  },
+  "runs_sha256": "196410a2075c68d29b7b5532fd8ed323ba413ebee73c188971d9f079a1506c65",
+  "plan_sha256": "3089ce43b33c7a09cf8c2297daf27c228014b7eb85ae036b550c27dada5937d7",
+  "reference_sha256": "c5e0c73d1480bdc97b31a33c705f32bfc577360aebb317e75a65bb75d06800cc",
+  "sample_directories_verified": 16,
+  "diagnostic_files_hash_verified": 961,
+  "raw_nanny_messages_verified": 0,
+  "quality_flagged_cells": [],
+  "quality_pass": true,
+  "interpretation": "Integrity audit retains failed/unknown/confounded attempts; no automatic next stage"
+}

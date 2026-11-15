@@ -1,0 +1,10 @@
+........................................................................ [ 97%]
+..                                                                       [100%]
+============================== warnings summary ===============================
+tests/test_probe_workloads.py: 64 warnings
+  C:\Users\Ganant Awasthi\Downloads\Telegram Desktop\SAFE-Pipe1\.venv-research\Lib\site-packages\dask\dataframe\io\parquet\arrow.py:623: Pandas4Warning: The inplace keyword in DataFrame.reset_index is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    df.reset_index(drop=True, inplace=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+74 passed, 64 warnings in 16.40s

@@ -1,0 +1,110 @@
+{
+  "attempts": 96,
+  "statuses": {
+    "success": 96
+  },
+  "probe_signals": {
+    "quiet": 96
+  },
+  "comparisons": {
+    "eligible_groups": 32,
+    "false_reassurance_candidate_groups": 8,
+    "unnecessary_warning_candidate_groups": 0
+  },
+  "policies": {
+    "file_metadata": {
+      "instances": 8,
+      "selected_config_counts": {
+        "w2_t1_1g": 4,
+        "w2_t1_2g": 4
+      },
+      "historical_full_statuses": {
+        "success": 24
+      },
+      "historical_full_signals": {
+        "quiet": 24
+      },
+      "median_six_probe_and_preparation_seconds": null,
+      "median_per_instance_successful_historical_full_seconds": 4.788000000000466,
+      "instances_with_no_successful_historical_full_time": 0,
+      "fallback_instances": 0
+    },
+    "fixed_1gb": {
+      "instances": 8,
+      "selected_config_counts": {
+        "w2_t1_1g": 8
+      },
+      "historical_full_statuses": {
+        "success": 17,
+        "execution_error": 7
+      },
+      "historical_full_signals": {
+        "quiet": 12,
+        "warning": 12
+      },
+      "median_six_probe_and_preparation_seconds": null,
+      "median_per_instance_successful_historical_full_seconds": 4.726102400003583,
+      "instances_with_no_successful_historical_full_time": 2,
+      "fallback_instances": 0
+    },
+    "fixed_2gb": {
+      "instances": 8,
+      "selected_config_counts": {
+        "w2_t1_2g": 8
+      },
+      "historical_full_statuses": {
+        "success": 24
+      },
+      "historical_full_signals": {
+        "quiet": 24
+      },
+      "median_six_probe_and_preparation_seconds": null,
+      "median_per_instance_successful_historical_full_seconds": 4.956773850004538,
+      "instances_with_no_successful_historical_full_time": 0,
+      "fallback_instances": 0
+    },
+    "uniform_memory_f0125": {
+      "instances": 8,
+      "selected_config_counts": {
+        "w2_t1_1g": 8
+      },
+      "historical_full_statuses": {
+        "success": 17,
+        "execution_error": 7
+      },
+      "historical_full_signals": {
+        "quiet": 12,
+        "warning": 12
+      },
+      "median_six_probe_and_preparation_seconds": 24.623675449940492,
+      "median_per_instance_successful_historical_full_seconds": 4.726102400003583,
+      "instances_with_no_successful_historical_full_time": 2,
+      "fallback_instances": 0
+    },
+    "uniform_memory_f0250": {
+      "instances": 8,
+      "selected_config_counts": {
+        "w2_t1_1g": 8
+      },
+      "historical_full_statuses": {
+        "success": 17,
+        "execution_error": 7
+      },
+      "historical_full_signals": {
+        "quiet": 12,
+        "warning": 12
+      },
+      "median_six_probe_and_preparation_seconds": 26.37843674994656,
+      "median_per_instance_successful_historical_full_seconds": 4.726102400003583,
+      "instances_with_no_successful_historical_full_time": 2,
+      "fallback_instances": 0
+    }
+  },
+  "limitations": [
+    "Eight instances, one non-nested sample per fraction, three runtime repeats.",
+    "Historical full outcomes were not rerun; discrepancy groups are not classifier error rates.",
+    "Six paid probes plus sample preparation are a diagnostic-replay cost, not an executed online controller.",
+    "Conditional successful full-time medians exclude failed outcomes from timing only; all statuses remain shown.",
+    "Metadata threshold is development-derived; no independent reliability or savings claim."
+  ]
+}

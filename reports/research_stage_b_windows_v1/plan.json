@@ -1,0 +1,3272 @@
+{
+  "schema_version": "partition-probe-pilot-v1",
+  "preset": "windows-stage-b",
+  "role": "development_diagnosis_not_independent_policy_evaluation",
+  "created_utc": "2026-11-15T18:33:39.560084+00:00",
+  "git_base_revision": "beb8709159e1d97d930801555883792c6259ca81",
+  "source_fingerprints": {
+    "experiments/probe_pilot.py": "72e6a027a7daebb0dbc48e8cfee38ecf989d5d6393b27325047c0b67c1b2c4e5",
+    "safe_pipe/research/probe_workloads.py": "69fb9a1a260f11417bea4bb534f00990255f74b15717f8b17ccf83c4d99086cf",
+    "safe_pipe/research/probe_runner.py": "fc393b6d0808c755778504393a1630c4420ee35bcfb8b5b833cc9e8aa1ae0b8b",
+    "safe_pipe/research/probe_analysis.py": "4501cc4722608fe7232f33758b81be7f679b37342854c121790288d1caf7920e",
+    "safe_pipe/research/probe_diagnostics.py": "f365d9f39193d053adfe1b229412300897239a2b84119e03ad5b9d356cdcdd72",
+    "configs/research_stage_a_v1.json": "2deceefa0e5f2fad6739e555328a8738b49a0bb8cbc54a2ddfc410391e22de13",
+    "experiments/probe_stage_b.py": "7d8a6ef75b81aa0110eee2cad0d5c593e45b255e96f2315ddacaea072002af50",
+    "safe_pipe/research/probe_fidelity.py": "c74419c1b968bf943b08c48284e071d249def7a01d28b17bac0054c255637b5e",
+    "configs/research_stage_b_v1.json": "24141b6cf00c2846ac1e4b3157ef15de73c3546c598fb077bb0393fcc56dc1b8",
+    "experiments/export_probe_evidence.py": "589127908d14a31e0576de0d6898abb32675321e83803c1fb4bbcf7544548702"
+  },
+  "frozen_environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "logical_cpus": 16,
+    "versions": {
+      "dask": "2026.8.0",
+      "distributed": "2026.8.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2",
+      "cloudpickle": "3.1.2",
+      "tornado": "6.6.1"
+    }
+  },
+  "protocol": {
+    "protocol_id": "stage-b-probe-fidelity-v1",
+    "role": "development_diagnosis_not_independent_policy_evaluation",
+    "required_platform": "Windows",
+    "reference_export": "reports/research_stage_a_windows_v1/plan.json",
+    "reference_plan_sha256": "e24a92204d6184334c59740af70b908c1bd94a442d3497ba4f4db874dec06cbd",
+    "reference_protocol_id": "stage-a-mechanism-v1",
+    "compatible_execution_sources": [
+      "safe_pipe/research/probe_runner.py",
+      "safe_pipe/research/probe_workloads.py",
+      "safe_pipe/research/probe_diagnostics.py"
+    ],
+    "methods": [
+      {
+        "id": "uniform_memory_f0125",
+        "fraction": 0.125
+      },
+      {
+        "id": "uniform_memory_f0250",
+        "fraction": 0.25
+      }
+    ],
+    "sampling_method": "uniform",
+    "sample_seed": 2026111601,
+    "sample_design": "one deterministic, non-nested sample per instance/fraction; reused across both caps and all repeats",
+    "order_seed": 20261116,
+    "memory_floor_bytes": 536870912,
+    "memory_mapping": "round(floor + fraction * (target_memory_bytes - floor))",
+    "expected_instances": 8,
+    "expected_target_configs": 2,
+    "repeats": 3,
+    "planned_cells": 96,
+    "timeout_seconds": 180,
+    "minimum_free_disk_bytes": 10737418240,
+    "require_mains": true,
+    "metadata_baseline_max_file_share_threshold": 0.25,
+    "low_memory_config": "w2_t1_1g",
+    "high_memory_config": "w2_t1_2g",
+    "balanced_weights": {
+      "time": 0.5,
+      "threads": 0.25,
+      "memory": 0.25
+    },
+    "normalization_threads": 4,
+    "normalization_memory_bytes": 4000000000,
+    "warning_rule": "execution_error/timeout OR positive nanny termination/spill/paused samples/observed restarts; quality issues yield unknown",
+    "quiet_rule": "success with complete clean diagnostics, conditions and telemetry, and all declared warning signals zero",
+    "selection_rule": "per fraction, among configs with three quiet repeats choose lowest median probe lifecycle times balanced target-allocation weight; tie by config id; fallback to high-memory config if none eligible",
+    "comparison_unit": "instance/target-cap/fraction group; do not pair separate-session repeats or treat repeat rows as independent workloads",
+    "stage_gate": "Stop after 96 attempts for review; no automatic Stage C, training or main merge"
+  },
+  "protocol_sha256": "a4f937591bee144d0d8aa058eddf621336b606586b6bcb69e2778d12eabc3aec",
+  "reference": {
+    "plan_sha256": "e24a92204d6184334c59740af70b908c1bd94a442d3497ba4f4db874dec06cbd",
+    "raw_records_sha256": "8bf3d5e72a83fba929027ba7a0b67e44a037a9a2c17e7b78cd4b983638c2a7ea",
+    "source_revision": "73de101de934102ebf392d58e366f242ca55652c",
+    "frozen_environment": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "machine": "AMD64",
+      "python": "3.14.6",
+      "logical_cpus": 16,
+      "versions": {
+        "dask": "2026.8.0",
+        "distributed": "2026.8.0",
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "pyarrow": "26.0.0",
+        "psutil": "7.2.2",
+        "cloudpickle": "3.1.2",
+        "tornado": "6.6.1"
+      }
+    },
+    "datasets": {
+      "groupby-2000000-balanced-s911": {
+        "dataset_sha256": "11c026f771e1b41a87c997d86b186a409fc851d67160810415a45d22acfd3ff4",
+        "manifest_sha256": "213292062082ba03d59aed1c3ce0644a52f528a38ea9127e65dbee11ae42c208",
+        "fact_rows": 2000000,
+        "dimension_rows": 0,
+        "source_partition_rows": [
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000
+        ],
+        "largest_file_row_share": 0.125
+      },
+      "groupby-2000000-key_skew_only-s911": {
+        "dataset_sha256": "5d25b926cbcbb12d6ec9c602a5a5c11ec77a2c7238798074af79308bd38843a1",
+        "manifest_sha256": "e855136e18224bb24c92b65eaae9c43ea97607d04606b47a71c77f5dc65c1350",
+        "fact_rows": 2000000,
+        "dimension_rows": 0,
+        "source_partition_rows": [
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000
+        ],
+        "largest_file_row_share": 0.125
+      },
+      "groupby-2000000-partition_imbalance_only-s911": {
+        "dataset_sha256": "0d7bd6f3cbeea61f307568289082427a0073889f87f9c851d2428efc92423195",
+        "manifest_sha256": "647ee21881e8a2eb7362aca3077676cddbf3c726132642f9b96d444c4b547e83",
+        "fact_rows": 2000000,
+        "dimension_rows": 0,
+        "source_partition_rows": [
+          1299996,
+          100001,
+          100001,
+          100001,
+          100001,
+          100000,
+          100000,
+          100000
+        ],
+        "largest_file_row_share": 0.649998
+      },
+      "groupby-2000000-both-s911": {
+        "dataset_sha256": "8921b8350f82140f94973f088ffd32e0699e7505e3e80ce36a9f2310f2539556",
+        "manifest_sha256": "6febda1a8e79620718d40716962f888e449f12a809c3ff2570f001c065df7b1d",
+        "fact_rows": 2000000,
+        "dimension_rows": 0,
+        "source_partition_rows": [
+          1299996,
+          100001,
+          100001,
+          100001,
+          100001,
+          100000,
+          100000,
+          100000
+        ],
+        "largest_file_row_share": 0.649998
+      },
+      "skewed_join-2000000-balanced-s911": {
+        "dataset_sha256": "4e2960de7cbb72c05d9d9a01252f633f7c969c1905a0112555b607784153a422",
+        "manifest_sha256": "0427f5ce1b3adc9c784e3ec51a8aed3e15602d5534f8f220179802417dd4db58",
+        "fact_rows": 2000000,
+        "dimension_rows": 1000000,
+        "source_partition_rows": [
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000
+        ],
+        "largest_file_row_share": 0.125
+      },
+      "skewed_join-2000000-key_skew_only-s911": {
+        "dataset_sha256": "f6fb9a780142842cfb1fe3c48ec9ce0243c0fca600cec48c35a65cd2f350a90b",
+        "manifest_sha256": "0f196d4a1f77a9fbd43de5f93b22afd5be11214e2e1f442b6498ad317192196d",
+        "fact_rows": 2000000,
+        "dimension_rows": 1000000,
+        "source_partition_rows": [
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000,
+          250000
+        ],
+        "largest_file_row_share": 0.125
+      },
+      "skewed_join-2000000-partition_imbalance_only-s911": {
+        "dataset_sha256": "35da74c43083a1cf3ff14d9ceef350781a15ec9fb3bcf98beb62acad37ae2da8",
+        "manifest_sha256": "fae27f90c3885b9feba5d3ec868332f05a36efbbdb8e5b73df1103b4d24b4be9",
+        "fact_rows": 2000000,
+        "dimension_rows": 1000000,
+        "source_partition_rows": [
+          1299996,
+          100001,
+          100001,
+          100001,
+          100001,
+          100000,
+          100000,
+          100000
+        ],
+        "largest_file_row_share": 0.649998
+      },
+      "skewed_join-2000000-both-s911": {
+        "dataset_sha256": "7023e8b7231f1c9b3ac258ac879c89247704b157ff5e3f2ca65017b7d9da0124",
+        "manifest_sha256": "ec859439d634aa1e21f17fc0343e35029aa53e4b71f033c781b0d5beaf2a9867",
+        "fact_rows": 2000000,
+        "dimension_rows": 1000000,
+        "source_partition_rows": [
+          1299996,
+          100001,
+          100001,
+          100001,
+          100001,
+          100000,
+          100000,
+          100000
+        ],
+        "largest_file_row_share": 0.649998
+      }
+    },
+    "configs": [
+      {
+        "config_id": "w2_t1_1g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "1000000000"
+      },
+      {
+        "config_id": "w2_t1_2g",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "2000000000"
+      }
+    ],
+    "outcomes": [
+      {
+        "cell_id": "1af0c10dbc341b6f7e7e81e3",
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "execution_error",
+        "result_value": null,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts",
+          "execution_error"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 4,
+          "spill_bytes": 13026271,
+          "paused_samples": 1,
+          "restarts": 3
+        },
+        "failure_category": "worker_death_with_nanny_memory_termination_evidence",
+        "execution_seconds": 5.490237999998499,
+        "total_seconds": 8.156831300002523,
+        "end_to_end_seconds": 8.17883439999423
+      },
+      {
+        "cell_id": "10b75c84c13f9402ed9234eb",
+        "instance_id": "skewed_join-2000000-both-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "execution_error",
+        "result_value": null,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts",
+          "execution_error"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 7,
+          "spill_bytes": 1297644616,
+          "paused_samples": 4,
+          "restarts": 7
+        },
+        "failure_category": "worker_death_with_nanny_memory_termination_evidence",
+        "execution_seconds": 11.032418600021629,
+        "total_seconds": 14.45581700000912,
+        "end_to_end_seconds": 14.503028200007975
+      },
+      {
+        "cell_id": "79fd1b11ae3abc8098506395",
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.8812041000055615,
+        "total_seconds": 4.245753199997125,
+        "end_to_end_seconds": 4.273273900005734
+      },
+      {
+        "cell_id": "7aa48c56e3e6d7ff52693bde",
+        "instance_id": "groupby-2000000-both-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 16001783.561892446,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 1,
+          "spill_bytes": 140584569,
+          "paused_samples": 7,
+          "restarts": 1
+        },
+        "failure_category": "completed",
+        "execution_seconds": 3.6559672000003047,
+        "total_seconds": 6.081607500003884,
+        "end_to_end_seconds": 6.116694099997403
+      },
+      {
+        "cell_id": "16df15a787e2d497c050880e",
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 16001783.561892435,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.872109799995087,
+        "total_seconds": 4.263869900023565,
+        "end_to_end_seconds": 4.2896885000227485
+      },
+      {
+        "cell_id": "610cf5b3bbb7a3b370b4dbe2",
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.371388100000331,
+        "total_seconds": 5.136372200009646,
+        "end_to_end_seconds": 5.181917500012787
+      },
+      {
+        "cell_id": "f00e424416bad9e461181df2",
+        "instance_id": "groupby-2000000-balanced-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 16001783.561892442,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.675736999983201,
+        "total_seconds": 5.815580399997998,
+        "end_to_end_seconds": 5.852902300015558
+      },
+      {
+        "cell_id": "95fe0067804696d2751c5f69",
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 16001783.561892426,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.7143465999979526,
+        "total_seconds": 5.426642600010382,
+        "end_to_end_seconds": 5.452200800005812
+      },
+      {
+        "cell_id": "b3017c8ba4db732ff4e412c5",
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 16001783.561892435,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.040693699993426,
+        "total_seconds": 4.495247999991989,
+        "end_to_end_seconds": 4.524167900002794
+      },
+      {
+        "cell_id": "5da5666df0fad83bb252999c",
+        "instance_id": "skewed_join-2000000-both-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.974056799983373,
+        "total_seconds": 4.413953300012508,
+        "end_to_end_seconds": 4.444106100010686
+      },
+      {
+        "cell_id": "f584913a438c88cb9d2d9559",
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.788733900000807,
+        "total_seconds": 4.278740000008838,
+        "end_to_end_seconds": 4.32278590000351
+      },
+      {
+        "cell_id": "7c8761882e3e44397c2c5ac6",
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "warning",
+        "warnings": [
+          "spill_bytes"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 248391182,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 3.529442700004438,
+        "total_seconds": 5.970780499977991,
+        "end_to_end_seconds": 6.0264035999716725
+      },
+      {
+        "cell_id": "28ceeb0e2764bfbce44b1f8c",
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.0463287999737076,
+        "total_seconds": 4.523623100016266,
+        "end_to_end_seconds": 4.552118400024483
+      },
+      {
+        "cell_id": "d21e05ae8e938d9942ea0ce9",
+        "instance_id": "groupby-2000000-both-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 16001783.561892446,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.209369099989999,
+        "total_seconds": 4.869211699988227,
+        "end_to_end_seconds": 4.911990699998569
+      },
+      {
+        "cell_id": "581b086f4002dc2fecfa4de1",
+        "instance_id": "groupby-2000000-balanced-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 16001783.561892442,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.460892099974444,
+        "total_seconds": 4.884614500013413,
+        "end_to_end_seconds": 4.928036900004372
+      },
+      {
+        "cell_id": "af2de15f30b6775364830eb4",
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 1,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.84809580000001,
+        "total_seconds": 4.626011999993352,
+        "end_to_end_seconds": 4.696102399990195
+      },
+      {
+        "cell_id": "ec9c5eb4e922ee4b0dcc33ed",
+        "instance_id": "skewed_join-2000000-both-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "execution_error",
+        "result_value": null,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts",
+          "execution_error"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 6,
+          "spill_bytes": 1061186494,
+          "paused_samples": 1,
+          "restarts": 6
+        },
+        "failure_category": "worker_death_with_nanny_memory_termination_evidence",
+        "execution_seconds": 9.854560999985551,
+        "total_seconds": 12.996817799983546,
+        "end_to_end_seconds": 13.055213299958268
+      },
+      {
+        "cell_id": "921f3a95eb95068b6fbbd949",
+        "instance_id": "groupby-2000000-both-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 16001783.561892446,
+        "signal": "warning",
+        "warnings": [
+          "spill_bytes",
+          "paused_samples"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 9903219,
+          "paused_samples": 13,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.8248935000156052,
+        "total_seconds": 5.254965000000084,
+        "end_to_end_seconds": 5.3158488999761175
+      },
+      {
+        "cell_id": "5d0b58961c747466bf6ff973",
+        "instance_id": "groupby-2000000-balanced-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 16001783.561892442,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.744494200014742,
+        "total_seconds": 5.144414699985646,
+        "end_to_end_seconds": 5.197522599977674
+      },
+      {
+        "cell_id": "f4cd76d11a12f65bbb9a3fa8",
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 16001783.561892426,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.349207999999635,
+        "total_seconds": 4.917686800006777,
+        "end_to_end_seconds": 4.950248700013617
+      },
+      {
+        "cell_id": "49a55c2ef8a511911fa25aee",
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "execution_error",
+        "result_value": null,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "restarts",
+          "execution_error"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 4,
+          "spill_bytes": 726647089,
+          "paused_samples": 0,
+          "restarts": 3
+        },
+        "failure_category": "worker_death_with_nanny_memory_termination_evidence",
+        "execution_seconds": 7.151408800011268,
+        "total_seconds": 10.560240299993893,
+        "end_to_end_seconds": 10.599521299998742
+      },
+      {
+        "cell_id": "cc0214c9fee4a8957b155db9",
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "execution_error",
+        "result_value": null,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts",
+          "execution_error"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 4,
+          "spill_bytes": 300637740,
+          "paused_samples": 1,
+          "restarts": 4
+        },
+        "failure_category": "worker_death_with_nanny_memory_termination_evidence",
+        "execution_seconds": 5.3938880000205245,
+        "total_seconds": 8.581282200000715,
+        "end_to_end_seconds": 8.6435868999979
+      },
+      {
+        "cell_id": "3c9824f77fdc256f8c831d84",
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.7657212000049185,
+        "total_seconds": 4.221209299983457,
+        "end_to_end_seconds": 4.290469299972756
+      },
+      {
+        "cell_id": "ae77541d2ead9e30e24fa89f",
+        "instance_id": "groupby-2000000-both-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 16001783.561892446,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.9114217000023928,
+        "total_seconds": 5.6363548999943305,
+        "end_to_end_seconds": 5.693644899991341
+      },
+      {
+        "cell_id": "add1aa92aeb8e71febf0d708",
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.5978931999998167,
+        "total_seconds": 5.314137199980905,
+        "end_to_end_seconds": 5.361343399970792
+      },
+      {
+        "cell_id": "e6b5ff7aea4733a81d86a092",
+        "instance_id": "skewed_join-2000000-both-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.1743735000200104,
+        "total_seconds": 4.952857199998107,
+        "end_to_end_seconds": 5.014172600000165
+      },
+      {
+        "cell_id": "7db625ed1af328bcfb892011",
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.113716599997133,
+        "total_seconds": 4.969391499995254,
+        "end_to_end_seconds": 5.03375479998067
+      },
+      {
+        "cell_id": "023b992b623592704b1229d6",
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 16001783.561892435,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.1584406000038143,
+        "total_seconds": 4.430046400026185,
+        "end_to_end_seconds": 4.480563900026027
+      },
+      {
+        "cell_id": "5766347f70ac30f677af7aac",
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.9517355000134557,
+        "total_seconds": 4.339323799998965,
+        "end_to_end_seconds": 4.412208899972029
+      },
+      {
+        "cell_id": "4b93bb7411ffc5e08f542048",
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.8361166999966372,
+        "total_seconds": 4.367296100012027,
+        "end_to_end_seconds": 4.4124118000036106
+      },
+      {
+        "cell_id": "50dbda5cc0ab15b6fff6b0c9",
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 16001783.561892435,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.2813431000104174,
+        "total_seconds": 4.713047500001267,
+        "end_to_end_seconds": 4.754771700012498
+      },
+      {
+        "cell_id": "e915e3c6c9144a5548d2fe28",
+        "instance_id": "groupby-2000000-balanced-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 2,
+        "status": "success",
+        "result_value": 16001783.561892442,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.314010199974291,
+        "total_seconds": 5.136666200007312,
+        "end_to_end_seconds": 5.195084400009364
+      },
+      {
+        "cell_id": "c2b596d1f51ba165e78b6c83",
+        "instance_id": "groupby-2000000-both-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 16001783.561892446,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 3.059841600013897,
+        "total_seconds": 5.802063200011617,
+        "end_to_end_seconds": 5.861778999998933
+      },
+      {
+        "cell_id": "95f9df23d5014a5ed0308b64",
+        "instance_id": "groupby-2000000-balanced-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 16001783.561892442,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.3224210999906063,
+        "total_seconds": 5.040906800015364,
+        "end_to_end_seconds": 5.106530300021404
+      },
+      {
+        "cell_id": "aad17dc57fcd49755dc8168b",
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 16001783.561892435,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.1008535999862943,
+        "total_seconds": 4.720282100024633,
+        "end_to_end_seconds": 4.773545700038085
+      },
+      {
+        "cell_id": "b38df7a24cf99551dda3f302",
+        "instance_id": "skewed_join-2000000-both-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.0087034000025596,
+        "total_seconds": 4.58925449999515,
+        "end_to_end_seconds": 4.647963099996559
+      },
+      {
+        "cell_id": "c6e70c7458a48b145739b8c6",
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.8454219000122976,
+        "total_seconds": 4.345470500004012,
+        "end_to_end_seconds": 4.425992100004805
+      },
+      {
+        "cell_id": "b1c5da22aac9c6f6d07d814f",
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "execution_error",
+        "result_value": null,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts",
+          "execution_error"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 4,
+          "spill_bytes": 95862606,
+          "paused_samples": 1,
+          "restarts": 3
+        },
+        "failure_category": "worker_death_with_nanny_memory_termination_evidence",
+        "execution_seconds": 4.410800600016955,
+        "total_seconds": 6.803912200004561,
+        "end_to_end_seconds": 6.853905700001633
+      },
+      {
+        "cell_id": "f04076686404bbccdd149b75",
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 3,
+          "spill_bytes": 989680905,
+          "paused_samples": 1,
+          "restarts": 3
+        },
+        "failure_category": "completed",
+        "execution_seconds": 8.544014000013703,
+        "total_seconds": 10.845261799986474,
+        "end_to_end_seconds": 10.893558999989182
+      },
+      {
+        "cell_id": "22a19e640da2cd3beb68779a",
+        "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.012246900005266,
+        "total_seconds": 4.5293062000127975,
+        "end_to_end_seconds": 4.579106000019237
+      },
+      {
+        "cell_id": "bb62f56c718eed0d18aa439e",
+        "instance_id": "groupby-2000000-both-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 16001783.561892446,
+        "signal": "warning",
+        "warnings": [
+          "spill_bytes",
+          "paused_samples"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 20927116,
+          "paused_samples": 6,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.310657699999865,
+        "total_seconds": 4.787593299988657,
+        "end_to_end_seconds": 4.82356869999785
+      },
+      {
+        "cell_id": "122369e849715916badf2144",
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.693224899994675,
+        "total_seconds": 3.939337699994212,
+        "end_to_end_seconds": 4.009027899999637
+      },
+      {
+        "cell_id": "0390cda9181a8237d9e8f7ee",
+        "instance_id": "groupby-2000000-balanced-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 16001783.561892442,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.9992679000133649,
+        "total_seconds": 4.268303199991351,
+        "end_to_end_seconds": 4.328952999989269
+      },
+      {
+        "cell_id": "de8a6f94fc14f2fb1fb53cb1",
+        "instance_id": "skewed_join-2000000-balanced-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 15994486.786569577,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 1.6592612000240479,
+        "total_seconds": 4.023522600007709,
+        "end_to_end_seconds": 4.0893563000136055
+      },
+      {
+        "cell_id": "717a7329e2b30bfeb6f31866",
+        "instance_id": "groupby-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 16001783.561892435,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.3346257000230253,
+        "total_seconds": 5.555203799973242,
+        "end_to_end_seconds": 5.623159199982183
+      },
+      {
+        "cell_id": "3f56319a8eb1d9acb30c6071",
+        "instance_id": "skewed_join-2000000-key_skew_only-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 15821160.314523198,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.136159600020619,
+        "total_seconds": 5.0167336000013165,
+        "end_to_end_seconds": 5.076386200002162
+      },
+      {
+        "cell_id": "d3caeff4ded459d0d04300e6",
+        "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+        "target_config_id": "w2_t1_2g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "success",
+        "result_value": 16001783.561892426,
+        "signal": "quiet",
+        "warnings": [],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 0,
+          "spill_bytes": 0,
+          "paused_samples": 0,
+          "restarts": 0
+        },
+        "failure_category": "completed",
+        "execution_seconds": 2.3449549000069965,
+        "total_seconds": 5.096616800001357,
+        "end_to_end_seconds": 5.158775999996578
+      },
+      {
+        "cell_id": "384d47ead26249c7cd4da8f0",
+        "instance_id": "skewed_join-2000000-both-s911",
+        "target_config_id": "w2_t1_1g",
+        "method": "full",
+        "repeat_id": 3,
+        "status": "execution_error",
+        "result_value": null,
+        "signal": "warning",
+        "warnings": [
+          "nanny_termination",
+          "spill_bytes",
+          "paused_samples",
+          "restarts",
+          "execution_error"
+        ],
+        "quality_issues": [],
+        "signals": {
+          "nanny_termination": 4,
+          "spill_bytes": 1025653387,
+          "paused_samples": 2,
+          "restarts": 3
+        },
+        "failure_category": "worker_death_with_nanny_memory_termination_evidence",
+        "execution_seconds": 7.1252540000132285,
+        "total_seconds": 10.001667800010182,
+        "end_to_end_seconds": 10.063397500023711
+      }
+    ],
+    "diagnostic_files_verified_at_preparation": 546,
+    "scope": "historical full-input outcomes; same data and recorded environment; not fresh online executions"
+  },
+  "reference_sha256": "c5e0c73d1480bdc97b31a33c705f32bfc577360aebb317e75a65bb75d06800cc",
+  "methods": [
+    "uniform_memory_f0125",
+    "uniform_memory_f0250"
+  ],
+  "configs": [
+    {
+      "config_id": "w2_t1_1g",
+      "n_workers": 2,
+      "threads_per_worker": 1,
+      "memory_limit": "1000000000"
+    },
+    {
+      "config_id": "w2_t1_2g",
+      "n_workers": 2,
+      "threads_per_worker": 1,
+      "memory_limit": "2000000000"
+    }
+  ],
+  "recipes": [
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "family": "groupby",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.0,
+      "partition_imbalance": 0.0
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "family": "groupby",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.25,
+      "partition_imbalance": 0.0
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "family": "groupby",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.0,
+      "partition_imbalance": 0.6
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "family": "groupby",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.25,
+      "partition_imbalance": 0.6
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "family": "skewed_join",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.0,
+      "partition_imbalance": 0.0
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "family": "skewed_join",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.25,
+      "partition_imbalance": 0.0
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "family": "skewed_join",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.0,
+      "partition_imbalance": 0.6
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "family": "skewed_join",
+      "seed": 911,
+      "n_rows": 2000000,
+      "n_files": 8,
+      "n_keys": 1000000,
+      "payload_columns": 16,
+      "generation_mode": "independent_columns_v1",
+      "hot_fraction": 0.25,
+      "partition_imbalance": 0.6
+    }
+  ],
+  "repeats": 3,
+  "ranking_tolerance": 0.05,
+  "timeout_seconds": 180,
+  "seed": 20261116,
+  "memory_floor_bytes": 536870912,
+  "memory_mapping": "round(floor + fraction * (target_memory_bytes - floor))",
+  "datasets": {
+    "groupby-2000000-balanced-s911": {
+      "uniform_memory_f0125": "datasets/groupby-2000000-balanced-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/groupby-2000000-balanced-s911/uniform_memory_f0250"
+    },
+    "groupby-2000000-both-s911": {
+      "uniform_memory_f0125": "datasets/groupby-2000000-both-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/groupby-2000000-both-s911/uniform_memory_f0250"
+    },
+    "groupby-2000000-key_skew_only-s911": {
+      "uniform_memory_f0125": "datasets/groupby-2000000-key_skew_only-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/groupby-2000000-key_skew_only-s911/uniform_memory_f0250"
+    },
+    "groupby-2000000-partition_imbalance_only-s911": {
+      "uniform_memory_f0125": "datasets/groupby-2000000-partition_imbalance_only-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/groupby-2000000-partition_imbalance_only-s911/uniform_memory_f0250"
+    },
+    "skewed_join-2000000-balanced-s911": {
+      "uniform_memory_f0125": "datasets/skewed_join-2000000-balanced-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/skewed_join-2000000-balanced-s911/uniform_memory_f0250"
+    },
+    "skewed_join-2000000-both-s911": {
+      "uniform_memory_f0125": "datasets/skewed_join-2000000-both-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/skewed_join-2000000-both-s911/uniform_memory_f0250"
+    },
+    "skewed_join-2000000-key_skew_only-s911": {
+      "uniform_memory_f0125": "datasets/skewed_join-2000000-key_skew_only-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/skewed_join-2000000-key_skew_only-s911/uniform_memory_f0250"
+    },
+    "skewed_join-2000000-partition_imbalance_only-s911": {
+      "uniform_memory_f0125": "datasets/skewed_join-2000000-partition_imbalance_only-s911/uniform_memory_f0125",
+      "uniform_memory_f0250": "datasets/skewed_join-2000000-partition_imbalance_only-s911/uniform_memory_f0250"
+    }
+  },
+  "dataset_fingerprints": {
+    "groupby-2000000-balanced-s911": {
+      "uniform_memory_f0125": "4604c7470877dded40fe8f9934cf34fe4e85713ea1574da3c1ec0475d3a402d7",
+      "uniform_memory_f0250": "3354a5f5cac47973c404625b2319f252bde5c0f17d250c9eb50fdaaacf146846"
+    },
+    "groupby-2000000-both-s911": {
+      "uniform_memory_f0125": "bd07a5a465db2963a454c4478aa5b16f401a2d75fe5cdfb956f66509ef87241d",
+      "uniform_memory_f0250": "fcb6ea719ea2fda92ab03d6cf6f32ac167f4d2d025b76a9155d4396145c53178"
+    },
+    "groupby-2000000-key_skew_only-s911": {
+      "uniform_memory_f0125": "6a03729fa5304ff1c9536ec98494a8ed197262bd727b1f1edeaf44a5ca61547d",
+      "uniform_memory_f0250": "0ae4578454fa147cc41ad970ca1857bbbec0b6763a1899a2d9e92eae41c2b5ed"
+    },
+    "groupby-2000000-partition_imbalance_only-s911": {
+      "uniform_memory_f0125": "9769e5143264068ad4b33627869642f8a252a28d7da7bffb23901895ef812c3a",
+      "uniform_memory_f0250": "c0a2e3e72e54dbf958c537b455e473b7c0f982f746e0041d521f9d21bc3d6bf6"
+    },
+    "skewed_join-2000000-balanced-s911": {
+      "uniform_memory_f0125": "a88ac1d350f0191c7048e0b2fde445586262927b0515b6ffab29758e3d6c46a7",
+      "uniform_memory_f0250": "cba20e7e14d2c7ae455bb3542cfc8ba1ade79ee793119814d7109b63bf973b07"
+    },
+    "skewed_join-2000000-both-s911": {
+      "uniform_memory_f0125": "a08e07e4cd73d61dc3259d03d1f32744c155faac133be2a67b292706154d6103",
+      "uniform_memory_f0250": "e7d19e7230f443a17789dff5319d732dcc2ba88977cb51710c0b712e20e10b43"
+    },
+    "skewed_join-2000000-key_skew_only-s911": {
+      "uniform_memory_f0125": "827da402a29920f973f344914fcd6d211bdd2d7a14068cd1f76c43c9ff5459b9",
+      "uniform_memory_f0250": "1ac2aa1b09d005b28d5d412c059f23f96261543ff90e124e4895787a12c70627"
+    },
+    "skewed_join-2000000-partition_imbalance_only-s911": {
+      "uniform_memory_f0125": "08865e6b0bd7678f26caaad19c716bb4947b3edf044387c32c8ad530e9f0ea63",
+      "uniform_memory_f0250": "79c09daafbb2024053e69bd5c6c1ca36e9ab9992916da8bb2107d2120e4ddf1c"
+    }
+  },
+  "sample_metadata": {
+    "groupby-2000000-balanced-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "3b322ac6c2d473af5804bf908a23da6c5a62d95601b837299c3287fed834815c",
+        "parent_sha256": "11c026f771e1b41a87c997d86b186a409fc851d67160810415a45d22acfd3ff4",
+        "fraction": 0.125,
+        "sample_seed": 2470930996,
+        "fact_rows": 250000,
+        "dimension_rows": 0,
+        "preparation_seconds": 1.0574454999878071
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "6f944d10224e838a9e5fb51abf6e27e37de870942a0f2c2cfe6c853ddf09863b",
+        "parent_sha256": "11c026f771e1b41a87c997d86b186a409fc851d67160810415a45d22acfd3ff4",
+        "fraction": 0.25,
+        "sample_seed": 4142278465,
+        "fact_rows": 500000,
+        "dimension_rows": 0,
+        "preparation_seconds": 1.5277189999760594
+      }
+    },
+    "groupby-2000000-both-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "964f8e3e4ee01078114ed472379ab8dbcca4b8ae44c0c7975f33a7ac8a1bd881",
+        "parent_sha256": "8921b8350f82140f94973f088ffd32e0699e7505e3e80ce36a9f2310f2539556",
+        "fraction": 0.125,
+        "sample_seed": 3413047856,
+        "fact_rows": 250000,
+        "dimension_rows": 0,
+        "preparation_seconds": 1.0215948999975808
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "b92b0767b84e7892dc6be31d1a97e6c518116c3f4f8394bef4af080a47fc7d47",
+        "parent_sha256": "8921b8350f82140f94973f088ffd32e0699e7505e3e80ce36a9f2310f2539556",
+        "fraction": 0.25,
+        "sample_seed": 2216088128,
+        "fact_rows": 500000,
+        "dimension_rows": 0,
+        "preparation_seconds": 1.2960936999879777
+      }
+    },
+    "groupby-2000000-key_skew_only-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "d2f67aa2813ce1ed15898b78afe6dc71692bb8ffe98ecbff7f03c3e529e598c8",
+        "parent_sha256": "5d25b926cbcbb12d6ec9c602a5a5c11ec77a2c7238798074af79308bd38843a1",
+        "fraction": 0.125,
+        "sample_seed": 361659926,
+        "fact_rows": 250000,
+        "dimension_rows": 0,
+        "preparation_seconds": 0.8075529000198003
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "fe708ee78f0d84ec9f9f7d32c8349d8b9f8d2b956a3c258c0b667b323b57108f",
+        "parent_sha256": "5d25b926cbcbb12d6ec9c602a5a5c11ec77a2c7238798074af79308bd38843a1",
+        "fraction": 0.25,
+        "sample_seed": 1703080394,
+        "fact_rows": 500000,
+        "dimension_rows": 0,
+        "preparation_seconds": 1.255720699991798
+      }
+    },
+    "groupby-2000000-partition_imbalance_only-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "3a962c319e411d90986a8ddb25ed10fa5a081f944a34226046c17bd4c8b35c39",
+        "parent_sha256": "0d7bd6f3cbeea61f307568289082427a0073889f87f9c851d2428efc92423195",
+        "fraction": 0.125,
+        "sample_seed": 955813305,
+        "fact_rows": 250000,
+        "dimension_rows": 0,
+        "preparation_seconds": 1.0139018999761902
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "d5121d522367bbc2d7241e5238e8abeda003bcea8d6c329342c2367f134db736",
+        "parent_sha256": "0d7bd6f3cbeea61f307568289082427a0073889f87f9c851d2428efc92423195",
+        "fraction": 0.25,
+        "sample_seed": 2982392889,
+        "fact_rows": 500000,
+        "dimension_rows": 0,
+        "preparation_seconds": 1.281909400015138
+      }
+    },
+    "skewed_join-2000000-balanced-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "7c8021a927d3ab166e32d671b6c607db3a3f4096a3f76d5e159096afe238fa9e",
+        "parent_sha256": "4e2960de7cbb72c05d9d9a01252f633f7c969c1905a0112555b607784153a422",
+        "fraction": 0.125,
+        "sample_seed": 164189113,
+        "fact_rows": 250000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 0.9805803000053857
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "108907762f6dc6b9ae5ab390871e96a67549838918d299e2b283cd3bf8b43b21",
+        "parent_sha256": "4e2960de7cbb72c05d9d9a01252f633f7c969c1905a0112555b607784153a422",
+        "fraction": 0.25,
+        "sample_seed": 1181684083,
+        "fact_rows": 500000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 1.5699041999760084
+      }
+    },
+    "skewed_join-2000000-both-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "3b23e54178262b212ac9f2ee77aa3f6370a4d4a05f8086bc08ac23350429326b",
+        "parent_sha256": "7023e8b7231f1c9b3ac258ac879c89247704b157ff5e3f2ca65017b7d9da0124",
+        "fraction": 0.125,
+        "sample_seed": 397206922,
+        "fact_rows": 250000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 0.9939022000180557
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "ff8cf570c001936b491b66874692f3362c734cc5cd36afa07f0125c9ea4b6b3a",
+        "parent_sha256": "7023e8b7231f1c9b3ac258ac879c89247704b157ff5e3f2ca65017b7d9da0124",
+        "fraction": 0.25,
+        "sample_seed": 2821160947,
+        "fact_rows": 500000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 1.2617985999968369
+      }
+    },
+    "skewed_join-2000000-key_skew_only-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "de161c3a6b5e751d01443637c5844b54908a8a12c82489a1672e0412a58b2db8",
+        "parent_sha256": "f6fb9a780142842cfb1fe3c48ec9ce0243c0fca600cec48c35a65cd2f350a90b",
+        "fraction": 0.125,
+        "sample_seed": 1302069844,
+        "fact_rows": 250000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 0.9453645000176039
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "0f2f28c9b735297c7481e50b004d482c2809f5871c2a57b8660c2fbf05426010",
+        "parent_sha256": "f6fb9a780142842cfb1fe3c48ec9ce0243c0fca600cec48c35a65cd2f350a90b",
+        "fraction": 0.25,
+        "sample_seed": 331894181,
+        "fact_rows": 500000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 1.5335413999855518
+      }
+    },
+    "skewed_join-2000000-partition_imbalance_only-s911": {
+      "uniform_memory_f0125": {
+        "dataset_sha256": "a16a760cf34c4251a149da013db980abab517b61058cb15d3c6b449c0c98351d",
+        "parent_sha256": "35da74c43083a1cf3ff14d9ceef350781a15ec9fb3bcf98beb62acad37ae2da8",
+        "fraction": 0.125,
+        "sample_seed": 1126353357,
+        "fact_rows": 250000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 1.0361015000089537
+      },
+      "uniform_memory_f0250": {
+        "dataset_sha256": "109ac975dd75ef96a403835a3142eaaee2dc486efd744ed430da9018cc8e2982",
+        "parent_sha256": "35da74c43083a1cf3ff14d9ceef350781a15ec9fb3bcf98beb62acad37ae2da8",
+        "fraction": 0.25,
+        "sample_seed": 2129314006,
+        "fact_rows": 500000,
+        "dimension_rows": 1000000,
+        "preparation_seconds": 1.5081075000052806
+      }
+    }
+  },
+  "cells": [
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2216088128,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "6b57ad560dae34f35d12bf1c"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2129314006,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "c06408acf725f2139336a286"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 2470930996,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "a9fa30aab6a3e1d8e190f485"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 4142278465,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "eef28bf3826b8704d09517ed"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 397206922,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "22cc3ee88a5798808666ea25"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 331894181,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "5a955843b8903639a6b4304f"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2821160947,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "a1d6ba15ef55d7c324a55311"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 3413047856,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "96a4d294b0237bb89e0d8c31"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2216088128,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "9ff9dbea22a209504ced30f9"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2982392889,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "202dc2d6f662add1eeed83b1"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1181684083,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "4e3058065af18e7f7635de73"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 955813305,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "f21679a6bc9d2d424e249d8a"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1703080394,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "c60f9465b8836ca7cf32a268"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 4142278465,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "c26a1dff5d6bfd42790f7429"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 361659926,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "e15bbd6aa47966b7bd0a9784"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1703080394,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "c984af8762a078ec66ae81f6"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1181684083,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "44b450f24b797c36324ceca3"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1302069844,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "af617881e201c3d5317b6b74"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2821160947,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "9790d5e97ec655a2b1fa7aa4"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2129314006,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "aa9077c7efc19ce25966b4bf"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 331894181,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "ab4133a7b0ca96a297efe48a"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 2470930996,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "9226eb11aea1cc07c0d89688"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 164189113,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "4c82ba7d34cd4465d68a6662"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1302069844,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "07c971f9c8f2b6ada53348a3"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1126353357,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "38a4d28e44d3b36c1e8ba309"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 164189113,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "b6723801ba4e1e1cec63dd5f"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 361659926,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "85b69bdcdfa4972e5226f917"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 955813305,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "debf56c419be97660e900436"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 397206922,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "4380fdf82d9dad79237208a2"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 3413047856,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "fd80e46f4eb6406f069895a2"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1126353357,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "67ddb14d46f8f075c29980ae"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2982392889,
+      "repeat_id": 1,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "16192b89552f7c809900985d"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2982392889,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "12c276788396bdf8daba2a61"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 164189113,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "f6c060ed2aeb3a8980a5962f"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1703080394,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "78318442341648539d817a5b"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2821160947,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "a81fd577688f93bf96b2f269"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 3413047856,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "8d0522968debca379bd5878e"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 4142278465,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "d642970ceb17b85a631f873a"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2129314006,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "f4a42dc8fc8030e8db0d1b86"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1181684083,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "a05b71066a5c93b763208386"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 397206922,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "011e608fb0a31b37e9e812cd"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 361659926,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "9dcd83a05e154240f1518f44"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 361659926,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "0c95019b0d9f73744ba029f3"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1302069844,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "31f8915b3780dce8a8abb6ed"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1126353357,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "6aaa2c209e2fae905eb904ec"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 2470930996,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "ac2796992c757d79c93c3c67"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1703080394,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "cd6bed7bf5ded7cb4c640160"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1181684083,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "440c98c898923518a8b260a3"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1302069844,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "f52e3ecc6463de979babff67"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2982392889,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "382921eca4b5f52cc4eef312"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 955813305,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "a94c3c05bc5e1f61cccfecaf"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 331894181,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "5be8460b56f1e75f72bcf355"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2821160947,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "3d76afdfc988189e47c073f5"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 2470930996,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "3c102cfd52d96c2642a77379"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 164189113,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "b2144c6346fde05aa48287f8"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2216088128,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "4926774cdba5d04c109dd93b"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2216088128,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "13e61d33b6a10b82fc9bda17"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 3413047856,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "37cac76f23736f565e0690ee"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1126353357,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "b94406e0166d9de82a253654"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2129314006,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "706b4f62a8389956bb0497fe"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 4142278465,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "22ffb338b46cffc3dfa8bc00"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 397206922,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "14ec42968c257dd617fd02b3"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 955813305,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "84b8a4cb967b94c94cf92794"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 331894181,
+      "repeat_id": 2,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "71a4f3d174e684dc11fbb8c2"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 2470930996,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "a90fd6a226891767e19afb58"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1302069844,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "ea0a09f6443f0602f2c27c42"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 397206922,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "2a97b207b3d0a2166c0692fc"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 164189113,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "c34a2752e737130844b136d4"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1126353357,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "6aa534ecd0f7b9f4e03b1342"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1703080394,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "94877a566152ff3ff7aaa144"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 955813305,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "b5a6d70c948852c0645910f0"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1126353357,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "0e77393a1c5828651f1f7fba"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2821160947,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "ffffd1966c2a8fb2e7644188"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 3413047856,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "fbdc97d7439bf49f6d0e108e"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 3413047856,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "a570e110424277f01df29fe2"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 4142278465,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "13fde21bf139fdf03c33af22"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2821160947,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "be57a81219e44eed54dc92e8"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 361659926,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "7b9fed0863df1890b8db21b5"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 164189113,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "6f9aa645939a103e5cffc59d"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 331894181,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "8b691dd5ed38acffc6287a3d"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1181684083,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "54318344853cf7a868d4a176"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 955813305,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "0dfa4962bd0a5c088a103789"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2216088128,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "884c9bebbfd4f75751eab5d3"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 331894181,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "1d2cacc29b814f047ccaa855"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1703080394,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "cafc52b593a75cc022c357b8"
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 361659926,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "aeae69f3a98f5be44059bab3"
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 1181684083,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "041c78b2b0edb68dbaa3f0e7"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2129314006,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "b390cfb34d132365af38eee6"
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2216088128,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "04bbc6cfd75249d8c5d1a6d0"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 4142278465,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "f37704f9f6d912b0302cefa3"
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 1302069844,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "719762048",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "a943ef070b2f36469ea67e7f"
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2129314006,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "6f64788851106ed2e94ee70a"
+    },
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 2470930996,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "a21bd7af5f79974e70b2f7b9"
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0125",
+      "fraction": 0.125,
+      "sample_seed": 397206922,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0125",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "594762048",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "ec4e4afc0ec42e29ba2d5e4a"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_2g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2982392889,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_2g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "902653184",
+        "base_config_id": "w2_t1_2g"
+      },
+      "cell_id": "7e4bf0ef7f41a03ea6aaf5e6"
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "target_config_id": "w2_t1_1g",
+      "method": "uniform_memory_f0250",
+      "fraction": 0.25,
+      "sample_seed": 2982392889,
+      "repeat_id": 3,
+      "run_config": {
+        "config_id": "w2_t1_1g__uniform_memory_f0250",
+        "n_workers": 2,
+        "threads_per_worker": 1,
+        "memory_limit": "652653184",
+        "base_config_id": "w2_t1_1g"
+      },
+      "cell_id": "b6742066dbae2dbc66aff7b4"
+    }
+  ],
+  "reference_verification_seconds_shared": 7.388786900002742,
+  "preparation_total_seconds": 26.7283000999887
+}

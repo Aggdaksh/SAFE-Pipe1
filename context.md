@@ -1,6 +1,6 @@
 # SAFE-Pipe project context
 
-**Updated:** 2026-11-15. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
+**Updated:** 2026-11-16. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
 
 ## Start here: current goal and execution constraints
 
@@ -17,28 +17,28 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 ## Current research state
 
-**Stage: the screen and Stage A are complete; Stage B code/specification are prepared, with Windows validation and collection pending.** See the [screen evidence](reports/research_probe_windows_mains_v1_complete/README.md) and [Stage A results](reports/research_stage_a_windows_v1/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+**Stage: screen, Stage A and Stage B are complete and audited; review the Stage B fidelity/economics findings before any next stage.** See the [screen evidence](reports/research_probe_windows_mains_v1_complete/README.md) and [Stage A results](reports/research_stage_a_windows_v1/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
 
-### Latest user request and Stage B handoff (2026-11-15)
+### Completed Stage B Windows execution (2026-11-16)
 
-The user authorized Stage B code preparation and will execute it on Windows. Read [STAGE_B_WINDOWS.md](docs/research/STAGE_B_WINDOWS.md) next. **Code/specification prepared; no Stage B samples/jobs or new execution tests have run on the Mac.** Static checks only. The old 54-test Windows result does not validate this update.
+The user requested starting Stage B on Windows. **74 targeted tests passed**, then preparation verified the exact Stage A reference and produced 16 shared samples. All **96/96 probes succeeded and were quiet**, with zero quality flags. The completion audit verified 16 sample directories and 961 diagnostic-file hashes. Read [completed Stage B evidence](reports/research_stage_b_windows_v1/README.md); the Mac did not execute tests or probes.
 
 - `experiments/probe_stage_b.py` prepares samples from the exact completed Stage A plan/raw data/diagnostics and published outcomes, verifies unchanged collector/operator/diagnostic sources and the same environment, and provides Windows preparation/run/audit commands.
 - [Stage B specification](configs/research_stage_b_v1.json): 8 original instances × 2 fact fractions (1/8, 1/4) × 2 target caps × 3 repeats = 96 new probe attempts. Only 16 sample directories are prepared; samples are non-nested and shared across caps/repeats. Full inputs/dimension semantics are unchanged. Fraction, effective memory, sample seed and reference provenance are frozen per cell/plan.
 - `safe_pipe/research/probe_fidelity.py` retains quiet/warning/unknown evidence and mixed full outcomes, reports 32 group comparisons, fixed/file-metadata baselines, and a declared balanced probe-choice replay. Costs charge all six probes and shared preparation once per instance/fraction. Historical replay is not fresh online validation or a calibrated classifier.
 - Runner/source checks, resumable failed attempts, sample validation, compact export and a final raw-evidence audit are integrated. No main merge or model training.
-- Next: pull the branch on Windows; run the targeted checks including `tests/test_probe_stage_b.py`; prepare from `data/probes/windows-stage-a-v1/plan.json` into a new sibling `data/probes/windows-stage-b-v1`; inspect the first four attempts, then bounded batches up to 96. Audit/export and stop for interpretation. Stage C remains conditional.
+- Result: 32 eligible comparison groups, eight false-reassurance candidates and zero unnecessary-warning candidates. Both fraction-specific probe-choice replays selected 1 GB on all instances, mapping to 17/24 successful historical full outcomes; fixed 2 GB and metadata each map to 24/24. Median six-probe plus preparation cost is 24.62/26.38 s versus 4.96 s for the same-cohort historical fixed-2-GB full comparator. No fresh selected full jobs were run. Interpret these negative fidelity/economics results before a revised plan; no Stage C, extra seeds, training or main merge.
 
 ### Stage A implementation and completed collection (2026-11-15)
 
-The user requested code improvements and a concrete plan, with all execution on Windows. Read [STAGE_A_WINDOWS.md](docs/research/STAGE_A_WINDOWS.md) next. Windows validation and all **48 Stage A attempts are now complete: 41 success, seven execution errors**, with 54 targeted tests and pip check passed. All seven errors have retained Dask nanny memory-termination evidence; all 24 attempts at 2 GB succeeded. Read the [Stage A results and audit](reports/research_stage_a_windows_v1/README.md). No Stage B or training was started.
+The user requested code improvements and a concrete plan, with all execution on Windows. Read [STAGE_A_WINDOWS.md](docs/research/STAGE_A_WINDOWS.md) next. Windows validation and all **48 Stage A attempts are now complete: 41 success, seven execution errors**, with 54 targeted tests and pip check passed. All seven errors have retained Dask nanny memory-termination evidence; all 24 attempts at 2 GB succeeded. Read the [Stage A results and audit](reports/research_stage_a_windows_v1/README.md). Stage A itself included no probes or training; Stage B was completed in the later Windows session described above.
 
 - Durable per-attempt worker/nanny logs, scheduler events, active memory thresholds, timestamps, observed exit codes/signals and evidence hashes survive temporary-spill cleanup. Unknown worker death remains unknown; nanny termination evidence is not an OS OOM claim.
 - Expanded phase accounting retains nested graph/compute time, telemetry flush, supervisor/scratch cleanup, preflight, unaccounted time and shared preparation/audit/persistence costs. Failed attempts retain their incurred cost.
 - Power/RAM/free-disk snapshots accompany runs. Batches stop for condition/infrastructure or diagnostic-write issues. A persistent attempt marker blocks silent retries after a crash before row persistence.
 - Stage A fixes two families, four independently varied skew/imbalance patterns, two memory caps at fixed concurrency, three repeats and seed 911: 48 full-input attempts. Independent RNG streams preserve the same ordered rows when only file boundaries change. Order seed: 20261115. No probes in this stage.
 - Windows-only preparation/run guards and frozen environment/source/data checks are implemented. Stage A has a mechanism report and compact diagnostic export; tests are added/extended for Windows execution.
-- Next action: interpret the completed Stage A. Audit verified 48 identities, eight datasets, 546 diagnostic hashes and 37 raw nanny messages; all power/cleanup checks passed. Nine attempts had memory-termination evidence, including two eventual successes. Groupby imbalance-only failed 3/3 at 1 GB while both-pattern groupby succeeded 3/3; join both failed 3/3. Preserve these interactions and the single-seed limitation. Stage B/C remain conditional; no new model, paper result or merge is claimed.
+- Next action: interpret the completed Stage A. Audit verified 48 identities, eight datasets, 546 diagnostic hashes and 37 raw nanny messages; all power/cleanup checks passed. Nine attempts had memory-termination evidence, including two eventual successes. Groupby imbalance-only failed 3/3 at 1 GB while both-pattern groupby succeeded 3/3; join both failed 3/3. Preserve these interactions and the single-seed limitation. Stage B is now complete; later stages remain conditional. No new model, paper result or merge is claimed.
 
 ### Deep review and proposed next direction (2026-11-15)
 
@@ -84,7 +84,7 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 ### Useful preparation without heavy computation
 
 1. Deep review, Stage A Windows validation, collection and audit are complete. The Mac remains for static checks only; all execution occurred on Windows.
-2. Stage A interpretation is recorded in [STAGE_A_REVIEW.md](docs/research/STAGE_A_REVIEW.md). Stage B code and protocol are now prepared. Follow [STAGE_B_WINDOWS.md](docs/research/STAGE_B_WINDOWS.md) for Windows validation, preparation, bounded collection, audit and export. No automatic later stages.
+2. Stage A interpretation is recorded in [STAGE_A_REVIEW.md](docs/research/STAGE_A_REVIEW.md); Stage B is now complete. Review [Stage B results](reports/research_stage_b_windows_v1/README.md), its quiet-probe/full-warning discrepancies and profiling cost before declaring another design. No automatic later stages.
 3. Refine the candidate controller only if the diagnostic gates pass; generic rank stability is insufficient evidence of full-scale reliability. Keep original speed findings and the balanced sensitivity analysis distinct.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 

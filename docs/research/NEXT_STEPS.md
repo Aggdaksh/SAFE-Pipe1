@@ -1,6 +1,6 @@
 # Research screen completion and next decisions
 
-**Latest (2026-11-15): Stage B implementation and protocol are prepared.** Follow [STAGE_B_WINDOWS.md](STAGE_B_WINDOWS.md): validate on Windows, prepare 16 samples from the exact Stage A inputs, execute 96 bounded attempts, audit/export, then review. The Mac performed static checks only. No Stage B runs, new training or main merge yet.
+**Latest (2026-11-16): Stage B completed and audited.** All 96 probes were quiet successes, yet eight groups gave false-reassurance candidates against Stage A pressure. The declared probe-choice replay maps to 17/24 historical full successes versus 24/24 for metadata, while paying roughly 25-26 s profiling per instance. Review the [completed findings](../../reports/research_stage_b_windows_v1/README.md) before proposing any new stage. Stage C, more seeds and training remain conditional.
 
 Updated 2026-11-14. The development screen is **complete: 768/768 attempts, 759 success, one timeout, eight execution errors**. The earlier diagnostic plan remains separate. No benchmark is running. See the [completed evidence](../../reports/research_probe_windows_mains_v1_complete/README.md).
 

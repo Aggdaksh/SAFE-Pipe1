@@ -1,6 +1,6 @@
 # Progress
 
-**Updated:** 2026-11-15. Canonical memory and research goal: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
+**Updated:** 2026-11-16. Canonical memory and research goal: [`context.md`](context.md). Windows PC chronology: [`Ganant Work.md`](Ganant%20Work.md).
 
 ## Active research branch
 
@@ -8,7 +8,7 @@
 
 | Research task | Status | Evidence / next action |
 | --- | --- | --- |
-| Stage B sample reuse, 96-cell protocol, fidelity report and baseline/cost replay | IMPLEMENTED; WINDOWS VALIDATION/RUNS PENDING | [Windows handoff](docs/research/STAGE_B_WINDOWS.md). Static checks only on Mac; 16 shared samples to prepare on Windows, no training |
+| Stage B sample reuse, probe fidelity and cost replay | COMPLETE / AUDITED | 74 targeted Windows tests passed; 96/96 quiet successful probes, 32 eligible groups and eight false-reassurance candidates. Six-probe replay has no demonstrated advantage over metadata at this scale. [Results](reports/research_stage_b_windows_v1/README.md). No Stage C or training |
 | Isolated data/probe generation, supervised runner and telemetry | IMPLEMENTED | `safe_pipe/research/` |
 | Frozen plans, resume, analysis and evidence export | IMPLEMENTED | `experiments/probe_pilot.py`, `experiments/export_probe_evidence.py` |
 | Correctness/regression checks | PASSED on Mac | 120-test suite, then 2 added checks; 16 tiny Dask runs verified |
@@ -20,7 +20,7 @@
 | Adaptive controller / new reliability model | NOT IMPLEMENTED / NOT TRAINED | Conditional on a useful gap after simple baselines |
 | Deep screen review and staged follow-up plan | COMPLETE as analysis/proposal | Recomputed regrets, fixed baselines, replayed failures, probing overhead and objective sensitivity; [review](reports/research_screen_review_20261114/README.md), [plan](docs/research/POST_SCREEN_PLAN.md). No new heavy runs |
 | Independent final study, paper and merge decision | PENDING | Follow-up design, evaluation and user review |
-| Durable diagnostics and 48-attempt Stage A | WINDOWS VALIDATED / COLLECTION COMPLETE | 54 targeted tests passed; 48/48 outcomes (41 success, seven errors), all errors with nanny memory-termination evidence. Eight datasets and 546 diagnostic hashes audited; zero power flags/cleanup survivors. [Results](reports/research_stage_a_windows_v1/README.md). Stage B remains gated |
+| Durable diagnostics and 48-attempt Stage A | WINDOWS VALIDATED / COLLECTION COMPLETE | 54 targeted tests passed; 48/48 outcomes (41 success, seven errors), all errors with nanny memory-termination evidence. Eight datasets and 546 diagnostic hashes audited; zero power flags/cleanup survivors. [Results](reports/research_stage_a_windows_v1/README.md). Stage B is complete; later stages remain gated |
 
 **Execution constraint (latest): all execution tests, dataset generation, experiments and training belong on Windows.** The Mac is for code/docs and static checks only. The current Windows screen is complete. Ten instances support descriptive rankings; two failed full-reference instances remain unevaluable. Partition-tail has not shown an overall benefit over matched-memory uniform sampling. See the [Mac evidence ledger](reports/research_probe_v1/README.md), [Windows checkpoint](reports/research_probe_windows_v1_partial/README.md), and [canonical next steps](context.md#what-remains-in-order). The research setup does not complete the original advisor's prospective validation.
 
