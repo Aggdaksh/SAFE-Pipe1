@@ -185,9 +185,17 @@
 - **Eight synthetic exporter tests passed**, covering separate lifetimes/PID reuse, ambiguous evidence, privacy filtering, null versus measured zero, failed hashes, missing snapshots and read-only destination protection. CSV/JSON parity and export identities were checked separately. No physical workload tests ran and no packages changed.
 - Preserve original ignored raw directories on this PC. The export is a handoff artifact for subsequent continuous-memory/metadata analysis, not a new policy validation or proof of OS OOM. Research remains on `codex/partition-probe-research`.
 
+## Checkpoint 26 — Verified one-probe code on Windows
+
+- Checked the working tree and preserved the existing untracked `output/` and `tools/` artifacts. Fetched and fast-forwarded the research branch from `c8872b4` to expected commit **`82d40af`**, receiving the worker-memory review, one-probe feasibility analysis, guarded decision prototype and checks-only handoff. Read the latest `context.md`, `ONE_PROBE_WINDOWS.md` and policy/specification before execution.
+- Used the existing `.venv-research` environment unchanged and ran exactly `python -m experiments.verify_one_probe --out reports/one_probe_windows_checks_v1` from the repository root. This was a new output directory; no earlier report was overwritten and no retry was necessary.
+- **Verification PASS:** actual captured pytest output is **38 passed in 0.23 s**. Existing-data checks verified **eight default decisions**, **24 single-observation counterfactual decisions** and **37 worker-termination memory representations**. These are software replays, not fresh probes or statistically independent workload observations.
+- **No implementation fixes were required.** Thresholds, evidence, policy and gate stayed unchanged. All 1,513 protected Stage A/B plan/raw/diagnostic and policy/draft-file hashes matched before and after the command. All eight default decisions requested zero probes; checked-in admission and the pilot remain disabled, and no physical attempts ran.
+- Saved [verification/test output and session notes](reports/one_probe_windows_checks_v1/README.md), updated the canonical context and handoff statuses, and prepared the results for the same research branch. No Dask jobs, 48-run pilot, Stage C, dataset generation, model training, credential staging or main merge.
+
 ## Current work and next steps
 
-1. Stage B and the read-only worker export are complete and audited. Inspect the exported continuous worker observations alongside quiet-probe/full-pressure discrepancies, the metadata baseline and profiling cost before declaring any revised use case or further experiment. Preserve every raw result and provenance record. Research stays separate from `main`.
+1. Stage B, worker-memory review/export and one-probe Windows verification are complete. The current single-request information/economics gate still fails despite software verification passing. Propose a distinct useful signal/use case with credible total-cost economics and closest-work comparison before any further physical experiment; keep admission/pilot disabled. Preserve every raw result and provenance record. Research stays separate from `main`.
 2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC

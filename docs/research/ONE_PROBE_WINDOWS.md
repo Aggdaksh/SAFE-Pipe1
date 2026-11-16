@@ -2,7 +2,7 @@
 
 The [feasibility comparison](../../reports/one_probe_feasibility_20261116/README.md) is complete. A single quarter-size probe still adds cost without changing the metadata choices on current jobs. **Do not launch the proposed 48-attempt pilot, Stage C, dataset generation or training.** The research branch's original raw data stays untouched.
 
-The new decision module, targeted synthetic tests and checks-only CLI are prepared. They were statically parsed/compiled on the Mac; Windows runtime verification is still pending. No tests are reported as passed until Windows produces the output below.
+**Completed on Windows (2026-11-16), source `82d40af`:** [verification PASS](../../reports/one_probe_windows_checks_v1/README.md), **38 targeted synthetic tests passed**, eight default decisions / 24 single-observation counterfactual decisions / 37 termination records verified. First attempt passed without code fixes; [actual test output](../../reports/one_probe_windows_checks_v1/WINDOWS_TEST_OUTPUT.txt) and [source fingerprints/results](../../reports/one_probe_windows_checks_v1/verification.json) are retained. Admission and the pilot remain disabled, with zero physical attempts. The commands below remain the reproduction procedure; passing these checks does not authorize a benchmark.
 
 ## Commands on Windows
 

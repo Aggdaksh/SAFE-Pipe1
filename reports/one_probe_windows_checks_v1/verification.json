@@ -1,0 +1,601 @@
+{
+  "created_utc": "2026-11-16T14:38:02.268156+00:00",
+  "platform": "Windows",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256": {
+    "safe_pipe\\research\\one_probe.py": "ef17e320260b5d983c9b849a7c366b13953680ad9cdddd266fc53883f16231fe",
+    "experiments\\verify_one_probe.py": "f556c735738ce6ef6168e0ec4b9c5b6a62dec897fbf3c1bc41b96a0d49e2ee06",
+    "tests\\test_one_probe.py": "13bf337ef9f8c4befbcc72720656c155f9b7e946fdf1ee4a5db8d9a1a722d2a0",
+    "configs\\research_one_probe_v1.json": "d4deaf902b29d355840b14158347d33c9835f498b050c7ffc25fce356f295db8"
+  },
+  "test_exit_code": 0,
+  "scope": "Synthetic decision checks and existing compact evidence only; no dataset/job/model execution.",
+  "tests_passed": 38,
+  "default_decisions_checked": 8,
+  "single_observation_decisions_checked": 24,
+  "independence_note": "Each decision sees one observation; these are NOT statistically independent workloads.",
+  "termination_records_checked": 37,
+  "replay": [
+    {
+      "instance_id": "groupby-2000000-balanced-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_1g",
+        "reason": "metadata_scenario_choice",
+        "dense_total_input_bytes": 272000000,
+        "dense_largest_fact_partition_bytes": 34000000,
+        "metadata_lower_scenario_bytes": 304217728.0,
+        "metadata_upper_scenario_bytes": 372217728.0,
+        "ambiguous_at_low_cap": false,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:groupby-2000000-balanced-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "c1ea047fcdd9b9e0041fec919e493d0a48557990a29fbf68dec0db0a45223d2d",
+        "dataset_sha256": "11c026f771e1b41a87c997d86b186a409fc851d67160810415a45d22acfd3ff4",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "eef28bf3826b8704d09517ed",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 304217728.0,
+            "metadata_upper_scenario_bytes": 372217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.4404378788719738
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "d642970ceb17b85a631f873a",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 304217728.0,
+            "metadata_upper_scenario_bytes": 372217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.4516529501831098
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "13fde21bf139fdf03c33af22",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 304217728.0,
+            "metadata_upper_scenario_bytes": 372217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.4441406724218172
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    },
+    {
+      "instance_id": "groupby-2000000-both-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_2g",
+        "reason": "research_feasibility_gate_closed",
+        "dense_total_input_bytes": 272000000,
+        "dense_largest_fact_partition_bytes": 176799456,
+        "metadata_lower_scenario_bytes": 447017184.0,
+        "metadata_upper_scenario_bytes": 800616096.0,
+        "ambiguous_at_low_cap": true,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:groupby-2000000-both-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "b115395ea5d73cf00dc0f2d222cf8954297acc4ec78da9a902f90ce8487e16d9",
+        "dataset_sha256": "8921b8350f82140f94973f088ffd32e0699e7505e3e80ce36a9f2310f2539556",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "9ff9dbea22a209504ced30f9",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 447017184.0,
+            "metadata_upper_scenario_bytes": 800616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6316777518394824
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "13e61d33b6a10b82fc9bda17",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 447017184.0,
+            "metadata_upper_scenario_bytes": 800616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6255524526790633
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "04bbc6cfd75249d8c5d1a6d0",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 447017184.0,
+            "metadata_upper_scenario_bytes": 800616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.5914553724141488
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    },
+    {
+      "instance_id": "groupby-2000000-key_skew_only-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_1g",
+        "reason": "metadata_scenario_choice",
+        "dense_total_input_bytes": 272000000,
+        "dense_largest_fact_partition_bytes": 34000000,
+        "metadata_lower_scenario_bytes": 304217728.0,
+        "metadata_upper_scenario_bytes": 372217728.0,
+        "ambiguous_at_low_cap": false,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:groupby-2000000-key_skew_only-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "61fa7608c9b459826f81834c3a0f417158d5c39736944b991af5228aa78d1c88",
+        "dataset_sha256": "5d25b926cbcbb12d6ec9c602a5a5c11ec77a2c7238798074af79308bd38843a1",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "c60f9465b8836ca7cf32a268",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 304217728.0,
+            "metadata_upper_scenario_bytes": 372217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.4274843773687925
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "78318442341648539d817a5b",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 304217728.0,
+            "metadata_upper_scenario_bytes": 372217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.41771276794996837
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "cafc52b593a75cc022c357b8",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 304217728.0,
+            "metadata_upper_scenario_bytes": 372217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.41108539508787567
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    },
+    {
+      "instance_id": "groupby-2000000-partition_imbalance_only-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_2g",
+        "reason": "research_feasibility_gate_closed",
+        "dense_total_input_bytes": 272000000,
+        "dense_largest_fact_partition_bytes": 176799456,
+        "metadata_lower_scenario_bytes": 447017184.0,
+        "metadata_upper_scenario_bytes": 800616096.0,
+        "ambiguous_at_low_cap": true,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:groupby-2000000-partition_imbalance_only-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "10d5f9763ada3362c845a964b25eafa0d93039cf44d137f93a11d5f223c49965",
+        "dataset_sha256": "0d7bd6f3cbeea61f307568289082427a0073889f87f9c851d2428efc92423195",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "16192b89552f7c809900985d",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 447017184.0,
+            "metadata_upper_scenario_bytes": 800616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6709775708379905
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "12c276788396bdf8daba2a61",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 447017184.0,
+            "metadata_upper_scenario_bytes": 800616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6677831269110915
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "b6742066dbae2dbc66aff7b4",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 272000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 447017184.0,
+            "metadata_upper_scenario_bytes": 800616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6762807243119188
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    },
+    {
+      "instance_id": "skewed_join-2000000-balanced-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_1g",
+        "reason": "metadata_scenario_choice",
+        "dense_total_input_bytes": 288000000,
+        "dense_largest_fact_partition_bytes": 34000000,
+        "metadata_lower_scenario_bytes": 312217728.0,
+        "metadata_upper_scenario_bytes": 380217728.0,
+        "ambiguous_at_low_cap": false,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:skewed_join-2000000-balanced-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "c5b518c7cb53aa613c7f2be037a533ae16043c82f9c6682c63eabe5e86dd8780",
+        "dataset_sha256": "4e2960de7cbb72c05d9d9a01252f633f7c969c1905a0112555b607784153a422",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "44b450f24b797c36324ceca3",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 312217728.0,
+            "metadata_upper_scenario_bytes": 380217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.45058604356705323
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "a05b71066a5c93b763208386",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 312217728.0,
+            "metadata_upper_scenario_bytes": 380217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.46075931194721637
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "54318344853cf7a868d4a176",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 312217728.0,
+            "metadata_upper_scenario_bytes": 380217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.4808234322503512
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    },
+    {
+      "instance_id": "skewed_join-2000000-both-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_2g",
+        "reason": "research_feasibility_gate_closed",
+        "dense_total_input_bytes": 288000000,
+        "dense_largest_fact_partition_bytes": 176799456,
+        "metadata_lower_scenario_bytes": 455017184.0,
+        "metadata_upper_scenario_bytes": 808616096.0,
+        "ambiguous_at_low_cap": true,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:skewed_join-2000000-both-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "051306a26676b221a51c87379c6e79eecf756d0449652180f923e08bad108851",
+        "dataset_sha256": "7023e8b7231f1c9b3ac258ac879c89247704b157ff5e3f2ca65017b7d9da0124",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "9790d5e97ec655a2b1fa7aa4",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 455017184.0,
+            "metadata_upper_scenario_bytes": 808616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6268390165396022
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "3d76afdfc988189e47c073f5",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 455017184.0,
+            "metadata_upper_scenario_bytes": 808616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6234813986596593
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "be57a81219e44eed54dc92e8",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 455017184.0,
+            "metadata_upper_scenario_bytes": 808616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6210337893640001
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    },
+    {
+      "instance_id": "skewed_join-2000000-key_skew_only-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_1g",
+        "reason": "metadata_scenario_choice",
+        "dense_total_input_bytes": 288000000,
+        "dense_largest_fact_partition_bytes": 34000000,
+        "metadata_lower_scenario_bytes": 312217728.0,
+        "metadata_upper_scenario_bytes": 380217728.0,
+        "ambiguous_at_low_cap": false,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:skewed_join-2000000-key_skew_only-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "329d57e9621dea5f9e6fd72332787c3e32fe12eaae9bee40e052df01a819d4b2",
+        "dataset_sha256": "f6fb9a780142842cfb1fe3c48ec9ce0243c0fca600cec48c35a65cd2f350a90b",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "ab4133a7b0ca96a297efe48a",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 312217728.0,
+            "metadata_upper_scenario_bytes": 380217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.46680930005238436
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "71a4f3d174e684dc11fbb8c2",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 312217728.0,
+            "metadata_upper_scenario_bytes": 380217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.47246390511748426
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "8b691dd5ed38acffc6287a3d",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_1g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 34000000,
+            "metadata_lower_scenario_bytes": 312217728.0,
+            "metadata_upper_scenario_bytes": 380217728.0,
+            "ambiguous_at_low_cap": false,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.47037402333426753
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    },
+    {
+      "instance_id": "skewed_join-2000000-partition_imbalance_only-s911",
+      "default_decision": {
+        "action": "select",
+        "config_id": "w2_t1_2g",
+        "reason": "research_feasibility_gate_closed",
+        "dense_total_input_bytes": 288000000,
+        "dense_largest_fact_partition_bytes": 176799456,
+        "metadata_lower_scenario_bytes": 455017184.0,
+        "metadata_upper_scenario_bytes": 808616096.0,
+        "ambiguous_at_low_cap": true,
+        "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+        "request_id": "offline:skewed_join-2000000-partition_imbalance_only-s911",
+        "policy_sha256": "e69f0f9b0b0336b0ade4438914e0e8a69518904f05d229c41b255709cff10400",
+        "workload_sha256": "facd3ee6e41b51ed97055bc6622bee07720005fc2dd7d8fda820b52c1df670a8",
+        "dataset_sha256": "35da74c43083a1cf3ff14d9ceef350781a15ec9fb3bcf98beb62acad37ae2da8",
+        "probe_count": 0
+      },
+      "single_observation_counterfactuals": [
+        {
+          "probe_cell_id": "aa9077c7efc19ce25966b4bf",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 455017184.0,
+            "metadata_upper_scenario_bytes": 808616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.5938527743396407
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "f4a42dc8fc8030e8db0d1b86",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 455017184.0,
+            "metadata_upper_scenario_bytes": 808616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6339496353395557
+          },
+          "role": "counterfactual only; admission was not enabled"
+        },
+        {
+          "probe_cell_id": "b390cfb34d132365af38eee6",
+          "decision": {
+            "action": "select",
+            "config_id": "w2_t1_2g",
+            "reason": "uncalibrated_single_probe_threshold",
+            "dense_total_input_bytes": 288000000,
+            "dense_largest_fact_partition_bytes": 176799456,
+            "metadata_lower_scenario_bytes": 455017184.0,
+            "metadata_upper_scenario_bytes": 808616096.0,
+            "ambiguous_at_low_cap": true,
+            "interpretation": "Handset input-size scenarios, not statistical bounds or a safety guarantee.",
+            "probe_count": 1,
+            "peak_ratio": 0.6403573509571663
+          },
+          "role": "counterfactual only; admission was not enabled"
+        }
+      ]
+    }
+  ],
+  "admission_enabled": false,
+  "physical_attempts_executed": 0,
+  "new_pilot_enabled": false,
+  "git_revision": "82d40af89c681644ecc4a221c7b09f58ef964441",
+  "verification_pass": true
+}
