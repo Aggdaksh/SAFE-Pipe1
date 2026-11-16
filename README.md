@@ -1,5 +1,7 @@
 # SAFE-Pipe
 
+**One-probe prototype (16 November 2026):** [existing-data feasibility](reports/one_probe_feasibility_20261116/README.md) finds no extra decision benefit over size-aware metadata and higher constructed cost even with one probe. A guarded research decision module is prepared with admission disabled. [Windows software verification](docs/research/ONE_PROBE_WINDOWS.md) is pending; no new benchmark/training or main merge is scheduled.
+
 **Worker-memory review (16 November 2026):** all 144 Stage A/B attempts and 321 worker lifetimes are exported and cross-checked. Continuous probe memory separates historical pressure groups in this development table, but reproduces the file-metadata split; no extra policy benefit is established. Persisted worker peaks can also miss higher termination-time nanny readings. Read the [findings and next decision](reports/worker_memory_review_20261116/README.md). No new benchmark or training is scheduled.
 
 **Stage B reviewed (16 November 2026):** 74 targeted Windows tests passed and all 96 probes completed quietly with a passing audit. Quiet samples missed historical full-scale pressure in eight comparison groups; the declared probe-choice/cost replay has no demonstrated advantage over the simple baselines. The [compact-evidence review and next decision](docs/research/STAGE_B_REVIEW.md) reproduces the findings. Hold Stage C/training; inspect retained individual worker evidence before proposing another experiment.

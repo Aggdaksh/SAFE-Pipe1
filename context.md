@@ -17,7 +17,18 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 ## Current research state
 
-**Stage: screen, Stage A/B and the individual-worker export/review are complete. The current Stage B selector's information/economics gate did not pass.** Read the [worker-memory review](reports/worker_memory_review_20261116/README.md) first. Continuous probe memory varies with historical pressure, but currently separates the same cases as file metadata; no incremental policy benefit is established. Hold Stage C and training until a revised method/use case and bounded protocol are justified. No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented.
+**Stage: one-probe feasibility report and guarded research decision code prepared; Windows software verification pending.** Read the [one-probe feasibility report](reports/one_probe_feasibility_20261116/README.md) and [Windows checks-only handoff](docs/research/ONE_PROBE_WINDOWS.md) first. The information/economics gate still fails: one quarter-size probe repeats metadata's choices while adding cost. Admission is disabled; the proposed 48-attempt pilot is a disabled draft with no execution runner. No Stage C, new benchmarks, training or main merge is scheduled. A pure decision prototype is implemented separately from the original advisor; an evaluated online controller and learned probe-reliability model are not.
+
+### One-probe feasibility and prototype (2026-11-16)
+
+The user authorized implementing the proposed sequence, with new physical collection conditional on passing the feasibility gate. Existing evidence analysis is complete; new implementation files were statically parsed/compiled on the Mac only. All project execution tests remain on Windows. No fitted model or parameter-training run occurred.
+
+- [Reproducible standalone analysis](reports/one_probe_feasibility_20261116/README.md) compares fixed caps, file-share metadata, total-size/largest-partition metadata, always-one-probe and ambiguous-only counterfactuals. Each decision uses one observation; three repeats are not combined into its input. All probe choices agree here, so 24 unique selected historical full outcomes are counted once.
+- Size-aware metadata, the one-probe threshold and the guarded default select the same four 1 GB/four 2 GB settings, mapping to 24/24 quiet full successes. Median constructed request wall time is **4.79 s** for metadata, **10.37 s** for always-one-probe and **7.38 s** for ambiguous-only probing. Single-probe plus preparation median is **5.47 s**. These are same-table replays, not fresh online results.
+- Even the cheapest observed probe for each instance costs more in the partial balanced proxy than an optimistic successful-full oracle could save over metadata. Only groupby/both has any success-only oracle headroom (~0.99 proxy seconds), at the expense of observed pressure; requiring quiet full references leaves zero headroom for all eight. Preparation resource exposure and metadata/controller costs remain explicitly unmeasured.
+- [Policy specification](configs/research_one_probe_v1.json) fixes handset metadata scenarios and a post-hoc 0.55 peak/cap cutoff; neither is calibrated or independently validated. `admission_enabled=false`. [Decision code](safe_pipe/research/one_probe.py) separates metadata choice, economic admission, one-observation classification and terminal handling; preserves event-time versus sampled-peak memory evidence; never executes Dask or loads the original model.
+- [Targeted tests](tests/test_one_probe.py) and [Windows verifier](experiments/verify_one_probe.py) are prepared but **not yet run**. The Windows CLI invokes synthetic tests, checks eight default decisions / 24 single-observation counterfactuals / 37 termination records, writes evidence and stops. It cannot generate datasets or run the proposed pilot. Its output must be pushed back for review.
+- The [48-attempt proposal](configs/research_one_probe_pilot_draft_v1.json) is explicitly disabled, not an executable plan. Because the gate failed, building/launching a physical runner is deferred. A revised hypothesis/use case with incremental value over stronger metadata and credible all-cost economics is needed before any new runs. Do not treat successful software verification as passing that research gate.
 
 ### Individual-worker review (2026-11-16)
 
@@ -102,9 +113,9 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Useful preparation without heavy computation
 
-1. Stage A/B Windows validation, collection, audits and compact-evidence reviews are complete. The Mac is for code, documentation, static checks and reading existing evidence; all project execution remains on Windows.
-2. Worker export and [continuous-signal review](reports/worker_memory_review_20261116/README.md) are complete. Use the observed memory/metadata overlap and retained-peak limitations to define a distinct, affordable hypothesis before any new experiment; no additional export is currently required.
-3. The current Stage B information/economics gate did not pass. Refine a controller only if a revised hypothesis identifies additional affordable information beyond simple metadata. Keep original speed findings and balanced sensitivity analysis distinct; preserve the negative result.
+1. Stage A/B collection, export/reviews and one-probe feasibility analysis are complete. New pure decision code is statically checked only; execute the [checks-only handoff](docs/research/ONE_PROBE_WINDOWS.md) on Windows and push its generated verification report. No benchmark or model is invoked.
+2. The current single-request information/economics gate fails even with one probe. Keep admission and the draft 48-attempt pilot disabled. Design a distinct hypothesis/use case and compare closest prior work before any new physical experiment; no additional raw export is currently required.
+3. Preserve event-aware memory labels, all failure outcomes and declared balanced weights. Do not retune the objective or use the full target outcome to manufacture an advantage. A paper contribution remains unproven.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 
 ### Work on the other laptop
