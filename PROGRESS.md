@@ -8,7 +8,7 @@
 
 | Research task | Status | Evidence / next action |
 | --- | --- | --- |
-| Stage B sample reuse, probe fidelity and cost replay | COMPLETE / AUDITED | 74 targeted Windows tests passed; 96/96 quiet successful probes, 32 eligible groups and eight false-reassurance candidates. Six-probe replay has no demonstrated advantage over metadata at this scale. [Results](reports/research_stage_b_windows_v1/README.md). No Stage C or training |
+| Stage B sample reuse, probe fidelity and cost replay | COMPLETE / AUDITED / REVIEWED | 74 targeted Windows tests passed; 96/96 quiet successful probes, 32 eligible groups and eight false-reassurance candidates. CSV review reproduced choices/costs. Current information/economics gate did not pass; [decision and next artifact](docs/research/STAGE_B_REVIEW.md). Hold Stage C/training; individual-worker export remains to be implemented |
 | Isolated data/probe generation, supervised runner and telemetry | IMPLEMENTED | `safe_pipe/research/` |
 | Frozen plans, resume, analysis and evidence export | IMPLEMENTED | `experiments/probe_pilot.py`, `experiments/export_probe_evidence.py` |
 | Correctness/regression checks | PASSED on Mac | 120-test suite, then 2 added checks; 16 tiny Dask runs verified |

@@ -1,6 +1,6 @@
 # Research experiments on the Windows PC
 
-**Latest handoff (2026-11-16): Stage B is complete and audited.** All 96 probes succeeded quietly after 74 targeted Windows tests passed. Review the [Stage B evidence](../../reports/research_stage_b_windows_v1/README.md) and its fidelity/economics limits before any further stage. No benchmark is active; all future execution remains Windows-only. The commands below describe historical procedures.
+**Latest handoff (2026-11-16): Stage B is complete and reviewed; hold further benchmark stages.** All 96 probes succeeded quietly after 74 targeted Windows tests passed, but the current information/economics gate did not pass. The [Stage B review](STAGE_B_REVIEW.md) defines the next artifact: export existing individual worker summaries without rerunning jobs. That exporter is not implemented yet. Preserve raw data/logs; no benchmark is active and no new run command is scheduled. All future execution remains Windows-only. The commands below describe historical procedures.
 
 **Completion update, 2026-11-14:** the monitored screen finished all **768 planned attempts** at 00:08 IST: 759 successes, one timeout and eight execution errors. Source/data identity and cleanup audits passed. No benchmark is running and no remaining cells need scheduling. See the [completed evidence](../../reports/research_probe_windows_mains_v1_complete/README.md) and [next decisions](NEXT_STEPS.md). The preparation/resume commands and earlier checkpoints below are retained as procedural history; do not rerun the completed plan.
 

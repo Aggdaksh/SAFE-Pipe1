@@ -1,8 +1,8 @@
 # Research plan after the completed screen
 
-Drafted 2026-11-14; updated 2026-11-16. Status: **Stage A and Stage B completed; Stage B fidelity/economics interpretation required.** Later stages remain conditional proposals, informed by a post-hoc development analysis. This is not a frozen final-test protocol. All execution tests, generation, physical runs and training belong on Windows; the Mac is for editing/static checks only. Branch: `codex/partition-probe-research`; baseline evidence: `6c08ec9`.
+Drafted 2026-11-14; updated 2026-11-16. Status: **Stage A/B collection and interpretation complete; the current Stage B information/economics gate did not pass.** Later stages remain conditional proposals, informed by a post-hoc development analysis. This is not a frozen final-test protocol. All execution tests, generation, physical runs and training belong on Windows; the Mac is for editing/static checks and reading existing evidence. Branch: `codex/partition-probe-research`; baseline evidence: `6c08ec9`.
 
-Next action: review the [completed Stage B evidence](../../reports/research_stage_b_windows_v1/README.md). Windows validation passed 74 targeted tests; 96 probes completed quietly with a passing audit. Quiet samples did not identify historical full pressure in eight groups, and the six-probe replay has no demonstrated benefit over the simple metadata baseline at the tested scale. The [Stage B handoff](STAGE_B_WINDOWS.md) preserves the procedure; no Stage C or training is scheduled.
+Next action: follow the [completed Stage B review](STAGE_B_REVIEW.md). Prepare a read-only Windows export of already-retained individual worker summaries and inspect whether an affordable continuous signal adds information beyond metadata. The exporter is not yet implemented; no new jobs are needed for that export. Windows validation passed 74 targeted tests; 96 probes completed quietly with a passing audit. Quiet samples did not identify historical full pressure in eight groups, and the six-probe replay has no demonstrated benefit over the simple metadata baseline at the tested scale. The [Stage B handoff](STAGE_B_WINDOWS.md) preserves the procedure; no Stage C or training is scheduled. Older proposed stages below do not override this decision.
 
 Read [the deep review](../../reports/research_screen_review_20261114/README.md) for recomputed results and [the original completed report](../../reports/research_probe_windows_mains_v1_complete/README.md) for collection provenance. The original 96-run LightGBM advisor remains a separate baseline project. No main merge is planned here.
 
@@ -48,7 +48,7 @@ Report completion/failure/abstention first, then successful-request latency and 
 
 ## 2. Finish instrumentation before new pressure experiments
 
-Code and static checks can be done on the Mac; all runtime validation stays on Windows. Durable logs/events, conservative cause summaries, explicit phase accounting, condition sampling and interrupted-attempt protection are implemented, but not yet runtime-validated for this update. The historical data remains unchanged.
+Code and static checks can be done on the Mac; all runtime validation stays on Windows. Durable logs/events, conservative cause summaries, explicit phase accounting, condition sampling and interrupted-attempt protection are implemented and Windows-validated through Stage A/B. The historical data remains unchanged. The checklist below records the original instrumentation contract; individual-worker summaries still need a compact export for the current review.
 
 - Persist worker and nanny logs, restart events, exit codes where available, timestamps and the active memory-threshold settings. Separate confirmed nanny memory termination, confirmed OS termination, unknown worker death, execution timeout and user interruption. Never relabel archived `KilledWorker` records as OOM without evidence.
 - Record per-worker baseline RSS before workload execution and individual worker peak/lifetime data. Do not use summed lifetime peaks as one worker's headroom or concurrent cluster use.
@@ -60,7 +60,7 @@ Acceptance: small success and controlled termination checks yield usable diagnos
 
 ## 3. A bounded diagnostic study, with early stopping
 
-Stage A is complete. Its [interpretation review](STAGE_A_REVIEW.md) supports preparing the bounded Stage B diagnostic protocol, while highlighting a strong file-metadata baseline and unresolved profiling economics. B/C are not scheduled automatically. This is mechanism discovery, not an unseen final benchmark.
+Stages A/B are complete. The [Stage A review](STAGE_A_REVIEW.md) motivated B, but the [Stage B review](STAGE_B_REVIEW.md) does not support expanding the current rule into C. The design below is retained as protocol history; C is not scheduled. This is mechanism discovery, not an unseen final benchmark.
 
 First fix two families (groupby, unique-dimension join), 2M fact rows, eight input files, sixteen payload columns and key cardinality 1M. At each family use the four combinations:
 
@@ -161,4 +161,4 @@ These are planning allowances from the next active work period, not a promised s
 | Independent evaluation | Frozen methods on new groups; all costs/outcomes | Windows only | Roughly one week, budget fixed after pilot |
 | Paper/artifact | Methods and evidence-driven results, limitations, reproducibility | Both | Begin outline now; finish after evaluation |
 
-Do not begin a full classifier, a larger neural model, or another undirected 768-job sweep merely to demonstrate activity. Stage A is complete and interpreted; Stage B is now collected and audited. Next: review its negative fidelity/economics findings before declaring a revised plan. Do not assume extra seeds or training will resolve an uninformative warning signal or profiling overhead. All execution remains on Windows. Merge into main only after review and the user's integration decision.
+Do not begin a full classifier, a larger neural model, or another undirected 768-job sweep merely to demonstrate activity. Stages A/B are complete and interpreted. Next: export and inspect retained individual-worker evidence under the [Stage B decision](STAGE_B_REVIEW.md) before declaring a revised plan. Do not assume extra seeds or training will resolve an uninformative warning signal or profiling overhead. All execution remains on Windows. Merge into main only after review and the user's integration decision.

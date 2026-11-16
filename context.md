@@ -8,7 +8,7 @@ The user's current objective is to develop and rigorously evaluate a **research-
 
 The candidate direction is **partition-aware adaptive probing for Dask configuration selection under memory pressure**. The question is whether cheap samples give misleading configuration rankings, whether simple memory scaling already resolves that, and whether better input probes plus a justified adaptive decision rule can improve configuration choices after paying their own overhead. This is a research hypothesis, not a proven unique algorithm.
 
-- Active branch: **`codex/partition-probe-research`**, based on `origin/main` at `504f005`. Implementation/handoff checkpoint **`975b446`** was pushed and its remote SHA verified. Later documentation commits may follow it.
+- Active branch: **`codex/partition-probe-research`**, based on `origin/main` at `504f005`. Latest Windows evidence checkpoint is **`3640874`** (Stage B complete); this review follows it. Earlier implementation/handoff checkpoint `975b446` remains historical.
 - The user's authorization is to investigate on a separate branch, then consider merging if evidence justifies the contribution. **No merge now.** The original advisor remains the baseline on main.
 - **Latest explicit instruction (2026-11-15): all runs are on Windows.** This includes execution tests, dataset generation, Dask benchmarks and training. This Mac is for code, research/design, documentation and static syntax/compile checks only. Do not run pytest here or restart the historical Mac matrices.
 - Hardware available: Windows PC plus Mac. Earlier planning allowed 4–6 weeks; this is a planning horizon, not a confirmed submission date. Do not assume cloud spending is needed or authorized by the current work.
@@ -17,7 +17,17 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 ## Current research state
 
-**Stage: screen, Stage A and Stage B are complete and audited; review the Stage B fidelity/economics findings before any next stage.** See the [screen evidence](reports/research_probe_windows_mains_v1_complete/README.md) and [Stage A results](reports/research_stage_a_windows_v1/README.md). No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+**Stage: screen, Stage A and Stage B are complete and audited; Stage B interpretation is complete and its information/economics gate did not pass.** Read [STAGE_B_REVIEW.md](docs/research/STAGE_B_REVIEW.md) first. Hold Stage C and training; next inspect retained individual worker evidence from Windows before proposing a revised method. No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+
+### Post-Stage B review (2026-11-16)
+
+The Mac review independently recomputed 96 compact CSV identities, source/protocol/reference hashes, 32 comparison groups and 40 instance/policy replay choices against Windows evidence `3640874`. All reported choices and costs match; see [reproducible analysis](reports/research_stage_b_review_20261116/README.md). Raw Windows datasets/logs were not independently re-audited on the Mac. No project tests, Dask jobs or training ran here.
+
+- All 96 probes were quiet, so the binary warning signal cannot distinguish full-pressure cases in this table. Eight discrepancy groups are four workload/cap cases at two fractions, not independent classifier examples.
+- Both fractions choose 1 GB for all eight instances, replaying 17/24 full successes. Fixed 2 GB and the development-derived metadata baseline replay 24/24. This is historical evidence, not fresh policy validation.
+- Selection matches the frozen balanced formula: target weights 0.75/0.875; low/high median probe-lifecycle ratios 0.8351–1.1563 all favor 1 GB. Retuning weights after seeing failures would not establish a new result.
+- Median profiling costs 24.62/26.38 s before a selected full job, versus 4.96 s for the matched historical fixed-2-GB full comparator. The current six-probe replay has not justified its cost.
+- **Next artifact:** a read-only Windows export of already-retained individual worker summaries, preserving caps, first/peak RSS, sample quality and provenance. No benchmark reruns are needed for this export; its exporter is not implemented yet. Aggregate lifetime-peak sums cannot recover per-worker headroom. Inspect these continuous observations before committing to a new hypothesis/protocol; no automatic Stage C, classifier, extra seeds or main merge. A paper contribution remains unproven.
 
 ### Completed Stage B Windows execution (2026-11-16)
 
@@ -83,9 +93,9 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 
 ### Useful preparation without heavy computation
 
-1. Deep review, Stage A Windows validation, collection and audit are complete. The Mac remains for static checks only; all execution occurred on Windows.
-2. Stage A interpretation is recorded in [STAGE_A_REVIEW.md](docs/research/STAGE_A_REVIEW.md); Stage B is now complete. Review [Stage B results](reports/research_stage_b_windows_v1/README.md), its quiet-probe/full-warning discrepancies and profiling cost before declaring another design. No automatic later stages.
-3. Refine the candidate controller only if the diagnostic gates pass; generic rank stability is insufficient evidence of full-scale reliability. Keep original speed findings and the balanced sensitivity analysis distinct.
+1. Stage A/B Windows validation, collection, audits and compact-evidence reviews are complete. The Mac is for code, documentation, static checks and reading existing evidence; all project execution remains on Windows.
+2. Follow the [Stage B decision](docs/research/STAGE_B_REVIEW.md): export existing individual worker summaries from Windows and inspect a potentially useful continuous signal before declaring another design. No new Dask runs are required for this export; the exporter remains to be implemented.
+3. The current Stage B information/economics gate did not pass. Refine a controller only if a revised hypothesis identifies additional affordable information beyond simple metadata. Keep original speed findings and balanced sensitivity analysis distinct; preserve the negative result.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 
 ### Work on the other laptop
