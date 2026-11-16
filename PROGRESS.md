@@ -10,6 +10,7 @@
 | --- | --- | --- |
 | Stage B sample reuse, probe fidelity and cost replay | COMPLETE / AUDITED / REVIEWED | 74 targeted Windows tests passed; 96/96 quiet successful probes, 32 eligible groups and eight false-reassurance candidates. CSV review reproduced choices/costs. Current information/economics gate did not pass; [decision](docs/research/STAGE_B_REVIEW.md). Hold Stage C/training; inspect continuous signals next |
 | Existing Stage A/B worker memory export | COMPLETE / VERIFIED | [321 separate lifetimes from 144 attempts](reports/worker_memory_stage_a_b_v1/README.md); frozen plan/raw hashes and 1,507 diagnostic-file hashes verified, no missing requested worker fields. Eight synthetic exporter tests passed; original raw files preserved, no benchmarks rerun |
+| Continuous worker-memory interpretation | COMPLETE / DEVELOPMENT ONLY | [Recomputed review](reports/worker_memory_review_20261116/README.md): memory ratios separate the same low-cap cases as metadata; no extra policy benefit. 33/37 nanny-terminated lifetimes retain sampled peaks below the threshold despite higher event readings. No new execution; revised method/protocol remains pending |
 | Isolated data/probe generation, supervised runner and telemetry | IMPLEMENTED | `safe_pipe/research/` |
 | Frozen plans, resume, analysis and evidence export | IMPLEMENTED | `experiments/probe_pilot.py`, `experiments/export_probe_evidence.py` |
 | Correctness/regression checks | PASSED on Mac | 120-test suite, then 2 added checks; 16 tiny Dask runs verified |

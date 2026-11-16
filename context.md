@@ -17,7 +17,16 @@ The candidate direction is **partition-aware adaptive probing for Dask configura
 
 ## Current research state
 
-**Stage: screen, Stage A and Stage B are complete and audited; Stage B interpretation is complete and its information/economics gate did not pass.** Read [STAGE_B_REVIEW.md](docs/research/STAGE_B_REVIEW.md) first. Hold Stage C and training; next inspect retained individual worker evidence from Windows before proposing a revised method. No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented. No new model was trained for this direction.
+**Stage: screen, Stage A/B and the individual-worker export/review are complete. The current Stage B selector's information/economics gate did not pass.** Read the [worker-memory review](reports/worker_memory_review_20261116/README.md) first. Continuous probe memory varies with historical pressure, but currently separates the same cases as file metadata; no incremental policy benefit is established. Hold Stage C and training until a revised method/use case and bounded protocol are justified. No overall benefit from partition-tail over matched-memory uniform sampling is established. The adaptive controller and a learned probe-reliability model are not yet implemented.
+
+### Individual-worker review (2026-11-16)
+
+Export checkpoint **`c8872b4`** contains all 144 Stage A/B attempts and 321 worker lifetimes. The Mac [recomputed review](reports/worker_memory_review_20261116/README.md) verifies CSV/JSON equality, identities, cap/sample provenance, raw-hash anchors and agreement with the earlier published aggregates. Raw Windows files were not rehashed here; Windows separately reports the full export audit and eight exporter tests. No project tests, benchmarks or training ran on the Mac.
+
+- Stage A: 129 lifetimes, 96 initial and 33 added. Stage B: 192 initial lifetimes, no added workers. No requested export fields are missing.
+- At the 1 GB target, 1/4 probes have group-median max-worker peak/effective-cap ratios of **41.8–47.0%** for four historically quiet instances and **62.3–67.1%** for four historically pressured instances. This is exploratory separation, not classifier accuracy; all four pressure cases are also the file-metadata escalation cases. No extra decision value over metadata is shown.
+- **33/37** nanny-terminated worker lifetimes have stored sampled peaks below the configured 95% threshold, while all 37 corresponding nanny event RSS readings exceed it. Event readings exceed the saved peak in 36/37 cases. Preserve both sources: persisted peaks can miss higher termination-time readings and are not reliable uncensored full-memory targets. These are worker events, not 37 failed jobs; only seven Stage A jobs failed.
+- Next work is a revised method/protocol design: identify a cheap signal/use case that can add information beyond metadata, retain event-aware labels and measurement limitations, define untouched validation groups and fair all-cost baselines, then revisit prior work. No new threshold/model is validated; no next-run protocol or main merge is scheduled. The current six-probe overhead remains unjustified at this scale.
 
 ### Post-Stage B review (2026-11-16)
 
@@ -94,7 +103,7 @@ The two partial Mac plans cannot be pooled into a complete comparison. Historica
 ### Useful preparation without heavy computation
 
 1. Stage A/B Windows validation, collection, audits and compact-evidence reviews are complete. The Mac is for code, documentation, static checks and reading existing evidence; all project execution remains on Windows.
-2. Follow the [Stage B decision](docs/research/STAGE_B_REVIEW.md): export existing individual worker summaries from Windows and inspect a potentially useful continuous signal before declaring another design. No new Dask runs are required for this export; the exporter remains to be implemented.
+2. Worker export and [continuous-signal review](reports/worker_memory_review_20261116/README.md) are complete. Use the observed memory/metadata overlap and retained-peak limitations to define a distinct, affordable hypothesis before any new experiment; no additional export is currently required.
 3. The current Stage B information/economics gate did not pass. Refine a controller only if a revised hypothesis identifies additional affordable information beyond simple metadata. Keep original speed findings and balanced sensitivity analysis distinct; preserve the negative result.
 4. Draft the paper outline with factual pilot findings and explicit pending-method/final-evaluation sections. Closest-prior work must be revisited before making a novelty claim.
 

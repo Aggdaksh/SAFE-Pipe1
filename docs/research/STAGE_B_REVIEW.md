@@ -4,7 +4,7 @@ Reviewed 2026-11-16 against Windows evidence commit `3640874`, collected at sour
 
 **Decision: the current Stage B information/economics gate did not pass. Do not expand this protocol into Stage C or train a selector from these outcomes.** Preserve the negative finding and inspect already-retained worker-level evidence before proposing a different method.
 
-**Windows follow-up completed (2026-11-16):** the [read-only worker export](../../reports/worker_memory_stage_a_b_v1/README.md) now contains 321 separate lifetimes from the original 144 attempts, with verified plan/raw/diagnostic hashes and no missing requested worker fields. Eight synthetic exporter tests passed; no workloads were rerun. The export action described below is complete; interpretation of continuous signals remains the next research decision.
+**Windows follow-up and interpretation completed (2026-11-16):** the [read-only worker export](../../reports/worker_memory_stage_a_b_v1/README.md) contains 321 separate lifetimes from the original 144 attempts, with verified plan/raw/diagnostic hashes and no missing requested worker fields. Eight synthetic exporter tests passed; no workloads were rerun. The [continuous-signal review](../../reports/worker_memory_review_20261116/README.md) finds separation matching the metadata split, plus saved-peak under-observation relative to nanny events. Export/inspection are complete; a revised affordable hypothesis/protocol is next, with no automatic new experiments.
 
 ## Independent compact-evidence check
 
@@ -65,7 +65,7 @@ The file-metadata threshold was derived from Stage A and frozen before Stage B. 
 3. **Require a specific reason to continue.** A candidate signal must be available before the full decision and potentially distinguish cases beyond file imbalance/cap alone, with an affordable measurement path. Exploratory thresholds fitted here remain development choices. If no candidate emerges, stop this controller direction and consider whether a narrower measurement study or a different workload/use case warrants a new research plan. Repetition alone will not make the current constant warning signal informative.
 4. **Only then declare a revised, bounded Windows protocol.** Specify hypothesis, cheaper decision rule, objective, simple baselines, all profiling/setup costs, failure handling, new workload groups and stop criteria before collection. Keep validation groups untouched; adding seeds to the already-examined recipes alone does not establish broad generalization. Execute fresh selected full jobs for final policy claims.
 
-The immediate missing artifact is the worker-level export, not another 96/288-job sweep. No exporter or revised execution protocol is implemented by this review. No new model, Stage C run or main merge is scheduled.
+The worker-level export and its interpretation are now complete; retain the numbered sequence above as the original review plan. A revised execution protocol is not yet defined. No new model, Stage C run or main merge is scheduled.
 
 ## Paper status
 

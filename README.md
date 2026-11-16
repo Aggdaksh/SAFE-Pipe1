@@ -1,5 +1,7 @@
 # SAFE-Pipe
 
+**Worker-memory review (16 November 2026):** all 144 Stage A/B attempts and 321 worker lifetimes are exported and cross-checked. Continuous probe memory separates historical pressure groups in this development table, but reproduces the file-metadata split; no extra policy benefit is established. Persisted worker peaks can also miss higher termination-time nanny readings. Read the [findings and next decision](reports/worker_memory_review_20261116/README.md). No new benchmark or training is scheduled.
+
 **Stage B reviewed (16 November 2026):** 74 targeted Windows tests passed and all 96 probes completed quietly with a passing audit. Quiet samples missed historical full-scale pressure in eight comparison groups; the declared probe-choice/cost replay has no demonstrated advantage over the simple baselines. The [compact-evidence review and next decision](docs/research/STAGE_B_REVIEW.md) reproduces the findings. Hold Stage C/training; inspect retained individual worker evidence before proposing another experiment.
 
 **Stage A update (15 November 2026):** the follow-up mechanism study is complete: 48 attempts, 41 successes and seven execution errors with retained Dask nanny memory-termination evidence. Windows validation passed 54 targeted tests. Read the [Stage A results and limits](reports/research_stage_a_windows_v1/README.md); later stages remain gated on interpretation.
