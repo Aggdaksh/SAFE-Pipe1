@@ -4,6 +4,8 @@ Reviewed 2026-11-16 against Windows evidence commit `3640874`, collected at sour
 
 **Decision: the current Stage B information/economics gate did not pass. Do not expand this protocol into Stage C or train a selector from these outcomes.** Preserve the negative finding and inspect already-retained worker-level evidence before proposing a different method.
 
+**Windows follow-up completed (2026-11-16):** the [read-only worker export](../../reports/worker_memory_stage_a_b_v1/README.md) now contains 321 separate lifetimes from the original 144 attempts, with verified plan/raw/diagnostic hashes and no missing requested worker fields. Eight synthetic exporter tests passed; no workloads were rerun. The export action described below is complete; interpretation of continuous signals remains the next research decision.
+
 ## Independent compact-evidence check
 
 The [review script](../../reports/research_stage_b_review_20261116/analyze.py) reads both Stage A/B CSVs and recomputes the declared selections/costs without importing the experiment code. Its [output](../../reports/research_stage_b_review_20261116/analysis.json) agrees with the published Stage B report:

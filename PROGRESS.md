@@ -8,7 +8,8 @@
 
 | Research task | Status | Evidence / next action |
 | --- | --- | --- |
-| Stage B sample reuse, probe fidelity and cost replay | COMPLETE / AUDITED / REVIEWED | 74 targeted Windows tests passed; 96/96 quiet successful probes, 32 eligible groups and eight false-reassurance candidates. CSV review reproduced choices/costs. Current information/economics gate did not pass; [decision and next artifact](docs/research/STAGE_B_REVIEW.md). Hold Stage C/training; individual-worker export remains to be implemented |
+| Stage B sample reuse, probe fidelity and cost replay | COMPLETE / AUDITED / REVIEWED | 74 targeted Windows tests passed; 96/96 quiet successful probes, 32 eligible groups and eight false-reassurance candidates. CSV review reproduced choices/costs. Current information/economics gate did not pass; [decision](docs/research/STAGE_B_REVIEW.md). Hold Stage C/training; inspect continuous signals next |
+| Existing Stage A/B worker memory export | COMPLETE / VERIFIED | [321 separate lifetimes from 144 attempts](reports/worker_memory_stage_a_b_v1/README.md); frozen plan/raw hashes and 1,507 diagnostic-file hashes verified, no missing requested worker fields. Eight synthetic exporter tests passed; original raw files preserved, no benchmarks rerun |
 | Isolated data/probe generation, supervised runner and telemetry | IMPLEMENTED | `safe_pipe/research/` |
 | Frozen plans, resume, analysis and evidence export | IMPLEMENTED | `experiments/probe_pilot.py`, `experiments/export_probe_evidence.py` |
 | Correctness/regression checks | PASSED on Mac | 120-test suite, then 2 added checks; 16 tiny Dask runs verified |

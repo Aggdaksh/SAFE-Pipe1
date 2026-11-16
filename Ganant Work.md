@@ -176,9 +176,18 @@
 - Both probe-choice replays selected 1 GB on all eight instances, mapping to 17/24 historical full successes; fixed 2 GB and file-metadata replays each map to 24/24. No selected full jobs were newly executed. Median six-probe plus preparation cost is 24.62 s at 1/8 and 26.38 s at 1/4, versus 4.96 s for the same-cohort historical fixed-2-GB full comparator. This does not establish online savings or independent reliability.
 - Preserved the negative fidelity/economics findings and updated canonical context, progress and handoff. Generated samples remain local (1.04 GiB), raw diagnostics about 1.81 MB; about 43.6 GiB remained free disk. Stopped after Stage B for interpretation, with no Stage C, extra seeds, classifier, training or main merge.
 
+## Checkpoint 25 — Exported existing worker memory evidence
+
+- Fast-forwarded the research branch from `3640874` to the Stage B review at `bbdcb57`. The user's current scope is existing-record export only; no benchmarks, dataset generation, training or main merge.
+- Added the standard-library-only `experiments/export_worker_memory.py` and [worker memory export](reports/worker_memory_stage_a_b_v1/README.md). All **48 Stage A runs / 129 lifetimes** and **96 Stage B probes / 192 lifetimes** are represented. Stage A's 33 added worker lifetimes remain separate from its 96 initial workers; Stage B has 192 initial workers and no added lifetimes.
+- Exported configuration/target and effective caps, fractions/repeats, first/peak RSS, managed/spill peaks, sampling counts/errors/window, thresholds, run status and sanitized lifetime-specific scheduler/nanny/exit evidence. Public artifacts omit PID/address/local paths. Missing values stay null/blank; all requested worker fields were present. Stage A parent-dataset hashes are not applicable and remain null.
+- Verified frozen Stage A/B canonical plan hashes, raw JSONL byte hashes, published plans, unique run/cell identities and original completion counts/statuses. All **1,507 retained diagnostic-file hashes** and **37 raw nanny memory messages** matched. All **321 snapshots exactly match telemetry**; no unmatched worker evidence or missing diagnostic files. Rehashed 1,515 original evidence/anchor files after reading; unchanged.
+- **Eight synthetic exporter tests passed**, covering separate lifetimes/PID reuse, ambiguous evidence, privacy filtering, null versus measured zero, failed hashes, missing snapshots and read-only destination protection. CSV/JSON parity and export identities were checked separately. No physical workload tests ran and no packages changed.
+- Preserve original ignored raw directories on this PC. The export is a handoff artifact for subsequent continuous-memory/metadata analysis, not a new policy validation or proof of OS OOM. Research remains on `codex/partition-probe-research`.
+
 ## Current work and next steps
 
-1. Stage B is complete and audited. Review the quiet-probe/full-pressure discrepancies, strong metadata baseline and profiling cost before declaring any revised use case or further experiment. Preserve every raw result and provenance record. Research stays separate from `main`.
+1. Stage B and the read-only worker export are complete and audited. Inspect the exported continuous worker observations alongside quiet-probe/full-pressure discrepancies, the metadata baseline and profiling cost before declaring any revised use case or further experiment. Preserve every raw result and provenance record. Research stays separate from `main`.
 2. After complete matched cells exist, assess whether proxy ranking errors persist beyond repeat noise and the uniform-memory baseline. Any adaptive controller or reliability model remains conditional on that evidence. The original advisor's prospective validation and formal submission remain separate pending work.
 
 ## Resume commands on this PC
