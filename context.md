@@ -4,6 +4,8 @@
 
 **Learning handoff:** [SAFE_PIPE_LEARNING_GUIDE.html](SAFE_PIPE_LEARNING_GUIDE.html) explains the original prototype through midterm, the later research studies, exact model/error metrics, parameters, current gates and the 39-commit history through evidence checkpoint `7f9c1b0`. Prepared 18 November using existing reports only; its publication is a documentation change, not a new experiment or model result. [Machine-readable fact snapshot](docs/learning_guide_facts.json) records that revision and source hashes. Browser visual inspection was unavailable; local links, data and interactive logic were checked separately. Probe admission and the pilot remain disabled.
 
+**Hinglish version:** [SAFE_PIPE_LEARNING_GUIDE_HINGLISH.html](SAFE_PIPE_LEARNING_GUIDE_HINGLISH.html) translates the complete guide into Roman-script Hinglish, including glossary, quiz and interactive feedback. It preserves the same embedded evidence, six SVG figures, formulas and code identifiers. English remains available; both versions have a language link. Reviewed translations and the document-only builder are in `docs/learning_guide_hinglish_translations.json` and `experiments/build_hinglish_guide.py`. This is a language/documentation update only.
+
 ## Start here: current goal and execution constraints
 
 The user's current objective is to develop and rigorously evaluate a **research-paper contribution** on top of SAFE-Pipe. Merely adding an ML library, calibrating an existing predictor, or changing from Spark to Dask is not sufficient novelty.

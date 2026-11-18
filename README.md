@@ -2,6 +2,8 @@
 
 **New to the project?** Read the [complete visual learning guide](SAFE_PIPE_LEARNING_GUIDE.html): simple explanations, worked examples, interactive calculators, midterm-to-research history, model metrics and current limitations. Download/open the HTML in a browser for the full offline experience; GitHub's file view displays source.
 
+**Prefer Hinglish?** The [full Hinglish guide](SAFE_PIPE_LEARNING_GUIDE_HINGLISH.html) covers the same 28 chapters, figures, formulas and interactive examples in simple Roman-script Hinglish. Both guides link to each other.
+
 **One-probe prototype (16 November 2026):** [existing-data feasibility](reports/one_probe_feasibility_20261116/README.md) finds no extra decision benefit over size-aware metadata and higher constructed cost even with one probe. [Windows software verification passed](reports/one_probe_windows_checks_v1/README.md): 38 targeted synthetic tests, eight default decisions, 24 single-observation counterfactual decisions and 37 termination records checked without code fixes. Admission and the proposed pilot remain disabled; no new benchmark/training or main merge is scheduled.
 
 **Worker-memory review (16 November 2026):** all 144 Stage A/B attempts and 321 worker lifetimes are exported and cross-checked. Continuous probe memory separates historical pressure groups in this development table, but reproduces the file-metadata split; no extra policy benefit is established. Persisted worker peaks can also miss higher termination-time nanny readings. Read the [findings and next decision](reports/worker_memory_review_20261116/README.md). No new benchmark or training is scheduled.

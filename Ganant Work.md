@@ -202,6 +202,14 @@
 - [Fact snapshot](docs/learning_guide_facts.json) preserves 16 normalized source-file hashes, saved prediction examples, metrics and commit identities. Recomputed the held-out MdAPE from the existing 24 prediction rows; checked local links, unique IDs and interactive arithmetic against saved artifacts. No benchmarks, training or original report regeneration.
 - Browser review was blocked because Computer Use could not establish the current browser URL; no further UI actions were attempted. Local structural/data/JavaScript checks were used, and visual browser inspection is not claimed. Research admission/pilot remain disabled; no main merge.
 
+## Checkpoint 28 — Added the full Hinglish learning guide
+
+- Created [SAFE_PIPE_LEARNING_GUIDE_HINGLISH.html](SAFE_PIPE_LEARNING_GUIDE_HINGLISH.html) at the user's request. Translated all explanatory paragraphs, chapter headings, callouts, worked-example explanations, glossary/viva answers, table descriptions, quiz choices/feedback and interactive display messages into simple Roman-script Hinglish. Original commit messages, technical identifiers and formulas remain reference text.
+- Preserved all 28 chapters, six original SVG figures, 12 formula blocks and the exact embedded fact/prediction payload. The underlying evidence snapshot remains `7f9c1b0`; later documentation commits do not become new experiment results or alter its frozen commit counts.
+- Kept the English version, added two-way language links and a README/context pointer. Added reviewed local translation data plus `experiments/build_hinglish_guide.py` for reproducible document generation. No external translation service or new package was used.
+- Checked source-data parity, code/formula/figure preservation, local links and the translated interactive calculations/quiz. Browser visual inspection remains unverified after the earlier Computer Use access restriction; no new UI automation was attempted.
+- Documentation-only change on the research branch. No benchmarks, datasets, training, policy/threshold/gate changes, raw-data/credential staging or main merge. Existing unrelated `output/` and `tools/` artifacts remain untouched.
+
 ## Current work and next steps
 
 1. Stage B, worker-memory review/export and one-probe Windows verification are complete. The current single-request information/economics gate still fails despite software verification passing. Propose a distinct useful signal/use case with credible total-cost economics and closest-work comparison before any further physical experiment; keep admission/pilot disabled. Preserve every raw result and provenance record. Research stays separate from `main`.
