@@ -1,6 +1,8 @@
 # SAFE-Pipe project context
 
-**Updated:** 2026-11-16. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
+**Updated:** 2026-11-18. Canonical project memory: read this file first when resuming in another chat or on another PC. Update it after decisions, completed work or scope changes.
+
+**Learning handoff:** [SAFE_PIPE_LEARNING_GUIDE.html](SAFE_PIPE_LEARNING_GUIDE.html) explains the original prototype through midterm, the later research studies, exact model/error metrics, parameters, current gates and the 39-commit history through evidence checkpoint `7f9c1b0`. Prepared 18 November using existing reports only; its publication is a documentation change, not a new experiment or model result. [Machine-readable fact snapshot](docs/learning_guide_facts.json) records that revision and source hashes. Browser visual inspection was unavailable; local links, data and interactive logic were checked separately. Probe admission and the pilot remain disabled.
 
 ## Start here: current goal and execution constraints
 

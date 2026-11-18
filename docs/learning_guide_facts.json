@@ -1,0 +1,617 @@
+{
+  "prepared_date": "2026-11-18",
+  "evidence_revision": "7f9c1b0347473e448d09f8e003e4b6e93dd10691",
+  "main_revision": "504f005efa24bfbf6fb5e43c99548a8400529bfe",
+  "count_scope": "Reachable published research history through evidence_revision; excludes this guide publication. Not network-push event counts.",
+  "commit_counts": {
+    "reachable_commits": 39,
+    "main_baseline_commits": 20,
+    "research_commits_after_main": 19
+  },
+  "commit_authors": {
+    "Codex": 25,
+    "Daksh Aggarwal": 14
+  },
+  "model_metrics": {
+    "data_version": "main-v1",
+    "train_rows": 36,
+    "calibration_rows": 36,
+    "calibration_groups": 12,
+    "test_rows": 24,
+    "test_groups": 8,
+    "upper_log_offset": 0.5236420631183731,
+    "test_mdape_percent": 13.842297329243673,
+    "median_baseline_test_mdape_percent": 23.013084199639323,
+    "test_row_upper_coverage": 1.0,
+    "test_group_upper_coverage": 1.0,
+    "mean_upper_width_seconds": 1.3300616817068183,
+    "table_sha256": "7d5bb315e90239cfdd53a10dbbc8042ebbdcbbc840bcde1bd13782bf3704ba42",
+    "split_sha256": "d93cde5419e8b7ffe43e1d885f9901f09c204de1457f6950368d0408e8996b8f",
+    "model_spec": "LightGBM log-runtime; 120 trees, 7 leaves, min child 3, learning rate 0.05, L2 1; grouped max-residual split conformal alpha=0.1",
+    "limitations": "Only four workload profiles and eight test family/config cells; all physical runs succeeded. Coverage is descriptive, not a validated population guarantee."
+  },
+  "encoded_features": 22,
+  "training_set_metric": "Not reported in saved metrics; no value inferred.",
+  "advisor": {
+    "scan_filter": {
+      "workload": {
+        "family": "scan_filter",
+        "input_bytes": 198446552,
+        "estimated_rows": 23320000,
+        "file_count": 16,
+        "partition_count": 16,
+        "skew_score": 0.1,
+        "format": "parquet"
+      },
+      "engine_sla_seconds": 2.6,
+      "saved_selected_config": "w2_t1_1g",
+      "candidates": [
+        {
+          "config_id": "w1_t1_1g",
+          "configured_threads": 1,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 2.3377999543774073,
+          "runtime_upper_s": 3.946591755725134
+        },
+        {
+          "config_id": "w1_t2_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 1.0967236864068919,
+          "runtime_upper_s": 1.851450399328379
+        },
+        {
+          "config_id": "w1_t1_2g",
+          "configured_threads": 1,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 2.3138217214486647,
+          "runtime_upper_s": 3.9061125452536656
+        },
+        {
+          "config_id": "w1_t2_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 1.240190923945188,
+          "runtime_upper_s": 2.0936467497154627
+        },
+        {
+          "config_id": "w2_t1_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 0.8811864441230072,
+          "runtime_upper_s": 1.487587998759615
+        },
+        {
+          "config_id": "w2_t2_1g",
+          "configured_threads": 4,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 0.818539015602654,
+          "runtime_upper_s": 1.3818288107448944
+        },
+        {
+          "config_id": "w2_t1_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 0.7880736508307374,
+          "runtime_upper_s": 1.3303982521896716
+        },
+        {
+          "config_id": "w2_t2_2g",
+          "configured_threads": 4,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 0.7103631050260532,
+          "runtime_upper_s": 1.1992100387450595
+        }
+      ]
+    },
+    "groupby": {
+      "workload": {
+        "family": "groupby",
+        "input_bytes": 198487831,
+        "estimated_rows": 14970000,
+        "file_count": 16,
+        "partition_count": 16,
+        "skew_score": 0.1,
+        "format": "parquet"
+      },
+      "engine_sla_seconds": 7.9,
+      "saved_selected_config": "w2_t2_1g",
+      "candidates": [
+        {
+          "config_id": "w1_t1_1g",
+          "configured_threads": 1,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 4.316435406935439,
+          "runtime_upper_s": 7.286854616980353
+        },
+        {
+          "config_id": "w1_t2_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 2.0236200549977785,
+          "runtime_upper_s": 3.416204286778327
+        },
+        {
+          "config_id": "w1_t1_2g",
+          "configured_threads": 1,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 4.288966413209592,
+          "runtime_upper_s": 7.240482426762151
+        },
+        {
+          "config_id": "w1_t2_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 2.29847939177785,
+          "runtime_upper_s": 3.880212163281685
+        },
+        {
+          "config_id": "w2_t1_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 2.302900742466073,
+          "runtime_upper_s": 3.8876761321908453
+        },
+        {
+          "config_id": "w2_t2_1g",
+          "configured_threads": 4,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 1.5107655769798716,
+          "runtime_upper_s": 2.5504213736414245
+        },
+        {
+          "config_id": "w2_t1_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 2.133448275470454,
+          "runtime_upper_s": 3.601612430298826
+        },
+        {
+          "config_id": "w2_t2_2g",
+          "configured_threads": 4,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 1.3606452521096557,
+          "runtime_upper_s": 2.296993514944526
+        }
+      ]
+    },
+    "skewed_join": {
+      "workload": {
+        "family": "skewed_join",
+        "input_bytes": 174604451,
+        "estimated_rows": 17040000,
+        "file_count": 16,
+        "partition_count": 16,
+        "skew_score": 1.2,
+        "format": "parquet"
+      },
+      "engine_sla_seconds": 4.3,
+      "saved_selected_config": "w2_t1_1g",
+      "candidates": [
+        {
+          "config_id": "w1_t1_1g",
+          "configured_threads": 1,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 2.3664003144196233,
+          "runtime_upper_s": 3.994873878813566
+        },
+        {
+          "config_id": "w1_t2_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 1.1530233212364864,
+          "runtime_upper_s": 1.946493465033283
+        },
+        {
+          "config_id": "w1_t1_2g",
+          "configured_threads": 1,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 2.357312219193443,
+          "runtime_upper_s": 3.9795316757188446
+        },
+        {
+          "config_id": "w1_t2_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 1.3084916096957988,
+          "runtime_upper_s": 2.20894956798655
+        },
+        {
+          "config_id": "w2_t1_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 0.8994964478284985,
+          "runtime_upper_s": 1.5184983037821136
+        },
+        {
+          "config_id": "w2_t2_1g",
+          "configured_threads": 4,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 0.8815876005594298,
+          "runtime_upper_s": 1.4882652169628994
+        },
+        {
+          "config_id": "w2_t1_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 0.8057005669252651,
+          "runtime_upper_s": 1.360155392704309
+        },
+        {
+          "config_id": "w2_t2_2g",
+          "configured_threads": 4,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 0.7895681113526664,
+          "runtime_upper_s": 1.332921147942175
+        }
+      ]
+    },
+    "sort_merge": {
+      "workload": {
+        "family": "sort_merge",
+        "input_bytes": 178382606,
+        "estimated_rows": 12770000,
+        "file_count": 16,
+        "partition_count": 16,
+        "skew_score": 0.1,
+        "format": "parquet"
+      },
+      "engine_sla_seconds": 13.1,
+      "saved_selected_config": "w2_t2_1g",
+      "candidates": [
+        {
+          "config_id": "w1_t1_1g",
+          "configured_threads": 1,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 7.601097504612301,
+          "runtime_upper_s": 12.831905779617848
+        },
+        {
+          "config_id": "w1_t2_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 1000000000,
+          "total_memory_gb": 1.0,
+          "predicted_runtime_s": 3.2970529119413223,
+          "runtime_upper_s": 5.565968899987639
+        },
+        {
+          "config_id": "w1_t1_2g",
+          "configured_threads": 1,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 6.831288779752092,
+          "runtime_upper_s": 11.532341733802099
+        },
+        {
+          "config_id": "w1_t2_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 3.4703258309110994,
+          "runtime_upper_s": 5.858482154689394
+        },
+        {
+          "config_id": "w2_t1_1g",
+          "configured_threads": 2,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 3.4632085257164373,
+          "runtime_upper_s": 5.84646697009174
+        },
+        {
+          "config_id": "w2_t2_1g",
+          "configured_threads": 4,
+          "total_memory_bytes": 2000000000,
+          "total_memory_gb": 2.0,
+          "predicted_runtime_s": 2.291982834605805,
+          "runtime_upper_s": 3.8692449036888434
+        },
+        {
+          "config_id": "w2_t1_2g",
+          "configured_threads": 2,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 3.233156686820632,
+          "runtime_upper_s": 5.458101537422636
+        },
+        {
+          "config_id": "w2_t2_2g",
+          "configured_threads": 4,
+          "total_memory_bytes": 4000000000,
+          "total_memory_gb": 4.0,
+          "predicted_runtime_s": 2.1456188948037425,
+          "runtime_upper_s": 3.622158442301644
+        }
+      ]
+    }
+  },
+  "one_probe_checks": {
+    "tests_passed": 38,
+    "default_decisions_checked": 8,
+    "single_observation_decisions_checked": 24,
+    "termination_records_checked": 37,
+    "admission_enabled": false,
+    "new_pilot_enabled": false,
+    "physical_attempts_executed": 0,
+    "git_revision": "82d40af89c681644ecc4a221c7b09f58ef964441"
+  },
+  "source_sha256_lf": {
+    "artifacts/main_v1/runtime_metrics.json": "652e129cc05f8fad5bbb4aa132c4a5e7892533ffd0cb3aef04f7e645bba6beb9",
+    "artifacts/main_v1/runtime_test_predictions.csv": "5183b503dbb0eac9b043bcadfcade306f0f1167adae60125ee961c86e0730cee",
+    "reports/advisor_v1/balanced_examples.json": "b51f73bcdc0ffb28eb68dbb090b0aec8d28a36e03a150899496fdf0e5bc0a44d",
+    "reports/policy_metrics.json": "1a1cfe91f94ea371e5896af9202980b0aa72596b673b230bb842b15c58b445b4",
+    "configs/dask_grid.json": "13f9adfcb6e89b36de4c8f414e68b5444afce78fce3ea81ecb3603d635d966ec",
+    "configs/datasets_main_v1.json": "a22e7eed9001893914b2becef42ca96fd6ac6f0452192d2639a1514474c4bf29",
+    "configs/family_sla_main_v1.json": "aed3ac93c291ca1d7433df2669064e7750b2c8ff9b4c3783303c8cb22bc2f9cb",
+    "reports/research_probe_windows_mains_v1_complete/completion_audit.json": "827c22d408d14a5094cfbfec9f05ff09a127cbabf283cd6c7f58afec7ec85728",
+    "reports/research_stage_a_windows_v1/completion_audit.json": "e2825617969b1f7df6ef8c35ecf04e12c371c6fd871ddc27535c651aa243722d",
+    "reports/research_stage_b_windows_v1/completion_audit.json": "251de0cd128430c2d73aa9454a7a2d458176c0c2005543a2b9a16cdada4ff36d",
+    "reports/worker_memory_stage_a_b_v1/verification.json": "81ddcd925f27f7ee7e8fc27295e4c7f5aef7e1f2c141aca940b4dcadabb143d6",
+    "reports/worker_memory_review_20261116/analysis.json": "92f241a738d84da5787d3a772152086e9a5afa49eb22b7e9a836550160245fa4",
+    "reports/one_probe_feasibility_20261116/analysis.json": "741585f88d10679920841e23be4a0254f6233bc63ef54600cc18d0e0fc428be9",
+    "reports/one_probe_windows_checks_v1/verification.json": "00902572793ab14905bdb300344f5cfb05e9d03216fbf271a9ad94b94ed77ccc",
+    "configs/research_one_probe_v1.json": "f7267fedee0c0f765b88498a8880ea68a66cf70ab49dfcb2a23c8da136fb1877",
+    "configs/research_one_probe_pilot_draft_v1.json": "3bf0158524872178583f3abd521f0cbd574475ddcb252fbe0bc81d009750de70"
+  },
+  "commits": [
+    {
+      "sha": "f474aaef964444ff996040c1e105311b9fc0f650",
+      "date": "2026-10-25",
+      "author": "Daksh Aggarwal",
+      "subject": "Initialize SAFE-Pipe B-lite with project docs, schemas, and optimizer."
+    },
+    {
+      "sha": "63fde796f497b6635f5454c58bed502a27b66bb7",
+      "date": "2026-10-25",
+      "author": "Daksh Aggarwal",
+      "subject": "Add living context.md plus Phase 2 architecture and micro-plan."
+    },
+    {
+      "sha": "13cf78598bff6774e5bb51bf6496e881e5ea8cd9",
+      "date": "2026-10-26",
+      "author": "Daksh Aggarwal",
+      "subject": "Implement Mac-side workload tooling and refresh project handoff docs"
+    },
+    {
+      "sha": "8c8e00ca90753b2b5da947f095473a40f41b1f61",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Implement Windows Dask execution and record T0 pilots"
+    },
+    {
+      "sha": "76808119c5d6877672dcb53e8564e13565a8a143",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Freeze main datasets SLAs and randomized Dask matrix plan"
+    },
+    {
+      "sha": "efb6bccb0a092025db3e278b223163deb52b07a1",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Audit 96 Dask runs and freeze grouped model split"
+    },
+    {
+      "sha": "83c1b0674a892d5413d1988320d2a7cb0fc44e42",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Add fitted policy results demo and Ganant PC handoff log"
+    },
+    {
+      "sha": "1ce299dfe7e0a4c2b82fef3c8f5f1d39f321904e",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Record Ganant PC handoff and GitHub push blocker"
+    },
+    {
+      "sha": "b623a74c0996e29a9b07ead8d923826c3eaa71e2",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Ignore local Git PAT file"
+    },
+    {
+      "sha": "98f989ed35fa1cd5401d0f95b58277f4f70a6c3c",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Log pending Git PAT handoff"
+    },
+    {
+      "sha": "f5b6e3d0ff0bafba1566237adae1b47ef3f1be60",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Record successful GitHub branch publication"
+    },
+    {
+      "sha": "6021c2258d3676d27fcd6547dfc0e6a5ae4dc490",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Add beginner SAFE-Pipe project lesson"
+    },
+    {
+      "sha": "496e30c13ce88c881b6fecf7efd7d66a48d34949",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Expand SAFE-Pipe lesson with worked examples"
+    },
+    {
+      "sha": "33fb23219cacc60b5aee1c6756d513c45e8a21ac",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Document midterm progress against submitted synopsis"
+    },
+    {
+      "sha": "c1646578210083604ac8a2349caa53725115043c",
+      "date": "2026-10-26",
+      "author": "Codex",
+      "subject": "Add midterm presentation agent handoff"
+    },
+    {
+      "sha": "c3e328ae61bdf7d77b0156df47a05f7949f73cc2",
+      "date": "2026-10-27",
+      "author": "Daksh Aggarwal",
+      "subject": "Add explained balanced configuration advisor and audited replay"
+    },
+    {
+      "sha": "0d17438c9ec32315c185bd581f2b9b74d43ae17f",
+      "date": "2026-10-27",
+      "author": "Daksh Aggarwal",
+      "subject": "Preserve LightGBM loading across newline formats and verify compatibility"
+    },
+    {
+      "sha": "abb21f711692cd427670a9152673a83857167449",
+      "date": "2026-10-28",
+      "author": "Codex",
+      "subject": "Explain main sync and current advisor status"
+    },
+    {
+      "sha": "0236de4dbae4eed92a7c43e9839d5f1c36c6251e",
+      "date": "2026-10-28",
+      "author": "Codex",
+      "subject": "Record main integration and update project status"
+    },
+    {
+      "sha": "504f005efa24bfbf6fb5e43c99548a8400529bfe",
+      "date": "2026-10-28",
+      "author": "Codex",
+      "subject": "Rewrite README as project overview and evidence guide"
+    },
+    {
+      "sha": "975b446001c68a4f9f8b1811c96f55b530abe740",
+      "date": "2026-11-02",
+      "author": "Daksh Aggarwal",
+      "subject": "Add isolated partition-probe research pilot and laptop handoff"
+    },
+    {
+      "sha": "24193608b9e9c64c7ccfe98290777c2e5f843e3a",
+      "date": "2026-11-02",
+      "author": "Daksh Aggarwal",
+      "subject": "Update project memory with research goal, evidence and next steps"
+    },
+    {
+      "sha": "7fbc34b7d837dbd29ac15506cf1296458ec832a9",
+      "date": "2026-11-13",
+      "author": "Codex",
+      "subject": "Record Windows probe smoke and partial screen evidence"
+    },
+    {
+      "sha": "5516d1aeaced89e1b8cc361fdb37ebd9df8dcc3f",
+      "date": "2026-11-13",
+      "author": "Codex",
+      "subject": "Record unplugged power state for Windows probe checkpoint"
+    },
+    {
+      "sha": "d8725ee781e93cebe619c52ca360411c981393d1",
+      "date": "2026-11-13",
+      "author": "Codex",
+      "subject": "Record monitored Windows screen and retained failure evidence"
+    },
+    {
+      "sha": "907e1255677cd7b97412bfdd567f9a05268b9325",
+      "date": "2026-11-13",
+      "author": "Codex",
+      "subject": "Prepare screen completion with retained reviewed failures"
+    },
+    {
+      "sha": "6c08ec9137778e9f66cee4be9a355c435c8c8f36",
+      "date": "2026-11-14",
+      "author": "Codex",
+      "subject": "Audit completed 768-cell Windows probe screen and report findings"
+    },
+    {
+      "sha": "2bf9335f315d9d5e2aa9bdb121f4a9be362d02d1",
+      "date": "2026-11-15",
+      "author": "Daksh Aggarwal",
+      "subject": "Audit probe selection, overhead and baselines; plan gated follow-up"
+    },
+    {
+      "sha": "73de101de934102ebf392d58e366f242ca55652c",
+      "date": "2026-11-15",
+      "author": "Daksh Aggarwal",
+      "subject": "Prepare Windows-only Stage A with durable probe diagnostics"
+    },
+    {
+      "sha": "77362b635df6388885487688fce3883db80f1b5b",
+      "date": "2026-11-15",
+      "author": "Codex",
+      "subject": "Validate Windows diagnostics and complete 48-attempt Stage A"
+    },
+    {
+      "sha": "02de929f176455f55324c2e5947a7dd71d18a73a",
+      "date": "2026-11-15",
+      "author": "Daksh Aggarwal",
+      "subject": "Interpret Stage A evidence and define the Stage B decision gates"
+    },
+    {
+      "sha": "c623a3608e0bf34ebd1bc68fd5ea64857158a6ee",
+      "date": "2026-11-15",
+      "author": "Daksh Aggarwal",
+      "subject": "Prepare bounded Stage B probes with provenance and fidelity analysis"
+    },
+    {
+      "sha": "beb8709159e1d97d930801555883792c6259ca81",
+      "date": "2026-11-15",
+      "author": "Codex",
+      "subject": "Record Stage B handoff sync and remaining Windows tasks"
+    },
+    {
+      "sha": "3640874efde60e26f34b8f04318c78cd1684cf9d",
+      "date": "2026-11-16",
+      "author": "Codex",
+      "subject": "Complete and audit Stage B probe fidelity and cost study"
+    },
+    {
+      "sha": "bbdcb579d074484b44a5e4d09a361ee83d5218e9",
+      "date": "2026-11-16",
+      "author": "Daksh Aggarwal",
+      "subject": "Review Stage B fidelity and cost evidence; hold further experiments"
+    },
+    {
+      "sha": "c8872b46b9f9535636063325889628bab091e9b0",
+      "date": "2026-11-16",
+      "author": "Codex",
+      "subject": "Export and verify existing Stage A/B worker memory lifetimes"
+    },
+    {
+      "sha": "0bdac0fdf8485ee3f7da0df4b5793e3126ba56bc",
+      "date": "2026-11-16",
+      "author": "Daksh Aggarwal",
+      "subject": "Review worker-memory signals and limits of retained peak measurements"
+    },
+    {
+      "sha": "82d40af89c681644ecc4a221c7b09f58ef964441",
+      "date": "2026-11-16",
+      "author": "Daksh Aggarwal",
+      "subject": "Evaluate one-probe feasibility and add gated research decision prototype"
+    },
+    {
+      "sha": "7f9c1b0347473e448d09f8e003e4b6e93dd10691",
+      "date": "2026-11-16",
+      "author": "Codex",
+      "subject": "Verify one-probe decision code on Windows without physical runs"
+    }
+  ]
+}

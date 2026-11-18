@@ -1,6 +1,6 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-11-16 (Asia/Kolkata)<br>
+**Updated:** 2026-11-18 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
 **Working branch:** `codex/partition-probe-research` (research development; `main` retains the original advisor)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
@@ -192,6 +192,15 @@
 - **Verification PASS:** actual captured pytest output is **38 passed in 0.23 s**. Existing-data checks verified **eight default decisions**, **24 single-observation counterfactual decisions** and **37 worker-termination memory representations**. These are software replays, not fresh probes or statistically independent workload observations.
 - **No implementation fixes were required.** Thresholds, evidence, policy and gate stayed unchanged. All 1,513 protected Stage A/B plan/raw/diagnostic and policy/draft-file hashes matched before and after the command. All eight default decisions requested zero probes; checked-in admission and the pilot remain disabled, and no physical attempts ran.
 - Saved [verification/test output and session notes](reports/one_probe_windows_checks_v1/README.md), updated the canonical context and handoff statuses, and prepared the results for the same research branch. No Dask jobs, 48-run pilot, Stage C, dataset generation, model training, credential staging or main merge.
+
+## Checkpoint 27 — Created the extensive visual learning guide
+
+- On 18 November 2026, checked the tracked working tree and fetched the connected remote. Research local/remote evidence remained at `7f9c1b0`, main at `504f005`; existing untracked `output/` and `tools/` remained untouched.
+- Created [SAFE_PIPE_LEARNING_GUIDE.html](SAFE_PIPE_LEARNING_GUIDE.html), a self-contained offline English guide with 28 chapters, about 10,900 words, six explanatory SVG diagrams, result charts, worked examples, three interactive teaching tools, a glossary/viva section and a five-question self-check. Added discovery links from README and the earlier explainer, preserving the old lesson.
+- Covered the initial documented checkout, 96-run original prototype, midterm scope, feature inputs, LightGBM training/split/calibration, exact test MdAPE, policy objectives, research screen/Stage A/Stage B, worker-memory limits, one-probe feasibility and the current closed research gate. Explicitly reported that training-set accuracy is not in the saved metrics and that no new research model was fitted.
+- Recorded the scoped Git history through `7f9c1b0`: 39 reachable commits, 20 through main plus 19 research commits. Distinguished commits from network push events, authorship identities from individual contribution, software tests from physical jobs, and replays from independent validation. The guide publication itself is excluded from those frozen counts.
+- [Fact snapshot](docs/learning_guide_facts.json) preserves 16 normalized source-file hashes, saved prediction examples, metrics and commit identities. Recomputed the held-out MdAPE from the existing 24 prediction rows; checked local links, unique IDs and interactive arithmetic against saved artifacts. No benchmarks, training or original report regeneration.
+- Browser review was blocked because Computer Use could not establish the current browser URL; no further UI actions were attempted. Local structural/data/JavaScript checks were used, and visual browser inspection is not claimed. Research admission/pilot remain disabled; no main merge.
 
 ## Current work and next steps
 
