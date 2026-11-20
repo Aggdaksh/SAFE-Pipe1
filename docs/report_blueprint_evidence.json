@@ -1,0 +1,68 @@
+{
+  "prepared_date": "2026-11-20",
+  "review_scope": "Report-structure and evidence-gap analysis; no scientific claims of the supplied senior reports independently validated.",
+  "repository_revision_at_review": "03ab01b2c55dc814d80995b59ebcec7a7b34e7a4",
+  "sources": [
+    {
+      "label": "btech",
+      "title": "Two Stage 3D-ResNets for Predicting Lumbar Spine Degeneration Severity",
+      "sha256": "d793f14f2403193a2913ba00c9234a0973f14c6095a0470f67ab18c82c91d9e5",
+      "physical_pdf_pages": 24,
+      "front_matter_pages": 10,
+      "all_pages_text_read": true,
+      "all_pages_rendered": true,
+      "all_pages_layout_overview_reviewed": true,
+      "selected_full_size_visual_review_pdf_pages": [
+        1,
+        9,
+        19,
+        20
+      ],
+      "page_size_approx": "A4",
+      "reference_entries": 6
+    },
+    {
+      "label": "minor",
+      "title": "Denoising Autoencoder Using Transfer Learning Models",
+      "sha256": "704748ad41af86afa50309de047307c46278becd9ce334b79ba297c33401fe3d",
+      "physical_pdf_pages": 23,
+      "front_matter_pages": 5,
+      "all_pages_text_read": true,
+      "all_pages_rendered": true,
+      "all_pages_layout_overview_reviewed": true,
+      "selected_full_size_visual_review_pdf_pages": [
+        18,
+        20
+      ],
+      "page_size_approx": "A4",
+      "reference_entries": 7
+    }
+  ],
+  "source_pdf_paths": "User-supplied local PDFs outside repository; files and full extracts not republished.",
+  "safe_pipe_sources_sha256_lf": {
+    "context.md": "ad4b37276f987726c1ff54896180d7dbe5d7a15a284552d9e4618cc72d688120",
+    "docs/MIDTERM_SYNOPSIS_ALIGNMENT.md": "69546b07b628df6a705f1ebdf625a9a54b2286fe8e57bfb2e9ddb89c9a5eddac",
+    "docs/MIDTERM_PRESENTATION_HANDOFF.md": "fc34ca17d9ee77866154b8a076856b8d06dd37035f72db9efbb238a4e4e7f9af",
+    "docs/CONFIG_SELECTION.md": "280f4a4efbfb3d1f570930247bc3d97a7a59a186638bedfcce4215843539c502",
+    "docs/INDEPENDENT_VALIDATION.md": "e547db384a83cd239e7dfc1c011c1c06454dec9eea5e08a23b9124be6f2d9d9d",
+    "safe_pipe/workloads/execute_dask.py": "89a395e9dc0b4a867bbf7117e5f9a1b30b77bfdf3530b75d35d5f10ea8d151be",
+    "reports/project_i_results.md": "43c1bc834fc894e3dc7193c4380681dd14c6b5349822823618ee01aaeb68dfb1",
+    "artifacts/main_v1/runtime_metrics.json": "652e129cc05f8fad5bbb4aa132c4a5e7892533ffd0cb3aef04f7e645bba6beb9",
+    "artifacts/main_v1/runtime_test_predictions.csv": "5183b503dbb0eac9b043bcadfcade306f0f1167adae60125ee961c86e0730cee",
+    "reports/one_probe_feasibility_20261116/analysis.json": "741585f88d10679920841e23be4a0254f6233bc63ef54600cc18d0e0fc428be9",
+    "reports/one_probe_windows_checks_v1/verification.json": "00902572793ab14905bdb300344f5cfb05e9d03216fbf271a9ad94b94ed77ccc",
+    "reports/worker_memory_stage_a_b_v1/verification.json": "81ddcd925f27f7ee7e8fc27295e4c7f5aef7e1f2c141aca940b4dcadabb143d6"
+  },
+  "report_plan": {
+    "submission_stage": "Awaiting confirmation; current-stage and final-submission differences explained.",
+    "proposed_body_chapters": 8,
+    "provisional_total_page_target": "28-34 including front matter and references, subject to official instructions",
+    "official_dtu_template_verified": false,
+    "research_gate_opened": false,
+    "physical_experiments_executed": 0,
+    "new_training_executed": false,
+    "source_report_figures_copied_into_blueprint": false
+  },
+  "rendering": "Poppler unavailable. Source PDFs rendered using scratch-only PyMuPDF; no packages installed into either project virtual environment.",
+  "source_hash_scope": "LF-normalized source bytes captured during review, before the context/README/PC-log report-planning updates. Source PDFs and scientific files were preserved."
+}

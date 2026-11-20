@@ -1,6 +1,6 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-11-18 (Asia/Kolkata)<br>
+**Updated:** 2026-11-20 (Asia/Kolkata)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
 **Working branch:** `codex/partition-probe-research` (research development; `main` retains the original advisor)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
@@ -209,6 +209,16 @@
 - Kept the English version, added two-way language links and a README/context pointer. Added reviewed local translation data plus `experiments/build_hinglish_guide.py` for reproducible document generation. No external translation service or new package was used.
 - Checked source-data parity, code/formula/figure preservation, local links and the translated interactive calculations/quiz. Browser visual inspection remains unverified after the earlier Computer Use access restriction; no new UI automation was attempted.
 - Documentation-only change on the research branch. No benchmarks, datasets, training, policy/threshold/gate changes, raw-data/credential staging or main merge. Existing unrelated `output/` and `tools/` artifacts remain untouched.
+
+## Checkpoint 29 — Reviewed senior reports and planned SAFE-Pipe's academic report
+
+- Studied all 47 pages of the two locally supplied reports: a 24-page Software Engineering Project-I spine study and a 23-page IT denoising study. Read complete extracted text, rendered all pages, inspected full-document contact sheets and selected full-size cover/contents/architecture/results pages. Original PDFs were preserved and are not committed.
+- Used the already available pypdf/Pillow tools in `.venv` for reading and a PyMuPDF renderer installed only in ignored review scratch storage because Poppler was unavailable. Both project virtual environments, research execution code and scientific records are unchanged.
+- Verified source-PDF hashes after review, checked all 40 blueprint links and the unchanged scientific source files, then removed task-generated extracts, page images and scratch renderer files. Neither source PDF nor unrelated artifacts were removed.
+- Created [SAFE_PIPE_REPORT_BLUEPRINT.html](SAFE_PIPE_REPORT_BLUEPRINT.html): comparative structure/presentation review; strengths and weaknesses; eight-chapter outline; provisional page budget; evidence-gap matrix; figure/table register; claims checklist; academic inputs; formatting defaults; and a concrete writing/QA workflow. [Review evidence](docs/report_blueprint_evidence.json) stores source hashes and scope without republishing source PDFs or full extracts.
+- Recommended borrowing the first sample's structured contents/objectives/methodology/current-progress organization and the second's concrete comparative visual results, while improving evidence separation, metric reporting, consistency and claim strength. Do not copy subject matter, identities, signatures, broad novelty claims or template defects.
+- Existing SAFE-Pipe results support a substantial current-stage report. Academic metadata/template/stage confirmation, verified literature synthesis, updated architecture and publication-quality result figures remain writing/preparation work. Independent advisor validation and a justified new research method remain genuine research gaps where stronger final claims are desired.
+- Asked which evaluation/submission stage the report targets; the blueprint explains current-stage versus final-submission differences without treating either sample as a current mandatory DTU template. Research admission/pilot remain disabled. No new Dask jobs, dataset generation, training or main merge.
 
 ## Current work and next steps
 
