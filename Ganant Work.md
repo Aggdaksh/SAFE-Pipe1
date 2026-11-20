@@ -220,6 +220,12 @@
 - Existing SAFE-Pipe results support a substantial current-stage report. Academic metadata/template/stage confirmation, verified literature synthesis, updated architecture and publication-quality result figures remain writing/preparation work. Independent advisor validation and a justified new research method remain genuine research gaps where stronger final claims are desired.
 - Asked which evaluation/submission stage the report targets; the blueprint explains current-stage versus final-submission differences without treating either sample as a current mandatory DTU template. Research admission/pilot remain disabled. No new Dask jobs, dataset generation, training or main merge.
 
+## Checkpoint 30 — Confirmed Project-I report scope
+
+- The user confirmed on 20 November 2026 that the report is for **Project-I / the current evaluation**. Updated the report blueprint, evidence record and canonical context accordingly; submission stage is no longer an unanswered requirement.
+- The report should present the original advisor, completed research experiments, measured findings including negative feasibility, limitations and bounded remaining work. Official format/title, student IDs and supervisor particulars still need verification before formal front matter is generated.
+- This confirmation does not authorize new experiments, model training or main integration. The existing research gates and scientific records remain unchanged.
+
 ## Current work and next steps
 
 1. Stage B, worker-memory review/export and one-probe Windows verification are complete. The current single-request information/economics gate still fails despite software verification passing. Propose a distinct useful signal/use case with credible total-cost economics and closest-work comparison before any further physical experiment; keep admission/pilot disabled. Preserve every raw result and provenance record. Research stays separate from `main`.
