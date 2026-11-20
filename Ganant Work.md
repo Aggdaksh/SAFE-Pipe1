@@ -226,6 +226,11 @@
 - The report should present the original advisor, completed research experiments, measured findings including negative feasibility, limitations and bounded remaining work. Official format/title, student IDs and supervisor particulars still need verification before formal front matter is generated.
 - This confirmation does not authorize new experiments, model training or main integration. The existing research gates and scientific records remain unchanged.
 
+## Checkpoint 31 - Recorded Minor B.Tech Project terminology
+
+- The user clarified that the current report is called **Minor B.Tech Project**. Updated the blueprint, evidence record and context to use **Minor B.Tech Project Report** as the report-type label; the approved SAFE-Pipe title remains a separate field.
+- Preserved historical Project-I wording when describing the senior reference or earlier milestones. This is a terminology update with no change to research scope, scientific results, execution gates or main.
+
 ## Current work and next steps
 
 1. Stage B, worker-memory review/export and one-probe Windows verification are complete. The current single-request information/economics gate still fails despite software verification passing. Propose a distinct useful signal/use case with credible total-cost economics and closest-work comparison before any further physical experiment; keep admission/pilot disabled. Preserve every raw result and provenance record. Research stays separate from `main`.

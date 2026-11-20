@@ -54,7 +54,7 @@
     "reports/worker_memory_stage_a_b_v1/verification.json": "81ddcd925f27f7ee7e8fc27295e4c7f5aef7e1f2c141aca940b4dcadabb143d6"
   },
   "report_plan": {
-    "submission_stage": "Project-I / current evaluation",
+    "submission_stage": "Minor B.Tech Project / current evaluation",
     "proposed_body_chapters": 8,
     "provisional_total_page_target": "28-34 including front matter and references, subject to official instructions",
     "official_dtu_template_verified": false,
@@ -63,9 +63,11 @@
     "new_training_executed": false,
     "source_report_figures_copied_into_blueprint": false,
     "submission_stage_confirmation": {
-      "source": "Explicit user reply",
-      "date": "2026-11-20"
-    }
+      "source": "Explicit user terminology clarification",
+      "date": "2026-11-20",
+      "previous_label": "Project-I / current evaluation"
+    },
+    "preferred_report_type": "Minor B.Tech Project Report"
   },
   "rendering": "Poppler unavailable. Source PDFs rendered using scratch-only PyMuPDF; no packages installed into either project virtual environment.",
   "source_hash_scope": "LF-normalized source bytes captured during review, before the context/README/PC-log report-planning updates. Source PDFs and scientific files were preserved."
