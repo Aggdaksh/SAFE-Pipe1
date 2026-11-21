@@ -1,5 +1,7 @@
 # Validation plan: repeatability now, broader support later
 
+**Implementation update (2026-11-20):** branch `codex/main-advisor-completion` implements a dedicated frozen-study journal and fresh-results evaluator. Use the [Windows handoff](WINDOWS_MAIN_VALIDATION.md) for new collections. Its source/environment checks, durable attempt tracking and export replace the manual collection path below for this completion task. Windows software verification and physical validation are still pending; the older workflow below is retained to explain the scientific design, not as the preferred command sequence.
+
 The current advisor is a policy layer over the frozen main-v1 runtime model. It requires an exact match to one of four frozen workload descriptors. A changed byte count, row count, file/partition count, skew tag, or format causes abstention. Its prediction target is the original Windows experiment environment. Existing commands do not establish support for new profiles or other hosts.
 
 The 96 historical executions are four profiles × eight configurations × three repeats. The existing model test split holds out configuration cells, not workload profiles. [evaluate_advisor.py](../experiments/evaluate_advisor.py) reuses the historical table for preference/mode sensitivity; its output is descriptive replay, not independent validation. It does not accept a fresh-run table or implement the aggregation planned below.
@@ -29,7 +31,7 @@ For example, from the repository root on the original Windows PC, after the orig
 
 Save the four printed JSON reports before collection. Run the `run_matrix.py` command repeatedly until the new log contains all 96 cells; it resumes without repeating completed cells. Run the audit only after completion. The example paths must be new for a new experiment; an existing completed log will simply resume with no jobs remaining. These commands retain the input `data_version=main-v1` because the datasets are unchanged; record `repeatability_v1` separately as the evaluation/run-set identifier. The export script labels the host `windows_32gb`, so it must not be used unchanged to claim another host's provenance.
 
-These commands collect and audit fresh executions. **They do not compute an independent advisor-comparison report.** That analysis still needs an evaluator accepting the fresh table plus the saved, pre-run advisor reports. Running `evaluate_advisor.py` afterward would still read the old main-v1 table.
+These legacy commands collect and audit fresh executions. **They do not compute an independent advisor-comparison report.** The completion branch instead implements `experiments.validate_advisor` and `experiments.evaluate_fresh_advisor`, which bind saved pre-run advice to a new attempt journal. Their Windows verification is pending. Running the historical `evaluate_advisor.py` would still read the old main-v1 table.
 
 Predeclare that evaluator's outputs:
 

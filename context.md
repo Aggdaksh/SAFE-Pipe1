@@ -1,6 +1,16 @@
 # SAFE-Pipe project context
 
-**Updated:** 2026-10-28. Read this file first when working from another PC.
+**Updated:** 2026-11-21. Read this file first when working from another PC.
+
+## Active work: original-advisor completion
+
+The user authorized implementing the completion plan on **one separate branch**, with merging deferred. This worktree uses **`codex/main-advisor-completion`**, based on `main` at `504f005`. Keep the research branch `codex/partition-probe-research` separate. The full release sequence and acceptance criteria are in [`docs/MAIN_COMPLETION_PLAN.md`](docs/MAIN_COMPLETION_PLAN.md).
+
+Current deliverable implemented: a frozen prospective-study package, append-only attempt recording, fresh-results evaluator and Windows verification handoff. Static review and syntax/compile checks passed; **no new Windows test pass or fresh physical run is claimed**. The original 96-run table/model/grid remain unchanged. Next external step is software verification on the original Windows environment, then preparation and fresh collection using [`docs/WINDOWS_MAIN_VALIDATION.md`](docs/WINDOWS_MAIN_VALIDATION.md). No model training is needed.
+
+**Execution constraint:** all project tests, Dask jobs, dataset generation and training belong on Windows. This Mac is for code/docs/review and static syntax checks only. Historical Mac-test descriptions below are not current authorization to run tests here.
+
+After evidence review: bind saved advice to exact dataset execution, implement the small local interface and finish delivery. Broader profile support requires a separate versioned model/data design. Research-paper novelty remains a separate objective; none is established by this validation infrastructure.
 
 ## Purpose and scope
 
@@ -13,7 +23,7 @@ SAFE-Pipe recommends a configuration from eight declared local Dask configuratio
 | MacBook M3, 8 GB | Earlier coding, tiny pandas jobs, docs, unit tests |
 | Windows 11 PC, 31.4 GiB physical RAM | User-selected physical Dask experiment host (ADR-005) |
 
-The original 16 GB plan is a conservative sizing reference. The actual host has 32 GB marketed RAM; **worker caps and the eight-config grid stay unchanged**. The earlier Mac, Windows and advisor work is now included in `main` after a 2026-10-28 fast-forward merge. Their original branches remain as checkpoints. Pull `main` before editing on another PC. Generated Parquet, JSONL runs, and `.venv` are gitignored.
+The original 16 GB plan is a conservative sizing reference. The actual host has 32 GB marketed RAM; **worker caps and the eight-config grid stay unchanged**. The earlier Mac, Windows and advisor work is included in `main` after a 2026-10-28 fast-forward merge. Their original branches remain as checkpoints. For this completion task use `codex/main-advisor-completion`; use the research branch only for that separate study. Generated Parquet, JSONL runs, validation study directories and `.venv` are gitignored.
 
 ## Verified implementation
 
@@ -28,7 +38,7 @@ The original 16 GB plan is a conservative sizing reference. The actual host has 
 - Grouped LightGBM plus conformal, a conservative rule-based OOD gate, fitted CLI recommendation, descriptive same-table baselines, and a feature-contribution figure are implemented. See `reports/runtime_model.md`, `reports/policy.md`, and `reports/shap.md`.
 - New `advise` policy defaults to balanced speed/resources, with hard upper-runtime deadlines, optional budgets, exact frozen descriptors, bound grid/artifact checks and per-candidate comparisons. It reuses the model without training. See `docs/CONFIG_SELECTION.md` and `reports/advisor_v1/`.
 
-## Current task
+## Original project checkpoint
 
 The balanced selection implementation and the original Windows study are now merged into `main` and published. The technical results draft and separate tiny live Dask demo are complete. Remaining experimental work is prospective evaluation on the original Windows host; broader profiles need new data and a revised model/support policy. See `docs/INDEPENDENT_VALIDATION.md`. Formal submission remains pending. Optional TabPFN remains unrun; no failure classifier is supported because all 96 measured jobs succeeded.
 
@@ -38,7 +48,7 @@ The balanced selection implementation and the original Windows study are now mer
 - Optimize the declared balanced dimensionless score using point runtime; test deadlines against the frozen upper estimate. Use explicit hard checks and abstain when none pass. Preserve historical cost/model features for old report reproduction.
 - Keep memory caps at 1 GB and 2 GB despite the larger host. State that results come from a single Windows PC with induced worker caps.
 - Failure handling stays deterministic until enough correctly labeled independent failure data supports training and held-out evaluation. A fixed number of positives alone does not establish classifier quality.
-- Every reported number must come from the frozen Dask run table. No Glue, 176-run, or unmeasured improvement claims.
+- Every reported number must identify its source study. Keep original measurements, fresh validation and research results separate. No Glue, 176-run, or unmeasured improvement claims.
 
 ## Documents
 

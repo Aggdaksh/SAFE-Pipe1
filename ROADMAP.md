@@ -1,5 +1,7 @@
 # ROADMAP.md
 
+**Current roadmap (2026-11-20):** use [`docs/MAIN_COMPLETION_PLAN.md`](docs/MAIN_COMPLETION_PLAN.md). Work proceeds on `codex/main-advisor-completion`; Windows checks and fresh original-profile evaluation come first, followed by exact-input execution integration and the local demo. The schedule below is retained as historical planning, not current task status.
+
 **Status update (2026-10-26):** This is the original schedule. The user-selected Windows host has 31.4 GiB RAM; T0/T0b, the 96-run matrix, audit, runtime model, policy baseline comparison, and explanation figure are complete. See [`PROGRESS.md`](PROGRESS.md). The milestone dates below remain planning history.
 
 **Horizon:** six weeks to Project-I final (system + tables + report + demo).  

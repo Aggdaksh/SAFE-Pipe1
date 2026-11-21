@@ -4,6 +4,8 @@
 
 This is Delhi Technological University IT401 Group 45's Project-I prototype. The evaluated backend is a memory-capped Dask `LocalCluster` on one Windows PC. The broader distributed and AWS Glue ideas in the submitted synopsis are not measured outcomes of this prototype.
 
+**Completion branch (20 November):** `codex/main-advisor-completion` adds prospective validation infrastructure; Windows checks and fresh measurements are pending. Follow the [current plan](docs/MAIN_COMPLETION_PLAN.md) and [Windows handoff](docs/WINDOWS_MAIN_VALIDATION.md). Historical results below are unchanged. The research branch remains separate.
+
 ## At a glance
 
 | Area | Current state |
