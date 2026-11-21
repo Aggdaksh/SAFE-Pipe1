@@ -1,0 +1,5 @@
+metric,value,denominator
+test_mdape_percent,13.842297329243673,24 rows / 8 groups
+baseline_mdape_percent,23.013084199639323,same 24 test rows
+upper_row_coverage,1.0,24/24 rows
+upper_group_coverage,1.0,8/8 groups

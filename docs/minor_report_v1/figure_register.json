@@ -1,0 +1,175 @@
+[
+  {
+    "id": "F01_architecture",
+    "title": "System architecture and evidence boundaries",
+    "caption": "Schematic of the original offline data/model path and the current inference-only advisor. Advice does not launch a job. Fresh validation infrastructure is software-verified; its study has not been prepared or collected. The research decision prototype remains separate and disabled.",
+    "sources": [
+      "safe_pipe/advisor.py",
+      "docs/CONFIG_SELECTION.md",
+      "docs/MAIN_COMPLETION_PLAN.md"
+    ],
+    "section": "Architecture"
+  },
+  {
+    "id": "F02_grid",
+    "title": "The bounded experiment grid",
+    "caption": "The eight original candidates vary workers, threads per worker and decimal-GB memory caps. A 2 GB total cap can mean either one 2 GB worker or two 1 GB workers; these are different configurations. These caps are allocations, not measured peak usage. All three repetitions reuse each profile's fixed data.",
+    "sources": [
+      "configs/dask_grid.json",
+      "data/curated/runs.csv"
+    ],
+    "section": "Methodology"
+  },
+  {
+    "id": "F03_datasets",
+    "title": "Four fixed original datasets",
+    "caption": "The original study uses four synthetic datasets, one per workload profile. Disk size is compressed Parquet size, not the decompressed working set or peak RAM. Repeats do not generate new datasets; the later research inputs are a separate study.",
+    "sources": [
+      "configs/datasets_main_v1.json"
+    ],
+    "section": "Methodology"
+  },
+  {
+    "id": "F04_runtime_ranges",
+    "title": "Measured engine runtime across the grid",
+    "caption": "Each dot is the median of three original physical runs; bars show their minimum and maximum, not confidence intervals. Panels have independent horizontal scales. Engine timing excludes cluster startup and profiling. All 96 original runs succeeded; this chart does not predict future failure rates.",
+    "sources": [
+      "data/curated/runs.csv"
+    ],
+    "section": "Original results"
+  },
+  {
+    "id": "F05_grouped_split",
+    "title": "Training, calibration and test separation",
+    "caption": "The frozen split assigns 32 family/configuration groups to 12 training, 12 calibration and 8 test groups (36/36/24 rows). Repeats of a group never cross splits. This avoids repeat leakage but does not measure generalization to new workload profiles.",
+    "sources": [
+      "configs/model_split_main_v1.json",
+      "reports/runtime_model.md"
+    ],
+    "section": "Methodology"
+  },
+  {
+    "id": "F06_prediction_scatter",
+    "title": "Held-out predicted versus actual runtime",
+    "caption": "Each point is one saved held-out row: 24 repeat measurements belonging to eight family/configuration groups. The dashed line is perfect agreement. The model's held-out MdAPE is 13.84%; these points are not training accuracy and are not 24 independent workload profiles.",
+    "sources": [
+      "artifacts/main_v1/runtime_test_predictions.csv"
+    ],
+    "section": "Original results"
+  },
+  {
+    "id": "F07_mdape",
+    "title": "Runtime prediction error against the baseline",
+    "caption": "MdAPE = median(|prediction - actual| / actual) x 100, recomputed on the 24 saved test rows. LightGBM: 13.84%; same-training-split family-median baseline: 23.01%. This is an error metric. Subtracting it from 100 does not create a valid model accuracy measure.",
+    "sources": [
+      "artifacts/main_v1/runtime_test_predictions.csv",
+      "artifacts/main_v1/runtime_metrics.json"
+    ],
+    "section": "Original results"
+  },
+  {
+    "id": "F08_upper_coverage",
+    "title": "What the calibrated upper estimate covered",
+    "caption": "The frozen one-sided upper estimate is point prediction x exp(0.523642), approximately 1.688 times the point prediction. All 24 saved test runtimes were below their bounds (8/8 groups). The nominal calibration target is 90%; 100% observed coverage on this small split is not a population or selected-job success guarantee.",
+    "sources": [
+      "artifacts/main_v1/runtime_test_predictions.csv",
+      "artifacts/main_v1/runtime_metrics.json"
+    ],
+    "section": "Original results"
+  },
+  {
+    "id": "F09_historical_cost",
+    "title": "Historical same-table policy comparison",
+    "caption": "The older recommend-model policy has 34.1% lower normalized cost than w1_t1_2g in a descriptive reuse of the original table. Means are over four workload profiles; each selected cell uses three repeats. This is not independent savings, not cloud currency, and not a performance estimate for the newer balanced advise objective.",
+    "sources": [
+      "reports/policy_metrics.json",
+      "reports/policy_comparison.csv"
+    ],
+    "section": "Original results"
+  },
+  {
+    "id": "F10_advisor_candidates",
+    "title": "Worked example: current balanced advisor",
+    "caption": "Actual inference-only CLI output for sort_merge at an engine deadline of 13.1 s. Selected: w2_t2_1g. Teal candidates pass the checks; red ones are ineligible. Among eligible candidates the declared balanced score selects the winner; the shortest upper bound alone is not the objective. No job was executed for this capture.",
+    "sources": [
+      "advisor_capture/sort_balanced.json",
+      "docs/CONFIG_SELECTION.md"
+    ],
+    "section": "Implementation"
+  },
+  {
+    "id": "F11_pressure_design",
+    "title": "Why separate key skew from partition imbalance?",
+    "caption": "Schematic, not measured partition sizes: key skew means keys occur unevenly; partition imbalance means some input partitions hold more data than others. Stage A crossed these two factors for two workload families, producing eight generated instances. The cartoon has four partitions for readability and does not assert the actual partition count.",
+    "sources": [
+      "reports/research_stage_a_windows_v1/plan.json (research branch)"
+    ],
+    "section": "Research development"
+  },
+  {
+    "id": "F12_stage_a",
+    "title": "Stage A: full-job outcomes under memory pressure",
+    "caption": "Existing Stage A development records: 48 full attempts, 41 successes and seven execution errors. Every grid cell has three repetitions; seven errors have nanny memory-termination evidence. A successful job can also contain worker restart/pressure events, so success does not mean absence of pressure. These are eight instances from one generation seed, not independent reliability estimates.",
+    "sources": [
+      "reports/research_stage_a_windows_v1/summary.json (research branch)"
+    ],
+    "section": "Research development"
+  },
+  {
+    "id": "F13_stage_b_fidelity",
+    "title": "Stage B: sample quietness is not full-job safety",
+    "caption": "All 96 Stage B probes were quiet successes. Eight of 32 paired comparison groups had full-input pressure without a corresponding probe warning. Those eight cells represent four low-cap instance cases observed at two fractions, not eight independent workloads or a calibrated 25% false-negative rate. Sample effective caps and full-target caps are distinct in the source plan.",
+    "sources": [
+      "reports/research_stage_b_windows_v1/summary.json (research branch)"
+    ],
+    "section": "Research development"
+  },
+  {
+    "id": "F14_probe_cost",
+    "title": "One-probe replay: same historical choices, added cost",
+    "caption": "Development counterfactual replay over eight instances: stronger metadata and one-probe rules select the same historical configurations, with 24/24 selected historical full outcomes successful. Metadata-associated request total: 4.79 s; always one probe: 10.37 s; ambiguous-only: 7.38 s. These are constructed totals from different-session historical references, not measured online latency. Metadata/controller overhead is unmeasured; 4.79 s is not metadata-read time. No probe admission was enabled.",
+    "sources": [
+      "reports/one_probe_feasibility_20261116/analysis.json (research branch)"
+    ],
+    "section": "Research development"
+  },
+  {
+    "id": "F15_worker_memory",
+    "title": "Why sampled peaks are not exact memory-demand labels",
+    "caption": "Paired observations for 37 terminated worker lifetimes: 33 retained sampled peaks were below the recorded termination threshold, while event RSS exceeded the retained peak in 36 cases. Sampling and persistence can miss brief peaks before worker death. These are worker lifetimes, not 37 failed jobs; event RSS is a separate observation, not a replacement exact peak or synchronized cluster total. Missing worker values elsewhere remain missing.",
+    "sources": [
+      "reports/worker_memory_stage_a_b_v1/workers.json (research branch)",
+      "reports/worker_memory_review_20261116/analysis.json (research branch)"
+    ],
+    "section": "Research development"
+  },
+  {
+    "id": "F16_closed_gate",
+    "title": "The research gate stays closed",
+    "caption": "Conceptual flow of the guarded research prototype. The checked-in default uses no probe; the one-observation path has software checks but remains a diagnostic counterfactual. A new physical pilot needs a revised hypothesis, fair baselines, plausible information/economic benefit, and explicit review. This diagram is not the main advisor architecture or an enabled execution controller.",
+    "sources": [
+      "reports/one_probe_feasibility_20261116/analysis.json (research branch)",
+      "reports/one_probe_windows_checks_v1/verification.json (research branch)"
+    ],
+    "section": "Research development"
+  },
+  {
+    "id": "F17_verification",
+    "title": "Verified software is a checkpoint, not a fresh experiment",
+    "caption": "The original-advisor full Windows suite passed 143 tests in 36.89 s at d6f906a. The separately verified research module passed 38 targeted synthetic tests and checked 8 default decisions, 24 single-observation counterfactuals and 37 termination records. These scopes differ: do not add them as a single suite or count tests as benchmarks. The new main study has zero executed cells.",
+    "sources": [
+      "reports/main_validation_windows_checks_v1/verification.json",
+      "reports/one_probe_windows_checks_v1/verification.json (research branch)"
+    ],
+    "section": "Verification"
+  },
+  {
+    "id": "F18_screen_regret",
+    "title": "Earlier screen: probe ranking was not a free improvement",
+    "caption": "Post-hoc development replay on ten complete eligible instances out of twelve generated recipes: median selected-full engine regret was 3.87% for uniform, 0.11% for memory-mapped uniform and 8.17% for partition-tail. Regret compares the selected full-engine outcome with the retrospective full-engine reference; it is not prediction accuracy or complete-request savings. The full screen retains 768 attempts (759 success, one timeout, eight execution errors), one generation seed and two runtime repeats. Timing exclusions do not remove failures from the study record.",
+    "sources": [
+      "reports/research_screen_review_20261114/analysis.json (research branch)"
+    ],
+    "section": "Research development"
+  }
+]

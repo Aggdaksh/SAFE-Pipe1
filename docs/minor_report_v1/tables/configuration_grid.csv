@@ -1,0 +1,9 @@
+config_id,workers,threads_per_worker,cap_per_worker,total_threads,total_cap
+w1_t1_1g,1,1,1GB,1,1 GB
+w1_t2_1g,1,2,1GB,2,1 GB
+w1_t1_2g,1,1,2GB,1,2 GB
+w1_t2_2g,1,2,2GB,2,2 GB
+w2_t1_1g,2,1,1GB,2,2 GB
+w2_t2_1g,2,2,1GB,4,2 GB
+w2_t1_2g,2,1,2GB,2,4 GB
+w2_t2_2g,2,2,2GB,4,4 GB

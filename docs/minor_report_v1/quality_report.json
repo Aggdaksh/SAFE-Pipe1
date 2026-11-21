@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-21",
+  "checks_pass": true,
+  "figures": 18,
+  "figure_formats": [
+    "PNG 240 dpi",
+    "SVG with text"
+  ],
+  "csv_tables": 13,
+  "pdf_pages": 24,
+  "pdf_bytes": 2412114,
+  "source_manifest_entries_checked": 16,
+  "original_receipt_hashes_unchanged": 78,
+  "html_links_checked": 78,
+  "inference_only_captures": 4,
+  "all_pdf_pages_rendered_for_visual_review": true,
+  "scope": "Report analysis/rendering and inference only; no new benchmarks, original data generation, training, study preparation or main merge.",
+  "software_suite_rerun": false,
+  "existing_main_suite_result": {
+    "collected": 143,
+    "passed": 143,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pdf_sha256": "3246fa5d853470b9a939353806b67bf5eba0b465b4e5d33d3b64aaef9e9a6823"
+}

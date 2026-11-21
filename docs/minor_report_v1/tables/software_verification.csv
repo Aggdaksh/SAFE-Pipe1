@@ -1,0 +1,3 @@
+suite,collected,passed,failed,errors,skipped,scope,tested_commit
+Original advisor full suite,143,143,0,0,0,software incl tiny Dask fixtures,d6f906a6f69ea6893d8ebab3d38b6dd1a0ced8eb
+Separate research targeted checks,38,38,0,0,0,targeted synthetic and compact-evidence checks; not fresh experiments,see research verification receipt

@@ -1,0 +1,70 @@
+[
+  {
+    "case": "sort_balanced",
+    "argv": [
+      "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\.venv\\Scripts\\python.exe",
+      "-m",
+      "safe_pipe.cli",
+      "advise",
+      "--family",
+      "sort_merge",
+      "--sla",
+      "13.1"
+    ],
+    "stdout": "sort_balanced.json",
+    "sha256": "1ed6a1582d8900064773ccf84dbacd1f19189e15bb794ff9c9cede7b8a696de0",
+    "scope": "Inference only; no Dask execution or model fitting."
+  },
+  {
+    "case": "sort_resource",
+    "argv": [
+      "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\.venv\\Scripts\\python.exe",
+      "-m",
+      "safe_pipe.cli",
+      "advise",
+      "--family",
+      "sort_merge",
+      "--sla",
+      "13.1",
+      "--mode",
+      "resource"
+    ],
+    "stdout": "sort_resource.json",
+    "sha256": "3c11509c346af8b6d27b94e3c27a675df343b4a82a32e8f18f2dd4c85f4ab498",
+    "scope": "Inference only; no Dask execution or model fitting."
+  },
+  {
+    "case": "sort_fastest",
+    "argv": [
+      "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\.venv\\Scripts\\python.exe",
+      "-m",
+      "safe_pipe.cli",
+      "advise",
+      "--family",
+      "sort_merge",
+      "--sla",
+      "13.1",
+      "--mode",
+      "fastest"
+    ],
+    "stdout": "sort_fastest.json",
+    "sha256": "72df4cd6f8f92c9ac7a6ed17eecd4013b87b3c248c55cacd4e5b9a08b05c4368",
+    "scope": "Inference only; no Dask execution or model fitting."
+  },
+  {
+    "case": "sort_abstain",
+    "argv": [
+      "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\.venv\\Scripts\\python.exe",
+      "-m",
+      "safe_pipe.cli",
+      "advise",
+      "--family",
+      "sort_merge",
+      "--sla",
+      "0.01"
+    ],
+    "stdout": "sort_abstain.json",
+    "sha256": "cca871c3b4ffafdd30153332dbc9e7b89c85bb676d6ea7fbdaccb6113dc0bc58",
+    "scope": "Inference only; no Dask execution or model fitting."
+  }
+]

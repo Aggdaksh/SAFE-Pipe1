@@ -120,10 +120,19 @@
 - Saved the unchanged receipt, complete test output and JUnit XML in [`reports/main_validation_windows_checks_v1/`](reports/main_validation_windows_checks_v1/). Cross-checked all 78 receipt source/evidence hashes, environment and JUnit counts. Before/after byte hashes matched for 14 original project/model/curated/manifest files; all 70 original dataset files retained identical paths, sizes and modification timestamps. The inventory check is not a new full Parquet content-hash audit.
 - Updated completion status, handoff and context documents. This checkpoint contains software evidence only: no fresh-study preparation, 96-cell run, original dataset regeneration, model training or main merge. Publish this report on the same completion branch and stop for user review.
 
+## Checkpoint 18 - Minor B.Tech Project report evidence and first draft
+
+- On 2026-11-21, began the user-authorized report-production work on `codex/main-advisor-completion`. Read the earlier eight-chapter report blueprint and compact research evidence from pinned research Git objects without switching branches or merging research code. Revisited the supplied seniors' report front matter/contents for the document structure; their source PDFs remain outside Git.
+- Built `docs/minor_report_v1/`: 18 measured-data/schematic figures in high-resolution PNG and editable-text SVG, 13 compact CSV tables, source/hash provenance, recomputed key facts and four actual inference-only CLI examples (balanced/resource/fastest/abstain). No package install or project-environment upgrade was required; plotting uses the existing system Python.
+- Added an offline HTML evidence book, a saved-output viewer, two actual browser screenshots and a printable 24-page PDF under `output/pdf/safe_pipe_minor_report_v1/`. The first eight-chapter prose draft records the original predictor, distinct research studies, latest verification and remaining work. Academic front matter, checked primary-source literature and official department formatting remain unfinished.
+- The pack checks source hashes, held-out MdAPE, group denominators, Stage A/B counts, 37 individual termination-memory comparisons, saved inference outputs, links and PDF pagination. Full PDF pages are rendered for visual review; diagram labels were adjusted after print-size inspection. The original 78 verified source/evidence hashes remain unchanged. The existing 143-test checkpoint is reused, not presented as a new test run.
+- No new benchmark, original dataset generation, training, fresh-study preparation, probe admission, Stage C or main merge occurred. Existing unrelated `output/` and `tools/` material remains untouched and excluded from this report commit. Continue report revisions from the pack's README and keep physical study authorization separate.
+
 ## Current work and next steps
 
 1. Review the Windows software-verification receipt on `codex/main-advisor-completion`. Do not merge into main or start experiment preparation automatically.
 2. After explicit user review, follow the original-advisor handoff for a separately frozen fresh study. Software verification does not establish fresh advisor accuracy or generalization. Keep research work on its separate branch.
+3. For the report, review `docs/minor_report_v1/index.html` and `REPORT_DRAFT.md`; complete verified related work, confirm academic details/template, then choose main-text figures and finalize layout. Reproduction and quality checks are documented in the pack README.
 
 ## Resume commands on this PC
 
@@ -134,4 +143,4 @@ Get-Content reports/main_validation_windows_checks_v1/README.md
 Get-Content reports/main_validation_windows_checks_v1/SESSION_NOTES.md
 ```
 
-The current checkpoint is read-only evidence review. Do not regenerate the original curated data or rerun the verifier into its existing output folder. Any later verification must use a new output directory.
+Report analysis, inference examples and rendering are authorized. Fresh-study preparation and collection still await review. Do not regenerate original curated data or rerun the verifier into its existing output folder. Any later software verification must use a new output directory.

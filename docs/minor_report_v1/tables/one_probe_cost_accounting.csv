@@ -1,0 +1,8 @@
+policy,median_constructed_request_wall_seconds,median_profile_wall_seconds,historical_selected_success,instances_paying_probe
+fixed_1gb,5.121942899990245,0.0,17,0
+fixed_2gb,4.956773850004538,0.0,24,0
+file_share_metadata,4.788000000000466,0.0,24,0
+dense_bytes_metadata,4.788000000000466,0.0,24,0
+always_one_probe_counterfactual,10.37403214997903,5.4729322499770205,24,8
+ambiguous_only_counterfactual,7.3757312999950955,2.58773129999463,24,4
+guarded_default_admission_disabled,4.788000000000466,0.0,24,0

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="653.76pt" height="278.28pt" viewBox="0 0 653.76 278.28" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-21T12:44:51.868515</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 278.28
+L 653.76 278.28
+L 653.76 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 26.8992 169.57656
+L 208.1376 169.57656
+Q 215.63712 169.57656 215.63712 166.5828
+L 215.63712 66.7908
+Q 215.63712 63.79704 208.1376 63.79704
+L 26.8992 63.79704
+Q 19.39968 63.79704 19.39968 66.7908
+L 19.39968 166.5828
+Q 19.39968 169.57656 26.8992 169.57656
+z
+" clip-path="url(#p39b21eba08)" style="fill: #2563a6; fill-opacity: 0.070588; stroke: #2563a6; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 236.2608 169.57656
+L 417.4992 169.57656
+Q 424.99872 169.57656 424.99872 166.5828
+L 424.99872 66.7908
+Q 424.99872 63.79704 417.4992 63.79704
+L 236.2608 63.79704
+Q 228.76128 63.79704 228.76128 66.7908
+L 228.76128 166.5828
+Q 228.76128 169.57656 236.2608 169.57656
+z
+" clip-path="url(#p39b21eba08)" style="fill: #c48a16; fill-opacity: 0.070588; stroke: #c48a16; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 445.6224 169.57656
+L 626.8608 169.57656
+Q 634.36032 169.57656 634.36032 166.5828
+L 634.36032 66.7908
+Q 634.36032 63.79704 626.8608 63.79704
+L 445.6224 63.79704
+Q 438.12288 63.79704 438.12288 66.7908
+L 438.12288 166.5828
+Q 438.12288 169.57656 445.6224 169.57656
+z
+" clip-path="url(#p39b21eba08)" style="fill: #087f8c; fill-opacity: 0.070588; stroke: #087f8c; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(98.068166 96.659437)">TRAIN</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(117.5184 112.261976)"/>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(53.050587 127.864515)">12 groups / 36 rows</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(47.198556 143.46807)">Fit the runtime model</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(291.623594 96.659437)">CALIBRATE</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(326.88 112.261976)"/>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(262.412187 127.864515)">12 groups / 36 rows</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(249.277109 143.46807)">Set the upper multiplier</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(520.067772 96.659437)">TEST</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(536.2416 112.261976)"/>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(475.909412 127.864515)">8 groups / 24 rows</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(467.663553 143.46807)">Report held-out error</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #142b43" x="326.88" y="213.984" transform="rotate(-0 326.88 213.984)">Group = workload family + configuration; all 3 repeats stay together</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #142b43" x="326.88" y="248.9112" transform="rotate(-0 326.88 248.9112)">Four fixed workload profiles appear across these splits; this is not an unseen-workload test.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p39b21eba08">
+   <rect x="14.4" y="14.4" width="624.96" height="249.48"/>
+  </clipPath>
+ </defs>
+</svg>

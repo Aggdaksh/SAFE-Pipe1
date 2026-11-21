@@ -1,0 +1,4 @@
+method,n,median,mean,min,max,scope
+uniform,10,3.8687105293233492,4.99078543297804,0.0,17.371722184668805,10 complete eligible instances; post-hoc engine-only replay
+uniform_memory,10,0.11474575820125121,4.086534220205227,0.0,17.371722184668805,10 complete eligible instances; post-hoc engine-only replay
+partition_tail,10,8.165447857760121,9.759564819150194,0.0,23.776655226010778,10 complete eligible instances; post-hoc engine-only replay

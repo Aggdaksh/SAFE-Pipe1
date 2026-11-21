@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="653.76pt" height="294.912pt" viewBox="0 0 653.76 294.912" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-21T12:45:01.562351</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 294.912
+L 653.76 294.912
+L 653.76 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 26.8992 134.682624
+L 183.1392 134.682624
+Q 190.63872 134.682624 190.63872 131.48928
+L 190.63872 67.6224
+Q 190.63872 64.429056 183.1392 64.429056
+L 26.8992 64.429056
+Q 19.39968 64.429056 19.39968 67.6224
+L 19.39968 131.48928
+Q 19.39968 134.682624 26.8992 134.682624
+z
+" clip-path="url(#pdfb1604a30)" style="fill: #2563a6; fill-opacity: 0.070588; stroke: #2563a6; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 245.6352 134.682624
+L 401.8752 134.682624
+Q 409.37472 134.682624 409.37472 131.48928
+L 409.37472 67.6224
+Q 409.37472 64.429056 401.8752 64.429056
+L 245.6352 64.429056
+Q 238.13568 64.429056 238.13568 67.6224
+L 238.13568 131.48928
+Q 238.13568 134.682624 245.6352 134.682624
+z
+" clip-path="url(#pdfb1604a30)" style="fill: #087f8c; fill-opacity: 0.070588; stroke: #087f8c; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 464.3712 134.682624
+L 620.6112 134.682624
+Q 628.11072 134.682624 628.11072 131.48928
+L 628.11072 67.6224
+Q 628.11072 64.429056 620.6112 64.429056
+L 464.3712 64.429056
+Q 456.87168 64.429056 456.87168 67.6224
+L 456.87168 131.48928
+Q 456.87168 134.682624 464.3712 134.682624
+z
+" clip-path="url(#pdfb1604a30)" style="fill: #087f8c; fill-opacity: 0.070588; stroke: #087f8c; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 139.392 262.416384
+L 514.368 262.416384
+Q 521.86752 262.416384 521.86752 259.22304
+L 521.86752 192.69504
+Q 521.86752 189.501696 514.368 189.501696
+L 139.392 189.501696
+Q 131.89248 189.501696 131.89248 192.69504
+L 131.89248 259.22304
+Q 131.89248 262.416384 139.392 262.416384
+z
+" clip-path="url(#pdfb1604a30)" style="fill: #ba4550; fill-opacity: 0.070588; stroke: #ba4550; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(49.65545 95.131524)">Known metadata</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(37.650762 110.735078)">+ supported request</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 11.5px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(271.325981 81.838877)">Default diagnostic</text>
+    <text style="font-size: 11.5px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(306.826841 95.642022)">policy</text>
+    <text style="font-size: 11.5px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(277.09395 109.445166)">Metadata-based</text>
+    <text style="font-size: 11.5px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(305.134184 123.248311)">choice</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(492.163934 95.131524)">Select / abstain</text>
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(484.408622 110.735078)">No new execution</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 185.141788 99.55584
+Q 214.389747 99.55584 241.960655 99.55584
+" style="fill: none; stroke: #142b43; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 236.760655 96.95584
+L 241.960655 99.55584
+L 236.760655 102.15584
+" style="fill: none; stroke: #142b43; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 403.877788 99.55584
+Q 433.125747 99.55584 460.696655 99.55584
+" style="fill: none; stroke: #142b43; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 455.496655 96.95584
+L 460.696655 99.55584
+L 455.496655 102.15584
+" style="fill: none; stroke: #142b43; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(257.908906 204.551228)">PROBE ADMISSION CLOSED</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(202.104219 216.553962)">No incremental-information or single-request cost</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(291.594844 228.556696)">benefit shown</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(207.735469 240.559431)">One-observation classification is counterfactual</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #142b43" transform="translate(287.49875 252.562165)">diagnostic code</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #142b43" x="326.88" y="27.7056" transform="rotate(-0 326.88 27.7056)">Separate research prototype: no automatic pilot or Stage C</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdfb1604a30">
+   <rect x="14.4" y="14.4" width="624.96" height="266.112"/>
+  </clipPath>
+ </defs>
+</svg>

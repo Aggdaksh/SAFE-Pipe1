@@ -1,0 +1,32 @@
+{
+  "original_jobs": 96,
+  "original_successes": 96,
+  "test_rows": 24,
+  "test_groups": 8,
+  "test_mdape_percent": 13.842297329243673,
+  "baseline_mdape_percent": 23.013084199639323,
+  "upper_covered_rows": 24,
+  "stage_a_attempts": 48,
+  "stage_a_statuses": {
+    "execution_error": 7,
+    "success": 41
+  },
+  "stage_b_attempts": 96,
+  "stage_b_pressure_discrepancy_groups": 8,
+  "terminated_worker_lifetimes": 37,
+  "saved_peaks_below_threshold": 33,
+  "event_rss_exceeds_saved_peak": 36,
+  "probe_admission_enabled": false,
+  "main_software_tests": {
+    "collected": 143,
+    "passed": 143,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "fresh_main_study_cells": 0,
+  "training_accuracy_available": false,
+  "training_curve_available": false,
+  "screen_role": "posthoc_development_analysis_not_policy_validation",
+  "research_memory_export_lifetimes": 321
+}
