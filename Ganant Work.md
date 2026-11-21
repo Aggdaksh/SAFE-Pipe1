@@ -1,6 +1,6 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-11-21 (Asia/Calcutta)<br>
+**Updated:** 2026-11-22 (Asia/Calcutta)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
 **Working branch:** `codex/main-advisor-completion` (Windows software-verification checkpoint)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
@@ -128,11 +128,20 @@
 - The pack checks source hashes, held-out MdAPE, group denominators, Stage A/B counts, 37 individual termination-memory comparisons, saved inference outputs, links and PDF pagination. Full PDF pages are rendered for visual review; diagram labels were adjusted after print-size inspection. The original 78 verified source/evidence hashes remain unchanged. The existing 143-test checkpoint is reused, not presented as a new test run.
 - No new benchmark, original dataset generation, training, fresh-study preparation, probe admission, Stage C or main merge occurred. Existing unrelated `output/` and `tools/` material remains untouched and excluded from this report commit. Continue report revisions from the pack's README and keep physical study authorization separate.
 
+## Checkpoint 19 - Actual DTU academic Word report
+
+- On 2026-11-22, the user clarified that the deliverable must be the actual Minor BTech report, following the senior samples with the DTU logo, rather than another evidence pack. Used the supplied Information Technology and BTech sample PDFs for layout/front-matter structure. Extracted only the DTU logo region; source PDFs remain unchanged and no senior-project prose, signatures or results were copied.
+- Used the user's confirmed details: Daksh Aggarwal 23/IT/047, Ganant Awasthi 23/IT/055, Chaitanya Singh 23/IT/045; B.Tech VII Semester 2026-2027; guide Prof. Dinesh Kumar Vishwakarma, Head of Department, Department of Information Technology, DTU. Declaration and certificate signature/date lines remain blank.
+- Created `output/docx/SAFE_Pipe_DTU_Minor_Project_Report.docx`: 36 pages, eight technical chapters, seven numbered references, 14 figures, nine native tables, four editable Word equations, contents/figure/table lists, Roman front matter, Arabic main pagination, and three appendices. Related-work material was checked against primary Dask, Ernest, C3O, LightGBM, conformal-prediction and Dask memory documentation sources.
+- Used installed Word 16's native automation because the managed document runtime/loader was unavailable. No project package/environment changes occurred. The first PDF export method stalled; only the identified report-owned hidden Word process was stopped, preserving the user's pre-existing Word documents. Direct PDF save worked. Early attempts and repair helpers are archived under ignored `reports/_scratch/minor_actual_report_v1/`, outside the deliverable.
+- Fixed native caption placement outside SEQ fields and authored the MdAPE fraction explicitly in OMML after visual review found a linear-math conversion problem. Checked the saved DOCX archive, 23 titled captions, 15 embedded images including the logo, equation denominator, student/guide details, front/main numbering and all 78 original source/evidence hashes. Native Word PDF pages were rasterized and reviewed; `report_quality.json` records the final artifact hashes.
+- Added production sources and instructions in `docs/minor_report_v1/academic_report/`; the DOCX is editable, not a set of page screenshots. No fresh benchmark, original dataset generation, model training, probe admission, Stage C or main merge occurred. Keep subsequent manual Word edits before any rebuild. Department/supervisor review and genuine signatures are still required.
+
 ## Current work and next steps
 
 1. Review the Windows software-verification receipt on `codex/main-advisor-completion`. Do not merge into main or start experiment preparation automatically.
 2. After explicit user review, follow the original-advisor handoff for a separately frozen fresh study. Software verification does not establish fresh advisor accuracy or generalization. Keep research work on its separate branch.
-3. For the report, review `docs/minor_report_v1/index.html` and `REPORT_DRAFT.md`; complete verified related work, confirm academic details/template, then choose main-text figures and finalize layout. Reproduction and quality checks are documented in the pack README.
+3. Review `output/docx/SAFE_Pipe_DTU_Minor_Project_Report.docx` with the team and guide; confirm department-specific submission requirements and sign/date the genuine front-matter forms. Preserve manual Word edits. Production and quality notes are in `docs/minor_report_v1/academic_report/README.md`.
 
 ## Resume commands on this PC
 

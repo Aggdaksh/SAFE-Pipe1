@@ -81,7 +81,9 @@ The original 176-run/Glue synopsis and the reduced B-lite experiment have differ
 
 ## Minor B.Tech Project report
 
-The [working report evidence book](docs/minor_report_v1/index.html) contains 18 source-linked figures, 13 CSV tables, actual inference-only advisor examples and a chapter map. The [first technical prose draft](docs/minor_report_v1/REPORT_DRAFT.md) covers eight chapters; literature verification, official formatting and academic front matter remain unfinished. The [asset guide](docs/minor_report_v1/README.md) links the printable PDF, screenshots and reproducible build/check scripts. Original measurements, separate research findings and software checks are explicitly distinguished; this pack adds no fresh benchmark or trained model.
+The [formatted Word project report](output/docx/SAFE_Pipe_DTU_Minor_Project_Report.docx) has 36 pages with the DTU cover and logo, the supplied team/guide details, unsigned declaration and certificate, eight chapters, related work and references, 14 figures, nine tables and appendices. It follows the supplied senior-report examples; signatures and department/supervisor review remain required. See its [production and quality notes](docs/minor_report_v1/academic_report/README.md).
+
+The earlier [report evidence book](docs/minor_report_v1/index.html) remains the supporting collection of 18 source-linked figures, 13 CSV tables and inference examples. The [asset guide](docs/minor_report_v1/README.md) links those reproducible sources. Original measurements, separate research findings and software checks are distinguished; report production adds no fresh benchmark or trained model.
 
 ## Next work
 

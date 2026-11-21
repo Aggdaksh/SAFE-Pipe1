@@ -1,0 +1,978 @@
+{
+  "title": "SAFE-Pipe: Failure-Aware Cost and Runtime Optimization of Distributed Data Pipelines under SLA Constraints",
+  "team": [
+    [
+      "Daksh Aggarwal",
+      "23/IT/047"
+    ],
+    [
+      "Ganant Awasthi",
+      "23/IT/055"
+    ],
+    [
+      "Chaitanya Singh",
+      "23/IT/045"
+    ]
+  ],
+  "guide": "Prof. Dinesh Kumar Vishwakarma",
+  "designation": "Head of Department",
+  "department": "Department of Information Technology",
+  "institution": "Delhi Technological University",
+  "semester": "B.Tech VII Semester",
+  "session": "2026-2027",
+  "date": "NOVEMBER 2026",
+  "logo": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\academic_report\\DTU_logo.png",
+  "abstract": "Configuration choices affect the runtime and resource allocation of batch data-processing jobs. SAFE-Pipe implements a bounded advisor that compares eight local Dask configurations using workload metadata, a fitted runtime predictor, a calibrated upper runtime estimate and explicit support checks. The original study measured four fixed synthetic workload profiles across eight configurations with three repetitions, producing 96 successful runs on one Windows PC. A grouped held-out evaluation reported median absolute percentage error of 13.84%, compared with 23.01% for a family-median baseline, on 24 test rows belonging to eight family/configuration groups. A historical resource-cost comparison reused the original table and is therefore descriptive rather than independent evidence of savings. Subsequent research examined whether small execution probes preserve memory-pressure information from full jobs. Stage A recorded 41 successful full attempts and seven execution errors; all 96 Stage B probes completed quietly, although eight of 32 paired comparison groups disagreed with full-input pressure. A one-probe development replay added profiling cost without changing the stronger metadata-based choices. Probe admission consequently remains disabled. The latest original-advisor implementation passed 143 Windows software tests, while fresh prospective validation remains pending. The contribution is an auditable, scope-limited advisor and an evidence-based investigation of profiling limits, not a universal safety guarantee or a validated failure classifier.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "1 INTRODUCTION"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "1.1 Motivation"
+    },
+    {
+      "type": "paragraph",
+      "text": "A data-processing job can perform the same logical operation under different resource settings. For example, a group-by may run with one worker or two workers, with different thread counts and memory caps. Increasing resources may shorten execution, but it may also increase configured resource-time. Reducing memory can expose pressure, spill or worker restarts. The useful configuration therefore depends on the workload, the deadline and the resource preference."
+    },
+    {
+      "type": "paragraph",
+      "text": "SAFE-Pipe addresses this configuration decision before execution. Its measured implementation uses Dask LocalCluster on one Windows computer. It compares a small declared grid rather than searching every possible setting. This limited scope makes the evidence and decision rules inspectable. Dask supplies the task-graph execution model [1]."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "1.2 Objectives and contribution"
+    },
+    {
+      "type": "paragraph",
+      "text": "The implemented objectives are to collect a reproducible local benchmark table; predict successful engine runtime from pre-run features; add a cautious upper estimate; compare supported configurations under a deadline; explain eligibility and selection; and retain auditable software and experimental records. A later research objective investigated the additional information and cost of execution-based probes."
+    },
+    {
+      "type": "paragraph",
+      "text": "The original project title describes a broader failure-aware vision. The implemented evidence is narrower: all original 96 runs succeeded, so those records do not support learning a failure classifier. Later research contains pressure and termination observations, but has not established a calibrated failure model or a beneficial deployed probing policy."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "2 BACKGROUND AND RELATED WORK"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.1 Data processing tasks and resource configurations"
+    },
+    {
+      "type": "paragraph",
+      "text": "A task is a schedulable unit of computation, while a job in this report denotes the complete requested workload. A task graph expresses dependencies between the units. Workers execute tasks using their configured threads; partitions divide the input into portions. Dask represents parallel computations through task dependencies and blocked algorithms [1]. The measured SAFE-Pipe backend uses multiple worker processes on one Windows computer, not a multi-node cluster."
+    },
+    {
+      "type": "paragraph",
+      "text": "A memory cap applies separately to a worker. Two workers capped at 1 GB each are not equivalent to one worker capped at 2 GB, even though their total configured memory is equal. Process RSS, managed objects and spilled data describe different quantities. Dask distinguishes managed and process memory and can spill, pause and restart workers in response to pressure [6]. The thresholds observed in each experiment must therefore be read from the recorded settings, rather than inferred from the cap alone."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.2 Runtime prediction and configuration selection"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ernest builds performance models from sampled job executions and uses experimental design to reduce the observations needed for prediction [2]. It motivates learning a relationship between workload scale, configuration and runtime. Its sampled measurements are an investment whose usefulness depends on the job and deployment setting. SAFE-Pipe instead begins with a frozen, exhaustive local grid. Its later probe investigation tests whether additional execution information repays its cost for short jobs; it does not reproduce Ernest or compare against its implementation."
+    },
+    {
+      "type": "paragraph",
+      "text": "C3O uses shared historical runtime data and regression models to support cluster configuration selection across execution contexts [3]. This provides a relevant example of history-based advice. SAFE-Pipe uses a much narrower data collection: four fixed profiles on one host, without collaborative cross-user history or a broad transfer claim. The related systems establish that resource selection is an existing research area; SAFE-Pipe does not claim to invent configuration tuning."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.3 Gradient boosted runtime modelling"
+    },
+    {
+      "type": "paragraph",
+      "text": "LightGBM is an implementation of gradient-boosted decision trees designed for efficient learning from structured features [4]. In SAFE-Pipe it is used as a regression model for log successful engine runtime. Workload descriptors and candidate resource settings form the input, while measured runtime is the target. The particular SAFE-Pipe fit is small and uses fixed hyperparameters. It does not establish the training-speed or benchmark-accuracy claims of the LightGBM paper on this project dataset."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.4 Uncertainty and scope control"
+    },
+    {
+      "type": "paragraph",
+      "text": "Conformal prediction provides a framework for calibrating prediction sets or bounds using held-out conformity scores under stated assumptions [5]. SAFE-Pipe uses grouped calibration residuals to construct a one-sided upper runtime estimate. Its small, fixed-profile evaluation is not evidence of universal coverage. Candidate selection, changes of input profile and changes of hardware require their own assessment; a nominal calibration target is not automatically a job-success probability."
+    },
+    {
+      "type": "paragraph",
+      "text": "Support checks complement runtime estimates by refusing descriptors outside the frozen evidence contract. Such abstention is useful when data are limited, but the current exact descriptor check is not a learned measure of distance or a proof that actual input contents and hardware match. Those boundaries are part of the system specification."
+    },
+    {
+      "type": "table",
+      "number": 1,
+      "title": "Comparison of related approaches and the present scope",
+      "headers": [
+        "Work",
+        "Main approach",
+        "Relationship to SAFE-Pipe"
+      ],
+      "rows": [
+        [
+          "Dask [1]",
+          "Task graphs and blocked parallel computation",
+          "Execution substrate; SAFE-Pipe adds bounded pre-run advice."
+        ],
+        [
+          "Ernest [2]",
+          "Performance modelling from sample executions",
+          "Motivates profiling; no reproduced Ernest baseline is claimed."
+        ],
+        [
+          "C3O [3]",
+          "Shared runtime histories for cluster selection",
+          "Broader execution contexts than the single-host study."
+        ],
+        [
+          "LightGBM [4]",
+          "Gradient-boosted decision-tree learning",
+          "Runtime regression component, not a project novelty claim."
+        ],
+        [
+          "Conformal prediction [5]",
+          "Calibration of predictive uncertainty",
+          "Basis for an upper estimate with explicit small-sample limits."
+        ]
+      ],
+      "widths": [
+        0.17,
+        0.34,
+        0.49
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.5 Research question addressed by this project"
+    },
+    {
+      "type": "paragraph",
+      "text": "The engineering question is whether transparent, constrained advice can be made reproducible within a deliberately bounded workload and configuration contract. The subsequent research question is whether small execution probes preserve useful full-input pressure information and add value beyond stronger metadata rules. The experiments answer parts of these questions descriptively. They do not demonstrate superiority to the related systems, establish a new general selector, or validate an online probing policy."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "3 PROBLEM FORMULATION AND OBJECTIVES"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.1 Inputs, candidates and output"
+    },
+    {
+      "type": "paragraph",
+      "text": "The advisor receives a supported workload descriptor, an engine deadline and optional preferences or budgets. The original grid contains one or two workers, one or two threads per worker, and a per-worker memory cap of 1 GB or 2 GB. These three binary choices yield eight configurations, shown in Table 3. The output is an explained recommendation or abstention, with all candidate estimates and rejection reasons."
+    },
+    {
+      "type": "paragraph",
+      "text": "The model feature whitelist is: family, input bytes, estimated rows, file count, partition count, skew score, configuration ID, workers, threads per worker, memory-limit feature, allocated-vCPU feature and allocated-memory feature. Actual runtime, status, failure category, SLA miss and peak memory are outcome labels, not prediction inputs. The SLA is a policy constraint, rather than a LightGBM runtime feature."
+    },
+    {
+      "type": "equation",
+      "text": "MdAPE = 100 × median_i (|t̂_i - t_i| / t_i)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Here t_i is the observed engine runtime and t̂_i is its point prediction. MdAPE summarizes relative prediction error; it is not classification accuracy."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.2 Current balanced objective"
+    },
+    {
+      "type": "paragraph",
+      "text": "For candidate c, let t(c) be predicted engine seconds, U(c) the frozen upper estimate, D the requested engine deadline, P(c) the total configured threads and M(c) the total configured worker memory in bytes. The current advise objective is:"
+    },
+    {
+      "type": "equation",
+      "text": "Q(c) = λ × P(c)/4 + (1 - λ) × M(c)/4,000,000,000"
+    },
+    {
+      "type": "equation",
+      "text": "R(c) = [t(c)/D] × Q(c)"
+    },
+    {
+      "type": "equation",
+      "text": "J(c) = β × [t(c)/D] + (1 - β) × R(c)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The default lambda is 0.5. beta is 0.5 for balanced mode, zero for resource mode and one for fastest mode. These coefficients express declared preferences; they are not fitted parameters or a universally optimal formula. The score is dimensionless and uses configured resource proxies. It does not measure cloud prices, electricity, CPU utilization or peak RAM."
+    },
+    {
+      "type": "paragraph",
+      "text": "Candidates must pass exact frozen-profile and artifact/grid support checks, the upper-runtime deadline check, optional thread/memory budgets and a coarse input-memory rule. The effective deadline is D * (1 - deadline_reserve). If no candidate is eligible, the advisor abstains. The coarse memory rule and descriptor support do not guarantee execution safety or independently verify the calling machine and actual input contents."
+    },
+    {
+      "type": "paragraph",
+      "text": "The original model features retain their historical unit contract. The newer score distinguishes decimal GB from binary GiB. Do not silently change fitted feature values to make the unit labels look more convenient; refer to docs/DATA_DICTIONARY.md."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "4 SYSTEM ARCHITECTURE AND DESIGN"
+    },
+    {
+      "type": "paragraph",
+      "text": "The original offline path consists of frozen synthetic datasets, randomized collection, append-only raw records, an audited curated table, grouped training/calibration/test splits, a fitted LightGBM artifact and artifact support bindings. The online advice path checks the declared profile, predicts candidates, applies constraints and ranks eligible choices. Advice is inference-only and does not launch a Dask job."
+    },
+    {
+      "type": "figure",
+      "id": "F01_architecture",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F01_architecture.png",
+      "title": "System architecture and evidence boundaries",
+      "caption": "Schematic of the original offline data/model path and the current inference-only advisor. Advice does not launch a job. Fresh validation infrastructure is software-verified; its study has not been prepared or collected. The research decision prototype remains separate and disabled.",
+      "source": "safe_pipe/advisor.py; docs/CONFIG_SELECTION.md; docs/MAIN_COMPLETION_PLAN.md [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The research path is separate. It investigates pressure mechanisms, sample fidelity and total profiling cost. Reading its compact evidence for this report does not merge the research implementation into the original advisor. The research prototype’s probe admission gate remains disabled (Figure 12)."
+    },
+    {
+      "type": "paragraph",
+      "text": "The completion branch adds prospective-study infrastructure: immutable study identity, pre-run saved advice, attempt journaling and a fresh-results evaluator. Its Windows software suite passed. The study has not been prepared or collected. Exact-dataset recommendation-to-execution binding and the small local interface are subsequent delivery milestones, not completed product features."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "5 EXPERIMENTAL METHODOLOGY"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.1 Original environment and data"
+    },
+    {
+      "type": "paragraph",
+      "text": "The selected Windows PC has 33,711,480,832 physical RAM bytes (approximately 31.4 GiB), with the experiment environment reporting 16 logical CPUs and Python 3.14.6. Per-worker caps remain 1 GB or 2 GB despite the larger host. The package versions and Windows platform are retained in the verification receipt. Results target this local host and do not establish multi-node or cross-hardware behaviour."
+    },
+    {
+      "type": "paragraph",
+      "text": "The four fixed original datasets represent scan/filter, group-by, skewed join and the repository’s sort_merge workload. The latter uses a key-based shuffle/index operation with a scalar partition result; it should not be described as a measured second-table merge-sort implementation. Compressed Parquet sizes range from about 174.6 to 198.5 decimal MB (Table 2). Those disk sizes are not decompressed RAM requirements. Three repetitions use the same fixed profile data, not newly generated workload instances."
+    },
+    {
+      "type": "table",
+      "number": 2,
+      "title": "Original synthetic workload inventory",
+      "headers": [
+        "Profile",
+        "Rows in millions",
+        "Parquet MB",
+        "Engine deadline s"
+      ],
+      "rows": [
+        [
+          "Scan/filter",
+          "23.32",
+          "198.45",
+          "2.6"
+        ],
+        [
+          "Group-by",
+          "14.97",
+          "198.49",
+          "7.9"
+        ],
+        [
+          "Skewed join",
+          "17.04",
+          "174.60",
+          "4.3"
+        ],
+        [
+          "Key shuffle (sort_merge)",
+          "12.77",
+          "178.38",
+          "13.1"
+        ]
+      ],
+      "widths": [
+        0.38,
+        0.22,
+        0.22,
+        0.18
+      ]
+    },
+    {
+      "type": "table",
+      "number": 3,
+      "title": "Original eight configuration candidates",
+      "headers": [
+        "Configuration",
+        "Workers",
+        "Threads per worker",
+        "Cap per worker"
+      ],
+      "rows": [
+        [
+          "w1_t1_1g",
+          "1",
+          "1",
+          "1GB"
+        ],
+        [
+          "w1_t2_1g",
+          "1",
+          "2",
+          "1GB"
+        ],
+        [
+          "w1_t1_2g",
+          "1",
+          "1",
+          "2GB"
+        ],
+        [
+          "w1_t2_2g",
+          "1",
+          "2",
+          "2GB"
+        ],
+        [
+          "w2_t1_1g",
+          "2",
+          "1",
+          "1GB"
+        ],
+        [
+          "w2_t2_1g",
+          "2",
+          "2",
+          "1GB"
+        ],
+        [
+          "w2_t1_2g",
+          "2",
+          "1",
+          "2GB"
+        ],
+        [
+          "w2_t2_2g",
+          "2",
+          "2",
+          "2GB"
+        ]
+      ],
+      "widths": [
+        0.34,
+        0.17,
+        0.27,
+        0.22
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The original matrix contains four profiles, eight configurations and three repetitions, for 96 scored physical runs. The deadlines were frozen from separate pilot work: 2.6 s for scan/filter, 7.9 s for group-by, 4.3 s for skewed join and 13.1 s for sort_merge. The randomized order and input identities were recorded before scored collection. Pilots are outside the 96 scored rows."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.2 Fitting, calibration and held-out evaluation"
+    },
+    {
+      "type": "paragraph",
+      "text": "The grouped split keeps all repetitions of a family/configuration pair together. It has 12 training groups (36 rows), 12 calibration groups (36 rows) and eight test groups (24 rows), as shown in Figure 2. It prevents repetitions of the same cell from crossing splits, but the four workload profiles remain represented across splits. It is not a test on unseen workload families or sizes."
+    },
+    {
+      "type": "figure",
+      "id": "F05_grouped_split",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F05_grouped_split.png",
+      "title": "Training, calibration and test separation",
+      "caption": "The frozen split assigns 32 family/configuration groups to 12 training, 12 calibration and 8 test groups (36/36/24 rows). Repeats of a group never cross splits. This avoids repeat leakage but does not measure generalization to new workload profiles.",
+      "source": "configs/model_split_main_v1.json; reports/runtime_model.md [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "LightGBM predicts log successful engine runtime using 120 trees, seven leaves, learning rate 0.05, minimum child count three and L2 penalty one. Calibration uses the maximum log residual over each group’s repetitions. The nominal 90% finite-sample rank over 12 calibration groups selects the largest calibration score. The stored upper log offset is 0.523642, giving U = t * exp(0.523642), approximately 1.688 * t. The prediction and calibration components follow the methodological background in [4] and [5]."
+    },
+    {
+      "type": "table",
+      "number": 4,
+      "title": "Model and calibration specification",
+      "headers": [
+        "Component",
+        "Frozen setting"
+      ],
+      "rows": [
+        [
+          "Target",
+          "Log successful engine runtime"
+        ],
+        [
+          "LightGBM trees / leaves",
+          "120 trees / 7 leaves"
+        ],
+        [
+          "Learning rate / minimum child",
+          "0.05 / 3"
+        ],
+        [
+          "L2 regularization",
+          "1"
+        ],
+        [
+          "Train / calibrate / test",
+          "36 / 36 / 24 rows; 12 / 12 / 8 groups"
+        ],
+        [
+          "Upper log offset",
+          "0.523642; nominal calibration alpha 0.1"
+        ]
+      ],
+      "widths": [
+        0.42,
+        0.58
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The saved artifact contains held-out predictions and metrics; an iteration-wise training history was not retained. The reported metrics use the saved model without retraining. Figures 5 and 6 use the saved test predictions."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.3 Later research studies"
+    },
+    {
+      "type": "paragraph",
+      "text": "Stage A separated key skew and partition imbalance in group-by and skewed join. The four patterns per family produced eight instances, each examined at two memory caps with three full repetitions: 48 full attempts. Stage B reused those instances with two probe fractions (0.125 and 0.25), two target configurations and three repetitions: 96 probes. Effective sample caps and target full-job caps must be distinguished when interpreting the research plans."
+    },
+    {
+      "type": "figure",
+      "id": "F11_pressure_design",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F11_pressure_design.png",
+      "title": "Why separate key skew from partition imbalance?",
+      "caption": "Schematic, not measured partition sizes: key skew means keys occur unevenly; partition imbalance means some input partitions hold more data than others. Stage A crossed these two factors for two workload families, producing eight generated instances. The cartoon has four partitions for readability and does not assert the actual partition count.",
+      "source": "reports/research_stage_a_windows_v1/plan.json (research branch) [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "These are development studies with one generation seed and shared samples. They are not independent reliability estimates or a new training set for the original LightGBM artifact. Three timing repetitions do not replace independent workload generation."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.4 Timing and resource contracts"
+    },
+    {
+      "type": "paragraph",
+      "text": "The original predictor targets engine runtime. Research lifecycle and constructed request totals include additional phases. Input preparation, preflight, startup, execution, cleanup and unmeasured controller/metadata overhead must remain distinguishable. Do not add separately reported component medians and present the result as the median complete request. Configured thread-time and cap-time are allocation proxies, not actual consumption or currency."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "6 IMPLEMENTATION AND VERIFICATION"
+    },
+    {
+      "type": "paragraph",
+      "text": "The feature whitelist is in safe_pipe/features.py; runtime loading and prediction are under safe_pipe/models/; configuration eligibility, scoring and explanation are implemented in safe_pipe/advisor.py; the CLI exposes advice separately from execution. Configuration definitions, profiles and artifact bindings make the supported scope explicit. Collection and audit modules retain measured outcomes separately from pre-run features."
+    },
+    {
+      "type": "paragraph",
+      "text": "Four current inference-only examples are preserved in advisor_capture/: balanced, resource, fastest and abstention under a tight deadline. Figure 4 shows the balanced candidate comparison. The advisor_demo.html page is a viewer for those saved outputs, not a screenshot of a finished product interface. The full JSON exposes the decision rather than only a winning label."
+    },
+    {
+      "type": "figure",
+      "id": "F10_advisor_candidates",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F10_advisor_candidates.png",
+      "title": "Worked example: current balanced advisor",
+      "caption": "Actual inference-only CLI output for sort_merge at an engine deadline of 13.1 s. Selected: w2_t2_1g. Teal candidates pass the checks; red ones are ineligible. Among eligible candidates the declared balanced score selects the winner; the shortest upper bound alone is not the objective. No job was executed for this capture.",
+      "source": "advisor_capture/sort_balanced.json; docs/CONFIG_SELECTION.md [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The latest original-advisor implementation, d6f906a, passed the full Windows software verifier: 143 passed, zero failed, zero errors and zero skipped in 36.89 seconds. pip check passed in the existing original .venv, with no dependency upgrades or implementation fixes. The report is committed in caa8a8a. These checks include tiny Dask integration fixtures and do not run the fresh 96-cell study."
+    },
+    {
+      "type": "paragraph",
+      "text": "On the separate research branch, 38 targeted synthetic tests passed, with eight default decisions, 24 single-observation counterfactual decisions and 37 termination-memory records checked. The two suites have different scopes and must not be combined into one undifferentiated test count (Table 5)."
+    },
+    {
+      "type": "table",
+      "number": 5,
+      "title": "Software verification scopes",
+      "headers": [
+        "Implementation",
+        "Recorded result",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Original advisor d6f906a",
+          "143 passed; 0 failed/errors/skipped",
+          "Full Windows suite including tiny Dask fixtures; 36.89 s."
+        ],
+        [
+          "Separate research prototype",
+          "38 targeted tests passed",
+          "8 default and 24 counterfactual decisions; 37 termination records checked."
+        ]
+      ],
+      "widths": [
+        0.3,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "7 RESULTS AND DISCUSSION"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.1 Original runtime results"
+    },
+    {
+      "type": "table",
+      "number": 6,
+      "title": "Original held-out runtime results",
+      "headers": [
+        "Measure",
+        "Observed result",
+        "Denominator or interpretation"
+      ],
+      "rows": [
+        [
+          "LightGBM MdAPE",
+          "13.84%",
+          "24 held-out rows across 8 groups"
+        ],
+        [
+          "Family-median baseline MdAPE",
+          "23.01%",
+          "Same 24 test rows"
+        ],
+        [
+          "Upper coverage by row",
+          "24 / 24",
+          "Observed coverage only"
+        ],
+        [
+          "Upper coverage by group",
+          "8 / 8",
+          "Not a future guarantee"
+        ],
+        [
+          "Mean point-to-upper width",
+          "1.33 seconds",
+          "Saved test-set average"
+        ]
+      ],
+      "widths": [
+        0.42,
+        0.22,
+        0.36
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "All 96 original scored jobs succeeded, with zero recorded SLA misses. Figure 14 shows medians and observed minimum-maximum ranges over three repetitions for each family/configuration pair. These ranges are not confidence intervals. Original reliable peak-memory and spill labels were absent; later research telemetry does not fill those historical gaps."
+    },
+    {
+      "type": "paragraph",
+      "text": "On the 24 saved held-out rows, the LightGBM model has 13.84% MdAPE, compared with 23.01% for the family-median baseline. MdAPE is the median of absolute prediction error divided by actual runtime, multiplied by 100. It is not classification accuracy, and 100 - MdAPE is not a valid accuracy claim."
+    },
+    {
+      "type": "figure",
+      "id": "F06_prediction_scatter",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F06_prediction_scatter.png",
+      "title": "Held-out predicted versus actual runtime",
+      "caption": "Each point is one saved held-out row: 24 repeat measurements belonging to eight family/configuration groups. The dashed line is perfect agreement. The model's held-out MdAPE is 13.84%; these points are not training accuracy and are not 24 independent workload profiles.",
+      "source": "artifacts/main_v1/runtime_test_predictions.csv [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The stored upper estimates covered 24/24 test rows and 8/8 test groups, with mean point-to-upper width about 1.33 s. This observed coverage is a small-split result, not a universal 100% coverage claim or a calibrated selected-job success guarantee."
+    },
+    {
+      "type": "figure",
+      "id": "F08_upper_coverage",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F08_upper_coverage.png",
+      "title": "What the calibrated upper estimate covered",
+      "caption": "The frozen one-sided upper estimate is point prediction x exp(0.523642), approximately 1.688 times the point prediction. All 24 saved test runtimes were below their bounds (8/8 groups). The nominal calibration target is 90%; 100% observed coverage on this small split is not a population or selected-job success guarantee.",
+      "source": "artifacts/main_v1/runtime_test_predictions.csv; artifacts/main_v1/runtime_metrics.json [7]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.2 Historical descriptive cost comparison"
+    },
+    {
+      "type": "table",
+      "number": 7,
+      "title": "Historical policy comparison using the original table",
+      "headers": [
+        "Rule",
+        "Mean median normalized cost"
+      ],
+      "rows": [
+        [
+          "Historical policy",
+          "7.524"
+        ],
+        [
+          "Declared reference w1_t1_2g",
+          "11.421"
+        ],
+        [
+          "Conservative configuration",
+          "10.366"
+        ],
+        [
+          "Uniform random selection",
+          "8.950"
+        ]
+      ],
+      "widths": [
+        0.68,
+        0.32
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The older recommend-model policy selected w1_t2_1g for all four original profiles. The mean median normalized cost was 7.524, compared with 11.421 for the declared in-grid reference w1_t1_2g, 10.366 for the conservative setting and 8.950 for uniform random selection (Table 7). The 34.1% lower cost relative to the reference reuses the same physical table that supplied some model training cells. It is descriptive, not independent savings or cloud billing reduction. It also uses an older objective and is not the measured performance of the newer balanced advise score."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.3 Earlier probe-ranking screen"
+    },
+    {
+      "type": "paragraph",
+      "text": "The earlier development screen retained 768 attempts across twelve recipes, with 759 successes, one timeout and eight execution errors. On the ten complete eligible instances, median selected-full engine regret was 3.87% for uniform sampling, 0.11% for memory-mapped uniform and 8.17% for partition-tail sampling (Figure 7). These are retrospective engine-only selection comparisons, not prediction accuracies or complete-request savings. The screen used one generation seed and two runtime repetitions; failures remain in the study record even when a timing metric requires complete successful comparisons."
+    },
+    {
+      "type": "figure",
+      "id": "F18_screen_regret",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F18_screen_regret.png",
+      "title": "Earlier screen: probe ranking was not a free improvement",
+      "caption": "Post-hoc development replay on ten complete eligible instances out of twelve generated recipes: median selected-full engine regret was 3.87% for uniform, 0.11% for memory-mapped uniform and 8.17% for partition-tail. Regret compares the selected full-engine outcome with the retrospective full-engine reference; it is not prediction accuracy or complete-request savings. The full screen retains 768 attempts (759 success, one timeout, eight execution errors), one generation seed and two runtime repeats. Timing exclusions do not remove failures from the study record.",
+      "source": "reports/research_screen_review_20261114/analysis.json (research branch) [7]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.4 Stage A and Stage B findings"
+    },
+    {
+      "type": "paragraph",
+      "text": "Stage A recorded 41 successful attempts and seven execution errors out of 48. The seven errors have nanny memory-termination evidence. Successful jobs may also show spill or worker restarts; success must not be equated with a quiet memory history. Figure 8 keeps statuses explicit."
+    },
+    {
+      "type": "figure",
+      "id": "F12_stage_a",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F12_stage_a.png",
+      "title": "Stage A: full-job outcomes under memory pressure",
+      "caption": "Existing Stage A development records: 48 full attempts, 41 successes and seven execution errors. Every grid cell has three repetitions; seven errors have nanny memory-termination evidence. A successful job can also contain worker restart/pressure events, so success does not mean absence of pressure. These are eight instances from one generation seed, not independent reliability estimates.",
+      "source": "reports/research_stage_a_windows_v1/summary.json (research branch) [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Stage B recorded 96 quiet successful probes. However, eight of 32 paired comparison groups showed full-input pressure without a corresponding probe warning (Figure 9). These cells are four low-cap instance cases at two fractions. They do not establish a calibrated 25% false-negative rate, and quietness on the smaller sample does not certify full-job safety."
+    },
+    {
+      "type": "figure",
+      "id": "F13_stage_b_fidelity",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F13_stage_b_fidelity.png",
+      "title": "Stage B: sample quietness is not full-job safety",
+      "caption": "All 96 Stage B probes were quiet successes. Eight of 32 paired comparison groups had full-input pressure without a corresponding probe warning. Those eight cells represent four low-cap instance cases observed at two fractions, not eight independent workloads or a calibrated 25% false-negative rate. Sample effective caps and full-target caps are distinct in the source plan.",
+      "source": "reports/research_stage_b_windows_v1/summary.json (research branch) [7]"
+    },
+    {
+      "type": "table",
+      "number": 8,
+      "title": "Distinct experimental denominators",
+      "headers": [
+        "Study",
+        "Attempts",
+        "Outcomes and scope"
+      ],
+      "rows": [
+        [
+          "Original main-v1",
+          "96",
+          "96 success; 4 profiles x 8 configurations x 3 repeats."
+        ],
+        [
+          "Earlier research screen",
+          "768",
+          "759 success, 1 timeout, 8 execution errors; 12 recipes."
+        ],
+        [
+          "Stage A full attempts",
+          "48",
+          "41 success and 7 execution errors; 8 instances."
+        ],
+        [
+          "Stage B probes",
+          "96",
+          "96 quiet successes; 8/32 pressure-discrepancy groups."
+        ]
+      ],
+      "widths": [
+        0.3,
+        0.15,
+        0.55
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.5 One-probe cost and the disabled gate"
+    },
+    {
+      "type": "paragraph",
+      "text": "The existing one-probe development replay found that stronger metadata and probe heuristics chose the same configurations for the eight instances. Their selected historical full outcomes were all successful (24/24 unique selected references), but the probing variants added cost. The median constructed request total was 4.79 s for size-aware metadata, 10.37 s for always-one-probe and 7.38 s for ambiguous-only probing (Figure 10)."
+    },
+    {
+      "type": "figure",
+      "id": "F14_probe_cost",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F14_probe_cost.png",
+      "title": "One-probe replay: same historical choices, added cost",
+      "caption": "Development counterfactual replay over eight instances: stronger metadata and one-probe rules select the same historical configurations, with 24/24 selected historical full outcomes successful. Metadata-associated request total: 4.79 s; always one probe: 10.37 s; ambiguous-only: 7.38 s. These are constructed totals from different-session historical references, not measured online latency. Metadata/controller overhead is unmeasured; 4.79 s is not metadata-read time. No probe admission was enabled.",
+      "source": "reports/one_probe_feasibility_20261116/analysis.json (research branch) [7]"
+    },
+    {
+      "type": "table",
+      "number": 9,
+      "title": "Constructed historical request cost comparison",
+      "headers": [
+        "Rule",
+        "Median total s",
+        "Selected successes"
+      ],
+      "rows": [
+        [
+          "Fixed 2 GB",
+          "4.96",
+          "24 / 24"
+        ],
+        [
+          "Size-aware metadata",
+          "4.79",
+          "24 / 24"
+        ],
+        [
+          "Always one probe",
+          "10.37",
+          "24 / 24"
+        ],
+        [
+          "Ambiguous-only probe",
+          "7.38",
+          "24 / 24"
+        ],
+        [
+          "Guarded default with probe disabled",
+          "4.79",
+          "24 / 24"
+        ]
+      ],
+      "widths": [
+        0.5,
+        0.23,
+        0.27
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The success denominator is the set of unique selected historical full outcomes, not independent prospective policy requests. Costs are constructed across sessions and exclude unmeasured metadata/controller overhead."
+    },
+    {
+      "type": "paragraph",
+      "text": "These totals are constructed from historical references in different sessions, not newly executed online policy requests. The 4.79 s is not metadata-read time. Metadata/controller overhead and sample-preparation resource exposure remain unmeasured. Probe admission stays disabled because incremental information and single-request economic benefit were not demonstrated for this use case. A negative finding is useful evidence; it should not be hidden by changing the objective or opening the gate."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.6 Worker-memory evidence"
+    },
+    {
+      "type": "paragraph",
+      "text": "The existing export preserves 321 worker lifetimes across 144 Stage A/B runs, including lifetimes added after worker restarts. Among 37 lifetimes with termination evidence, 33 retained sampled RSS peaks were below the recorded termination threshold and 36 event readings exceeded the retained peak (Figure 11). Brief peaks can occur between retained samples or before abrupt death."
+    },
+    {
+      "type": "figure",
+      "id": "F15_worker_memory",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F15_worker_memory.png",
+      "title": "Why sampled peaks are not exact memory-demand labels",
+      "caption": "Paired observations for 37 terminated worker lifetimes: 33 retained sampled peaks were below the recorded termination threshold, while event RSS exceeded the retained peak in 36 cases. Sampling and persistence can miss brief peaks before worker death. These are worker lifetimes, not 37 failed jobs; event RSS is a separate observation, not a replacement exact peak or synchronized cluster total. Missing worker values elsewhere remain missing.",
+      "source": "reports/worker_memory_stage_a_b_v1/workers.json (research branch); reports/worker_memory_review_20261116/analysis.json (research branch) [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "These are distinct observations: retained sampled RSS, termination-event RSS, managed memory, spill and configured cap. None should be substituted silently for another. Thirty-seven terminated lifetimes are not 37 failed jobs. Asynchronous worker peaks must not be summed as if measured simultaneously. Missing values remain missing, rather than being changed to zero. These limitations prevent treating retained peaks as exact memory-demand training targets."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.7 Threats to validity"
+    },
+    {
+      "type": "paragraph",
+      "text": "The original model is supported by only four fixed profiles, and its test contains eight family/configuration groups. Research uses one generation seed and shared samples. Runtime repetitions are not independent new workloads. Some costs are historical replays, not online executions; resource terms are configured proxies. Worker death and snapshot timing can censor telemetry. No cross-machine generalization, AWS Glue evaluation, multi-node experiment, calibrated failure classifier or publishable novel selector is established by these records."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "8 CONCLUSION AND FUTURE WORK"
+    },
+    {
+      "type": "paragraph",
+      "text": "SAFE-Pipe demonstrates a reproducible, bounded configuration-advice workflow with an explicit predictor, upper runtime estimates, support checks, preference-based selection and abstention. The original dataset supports a small held-out runtime result and descriptive configuration comparisons. Later research shows why small execution probes can lose pressure information and cost more than they add on short jobs. The current evidence supports keeping the probe gate closed."
+    },
+    {
+      "type": "figure",
+      "id": "F16_closed_gate",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F16_closed_gate.png",
+      "title": "The research gate stays closed",
+      "caption": "Conceptual flow of the guarded research prototype. The checked-in default uses no probe; the one-observation path has software checks but remains a diagnostic counterfactual. A new physical pilot needs a revised hypothesis, fair baselines, plausible information/economic benefit, and explicit review. This diagram is not the main advisor architecture or an enabled execution controller.",
+      "source": "reports/one_probe_feasibility_20261116/analysis.json (research branch); reports/one_probe_windows_checks_v1/verification.json (research branch) [7]"
+    },
+    {
+      "type": "paragraph",
+      "text": "The immediate experimental next step is user review of the published Windows verification checkpoint. Fresh prospective study preparation and collection have not started. Any subsequent collection should preserve pre-run advice, frozen identities, failed/aborted attempts and independent evaluation. It should report unfavorable as well as favorable outcomes. Exact-dataset advice/execution integration, a local interface and final delivery documents remain subsequent tasks. Broader-profile support needs a separate versioned data/model design and untouched evaluation."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "REFERENCES"
+    },
+    {
+      "type": "paragraph",
+      "text": "[1] M. Rocklin, “Dask: Parallel Computation with Blocked algorithms and Task Scheduling,” Proceedings of the 14th Python in Science Conference, pp. 126-132, 2015. DOI: 10.25080/majora-7b98e3ed-013. https://doi.org/10.25080/majora-7b98e3ed-013"
+    },
+    {
+      "type": "paragraph",
+      "text": "[2] S. Venkataraman, Z. Yang, M. Franklin, B. Recht and I. Stoica, “Ernest: Efficient Performance Prediction for Large-Scale Advanced Analytics,” 13th USENIX Symposium on Networked Systems Design and Implementation, pp. 363-378, 2016. https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/venkataraman"
+    },
+    {
+      "type": "paragraph",
+      "text": "[3] J. Will, L. Thamsen, D. Scheinert, J. Bader and O. Kao, “C3O: Collaborative Cluster Configuration Optimization for Distributed Data Processing in Public Clouds,” arXiv:2107.13317, 2021. https://arxiv.org/abs/2107.13317"
+    },
+    {
+      "type": "paragraph",
+      "text": "[4] G. Ke, Q. Meng, T. Finley, T. Wang, W. Chen, W. Ma, Q. Ye and T.-Y. Liu, “LightGBM: A Highly Efficient Gradient Boosting Decision Tree,” Advances in Neural Information Processing Systems 30, pp. 3146-3154, 2017. https://proceedings.neurips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html"
+    },
+    {
+      "type": "paragraph",
+      "text": "[5] A. N. Angelopoulos and S. Bates, “A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification,” arXiv:2107.07511, 2021, revised December 2022. https://arxiv.org/abs/2107.07511"
+    },
+    {
+      "type": "paragraph",
+      "text": "[6] Dask Developers, “Worker Memory Management,” Dask.distributed 2026.8.0 documentation. Accessed 22 November 2026. https://distributed.dask.org/en/stable/worker-memory.html"
+    },
+    {
+      "type": "paragraph",
+      "text": "[7] SAFE-Pipe project team, “SAFE-Pipe source code and experimental artifacts,” Aggdaksh/SAFE-Pipe1, original-advisor evidence revision caa8a8a and separate research evidence revision edef1cd, 2026. Repository artifacts include the original audited table, fitted predictions, Stage A/B summaries and worker-memory export. https://github.com/Aggdaksh/SAFE-Pipe1"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "APPENDIX A SAVED ADVISOR OUTPUT"
+    },
+    {
+      "type": "paragraph",
+      "text": "The image below presents actual saved JSON from inference on the original Windows environment. It is an evidence viewer, not a finished product interface. The balanced example selects w2_t2_1g for the fixed sort_merge profile at a 13.1-second engine deadline. The point estimate is approximately 2.29 seconds and the upper estimate approximately 3.87 seconds. These are predictions rather than fresh execution measurements."
+    },
+    {
+      "type": "figure",
+      "id": "saved_advisor_output",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\screenshots\\saved_advisor_output.png",
+      "title": "Saved balanced advisor inference output",
+      "caption": "Actual captured inference output presented in a report viewer. No Dask workload was executed for the capture.",
+      "source": "advisor_capture/sort_balanced.json and screenshots/saved_advisor_output.png [7]"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "APPENDIX B ORIGINAL REPEAT RANGES"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following figure preserves the per-configuration repeat ranges from the original study. The bars show observed minimum and maximum over three repetitions, not confidence intervals. Each family panel uses its own horizontal scale. These data are retained separately from the later research studies."
+    },
+    {
+      "type": "figure",
+      "id": "F04_runtime_ranges",
+      "file": "C:\\Users\\Ganant Awasthi\\Downloads\\Telegram Desktop\\SAFE-Pipe1\\docs\\minor_report_v1\\figures\\F04_runtime_ranges.png",
+      "title": "Measured engine runtime across the grid",
+      "caption": "Each dot is the median of three original physical runs; bars show their minimum and maximum, not confidence intervals. Panels have independent horizontal scales. Engine timing excludes cluster startup and profiling. All 96 original runs succeeded; this chart does not predict future failure rates.",
+      "source": "data/curated/runs.csv [7]"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "APPENDIX C REPRODUCIBILITY AND EVIDENCE IDENTITY"
+    },
+    {
+      "type": "paragraph",
+      "text": "The original source table is data/curated/runs.csv. Model predictions and metrics are in artifacts/main_v1/. Workload and configuration definitions are frozen under configs/. The original-advisor Windows software receipt records implementation d6f906a and is published in evidence commit caa8a8a. Separate research findings are read from revision edef1cd; report asset production is committed in 05d3e66. The report does not merge research code or turn its disabled policy into an enabled controller."
+    },
+    {
+      "type": "paragraph",
+      "text": "The file docs/minor_report_v1/source_manifest.json pins compact input paths and LF-normalized SHA-256 hashes. A structured source check confirms the 78 original verified source/evidence hashes. Original generated Parquet, raw diagnostics, local credentials and virtual environments are kept outside the shareable report package. The later worker-memory export preserves restarted lifetimes and missing-value distinctions."
+    },
+    {
+      "type": "paragraph",
+      "text": "The recorded software command was .venv/Scripts/python.exe -m experiments.verify_main_validation --out reports/main_validation_windows_checks_v1. It is documented for reproducibility, not repeated as part of report generation. Fresh validation needs its own new study directory and a reviewed frozen plan; the existing evidence folder must not be overwritten."
+    },
+    {
+      "type": "paragraph",
+      "text": "In the earlier development screen, approximately 6.78 GiB referred to prepared Parquet/sample storage across two screen directories. It was not the size of one original training dataset or the saved LightGBM model."
+    }
+  ],
+  "references": [
+    {
+      "n": 1,
+      "text": "M. Rocklin, “Dask: Parallel Computation with Blocked algorithms and Task Scheduling,” Proceedings of the 14th Python in Science Conference, pp. 126–132, 2015. DOI: 10.25080/majora-7b98e3ed-013.",
+      "url": "https://doi.org/10.25080/majora-7b98e3ed-013"
+    },
+    {
+      "n": 2,
+      "text": "S. Venkataraman, Z. Yang, M. Franklin, B. Recht and I. Stoica, “Ernest: Efficient Performance Prediction for Large-Scale Advanced Analytics,” 13th USENIX Symposium on Networked Systems Design and Implementation, pp. 363–378, 2016.",
+      "url": "https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/venkataraman"
+    },
+    {
+      "n": 3,
+      "text": "J. Will, L. Thamsen, D. Scheinert, J. Bader and O. Kao, “C3O: Collaborative Cluster Configuration Optimization for Distributed Data Processing in Public Clouds,” arXiv:2107.13317, 2021.",
+      "url": "https://arxiv.org/abs/2107.13317"
+    },
+    {
+      "n": 4,
+      "text": "G. Ke, Q. Meng, T. Finley, T. Wang, W. Chen, W. Ma, Q. Ye and T.-Y. Liu, “LightGBM: A Highly Efficient Gradient Boosting Decision Tree,” Advances in Neural Information Processing Systems 30, pp. 3146–3154, 2017.",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html"
+    },
+    {
+      "n": 5,
+      "text": "A. N. Angelopoulos and S. Bates, “A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification,” arXiv:2107.07511, 2021, revised December 2022.",
+      "url": "https://arxiv.org/abs/2107.07511"
+    },
+    {
+      "n": 6,
+      "text": "Dask Developers, “Worker Memory Management,” Dask.distributed 2026.8.0 documentation. Accessed 22 November 2026.",
+      "url": "https://distributed.dask.org/en/stable/worker-memory.html"
+    },
+    {
+      "n": 7,
+      "text": "SAFE-Pipe project team, “SAFE-Pipe source code and experimental artifacts,” Aggdaksh/SAFE-Pipe1, original-advisor evidence revision caa8a8a and separate research evidence revision edef1cd, 2026. Repository artifacts include the original audited table, fitted predictions, Stage A/B summaries and worker-memory export.",
+      "url": "https://github.com/Aggdaksh/SAFE-Pipe1"
+    }
+  ],
+  "planned_figures": 14,
+  "planned_tables": 9,
+  "underlying_facts_sha256": "01707d3a364b0e72aa84cb6d58c6fa33665a17d51a0d591edd3e944bc729b995"
+}

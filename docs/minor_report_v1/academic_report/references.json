@@ -1,0 +1,37 @@
+[
+  {
+    "n": 1,
+    "text": "M. Rocklin, “Dask: Parallel Computation with Blocked algorithms and Task Scheduling,” Proceedings of the 14th Python in Science Conference, pp. 126–132, 2015. DOI: 10.25080/majora-7b98e3ed-013.",
+    "url": "https://doi.org/10.25080/majora-7b98e3ed-013"
+  },
+  {
+    "n": 2,
+    "text": "S. Venkataraman, Z. Yang, M. Franklin, B. Recht and I. Stoica, “Ernest: Efficient Performance Prediction for Large-Scale Advanced Analytics,” 13th USENIX Symposium on Networked Systems Design and Implementation, pp. 363–378, 2016.",
+    "url": "https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/venkataraman"
+  },
+  {
+    "n": 3,
+    "text": "J. Will, L. Thamsen, D. Scheinert, J. Bader and O. Kao, “C3O: Collaborative Cluster Configuration Optimization for Distributed Data Processing in Public Clouds,” arXiv:2107.13317, 2021.",
+    "url": "https://arxiv.org/abs/2107.13317"
+  },
+  {
+    "n": 4,
+    "text": "G. Ke, Q. Meng, T. Finley, T. Wang, W. Chen, W. Ma, Q. Ye and T.-Y. Liu, “LightGBM: A Highly Efficient Gradient Boosting Decision Tree,” Advances in Neural Information Processing Systems 30, pp. 3146–3154, 2017.",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html"
+  },
+  {
+    "n": 5,
+    "text": "A. N. Angelopoulos and S. Bates, “A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification,” arXiv:2107.07511, 2021, revised December 2022.",
+    "url": "https://arxiv.org/abs/2107.07511"
+  },
+  {
+    "n": 6,
+    "text": "Dask Developers, “Worker Memory Management,” Dask.distributed 2026.8.0 documentation. Accessed 22 November 2026.",
+    "url": "https://distributed.dask.org/en/stable/worker-memory.html"
+  },
+  {
+    "n": 7,
+    "text": "SAFE-Pipe project team, “SAFE-Pipe source code and experimental artifacts,” Aggdaksh/SAFE-Pipe1, original-advisor evidence revision caa8a8a and separate research evidence revision edef1cd, 2026. Repository artifacts include the original audited table, fitted predictions, Stage A/B summaries and worker-memory export.",
+    "url": "https://github.com/Aggdaksh/SAFE-Pipe1"
+  }
+]

@@ -2,6 +2,8 @@
 
 Prepared 21 November 2026. This is a working writing/evidence pack, not a signed or department-formatted final submission.
 
+**22 November update:** the [actual formatted Word report](../../output/docx/SAFE_Pipe_DTU_Minor_Project_Report.docx) is now available, with DTU branding, confirmed team/guide details, academic front matter, eight chapters, related work and references. It is separate from this earlier evidence book. See [academic report production notes](academic_report/README.md). Signature/date fields remain blank for real review and signing.
+
 ## Open these first
 
 - [Visual evidence book](index.html): 18 figures, captions, sources, implementation examples, chapter mapping and remaining inputs.

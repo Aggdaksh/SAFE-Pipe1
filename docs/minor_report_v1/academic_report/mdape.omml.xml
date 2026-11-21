@@ -1,0 +1,24 @@
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+  <m:r><m:t>MdAPE = 100 × </m:t></m:r>
+  <m:sSub>
+    <m:e><m:r><m:rPr><m:sty m:val="p"/></m:rPr><m:t>median</m:t></m:r></m:e>
+    <m:sub><m:r><m:t>i</m:t></m:r></m:sub>
+  </m:sSub>
+  <m:d>
+    <m:dPr><m:begChr m:val="("/><m:endChr m:val=")"/></m:dPr>
+    <m:e><m:f>
+      <m:num><m:d>
+        <m:dPr><m:begChr m:val="|"/><m:endChr m:val="|"/></m:dPr>
+        <m:e>
+          <m:sSub>
+            <m:e><m:acc><m:accPr><m:chr m:val="̂"/></m:accPr><m:e><m:r><m:t>t</m:t></m:r></m:e></m:acc></m:e>
+            <m:sub><m:r><m:t>i</m:t></m:r></m:sub>
+          </m:sSub>
+          <m:r><m:t>−</m:t></m:r>
+          <m:sSub><m:e><m:r><m:t>t</m:t></m:r></m:e><m:sub><m:r><m:t>i</m:t></m:r></m:sub></m:sSub>
+        </m:e>
+      </m:d></m:num>
+      <m:den><m:sSub><m:e><m:r><m:t>t</m:t></m:r></m:e><m:sub><m:r><m:t>i</m:t></m:r></m:sub></m:sSub></m:den>
+    </m:f></m:e>
+  </m:d>
+</m:oMath>

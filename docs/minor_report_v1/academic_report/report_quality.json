@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-22",
+  "checks_pass": true,
+  "pages": 36,
+  "chapters": 8,
+  "figures": 14,
+  "tables": 9,
+  "native_equations": 4,
+  "embedded_images_including_logo": 15,
+  "native_captions_with_titles": 23,
+  "front_matter_roman_numbering_checked": true,
+  "main_arabic_numbering_restarts_at_one": true,
+  "team_and_guide_details_checked": true,
+  "source_receipt_hashes_unchanged": 78,
+  "docx_sha256": "8df622f1c106665459e34cd72d060a1f1350f228e3a45f1d011e2a0370f62a1b",
+  "preview_sha256": "28183a51a46f40e529245aa5498700aa7b4f6f48e2add0d544b67aa6827e0d1a",
+  "rendering": "Native Microsoft Word 16 PDF save, rasterized with PyMuPDF for page review.",
+  "scope": "Academic report production only. No new benchmark, dataset generation, training or main merge."
+}
