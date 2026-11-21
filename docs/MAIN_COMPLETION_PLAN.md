@@ -12,7 +12,7 @@ The original 96-row table, fitted model, calibration, configuration grid and pub
 
 | Milestone | Work and acceptance | Current state |
 | --- | --- | --- |
-| A. Prepare trustworthy validation | Immutable pre-run study; model, input, environment and source identities; explicit fresh attempt journal; evaluator consuming saved advice and fresh records; meaningful Windows tests | Implementation in this branch; Windows verification pending |
+| A. Prepare trustworthy validation | Immutable pre-run study; model, input, environment and source identities; explicit fresh attempt journal; evaluator consuming saved advice and fresh records; meaningful Windows tests | Software verification passed at `d6f906a`: 143 passed, 0 failed/errors/skipped; receipt in `reports/main_validation_windows_checks_v1/`. Actual study preparation awaits user evidence review |
 | B. Collect fresh evidence | Original hashed datasets, original host, declared balanced objective; 4 profiles × 8 configurations × 3 attempts = 96 planned cells; keep failures, aborted attempts and missing cells visible | Not started |
 | C. Interpret results | Acceptance, selected outcomes, point error/upper coverage, resource proxies, fixed baseline, feasible hindsight reference; distinguish complete collection from favorable policy performance | Awaiting B |
 | D. Bind recommendation to execution | Verify actual input fingerprints and intended environment, run exactly the saved selected configuration, refuse after abstention; retain decision/result linkage and separate engine/lifecycle timing | Pending after validation review |

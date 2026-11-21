@@ -1,6 +1,8 @@
 # Windows handoff: original advisor validation
 
-Branch: **`codex/main-advisor-completion`**. This work is separate from the research branch and is not merged into main. Current status: implementation and static review only; Windows verification and fresh measurements are pending.
+Branch: **`codex/main-advisor-completion`**. This work is separate from the research branch and is not merged into main. Current status: **Windows software verification passed on 2026-11-21 at `d6f906a`: 143 passed, 0 failed, 0 errors, 0 skipped (36.89 s)**. `pip check` passed in the existing original `.venv` (Python 3.14.6); no fixes or dependency upgrades were needed. See [`../reports/main_validation_windows_checks_v1/`](../reports/main_validation_windows_checks_v1/).
+
+**Stop for evidence review:** this checkpoint only completed step 1 below. The fresh 96-cell study has not been prepared or started. Steps 2 onward describe future work and require the user's go-ahead after reviewing this evidence. No original data regeneration or model training was performed. Preserve the original receipt and choose a new suffixed report directory if verification is run again.
 
 ## 1. Switch to the branch and verify software
 

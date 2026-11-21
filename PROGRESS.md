@@ -4,9 +4,9 @@
 
 ## Current completion branch
 
-`codex/main-advisor-completion` starts from main `504f005`. It prepares immutable fresh-study manifests, saved pre-run advice, failure/interruption-aware attempt recording, an independent fresh-results evaluator and Windows verification instructions. **Software verification and the fresh 96-cell study are pending.** Existing numerical results and test counts below are historical, not results of the new implementation.
+`codex/main-advisor-completion` starts from main `504f005`. It prepares immutable fresh-study manifests, saved pre-run advice, failure/interruption-aware attempt recording, an independent fresh-results evaluator and Windows verification instructions. **Windows software verification passed at `d6f906a` on 2026-11-21: 143 passed, 0 failed/errors/skipped in 36.89 s; dependency checks passed.** Evidence: [`reports/main_validation_windows_checks_v1/`](reports/main_validation_windows_checks_v1/). The fresh 96-cell study is not prepared or started; await user review before proceeding. Numerical results and older test counts below remain historical.
 
-The new implementation and synthetic regression cases have been statically reviewed. Syntax/compile checks passed without importing or executing project modules on the Mac. The Windows verifier records the actual full-suite result before allowing study preparation. No new experiment or trained model is included in this checkpoint.
+The new implementation and synthetic regression cases passed the full software suite, including tiny Dask integration tests, in the original Windows `.venv` (Python 3.14.6). No implementation fix or dependency change was required. The receipt preserves the tested source and environment; no fresh main-study attempt or trained model is included in this checkpoint.
 
 See [completion milestones](docs/MAIN_COMPLETION_PLAN.md) and [Windows handoff](docs/WINDOWS_MAIN_VALIDATION.md). Exact-dataset execution integration, the local interface and final delivery follow validation review. Research code has not been merged; no new model is trained.
 

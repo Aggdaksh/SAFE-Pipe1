@@ -1,8 +1,8 @@
 # Ganant Work — Windows experiment PC log
 
-**Updated:** 2026-10-28 (Asia/Kolkata)<br>
+**Updated:** 2026-11-21 (Asia/Calcutta)<br>
 **Repository:** `Aggdaksh/SAFE-Pipe1`  
-**Working branch:** `main` (integrated Windows and advisor work)<br>
+**Working branch:** `codex/main-advisor-completion` (Windows software-verification checkpoint)<br>
 **Purpose:** Read this first when resuming on this PC or handing the work to another agent. The canonical project plan is [`context.md`](context.md); this file records what happened on Ganant's PC.
 
 ## Checkpoint 1 — Repository and environment
@@ -113,18 +113,25 @@
 - Ran the full Windows suite on merged `main`: **79 tests passed**. Pushed the integrated commit to central `origin/main` (`f474aae..abb21f7`). The 96 physical runs and model results did not change in this integration.
 - Updated the explainer, README, Git collaboration guide, and midterm handoff to point teammates at integrated `main`. The older topic branches remain historical checkpoints, already contained in `main`.
 
+## Checkpoint 17 - Original-advisor completion verification
+
+- On 2026-11-21, preserved existing unrelated untracked `output/` and `tools/` directories; there were no tracked local edits to stash. Fetched origin, switched from the research branch to tracking `codex/main-advisor-completion`, and pulled with `--ff-only` (already current at `d6f906a6f69ea6893d8ebab3d38b6dd1a0ced8eb`). Research-specific checkpoints remain preserved on `codex/partition-probe-research`; that branch is separate from this main-derived completion branch.
+- Read `context.md` and `docs/WINDOWS_MAIN_VALIDATION.md`. Ran the requested verifier once in the existing original `.venv`, Python 3.14.6 on Windows 11. Dependency check passed. Full software suite, including tiny Dask integration tests: **143 passed, 0 failed, 0 errors, 0 skipped, 36.89 s**. No implementation fixes, installs or dependency upgrades were needed.
+- Saved the unchanged receipt, complete test output and JUnit XML in [`reports/main_validation_windows_checks_v1/`](reports/main_validation_windows_checks_v1/). Cross-checked all 78 receipt source/evidence hashes, environment and JUnit counts. Before/after byte hashes matched for 14 original project/model/curated/manifest files; all 70 original dataset files retained identical paths, sizes and modification timestamps. The inventory check is not a new full Parquet content-hash audit.
+- Updated completion status, handoff and context documents. This checkpoint contains software evidence only: no fresh-study preparation, 96-cell run, original dataset regeneration, model training or main merge. Publish this report on the same completion branch and stop for user review.
+
 ## Current work and next steps
 
-1. Teammates should pull `origin/main` and review the integrated evidence. Start new work from updated `main` on a focused topic branch. Independent validation on new physical profiles is still needed before a general cost improvement claim.
-2. Optional TabPFN/Colab comparison and formal DTU synopsis submission still need team decisions. Do not train a failure classifier or claim failure improvement from zero failures.
+1. Review the Windows software-verification receipt on `codex/main-advisor-completion`. Do not merge into main or start experiment preparation automatically.
+2. After explicit user review, follow the original-advisor handoff for a separately frozen fresh study. Software verification does not establish fresh advisor accuracy or generalization. Keep research work on its separate branch.
 
 ## Resume commands on this PC
 
 ```powershell
 git status --short --branch
 git log -4 --oneline
-.\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe experiments/audit_runs.py
+Get-Content reports/main_validation_windows_checks_v1/README.md
+Get-Content reports/main_validation_windows_checks_v1/SESSION_NOTES.md
 ```
 
-Running `audit_runs.py` regenerates local curated Parquet and CSV from ignored raw JSONL. It should reproduce 96 rows and zero SLA misses. The script does not rerun physical Dask jobs.
+The current checkpoint is read-only evidence review. Do not regenerate the original curated data or rerun the verifier into its existing output folder. Any later verification must use a new output directory.
