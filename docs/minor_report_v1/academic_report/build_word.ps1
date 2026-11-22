@@ -136,21 +136,20 @@ try {
     [void](Add-Paragraph "(Formerly Delhi College of Engineering)`rBawana Road, Delhi 110042" 'Cover Text' 1)
     [void](Add-Paragraph $data.date 'Cover Text' 1)
     Add-Break 2
-    Front-Title 'CANDIDATES DECLARATION'
-    [void](Add-Paragraph ('We, Daksh Aggarwal (23/IT/047), Ganant Awasthi (23/IT/055) and Chaitanya Singh (23/IT/045), students of B.Tech VII Semester in the Department of Information Technology, Delhi Technological University, hereby declare that the project report titled "'+$data.title+'" presents our project work submitted for the Minor BTech Project in the academic session 2026-2027.'))
-    [void](Add-Paragraph 'The work and results of other authors have been acknowledged through references. This report has not been submitted in full for the award of another degree or diploma. The completed experiments, software verification and proposed future work are distinguished in the report.')
+    Front-Title "CANDIDATES’ DECLARATION"
+    [void](Add-Paragraph ('We, Daksh Aggarwal (23/IT/047), Ganant Awasthi (23/IT/055) and Chaitanya Singh (23/IT/045), students of B.Tech VII Semester in the Department of Information Technology, Delhi Technological University, submit the project report titled "'+$data.title+'" for the Minor BTech Project in the academic session 2026-2027.'))
+    [void](Add-Paragraph 'This report presents our own project work. We have cited the work of other authors wherever used. This report has not been submitted in full for the award of another degree or diploma.')
     [void](Add-Paragraph "Place: New Delhi`rDate: ____________________")
     foreach($member in $data.team){[void](Add-Paragraph ("`rSignature: ____________________`r"+$member[0]+' ('+$member[1]+')'))}
     Add-Break
     Front-Title 'CERTIFICATE'
     [void](Add-Paragraph ('This is to certify that the project report titled "'+$data.title+'", submitted by Daksh Aggarwal (23/IT/047), Ganant Awasthi (23/IT/055) and Chaitanya Singh (23/IT/045), Department of Information Technology, Delhi Technological University, in partial fulfilment of the requirements of the Minor BTech Project, B.Tech VII Semester, academic session 2026-2027, is a record of the project work carried out under my supervision.'))
-    [void](Add-Paragraph 'The report is submitted for academic evaluation. The technical results, limitations and remaining work are described in the relevant chapters.')
     [void](Add-Paragraph "`r`rSignature: ____________________`rDate: ____________________`rPlace: New Delhi")
-    [void](Add-Paragraph ("`r"+$data.guide+"`rHead of Department`rDepartment of Information Technology`rDelhi Technological University"))
+    [void](Add-Paragraph ("`r"+$data.guide+"`rProject Supervisor`rHead of Department`rDepartment of Information Technology`rDelhi Technological University"))
     Add-Break
     Front-Title 'ACKNOWLEDGEMENT'
     [void](Add-Paragraph 'We express our gratitude to our project guide, Prof. Dinesh Kumar Vishwakarma, Head of Department, Department of Information Technology, Delhi Technological University, for the opportunity to undertake this project and for academic guidance. We thank the Department of Information Technology for the academic environment in which the project was developed.')
-    [void](Add-Paragraph 'We acknowledge the open-source contributors to Dask, LightGBM and the scientific Python ecosystem whose software made the implementation and reproducible analysis possible. The research publications used to develop the technical background are cited in the report. We also thank our peers and project team members for discussions and coordination during the work.')
+    [void](Add-Paragraph 'We acknowledge the open-source contributors to Dask, LightGBM and the scientific Python ecosystem whose software made the implementation and reproducible analysis possible. We also thank our peers for discussions and coordination during the work.')
     foreach($member in $data.team){[void](Add-Paragraph ("`r"+$member[0]+' ('+$member[1]+')'))}
     Add-Break
     Front-Title 'ABSTRACT'

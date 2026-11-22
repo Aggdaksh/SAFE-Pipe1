@@ -21,6 +21,14 @@ with ZipFile(revised) as z:
     for edit in plan['edits']:
         assert paragraphs.count(edit['after']) == 1, edit['id']
     assert plan['disclosure'] in paragraphs
+    corrections_path = BASE/'editorial_corrections.json'
+    if corrections_path.exists():
+        corrections = json.loads(corrections_path.read_text(encoding='utf-8'))
+        for edit in corrections['edits']:
+            assert edit['before'] not in paragraphs
+            if edit['after']:
+                assert paragraphs.count(edit['after']) == 1
+        assert 'Project Supervisor' in paragraphs
     assert len(root.findall('.//w:tbl', ns)) == 9
     assert len(root.findall('.//m:oMath', ns)) == 4
     media = {n: hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist() if n.startswith('word/media/')}

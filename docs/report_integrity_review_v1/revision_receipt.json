@@ -1,7 +1,7 @@
 {
   "date": "2026-11-22",
   "source_sha256": "8df622f1c106665459e34cd72d060a1f1350f228e3a45f1d011e2a0370f62a1b",
-  "reviewed_sha256": "8347417136a96365b304ba55d00470728a6bed42e48434570751bcd003e35b56",
+  "reviewed_sha256": "62f406c1d69d4c12933e2ea7b925286fff583cb61ae276b11aeb1547bcce5d52",
   "pages": 36,
   "applied_edits": [
     "R01",
@@ -25,7 +25,10 @@
   "source_preserved": true,
   "original_evidence_hashes_preserved": 78,
   "pages_changed_from_original_render": [
-    7,
+    2,
+    3,
+    4,
+    5,
     10,
     14,
     18,
@@ -38,7 +41,20 @@
     32,
     36
   ],
-  "visual_review": "Passed: inspected the 12 changed rendered pages; remaining 24 pages are pixel-identical to the previously reviewed original rendering. No clipping, overlap or broken equations/tables observed.",
+  "visual_review": "Passed: inspected all six pages changed by the editorial corrections (2, 3, 4, 5, 7, 21). Remaining 30 pages are pixel-identical to the previously reviewed version.",
   "rendering": "Native Word PDF save; existing PyMuPDF rasterizer. Managed document runtime unavailable.",
-  "production_note": "Corrected disclosure paragraph break; receipt computed after Word closed the output file."
+  "production_note": "Corrected disclosure paragraph break; receipt computed after Word closed the output file.",
+  "editorial_corrections": {
+    "paragraph_changes": 7,
+    "supervisor_role_added": true,
+    "changed_pages_vs_previous_reviewed": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      21
+    ],
+    "figure_eligible_candidates_verified": 8
+  }
 }

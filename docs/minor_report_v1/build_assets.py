@@ -308,7 +308,7 @@ ax.axvline(advisor["effective_deadline_seconds"], color=GOLD, linestyle="--", la
 labels = [c["config_id"] + ("  [selected]" if c["config_id"] == advisor["decision"].get("config_id") else "") for c in candidates]
 ax.set_yticks(y, labels); ax.invert_yaxis(); ax.set_xlim(left=0); ax.set_xlabel("Predicted engine seconds: dot = point, end tick = upper")
 ax.legend(loc="lower right"); ax.grid(axis="x", alpha=.15)
-save(fig, "F10_advisor_candidates", "Worked example: current balanced advisor", f"Actual inference-only CLI output for sort_merge at an engine deadline of 13.1 s. Selected: {advisor['decision'].get('config_id')}. Teal candidates pass the checks; red ones are ineligible. Among eligible candidates the declared balanced score selects the winner; the shortest upper bound alone is not the objective. No job was executed for this capture.", ["advisor_capture/sort_balanced.json", "docs/CONFIG_SELECTION.md"], "Implementation")
+save(fig, "F10_advisor_candidates", "Worked example: current balanced advisor", 'Actual inference-only CLI output for sort_merge. All eight configurations met the 13.1-second deadline using their upper runtime estimates and passed the resource checks. The advisor selected w2_t2_1g because it had the lowest balanced score. No job was executed for this capture.', ["advisor_capture/sort_balanced.json", "docs/CONFIG_SELECTION.md"], "Implementation")
 export_csv("advisor_candidates", [{k: c.get(k) for k in ["config_id", "n_workers", "threads_per_worker", "total_memory_gb", "predicted_runtime_s", "runtime_upper_s", "score", "eligible"]} for c in candidates])
 
 # F11: causal-factor design is a cartoon, not measured category frequencies.

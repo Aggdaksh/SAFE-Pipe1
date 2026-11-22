@@ -90,7 +90,7 @@
   {
     "id": "F10_advisor_candidates",
     "title": "Worked example: current balanced advisor",
-    "caption": "Actual inference-only CLI output for sort_merge at an engine deadline of 13.1 s. Selected: w2_t2_1g. Teal candidates pass the checks; red ones are ineligible. Among eligible candidates the declared balanced score selects the winner; the shortest upper bound alone is not the objective. No job was executed for this capture.",
+    "caption": "Actual inference-only CLI output for sort_merge. All eight configurations met the 13.1-second deadline using their upper runtime estimates and passed the resource checks. The advisor selected w2_t2_1g because it had the lowest balanced score. No job was executed for this capture.",
     "sources": [
       "advisor_capture/sort_balanced.json",
       "docs/CONFIG_SELECTION.md"

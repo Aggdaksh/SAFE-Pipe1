@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-22",
+  "edits": [
+    {
+      "before": "Actual inference-only CLI output for sort_merge at an engine deadline of 13.1 s. Selected: w2_t2_1g. Teal candidates pass the checks; red ones are ineligible. Among eligible candidates the declared balanced score selects the winner; the shortest upper bound alone is not the objective. No job was executed for this capture.",
+      "after": "Actual inference-only CLI output for sort_merge. All eight configurations met the 13.1-second deadline using their upper runtime estimates and passed the resource checks. The advisor selected w2_t2_1g because it had the lowest balanced score. No job was executed for this capture."
+    },
+    {
+      "before": "CANDIDATES DECLARATION",
+      "after": "CANDIDATES’ DECLARATION"
+    },
+    {
+      "before": "We, Daksh Aggarwal (23/IT/047), Ganant Awasthi (23/IT/055) and Chaitanya Singh (23/IT/045), students of B.Tech VII Semester in the Department of Information Technology, Delhi Technological University, hereby declare that the project report titled \"SAFE-Pipe: Failure-Aware Cost and Runtime Optimization of Distributed Data Pipelines under SLA Constraints\" presents our project work submitted for the Minor BTech Project in the academic session 2026-2027.",
+      "after": "We, Daksh Aggarwal (23/IT/047), Ganant Awasthi (23/IT/055) and Chaitanya Singh (23/IT/045), students of B.Tech VII Semester in the Department of Information Technology, Delhi Technological University, submit the project report titled \"SAFE-Pipe: Failure-Aware Cost and Runtime Optimization of Distributed Data Pipelines under SLA Constraints\" for the Minor BTech Project in the academic session 2026-2027."
+    },
+    {
+      "before": "The work and results of other authors have been acknowledged through references. This report has not been submitted in full for the award of another degree or diploma. The completed experiments, software verification and proposed future work are distinguished in the report.",
+      "after": "This report presents our own project work. We have cited the work of other authors wherever used. This report has not been submitted in full for the award of another degree or diploma."
+    },
+    {
+      "before": "The report is submitted for academic evaluation. The technical results, limitations and remaining work are described in the relevant chapters.",
+      "after": ""
+    },
+    {
+      "before": "We acknowledge the open-source contributors to Dask, LightGBM and the scientific Python ecosystem whose software made the implementation and reproducible analysis possible. The research publications used to develop the technical background are cited in the report. We also thank our peers and project team members for discussions and coordination during the work.",
+      "after": "We acknowledge the open-source contributors to Dask, LightGBM and the scientific Python ecosystem whose software made the implementation and reproducible analysis possible. We also thank our peers for discussions and coordination during the work."
+    },
+    {
+      "before": "Configuration choices affect the runtime and resource allocation of batch data-processing jobs. SAFE-Pipe implements a bounded advisor that compares eight local Dask configurations using workload metadata, a fitted runtime predictor, a calibrated upper runtime estimate and explicit support checks. The original study measured four fixed synthetic workload profiles across eight configurations with three repetitions, producing 96 successful runs on one Windows PC. A grouped held-out evaluation reported median absolute percentage error of 13.84%, compared with 23.01% for a family-median baseline, on 24 test rows belonging to eight family/configuration groups. A historical resource-cost comparison reused the original table and is therefore descriptive rather than independent evidence of savings. Subsequent research examined whether small execution probes preserve memory-pressure information from full jobs. Stage A recorded 41 successful full attempts and seven execution errors; all 96 Stage B probes completed quietly, although eight of 32 paired comparison groups disagreed with full-input pressure. A one-probe development replay added profiling cost without changing the stronger metadata-based choices. Probe admission consequently remains disabled. The latest original-advisor implementation passed 143 Windows software tests, while fresh prospective validation remains pending. The contribution is an auditable, scope-limited advisor and an evidence-based investigation of profiling limits, not a universal safety guarantee or a validated failure classifier.",
+      "after": "Configuration choices affect the runtime and resource allocation of batch data-processing jobs. SAFE-Pipe implements a bounded advisor that compares eight local Dask configurations using workload metadata, a fitted runtime predictor, a calibrated upper runtime estimate and explicit support checks. The original study measured four fixed synthetic workload profiles across eight configurations with three repetitions, producing 96 successful runs on one Windows PC. A grouped held-out evaluation reported median absolute percentage error of 13.84%, compared with 23.01% for a family-median baseline, on 24 test rows belonging to eight family/configuration groups. A historical resource-cost comparison reused the original table and is therefore descriptive rather than independent evidence of savings. Subsequent research examined whether small execution probes preserve memory-pressure information from full jobs. Stage A recorded 41 successful full attempts and seven execution errors. In a separate experiment, all 96 small-sample runs completed without a recorded memory-pressure warning. In eight of 32 paired comparisons, the full workload showed memory pressure that the sample did not reveal. A one-probe development replay added profiling cost without changing the stronger metadata-based choices. Probe admission consequently remains disabled. Fresh prospective validation remains pending. The contribution is an auditable, scope-limited advisor and an evidence-based investigation of profiling limits, not a universal safety guarantee or a validated failure classifier."
+    }
+  ],
+  "certificate_supervisor_role": true,
+  "prior_submission": "Retained existing in-full wording; not expanded to in whole or in part. Authors must verify before signing.",
+  "figure_evidence": {
+    "eligible_candidates": 8,
+    "deadline_seconds": 13.1,
+    "minimum_score_config": "w2_t2_1g"
+  }
+}
