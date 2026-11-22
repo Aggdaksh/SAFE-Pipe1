@@ -1,0 +1,119 @@
+{
+  "version": "report-evidence-v2",
+  "date": "2026-11-22",
+  "base_revision": "297c0a421771e93c02b022c73222c9bcc3385bd7",
+  "base_path": "output/docx/SAFE_Pipe_DTU_Minor_Project_Report_Reviewed.docx",
+  "base_sha256": "62f406c1d69d4c12933e2ea7b925286fff583cb61ae276b11aeb1547bcce5d52",
+  "edits": [
+    {
+      "before": "Conformal prediction provides a framework for calibrating prediction sets or bounds using held-out conformity scores under stated assumptions [5]. SAFE-Pipe uses grouped calibration residuals to construct a one-sided upper runtime estimate. Its small, fixed-profile evaluation is not evidence of universal coverage. Candidate selection, changes of input profile and changes of hardware require their own assessment; a nominal calibration target is not automatically a job-success probability.",
+      "after": "Conformal prediction calibrates prediction sets or bounds using held-out scores. Its usual marginal coverage argument requires exchangeability of calibration and future scores [5]. SAFE-Pipe computes one maximum residual score per family/configuration group. Keeping repeats together prevents repeat leakage, but does not establish exchangeability across the fixed groups, new profiles or different hardware. The nominal level is therefore reported alongside observed coverage; it is not a selected-job success probability [8]."
+    },
+    {
+      "before": "LightGBM predicts log successful engine runtime using 120 trees, seven leaves, learning rate 0.05, minimum child count three and L2 penalty one. Calibration uses the maximum log residual over each group’s repetitions. The nominal 90% finite-sample rank over 12 calibration groups selects the largest calibration score. The stored upper log offset is 0.523642, giving U = t * exp(0.523642), approximately 1.688 * t. The prediction and calibration components follow the methodological background in [4] and [5]. [7]",
+      "after": "LightGBM fits log successful engine runtime with 120 trees, seven leaves, learning rate 0.05, minimum child count three, L2 penalty one, seed 2026 and one training thread. Family and configuration ID are one-hot encoded. Calibration takes the maximum log residual per family/configuration group. With 12 groups and alpha 0.1, the finite-sample rank selects the largest score. The stored log offset 0.523642 gives U = t * exp(0.523642), approximately 1.688 * t [8]."
+    },
+    {
+      "before": "The saved artifact contains held-out predictions and metrics; an iteration-wise training history was not retained. The reported metrics use the saved model without retraining. Figures 5 and 6 use the saved test predictions.",
+      "after": "LightGBM is the fixed tabular regression model. The recorded comparison uses a family-median baseline, not alternative learned models. No archived tuning or sensitivity study establishes the 120-tree/seven-leaf settings as optimal, and no iteration-wise training history was retained. Figures 5 and 6 use saved held-out predictions without retraining [8, 9]."
+    },
+    {
+      "before": "The latest original-advisor implementation, d6f906a, passed the full Windows software verifier: 143 passed, zero failed, zero errors and zero skipped in 36.89 seconds. pip check passed in the existing original .venv, with no dependency upgrades or implementation fixes. The report is committed in caa8a8a. These checks include tiny Dask integration fixtures and do not run the fresh 96-cell study. [7]",
+      "after": "The latest original-advisor implementation, d6f906a, passed the full Windows software verifier: 143 passed, zero failed, zero errors and zero skipped in 36.89 seconds. pip check passed in the existing original .venv, with no dependency upgrades or implementation fixes. The report is committed in caa8a8a. These checks include tiny Dask integration fixtures and do not run the fresh 96-cell study. [14]\nA concrete Windows compatibility issue concerned line endings in the saved LightGBM text model. Git CRLF conversion could invalidate stored tree-byte offsets. The loader reads the model as text with newline normalization, and dedicated regression tests cover the Windows-compatible loading path [8]."
+    },
+    {
+      "before": "The grouped split keeps all repetitions of a family/configuration pair together. It has 12 training groups (36 rows), 12 calibration groups (36 rows) and eight test groups (24 rows), as shown in Figure 2. It prevents repetitions of the same cell from crossing splits, but the four workload profiles remain represented across splits. It is not a test on unseen workload families or sizes. [7]",
+      "after": "The grouped split keeps all repetitions of a family/configuration pair together. It has 12 training groups (36 rows), 12 calibration groups (36 rows) and eight test groups (24 rows), as shown in Figure 2. It prevents repetitions of the same cell from crossing splits, but the four workload profiles remain represented across splits. It is not a test on unseen workload families or sizes. [8]"
+    },
+    {
+      "before": "The saved test set contains 24 rows from eight family/configuration groups. LightGBM achieved 13.84% median absolute percentage error (MdAPE), while the family-median baseline achieved 23.01% [7]. For each row, the absolute prediction error is divided by the measured runtime; MdAPE is the median of these percentages. It measures typical relative error on this test set. Subtracting it from 100 does not produce a classification-accuracy score.",
+      "after": "The saved test set contains 24 rows from eight family/configuration groups. LightGBM achieved 13.84% median absolute percentage error (MdAPE), while the family-median baseline achieved 23.01% [9]. For each row, the absolute prediction error is divided by the measured runtime; MdAPE is the median of these percentages. It measures typical relative error on this test set. Subtracting it from 100 does not produce a classification-accuracy score."
+    },
+    {
+      "before": "The stored upper estimates covered 24/24 test rows and 8/8 test groups, with mean point-to-upper width about 1.33 s. This observed coverage is a small-split result, not a universal 100% coverage claim or a calibrated selected-job success guarantee.",
+      "after": "The stored upper estimates covered 24/24 test rows and 8/8 test groups, with mean point-to-upper width about 1.33 s. This observed coverage is a small-split result, not a universal 100% coverage claim or a calibrated selected-job success guarantee [9]."
+    },
+    {
+      "before": "Stage A recorded 41 successful attempts and seven execution errors out of 48. The seven errors have nanny memory-termination evidence. Successful jobs may also show spill or worker restarts; success must not be equated with a quiet memory history. Figure 8 keeps statuses explicit. [7]",
+      "after": "Stage A recorded 41 successful attempts and seven execution errors out of 48. The seven errors have nanny memory-termination evidence. Successful jobs may also show spill or worker restarts; success must not be equated with a quiet memory history. Figure 8 keeps statuses explicit. [10]"
+    },
+    {
+      "before": "Stage B recorded 96 quiet successful probes. However, eight of 32 paired comparison groups showed full-input pressure without a corresponding probe warning (Figure 9). These cells are four low-cap instance cases at two fractions. They do not establish a calibrated 25% false-negative rate, and quietness on the smaller sample does not certify full-job safety. [7]",
+      "after": "Stage B recorded 96 quiet successful probes. However, eight of 32 paired comparison groups showed full-input pressure without a corresponding probe warning (Figure 9). These cells are four low-cap instance cases at two fractions. They do not establish a calibrated 25% false-negative rate, and quietness on the smaller sample does not certify full-job safety. [11]"
+    },
+    {
+      "before": "The existing export preserves 321 worker lifetimes across 144 Stage A/B runs, including lifetimes added after worker restarts. Among 37 lifetimes with termination evidence, 33 retained sampled RSS peaks were below the recorded termination threshold and 36 event readings exceeded the retained peak (Figure 11). Brief peaks can occur between retained samples or before abrupt death. [7]",
+      "after": "The existing export preserves 321 worker lifetimes across 144 Stage A/B runs, including lifetimes added after worker restarts. Among 37 lifetimes with termination evidence, 33 retained sampled RSS peaks were below the recorded termination threshold and 36 event readings exceeded the retained peak (Figure 11). Brief peaks can occur between retained samples or before abrupt death. [12]"
+    },
+    {
+      "before": "The earlier development screen retained 768 attempts across twelve recipes, with 759 successes, one timeout and eight execution errors. On the ten complete eligible instances, median selected-full engine regret was 3.87% for uniform sampling, 0.11% for memory-mapped uniform and 8.17% for partition-tail sampling (Figure 7). These are retrospective engine-only selection comparisons, not prediction accuracies or complete-request savings. The screen used one generation seed and two runtime repetitions; failures remain in the study record even when a timing metric requires complete successful comparisons.",
+      "after": "The earlier development screen retained 768 attempts across twelve recipes, with 759 successes, one timeout and eight execution errors. On the ten complete eligible instances, median selected-full engine regret was 3.87% for uniform sampling, 0.11% for memory-mapped uniform and 8.17% for partition-tail sampling (Figure 7). These are retrospective engine-only selection comparisons, not prediction accuracies or complete-request savings. The screen used one generation seed and two runtime repetitions; failures remain in the study record even when a timing metric requires complete successful comparisons [15]."
+    },
+    {
+      "before": "The existing one-probe development replay found that stronger metadata and probe heuristics chose the same configurations for the eight instances. Their selected historical full outcomes were all successful (24/24 unique selected references), but the probing variants added cost. The median constructed request total was 4.79 s for size-aware metadata, 10.37 s for always-one-probe and 7.38 s for ambiguous-only probing (Figure 10).",
+      "after": "The existing one-probe development replay found that stronger metadata and probe heuristics chose the same configurations for the eight instances. Their selected historical full outcomes were all successful (24/24 unique selected references), but the probing variants added cost. The median constructed request total was 4.79 s for size-aware metadata, 10.37 s for always-one-probe and 7.38 s for ambiguous-only probing (Figure 10) [13]."
+    },
+    {
+      "before": "The file docs/minor_report_v1/source_manifest.json pins compact input paths and LF-normalized SHA-256 hashes. A structured source check confirms the 78 original verified source/evidence hashes. Original generated Parquet, raw diagnostics, local credentials and virtual environments are kept outside the shareable report package. The later worker-memory export preserves restarted lifetimes and missing-value distinctions.",
+      "after": "The report input manifest pins compact evidence files to the original-advisor and research revisions, with LF-normalized SHA-256 hashes. The historical Windows verification receipt identifies 78 source/evidence files at its checkpoint; those identities are not a claim that every later source file remains byte-identical [14]. Tables and plots are traceable to retained evidence and generation scripts. Original Parquet inputs and full raw JSONL diagnostics are outside the shareable pack. Repeating physical measurements additionally requires those retained files, their recorded environment and the experiment host; a fresh independent rerun has not been performed. The memory export preserves worker lifetimes and missing-value distinctions [12]."
+    },
+    {
+      "before": "The original model is supported by only four fixed profiles, and its test contains eight family/configuration groups. Research uses one generation seed and shared samples. Runtime repetitions are not independent new workloads. Some costs are historical replays, not online executions; resource terms are configured proxies. Worker death and snapshot timing can censor telemetry. No cross-machine generalization, AWS Glue evaluation, multi-node experiment, calibrated failure classifier or publishable novel selector is established by these records.",
+      "after": "The original model is supported by only four fixed profiles, and its test contains eight family/configuration groups. Research uses one generation seed and shared samples. Runtime repeats are not independent new workloads; grouping them does not establish exchangeability across calibration and future workloads. The model settings and balanced weights were not shown to be optimal by a sensitivity study. Some costs are historical replays, not online executions, and resource terms are configured proxies. Worker death and snapshot timing can censor telemetry. These records do not establish cross-machine generalization, AWS Glue performance, multi-node performance, a calibrated failure classifier or a generally superior selector."
+    }
+  ],
+  "references": [
+    "[8] SAFE-Pipe project team, Training settings and grouped calibration; see also safe_pipe/models/runtime.py and tests/test_runtime_model.py at this revision, revision caa8a8a, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/caa8a8a919d7cf4822e1735c795d22c31b63dc71/experiments/train_runtime.py",
+    "[9] SAFE-Pipe project team, Saved held-out runtime predictions; metrics in runtime_metrics.json in the same directory, revision caa8a8a, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/caa8a8a919d7cf4822e1735c795d22c31b63dc71/artifacts/main_v1/runtime_test_predictions.csv",
+    "[10] SAFE-Pipe project team, Stage A full-input results; plan and measurements in the same directory, revision edef1cd, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/edef1cdbba0d980bc1a359960d7339cc08d13d84/reports/research_stage_a_windows_v1/summary.json",
+    "[11] SAFE-Pipe project team, Stage B paired pressure comparisons; plan and measurements in the same directory, revision edef1cd, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/edef1cdbba0d980bc1a359960d7339cc08d13d84/reports/research_stage_b_windows_v1/summary.json",
+    "[12] SAFE-Pipe project team, Worker-lifetime memory export; interpretation in reports/worker_memory_review_20261116/analysis.json, revision edef1cd, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/edef1cdbba0d980bc1a359960d7339cc08d13d84/reports/worker_memory_stage_a_b_v1/workers.json",
+    "[13] SAFE-Pipe project team, Historical one-probe feasibility replay, revision edef1cd, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/edef1cdbba0d980bc1a359960d7339cc08d13d84/reports/one_probe_feasibility_20261116/analysis.json",
+    "[14] SAFE-Pipe project team, Original-advisor Windows verification receipt, revision caa8a8a, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/caa8a8a919d7cf4822e1735c795d22c31b63dc71/reports/main_validation_windows_checks_v1/verification.json",
+    "[15] SAFE-Pipe project team, Earlier probe-ranking screen analysis, revision edef1cd, 2026. https://github.com/Aggdaksh/SAFE-Pipe1/blob/edef1cdbba0d980bc1a359960d7339cc08d13d84/reports/research_screen_review_20261114/analysis.json"
+  ],
+  "reference_insert_before": "APPENDIX A SAVED ADVISOR OUTPUT",
+  "evidence_links": [
+    {
+      "number": 8,
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "path": "experiments/train_runtime.py"
+    },
+    {
+      "number": 9,
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "path": "artifacts/main_v1/runtime_test_predictions.csv"
+    },
+    {
+      "number": 10,
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "path": "reports/research_stage_a_windows_v1/summary.json"
+    },
+    {
+      "number": 11,
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "path": "reports/research_stage_b_windows_v1/summary.json"
+    },
+    {
+      "number": 12,
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "path": "reports/worker_memory_stage_a_b_v1/workers.json"
+    },
+    {
+      "number": 13,
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "path": "reports/one_probe_feasibility_20261116/analysis.json"
+    },
+    {
+      "number": 14,
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "path": "reports/main_validation_windows_checks_v1/verification.json"
+    },
+    {
+      "number": 15,
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "path": "reports/research_screen_review_20261114/analysis.json"
+    }
+  ],
+  "scope": "Editorial corrections and evidence locators; no new experimental results. Base includes all earlier edits and disclosure."
+}

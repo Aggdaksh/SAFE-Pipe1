@@ -1,13 +1,21 @@
 # ADR-003 — Model stack
 
 - **Date:** 2026-10-25
-- **Status:** Accepted
+- **Status:** Historical design; implementation status clarified 2026-11-22
 
 ## Context
 
-Need technical depth (ML/DL) without pretending ~100 tabular rows need a custom net. Examiners can sink “we trained a transformer on 96 runs.”
+The original design selected a tabular runtime predictor for a small local benchmark table. The earlier presentation-oriented rationale is not evidence that a model is appropriate or superior. The implementation and empirical limits below govern current claims.
 
-## Decision
+## Implemented scope and evidence
+
+LightGBM fits log successful runtime with the fixed settings recorded in `experiments/train_runtime.py`: 120 trees, seven leaves, learning rate 0.05, minimum child count three, L2 penalty one, seed 2026 and one training thread. The recorded comparison is a family-median baseline. There is no archived hyperparameter search or alternative learned-model comparison establishing these settings as optimal. Suitability for structured features is an engineering reason for using a tree model; superiority over XGBoost or another learner is untested.
+
+Grouped maximum log residuals construct the upper estimate. Grouping repetitions prevents repeat leakage but does not establish exchangeability of calibration and future workloads. The nominal calibration level and observed test coverage must not be interpreted as a universal safety guarantee.
+
+The deployed advisor checks exact frozen descriptors and artifact identities, as specified in ADR-006. The leave-one-family/k-NN support design below is historical, not the current advisor contract. TabPFN was not run. All 96 original jobs succeeded, so no learned failure classifier is supported. A threshold count of failures alone would not establish classifier quality. These status notes supersede the corresponding provisional items below.
+
+## Original provisional decision
 
 - Default policy model: **LightGBM** on log successful runtime.
 - Uncertainty: **split conformal** upper interval.
@@ -18,7 +26,7 @@ Need technical depth (ML/DL) without pretending ~100 tabular rows need a custom 
 
 ## Alternatives
 
-- XGBoost — interchangeable; LightGBM is enough.
+- XGBoost — considered as an alternative; no comparative evaluation was recorded.
 - From-scratch MLP — rejected as policy.
 - LLM job parser — rejected.
 

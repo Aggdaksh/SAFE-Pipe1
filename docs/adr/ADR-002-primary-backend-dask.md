@@ -9,6 +9,8 @@ The revised plan allows Dask or Glue. Glue needs an AWS account and DPU spend. L
 
 ## Decision
 
+**Host update:** ADR-005 supersedes the 16 GB host assumption below. Physical measurements use the user-selected Windows PC with 31.4 GiB RAM; worker caps remain 1–2 GB. The text below preserves the original design decision, not the measured host specification.
+
 Primary evidence: `distributed.LocalCluster` on the **16 GB** experiment PC with 1–2 workers and `memory_limit` **1–2 GB** to induce spill/timeout. Host RAM is not assigned to workers (ADR-004). Cost is normalized core-seconds and GB-seconds, not USD.
 
 ## Alternatives

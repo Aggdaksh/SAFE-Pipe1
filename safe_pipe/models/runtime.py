@@ -24,7 +24,12 @@ def encoded_features(frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def grouped_upper_quantile(scores: np.ndarray, alpha: float = 0.1) -> float:
-    """Finite-sample split-conformal rank over independent family/config cells."""
+    """Compute the finite-sample rank from one score per family/config cell.
+
+    Grouping repetitions prevents repeat leakage; it does not establish
+    exchangeability of calibration and future cell scores. Coverage claims
+    require that separate statistical assumption.
+    """
     if not 0 < alpha < 1 or len(scores) == 0 or not np.isfinite(scores).all():
         raise ValueError("invalid calibration scores or alpha")
     rank = math.ceil((len(scores) + 1) * (1 - alpha))

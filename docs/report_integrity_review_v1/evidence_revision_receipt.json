@@ -1,0 +1,58 @@
+{
+  "version": "report-evidence-v2",
+  "docx_sha256": "79b8fd470493f0702034396984d2285287c04408ebdb7b6ff5c24434a14ad09d",
+  "pages": 37,
+  "images": 15,
+  "tables": 9,
+  "equations": 4,
+  "bibliography_entries": 15,
+  "edits_verified": 14,
+  "pinned_report_inputs_verified": 16,
+  "historical_verification_inputs_verified": 78,
+  "current_source_hash_differences": [
+    "safe_pipe/models/runtime.py"
+  ],
+  "runtime_executable_ast_unchanged": true,
+  "isolated_rebuild_text_and_all_page_pixels_match": true,
+  "raw_record_checks": [
+    {
+      "stage": "A",
+      "available": true,
+      "runs.jsonl": "hash matches retained export receipt",
+      "plan.json": "hash matches retained export receipt"
+    },
+    {
+      "stage": "B",
+      "available": true,
+      "runs.jsonl": "hash matches retained export receipt",
+      "plan.json": "hash matches retained export receipt"
+    }
+  ],
+  "parquet_diagnostics_full_reaudit": false,
+  "changed_pages_vs_previous_reviewed": [
+    5,
+    6,
+    7,
+    12,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    26,
+    27,
+    28,
+    30,
+    31,
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "visual_review": "Passed: changed pages inspected in native Word renders; unchanged pages matched prior reviewed renders. No clipped or overlapping content found.",
+  "software_suite_rerun": false,
+  "benchmarks_or_training": false
+}
