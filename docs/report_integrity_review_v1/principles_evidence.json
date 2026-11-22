@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-22",
+  "reviewed_docx_sha256": "62f406c1d69d4c12933e2ea7b925286fff583cb61ae276b11aeb1547bcce5d52",
+  "pinned_source_hashes_verified": 16,
+  "original_verification_hashes_verified": 78,
+  "recomputed_test_mdape_percent": 13.842297329243673,
+  "recomputed_baseline_mdape_percent": 23.013084199639323,
+  "test_rows": 24,
+  "test_groups": 8,
+  "upper_covered_rows": 24,
+  "figure_4_eligible_candidates": 8,
+  "figure_4_lowest_score_config": "w2_t2_1g",
+  "software_suite_rerun": false,
+  "benchmark_or_training_run": false,
+  "raw_parquet_and_jsonl_reaudited": false,
+  "scope": "Read-only saved DOCX, main training/encoding/advisor code, selected requirement-oriented tests, report production scripts, decision records, pinned evidence and cited primary literature. Not an exhaustive codebase or raw-record audit."
+}

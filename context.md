@@ -54,6 +54,8 @@ The balanced selection implementation and the original Windows study are now mer
 
 ## Documents
 
+**Fourteen-principle audit, 2026-11-22:** `docs/report_integrity_review_v1/principles_audit.html` records the latest read-only review and scoped gaps. Numerical claims and pinned hashes checked out; exact model-choice rationale, calibration assumptions, citation locators, historical design status and the latest report rebuild workflow need attention. The DOCX remains unchanged; this audit is not whole-codebase certification or a new experiment.
+
 **Friend review corrections, 2026-11-22:** The reviewed DOCX now includes the verified Figure 4 all-eight-eligible explanation and the requested declaration, certificate, acknowledgement and abstract edits. See `docs/report_integrity_review_v1/editorial_corrections.json`; apply these after the earlier revision plan when reproducing from the historical original. The original report remains preserved.
 
 **Reviewed report copy, 2026-11-22:** `output/docx/SAFE_Pipe_DTU_Minor_Project_Report_Reviewed.docx` preserves the original and makes 13 targeted paragraph edits plus an AI-assistance disclosure. It remains 36 pages with 15 images, nine tables and four equations. Changes improve attribution and interpretation; no Turnitin score or pass probability is claimed. The user reports maximum 20% similarity and 20% AI writing. See `docs/report_integrity_review_v1/review_changes.html`, `revision_plan.json` and `revision_receipt.json`. Team understanding/source review and an institutional scan remain necessary. This revision is a separate native Word edit; rebuilding the older production content will not include these edits unless the revision plan is reapplied.
