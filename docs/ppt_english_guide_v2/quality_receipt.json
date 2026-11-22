@@ -1,0 +1,14 @@
+{
+  "pages": 55,
+  "original_slides_pixel_and_text_identical": 11,
+  "internal_contents_links": 11,
+  "bookmarks": 55,
+  "earlier_hinglish_pdf_unchanged": true,
+  "typed_text_searchable": true,
+  "no_missing_glyph_markers": true,
+  "no_text_outside_pages": true,
+  "source_pdf_unchanged": true,
+  "rendered_pages": 55,
+  "visual_review": "Passed: all 55 final page renders visually inspected, including full-size spot checks. No clipping, overlaps or broken glyphs found; short Hinglish aids are visually distinct from English lessons.",
+  "no_benchmarks_or_training": true
+}
