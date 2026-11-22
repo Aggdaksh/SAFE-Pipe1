@@ -1,0 +1,674 @@
+{
+  "date": "2026-11-23",
+  "source_pdf": "C:\\Users\\Ganant Awasthi\\Downloads\\BTP_new_PPT.pdf",
+  "source_pdf_sha256": "50df261b72fee9818e6bf39945155098118750a13670e638a7dda19d4b666f70",
+  "output_pdf_sha256": "436526b128a3755080ce6e423d1ac7e4981fd379aeaed19f502ddb545e7f5c3d",
+  "pages": 55,
+  "original_slides": 11,
+  "explanation_pages": 35,
+  "typed_note_word_count": 9208,
+  "page_map": [
+    {
+      "page": 1,
+      "title": "SAFE-Pipe Hinglish guide",
+      "kind": "cover",
+      "slide": null
+    },
+    {
+      "page": 2,
+      "title": "Guide ka reading map",
+      "kind": "contents",
+      "slide": null
+    },
+    {
+      "page": 3,
+      "title": "Original PPT slide 1",
+      "kind": "slide",
+      "slide": 1
+    },
+    {
+      "page": 4,
+      "title": "SAFE-Pipe ka idea: pehle problem samjho",
+      "kind": "text",
+      "slide": 1
+    },
+    {
+      "page": 5,
+      "title": "Task, job, worker, thread: sab alag hain",
+      "kind": "text",
+      "slide": 1
+    },
+    {
+      "page": 6,
+      "title": "Original PPT slide 2",
+      "kind": "slide",
+      "slide": 2
+    },
+    {
+      "page": 7,
+      "title": "Timeline: hum kahaan se kahaan aaye?",
+      "kind": "text",
+      "slide": 2
+    },
+    {
+      "page": 8,
+      "title": "Git branches aur woh 6 GB wali baat",
+      "kind": "text",
+      "slide": 2
+    },
+    {
+      "page": 9,
+      "title": "Original PPT slide 3",
+      "kind": "slide",
+      "slide": 3
+    },
+    {
+      "page": 10,
+      "title": "Architecture: offline learning aur online advice",
+      "kind": "text",
+      "slide": 3
+    },
+    {
+      "page": 11,
+      "title": "LightGBM ko exactly kya information milti hai?",
+      "kind": "text",
+      "slide": 3
+    },
+    {
+      "page": 12,
+      "title": "Metadata profiling se execution profiling tak kyun?",
+      "kind": "text",
+      "slide": 3
+    },
+    {
+      "page": 13,
+      "title": "Original PPT slide 4",
+      "kind": "slide",
+      "slide": 4
+    },
+    {
+      "page": 14,
+      "title": "Four workloads: actual code kya karta hai?",
+      "kind": "text",
+      "slide": 4
+    },
+    {
+      "page": 15,
+      "title": "Data size, eight settings aur SLA",
+      "kind": "text",
+      "slide": 4
+    },
+    {
+      "page": 16,
+      "title": "96 runs ka denominator aur timing boundary",
+      "kind": "text",
+      "slide": 4
+    },
+    {
+      "page": 17,
+      "title": "Original PPT slide 5",
+      "kind": "slide",
+      "slide": 5
+    },
+    {
+      "page": 18,
+      "title": "LightGBM: model seekhta kya hai?",
+      "kind": "text",
+      "slide": 5
+    },
+    {
+      "page": 19,
+      "title": "Train, calibration aur test: teen alag roles",
+      "kind": "text",
+      "slide": 5
+    },
+    {
+      "page": 20,
+      "title": "13.84% MdAPE ko example se samjho",
+      "kind": "text",
+      "slide": 5
+    },
+    {
+      "page": 21,
+      "title": "1.688 x t: upper estimate kaise bana?",
+      "kind": "text",
+      "slide": 5
+    },
+    {
+      "page": 22,
+      "title": "Original PPT slide 6",
+      "kind": "slide",
+      "slide": 6
+    },
+    {
+      "page": 23,
+      "title": "Balanced objective: formula ko words mein padho",
+      "kind": "text",
+      "slide": 6
+    },
+    {
+      "page": 24,
+      "title": "Worked example: 2 GB total kyun select hua?",
+      "kind": "text",
+      "slide": 6
+    },
+    {
+      "page": 25,
+      "title": "Chart, eligibility aur abstention",
+      "kind": "text",
+      "slide": 6
+    },
+    {
+      "page": 26,
+      "title": "Original PPT slide 7",
+      "kind": "slide",
+      "slide": 7
+    },
+    {
+      "page": 27,
+      "title": "Research screen: chaar methods, teen actual probes",
+      "kind": "text",
+      "slide": 7
+    },
+    {
+      "page": 28,
+      "title": "Screen ka design aur usse kya mila?",
+      "kind": "text",
+      "slide": 7
+    },
+    {
+      "page": 29,
+      "title": "Stage A: key skew aur partition imbalance",
+      "kind": "text",
+      "slide": 7
+    },
+    {
+      "page": 30,
+      "title": "1 GB limit ke bawajood spill ya termination kaise?",
+      "kind": "text",
+      "slide": 7
+    },
+    {
+      "page": 31,
+      "title": "Original PPT slide 8",
+      "kind": "slide",
+      "slide": 8
+    },
+    {
+      "page": 32,
+      "title": "Stage B: full jobs ke matching samples",
+      "kind": "text",
+      "slide": 8
+    },
+    {
+      "page": 33,
+      "title": "8/32 mismatch: iska actual meaning",
+      "kind": "text",
+      "slide": 8
+    },
+    {
+      "page": 34,
+      "title": "37 worker lifetimes: graph ka confusion door karo",
+      "kind": "text",
+      "slide": 8
+    },
+    {
+      "page": 35,
+      "title": "Memory fields aur continuous signal",
+      "kind": "text",
+      "slide": 8
+    },
+    {
+      "page": 36,
+      "title": "Original PPT slide 9",
+      "kind": "slide",
+      "slide": 9
+    },
+    {
+      "page": 37,
+      "title": "Cost gate: probe ka kharcha recover hua?",
+      "kind": "text",
+      "slide": 9
+    },
+    {
+      "page": 38,
+      "title": "One-probe prototype exactly kaise sochta hai?",
+      "kind": "text",
+      "slide": 9
+    },
+    {
+      "page": 39,
+      "title": "Profiling mein extra time kahaan lagta hai?",
+      "kind": "text",
+      "slide": 9
+    },
+    {
+      "page": 40,
+      "title": "Original PPT slide 10",
+      "kind": "slide",
+      "slide": 10
+    },
+    {
+      "page": 41,
+      "title": "143 tests aur 38 tests: kya verify hua?",
+      "kind": "text",
+      "slide": 10
+    },
+    {
+      "page": 42,
+      "title": "Prospective validation: next 96 runs ka process",
+      "kind": "text",
+      "slide": 10
+    },
+    {
+      "page": 43,
+      "title": "Original PPT slide 11",
+      "kind": "slide",
+      "slide": 11
+    },
+    {
+      "page": 44,
+      "title": "Limitations: kaunsa claim defend kar sakte ho?",
+      "kind": "text",
+      "slide": 11
+    },
+    {
+      "page": 45,
+      "title": "Aage ka plan: product aur research alag tracks",
+      "kind": "text",
+      "slide": 11
+    },
+    {
+      "page": 46,
+      "title": "Numbers ka one-page revision map",
+      "kind": "text",
+      "slide": 12
+    },
+    {
+      "page": 47,
+      "title": "Viva practice: questions aur short Hinglish answers",
+      "kind": "text",
+      "slide": 12
+    },
+    {
+      "page": 48,
+      "title": "Puri presentation ki connected speaking script",
+      "kind": "text",
+      "slide": 12
+    },
+    {
+      "page": 49,
+      "title": "Evidence khud kaise check karna hai?",
+      "kind": "text",
+      "slide": 0
+    },
+    {
+      "page": 50,
+      "title": "Evidence file map 1",
+      "kind": "text",
+      "slide": 0
+    },
+    {
+      "page": 51,
+      "title": "Evidence file map 2",
+      "kind": "text",
+      "slide": 0
+    },
+    {
+      "page": 52,
+      "title": "Evidence file map 3",
+      "kind": "text",
+      "slide": 0
+    },
+    {
+      "page": 53,
+      "title": "Evidence file map 4",
+      "kind": "text",
+      "slide": 0
+    },
+    {
+      "page": 54,
+      "title": "Evidence file map 5",
+      "kind": "text",
+      "slide": 0
+    },
+    {
+      "page": 55,
+      "title": "Evidence file map 6",
+      "kind": "text",
+      "slide": 0
+    }
+  ],
+  "sources": [
+    {
+      "id": "M1",
+      "title": "Current scope aur pending work",
+      "revision": "8179c0737624560351fa4d5ca5a23a8f767329ff",
+      "files": [
+        {
+          "path": "context.md",
+          "sha256_lf": "40aec455381ebac813e5f557a49d48ca6fc082624cd81c3e8c89238af8d2c49a"
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Dataset/feature/timing dictionary",
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "files": [
+        {
+          "path": "docs/DATA_DICTIONARY.md",
+          "sha256_lf": "01cf813e7b4657aaa06cd4b623eba46b6e9b202f13798126b9226a49da7db1fe"
+        }
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Model inputs aur fitting code",
+      "revision": "8179c0737624560351fa4d5ca5a23a8f767329ff",
+      "files": [
+        {
+          "path": "safe_pipe/features.py",
+          "sha256_lf": "bf28a7751bac7efab3a9acae5aff9f04220a357c79087300d14d075c9ffa2704"
+        },
+        {
+          "path": "experiments/train_runtime.py",
+          "sha256_lf": "b1197f6ee1726c6ff81fe5e2ddf23b085d891f3f64db32e23098c314b4b4db90"
+        },
+        {
+          "path": "safe_pipe/models/runtime.py",
+          "sha256_lf": "6f32c1dc07cfc795ca88975bf22bbf7a10ca15a36ea8b5b425ba9110960d0098"
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Advisor checks aur balanced formula",
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "files": [
+        {
+          "path": "docs/CONFIG_SELECTION.md",
+          "sha256_lf": "280f4a4efbfb3d1f570930247bc3d97a7a59a186638bedfcce4215843539c502"
+        }
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "Frozen datasets aur actual operators",
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "files": [
+        {
+          "path": "configs/datasets_main_v1.json",
+          "sha256_lf": "a22e7eed9001893914b2becef42ca96fd6ac6f0452192d2639a1514474c4bf29"
+        },
+        {
+          "path": "configs/dask_grid.json",
+          "sha256_lf": "13f9adfcb6e89b36de4c8f414e68b5444afce78fce3ea81ecb3603d635d966ec"
+        },
+        {
+          "path": "safe_pipe/workloads/execute_dask.py",
+          "sha256_lf": "89a395e9dc0b4a867bbf7117e5f9a1b30b77bfdf3530b75d35d5f10ea8d151be"
+        }
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "Original measured run table",
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "files": [
+        {
+          "path": "data/curated/runs.csv",
+          "sha256_lf": "00ff42d88a1b821816f6d88004a684aecaa3eddb37657a528128332d8eede652"
+        }
+      ]
+    },
+    {
+      "id": "M7",
+      "title": "Windows validation handoff",
+      "revision": "8179c0737624560351fa4d5ca5a23a8f767329ff",
+      "files": [
+        {
+          "path": "docs/WINDOWS_MAIN_VALIDATION.md",
+          "sha256_lf": "6f836941641c70ceb6bcfc01b0a25482988fbe7d10ec7dd52b3d13123198f9fe"
+        }
+      ]
+    },
+    {
+      "id": "M8",
+      "title": "Grouped model methodology",
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "files": [
+        {
+          "path": "reports/runtime_model.md",
+          "sha256_lf": "78dd437f371f674316dd81dd86a8668cc14197875b775fc48f9581ec958cf1ae"
+        },
+        {
+          "path": "configs/model_split_main_v1.json",
+          "sha256_lf": "e2ab75063fae7b3b82b2031ad0c36c7bfb2d0cd29933e7f16f8a342400ff55c6"
+        }
+      ]
+    },
+    {
+      "id": "M9",
+      "title": "Saved test metrics aur predictions",
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "files": [
+        {
+          "path": "artifacts/main_v1/runtime_metrics.json",
+          "sha256_lf": "652e129cc05f8fad5bbb4aa132c4a5e7892533ffd0cb3aef04f7e645bba6beb9"
+        },
+        {
+          "path": "artifacts/main_v1/runtime_test_predictions.csv",
+          "sha256_lf": "5183b503dbb0eac9b043bcadfcade306f0f1167adae60125ee961c86e0730cee"
+        }
+      ]
+    },
+    {
+      "id": "M10",
+      "title": "Historical storage explanation",
+      "revision": "8179c0737624560351fa4d5ca5a23a8f767329ff",
+      "files": [
+        {
+          "path": "docs/minor_report_v1/REPORT_DRAFT.md",
+          "sha256_lf": "f687ac3f4c5c2df45d8c5cac8fa781d307b66b59b11a0ed50a4776a7a106016b"
+        }
+      ]
+    },
+    {
+      "id": "M11",
+      "title": "Saved balanced recommendation",
+      "revision": "8179c0737624560351fa4d5ca5a23a8f767329ff",
+      "files": [
+        {
+          "path": "docs/minor_report_v1/advisor_capture/sort_balanced.json",
+          "sha256_lf": "1fc378bdb690263057b3a379f47f6f1df754ddd399dc6af816703c3c1fd464cb"
+        }
+      ]
+    },
+    {
+      "id": "M12",
+      "title": "Windows test receipt aur audit follow-up",
+      "revision": "8179c0737624560351fa4d5ca5a23a8f767329ff",
+      "files": [
+        {
+          "path": "reports/main_validation_windows_checks_v1/verification.json",
+          "sha256_lf": "b8ed952af601da8b8c3b44016918913ebeb82890e43475c6bfc50121f108cc20"
+        },
+        {
+          "path": "docs/report_integrity_review_v1/evidence_revision_receipt.json",
+          "sha256_lf": "692780c8ad5808f0c91b4a08f9359cf94c2b9aa7cfb3619eed8ae9fee7409d4f"
+        }
+      ]
+    },
+    {
+      "id": "M13",
+      "title": "Older 34.1 percent historical replay",
+      "revision": "caa8a8a919d7cf4822e1735c795d22c31b63dc71",
+      "files": [
+        {
+          "path": "reports/policy.md",
+          "sha256_lf": "d65565bca896642814ebf7d3793d4fa309c9a36e6f3b51e65ceed9b684c75559"
+        },
+        {
+          "path": "reports/policy_metrics.json",
+          "sha256_lf": "1a1cfe91f94ea371e5896af9202980b0aa72596b673b230bb842b15c58b445b4"
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "title": "Initial four-method screen protocol",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "docs/research/PROBE_PROTOCOL.md",
+          "sha256_lf": "f050a79a4b477f8da9c8f8e42af77da117665e83ea4c73a84b35846c789ae39d"
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "title": "Completed screen aur ranking review",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "reports/research_probe_windows_mains_v1_complete/summary.json",
+          "sha256_lf": "7bf15fb72c891da91524bf8ce59498a078d69f463b2e0c3be6bd563552b1ccc6"
+        },
+        {
+          "path": "reports/research_screen_review_20261114/RESULTS.md",
+          "sha256_lf": "b7217a73b13068b61a89a197a2b7667892e8f260f99f2da707bb5d6d731a7fc5"
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "title": "Stage A recipe aur full outcomes",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "configs/research_stage_a_v1.json",
+          "sha256_lf": "0413082522ac0078dd1a1d1da0e2be164d159d7cc2bcc28fd1a1da75e0ae4230"
+        },
+        {
+          "path": "reports/research_stage_a_windows_v1/REPORT.md",
+          "sha256_lf": "7d6debdd9553590a2bd4d9df9edcd0954fd61a08d9c0f502b64608862fa685d1"
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "title": "Stage B recipe aur interpretation",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "configs/research_stage_b_v1.json",
+          "sha256_lf": "6fd234c721a53752045a48e1b9f00629e5bed9a9bed330826286fa8fd50f3cb5"
+        },
+        {
+          "path": "docs/research/STAGE_B_REVIEW.md",
+          "sha256_lf": "e07a7b94e5c2aca3add981bebd8189094f81aae4c5bf756f423bd5eb81f78446"
+        }
+      ]
+    },
+    {
+      "id": "R5",
+      "title": "Stage B compact measurements",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "reports/research_stage_b_windows_v1/summary.json",
+          "sha256_lf": "489be188cf8f77e6d40fa2e8ba94bdbf2e81d8af58ee0a796db22d5fe41f9f87"
+        },
+        {
+          "path": "reports/research_stage_b_windows_v1/findings.json",
+          "sha256_lf": "c62a8890d0aa8a1dc08ac5d775fb0477e4b126da6fc02084d862650fee08832c"
+        }
+      ]
+    },
+    {
+      "id": "R6",
+      "title": "Worker memory export aur review",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "reports/worker_memory_review_20261116/README.md",
+          "sha256_lf": "451350532eef8be411d8a3800147aa901a0962a5b5803c94d8e41729ee8d1fcb"
+        },
+        {
+          "path": "reports/worker_memory_stage_a_b_v1/verification.json",
+          "sha256_lf": "81ddcd925f27f7ee7e8fc27295e4c7f5aef7e1f2c141aca940b4dcadabb143d6"
+        }
+      ]
+    },
+    {
+      "id": "R7",
+      "title": "One-probe cost aur feasibility",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "reports/one_probe_feasibility_20261116/README.md",
+          "sha256_lf": "c1ef2458a967cdfb2b4cc0c4558fead9daaeb8ee4a2e265b72105f9e711c408b"
+        },
+        {
+          "path": "reports/one_probe_feasibility_20261116/analysis.json",
+          "sha256_lf": "741585f88d10679920841e23be4a0254f6233bc63ef54600cc18d0e0fc428be9"
+        }
+      ]
+    },
+    {
+      "id": "R8",
+      "title": "Research Windows verification",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "reports/one_probe_windows_checks_v1/verification.json",
+          "sha256_lf": "00902572793ab14905bdb300344f5cfb05e9d03216fbf271a9ad94b94ed77ccc"
+        },
+        {
+          "path": "reports/one_probe_windows_checks_v1/WINDOWS_TEST_OUTPUT.txt",
+          "sha256_lf": "fc44462626b5c1898aad47a5c0e0a37b04d75efe12b3ca00daa823b86696d81a"
+        }
+      ]
+    },
+    {
+      "id": "R9",
+      "title": "Disabled prototype contract",
+      "revision": "edef1cdbba0d980bc1a359960d7339cc08d13d84",
+      "files": [
+        {
+          "path": "docs/research/ONE_PROBE_SPEC.md",
+          "sha256_lf": "08b454b6a953f509cb75c741ce3936942be40344e5ed3d2e6f6084caa8bb2295"
+        },
+        {
+          "path": "configs/research_one_probe_v1.json",
+          "sha256_lf": "f7267fedee0c0f765b88498a8880ea68a66cf70ab49dfcb2a23c8da136fb1877"
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "title": "Dask worker memory: official reference",
+      "revision": null,
+      "files": [
+        {
+          "url": "https://distributed.dask.org/en/stable/worker-memory.html",
+          "accessed": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "title": "LightGBM: official feature overview",
+      "revision": null,
+      "files": [
+        {
+          "url": "https://lightgbm.readthedocs.io/en/stable/Features.html",
+          "accessed": "2026-11-23"
+        }
+      ]
+    }
+  ],
+  "no_experiments_or_training": true,
+  "visual_review": "Passed: all 55 first-draft page renders inspected; final page 19 inspected after wording clarification; other 54 final pages pixel-identical to reviewed draft. No clipping, overlap or broken glyphs found."
+}

@@ -1,0 +1,13 @@
+{
+  "pages": 55,
+  "original_slides_pixel_and_text_identical": 11,
+  "internal_contents_links": 11,
+  "bookmarks": 55,
+  "typed_text_searchable": true,
+  "no_missing_glyph_markers": true,
+  "no_text_outside_pages": true,
+  "source_pdf_unchanged": true,
+  "rendered_pages": 55,
+  "visual_review": "Passed: all 55 first-draft page renders inspected; final page 19 inspected after wording clarification; other 54 final pages pixel-identical to reviewed draft. No clipping, overlap or broken glyphs found.",
+  "no_benchmarks_or_training": true
+}
