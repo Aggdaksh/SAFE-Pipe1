@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-22",
+  "department_caps_percent": {
+    "similarity": 20,
+    "ai_writing": 20
+  },
+  "policy_source": "User statement; official policy text and scan settings not supplied.",
+  "edits": [
+    {
+      "id": "R01",
+      "before": "A data-processing job can perform the same logical operation under different resource settings. For example, a group-by may run with one worker or two workers, with different thread counts and memory caps. Increasing resources may shorten execution, but it may also increase configured resource-time. Reducing memory can expose pressure, spill or worker restarts. The useful configuration therefore depends on the workload, the deadline and the resource preference.",
+      "after": "SAFE-Pipe asks a practical question: which resource settings should be used for a supported data-processing job with a specified deadline? The original experiment compares one or two workers, one or two threads per worker, and memory caps of 1 GB or 2 GB per worker [7]. More resources may reduce runtime, but the advisor also accounts for configured resource-time. Dask can spill data or restart workers under memory pressure [6], so the choice cannot be reduced to the number of workers alone.",
+      "reason": "Replace generic motivation with the actual grid and cite the memory-management claim."
+    },
+    {
+      "id": "R02",
+      "before": "The implemented objectives are to collect a reproducible local benchmark table; predict successful engine runtime from pre-run features; add a cautious upper estimate; compare supported configurations under a deadline; explain eligibility and selection; and retain auditable software and experimental records. A later research objective investigated the additional information and cost of execution-based probes.",
+      "after": "The implemented workflow has three stages: collect measured runtimes for the declared grid, fit and calibrate a runtime predictor, and use the saved artifacts to compare configurations under an engine deadline. Each recommendation includes estimates and eligibility reasons. The later research study asks a separate question: whether executing a small sample supplies useful pressure information at an acceptable profiling cost [7].",
+      "reason": "Explain the project sequence and separate the research question."
+    },
+    {
+      "id": "R03",
+      "before": "The original project title describes a broader failure-aware vision. The implemented evidence is narrower: all original 96 runs succeeded, so those records do not support learning a failure classifier. Later research contains pressure and termination observations, but has not established a calibrated failure model or a beneficial deployed probing policy.",
+      "after": "The failure-aware objective in the project title remains only partly addressed. All 96 original runs succeeded, so this dataset contains no observed failures from which to fit a failure classifier. The later research records include memory pressure and worker terminations, but a calibrated failure predictor and a beneficial deployed probing policy have not been demonstrated [7].",
+      "reason": "Tie the scope limitation directly to recorded evidence."
+    },
+    {
+      "id": "R04",
+      "before": "On the 24 saved held-out rows, the LightGBM model has 13.84% MdAPE, compared with 23.01% for the family-median baseline. MdAPE is the median of absolute prediction error divided by actual runtime, multiplied by 100. It is not classification accuracy, and 100 - MdAPE is not a valid accuracy claim.",
+      "after": "The saved test set contains 24 rows from eight family/configuration groups. LightGBM achieved 13.84% median absolute percentage error (MdAPE), while the family-median baseline achieved 23.01% [7]. For each row, the absolute prediction error is divided by the measured runtime; MdAPE is the median of these percentages. It measures typical relative error on this test set. Subtracting it from 100 does not produce a classification-accuracy score.",
+      "reason": "Explain the result with its denominator and prevent an invalid accuracy interpretation."
+    },
+    {
+      "id": "R05",
+      "before": "SAFE-Pipe demonstrates a reproducible, bounded configuration-advice workflow with an explicit predictor, upper runtime estimates, support checks, preference-based selection and abstention. The original dataset supports a small held-out runtime result and descriptive configuration comparisons. Later research shows why small execution probes can lose pressure information and cost more than they add on short jobs. The current evidence supports keeping the probe gate closed.",
+      "after": "The implemented advisor compares eight configurations within four fixed workload profiles. On the saved held-out rows, its runtime model obtained 13.84% MdAPE; fresh prospective validation remains pending. The later study found that quiet small probes could miss pressure seen at full input size, while the one-probe replay added cost without improving the stronger metadata-based choices. These findings support retaining the current metadata-based advice and keeping probe admission disabled for this use case [7].",
+      "reason": "Conclude with measured findings and the resulting design decision, within the tested scope."
+    },
+    {
+      "id": "R06",
+      "before": "The model feature whitelist is: family, input bytes, estimated rows, file count, partition count, skew score, configuration ID, workers, threads per worker, memory-limit feature, allocated-vCPU feature and allocated-memory feature. Actual runtime, status, failure category, SLA miss and peak memory are outcome labels, not prediction inputs. The SLA is a policy constraint, rather than a LightGBM runtime feature.",
+      "after": "The model feature whitelist is: family, input bytes, estimated rows, file count, partition count, skew score, configuration ID, workers, threads per worker, memory-limit feature, allocated-vCPU feature and allocated-memory feature. Actual runtime, status, failure category, SLA miss and peak memory are outcome labels, not prediction inputs. The SLA is a policy constraint, rather than a LightGBM runtime feature. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    },
+    {
+      "id": "R07",
+      "before": "The grouped split keeps all repetitions of a family/configuration pair together. It has 12 training groups (36 rows), 12 calibration groups (36 rows) and eight test groups (24 rows), as shown in Figure 2. It prevents repetitions of the same cell from crossing splits, but the four workload profiles remain represented across splits. It is not a test on unseen workload families or sizes.",
+      "after": "The grouped split keeps all repetitions of a family/configuration pair together. It has 12 training groups (36 rows), 12 calibration groups (36 rows) and eight test groups (24 rows), as shown in Figure 2. It prevents repetitions of the same cell from crossing splits, but the four workload profiles remain represented across splits. It is not a test on unseen workload families or sizes. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    },
+    {
+      "id": "R08",
+      "before": "LightGBM predicts log successful engine runtime using 120 trees, seven leaves, learning rate 0.05, minimum child count three and L2 penalty one. Calibration uses the maximum log residual over each group’s repetitions. The nominal 90% finite-sample rank over 12 calibration groups selects the largest calibration score. The stored upper log offset is 0.523642, giving U = t * exp(0.523642), approximately 1.688 * t. The prediction and calibration components follow the methodological background in [4] and [5].",
+      "after": "LightGBM predicts log successful engine runtime using 120 trees, seven leaves, learning rate 0.05, minimum child count three and L2 penalty one. Calibration uses the maximum log residual over each group’s repetitions. The nominal 90% finite-sample rank over 12 calibration groups selects the largest calibration score. The stored upper log offset is 0.523642, giving U = t * exp(0.523642), approximately 1.688 * t. The prediction and calibration components follow the methodological background in [4] and [5]. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    },
+    {
+      "id": "R09",
+      "before": "The feature whitelist is in safe_pipe/features.py; runtime loading and prediction are under safe_pipe/models/; configuration eligibility, scoring and explanation are implemented in safe_pipe/advisor.py; the CLI exposes advice separately from execution. Configuration definitions, profiles and artifact bindings make the supported scope explicit. Collection and audit modules retain measured outcomes separately from pre-run features.",
+      "after": "The feature whitelist is in safe_pipe/features.py; runtime loading and prediction are under safe_pipe/models/; configuration eligibility, scoring and explanation are implemented in safe_pipe/advisor.py; the CLI exposes advice separately from execution. Configuration definitions, profiles and artifact bindings make the supported scope explicit. Collection and audit modules retain measured outcomes separately from pre-run features. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    },
+    {
+      "id": "R10",
+      "before": "The latest original-advisor implementation, d6f906a, passed the full Windows software verifier: 143 passed, zero failed, zero errors and zero skipped in 36.89 seconds. pip check passed in the existing original .venv, with no dependency upgrades or implementation fixes. The report is committed in caa8a8a. These checks include tiny Dask integration fixtures and do not run the fresh 96-cell study.",
+      "after": "The latest original-advisor implementation, d6f906a, passed the full Windows software verifier: 143 passed, zero failed, zero errors and zero skipped in 36.89 seconds. pip check passed in the existing original .venv, with no dependency upgrades or implementation fixes. The report is committed in caa8a8a. These checks include tiny Dask integration fixtures and do not run the fresh 96-cell study. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    },
+    {
+      "id": "R11",
+      "before": "Stage A recorded 41 successful attempts and seven execution errors out of 48. The seven errors have nanny memory-termination evidence. Successful jobs may also show spill or worker restarts; success must not be equated with a quiet memory history. Figure 8 keeps statuses explicit.",
+      "after": "Stage A recorded 41 successful attempts and seven execution errors out of 48. The seven errors have nanny memory-termination evidence. Successful jobs may also show spill or worker restarts; success must not be equated with a quiet memory history. Figure 8 keeps statuses explicit. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    },
+    {
+      "id": "R12",
+      "before": "Stage B recorded 96 quiet successful probes. However, eight of 32 paired comparison groups showed full-input pressure without a corresponding probe warning (Figure 9). These cells are four low-cap instance cases at two fractions. They do not establish a calibrated 25% false-negative rate, and quietness on the smaller sample does not certify full-job safety.",
+      "after": "Stage B recorded 96 quiet successful probes. However, eight of 32 paired comparison groups showed full-input pressure without a corresponding probe warning (Figure 9). These cells are four low-cap instance cases at two fractions. They do not establish a calibrated 25% false-negative rate, and quietness on the smaller sample does not certify full-job safety. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    },
+    {
+      "id": "R13",
+      "before": "The existing export preserves 321 worker lifetimes across 144 Stage A/B runs, including lifetimes added after worker restarts. Among 37 lifetimes with termination evidence, 33 retained sampled RSS peaks were below the recorded termination threshold and 36 event readings exceeded the retained peak (Figure 11). Brief peaks can occur between retained samples or before abrupt death.",
+      "after": "The existing export preserves 321 worker lifetimes across 144 Stage A/B runs, including lifetimes added after worker restarts. Among 37 lifetimes with termination evidence, 33 retained sampled RSS peaks were below the recorded termination threshold and 36 event readings exceeded the retained peak (Figure 11). Brief peaks can occur between retained samples or before abrupt death. [7]",
+      "reason": "Place the project-artifact citation next to the implementation or numerical claim."
+    }
+  ],
+  "disclosure": "AI assistance: ChatGPT/Codex assisted with code development, documentation drafting and editing, figure production, and report formatting. Numerical results in this report refer to the recorded project artifacts identified above. AI assistance does not establish the correctness or originality of a claim; the named authors remain responsible for verifying the content and complying with departmental requirements.",
+  "purpose": "Improve attribution, factual precision and transparent disclosure; no prediction or guarantee of a Turnitin score."
+}

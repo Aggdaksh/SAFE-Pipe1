@@ -161,3 +161,12 @@ Get-Content reports/main_validation_windows_checks_v1/SESSION_NOTES.md
 ```
 
 Report analysis, inference examples and rendering are authorized. Fresh-study preparation and collection still await review. Do not regenerate original curated data or rerun the verifier into its existing output folder. Any later software verification must use a new output directory.
+
+
+## Checkpoint 21 - Report revision under the stated 20 percent caps
+
+- User confirmed both similarity and AI-writing maxima are 20%. Recorded them as user-reported limits; official scan settings and permitted-assistance rules remain unconfirmed.
+- Created a separate `output/docx/SAFE_Pipe_DTU_Minor_Project_Report_Reviewed.docx`: 13 paragraph edits for concrete scope, precise result interpretation and project-artifact citations, plus a factual AI-assistance disclosure for team/guide review. Original DOCX preserved byte-for-byte. No detector score or probability of meeting the caps is asserted.
+- Saved the exact revision plan, reproducible native Word script, receipt and team review guide under `docs/report_integrity_review_v1/`. The managed document runtime was unavailable; used the established Word/PyMuPDF fallback. Corrected the disclosure paragraph break and moved receipt hashing after Word closes its output. A repair helper quit-signature error occurred after successful save/close; the artifact was independently checked afterwards.
+- Verified all 13 replacements and disclosure, 36-page pagination, 15 unchanged embedded images, nine tables, four equations and all 78 original software-evidence source hashes. Inspected the 12 changed rendered pages; the other 24 pages were pixel-identical to the previously reviewed original. No benchmark, data generation, model training, external report upload or main merge occurred.
+- Next: students review the chapter questions, verify the prose and citations, review the disclosure with the guide, then obtain an authorized institutional draft scan and inspect both reports. The historical local senior-PDF comparison applies to the original report, not an official scan of the revision.
