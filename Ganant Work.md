@@ -139,6 +139,14 @@
 
 ## Current work and next steps
 
+### Checkpoint 20 - Report similarity and AI-writing research
+
+- On 2026-11-22, the user requested detailed research on plugins/open-source repositories and Turnitin, and confirmed both similarity and AI-writing limits apply. Exact cutoffs and department wording remain unknown. Reviewed current official Turnitin/OpenAI guidance, official tool repositories and detector research; did not substitute old postgraduate thresholds for this Minor BTech evaluation.
+- Added `docs/report_integrity_review_v1/index.html`, a detailed offline guide with linked sources, two-score examples, character/watermark distinctions, practical tool options and a chapter-by-chapter authorship/citation workflow. Plugin-directory search returned no Turnitin match; Scite was offered as a citation-research option but was not installed, connected or used. No claim of a guaranteed detector bypass or passing score is made.
+- Ran the new read-only local audit against the actual DOCX and the two supplied senior PDFs. All eight technical chapters were identified. Selected zero-width/bidirectional characters, Cyrillic characters and nonempty directly hidden `vanish` runs were absent. The 55 nonempty `webHidden` results were numeric TOC/figure/table navigation references, with no unexpected narrative text in that set. Scope limitations are explicit.
+- Exact normalized >=12-word comparison found two front-matter spans against the BTech sample and one against the Minor sample, all institutional/degree wording; no qualifying technical-chapter spans matched either sample. No overall similarity percentage or AI score was computed. This comparison excludes sources outside the two PDFs and does not establish plagiarism-free content. Seven bibliography entries were inventoried; claim-by-claim attribution review remains incomplete.
+- Preserved the report byte-for-byte at SHA-256 `8df622f1c106665459e34cd72d060a1f1350f228e3a45f1d011e2a0370f62a1b`. No external checker received it, and no dependency install, report rewrite, benchmark, dataset generation, training or main merge occurred. Continue on this completion branch; obtain institutional reports and exact rules before assessing acceptance.
+
 1. Review the Windows software-verification receipt on `codex/main-advisor-completion`. Do not merge into main or start experiment preparation automatically.
 2. After explicit user review, follow the original-advisor handoff for a separately frozen fresh study. Software verification does not establish fresh advisor accuracy or generalization. Keep research work on its separate branch.
 3. Review `output/docx/SAFE_Pipe_DTU_Minor_Project_Report.docx` with the team and guide; confirm department-specific submission requirements and sign/date the genuine front-matter forms. Preserve manual Word edits. Production and quality notes are in `docs/minor_report_v1/academic_report/README.md`.

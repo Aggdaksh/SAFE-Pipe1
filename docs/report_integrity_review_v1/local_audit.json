@@ -1,0 +1,106 @@
+{
+  "review_date": "2026-11-22",
+  "created_utc": "2026-11-22T12:48:32.507486+00:00",
+  "report": "output/docx/SAFE_Pipe_DTU_Minor_Project_Report.docx",
+  "report_sha256": "8df622f1c106665459e34cd72d060a1f1350f228e3a45f1d011e2a0370f62a1b",
+  "mode": "Read-only local document inspection and bounded corpus comparison.",
+  "turnitin_used": false,
+  "turnitin_similarity_score": null,
+  "turnitin_ai_score": null,
+  "department_requires_both_scores": true,
+  "department_similarity_cutoff": null,
+  "department_ai_cutoff": null,
+  "characters": {
+    "selected_zero_width_or_bidi_counts": {},
+    "cyrillic_characters": 0,
+    "normal_non_ascii_characters": [
+      {
+        "codepoint": "U+0302",
+        "name": "COMBINING CIRCUMFLEX ACCENT",
+        "count": 1
+      },
+      {
+        "codepoint": "U+2019",
+        "name": "RIGHT SINGLE QUOTATION MARK",
+        "count": 3
+      },
+      {
+        "codepoint": "U+201C",
+        "name": "LEFT DOUBLE QUOTATION MARK",
+        "count": 7
+      },
+      {
+        "codepoint": "U+201D",
+        "name": "RIGHT DOUBLE QUOTATION MARK",
+        "count": 7
+      }
+    ],
+    "explicit_vanish_text_runs": 0,
+    "word_web_hidden_run_markers": 385,
+    "web_hidden_numeric_navigation_results": 55,
+    "web_hidden_numeric_results_by_style": {
+      "TOC1": 12,
+      "TOC2": 20,
+      "TableofFigures": 23
+    },
+    "web_hidden_page_reference_field_codes": 55,
+    "unexpected_non_navigation_web_hidden_text": [],
+    "scope_limit": "Selected Unicode characters and direct run properties; not an exhaustive document-forensics or statistical-watermark test."
+  },
+  "local_overlap_method": "Casefolded NFKC Unicode word tokens, punctuation ignored, exact contiguous matches of at least 12 words. No semantic paraphrase or web-wide search.",
+  "comparison_scope": {
+    "technical_chapters": 8,
+    "technical_word_tokens": 4675,
+    "front_matter_word_tokens": 1134,
+    "exclusions": "References, appendices, headers/footers, math-only elements and image text are outside this text-overlap comparison."
+  },
+  "citation_inventory": {
+    "numbered_reference_entries": 7,
+    "claim_by_claim_source_verification_complete": false,
+    "note": "An entry count does not establish citation accuracy, complete attribution or support for every claim."
+  },
+  "local_comparisons": [
+    {
+      "source": "B.Tech Project Report (Siddharth Yash).pdf",
+      "available": true,
+      "source_sha256": "d793f14f2403193a2913ba00c9234a0973f14c6095a0470f67ab18c82c91d9e5",
+      "front_matter_exact_spans_at_least_12_words": [
+        {
+          "report_token_start": 23,
+          "length_words": 14,
+          "report_excerpt": "of the requirements for the award of the degree of bachelor of technology in"
+        },
+        {
+          "report_token_start": 79,
+          "length_words": 12,
+          "report_excerpt": "delhi technological university formerly delhi college of engineering bawana road delhi 110042"
+        }
+      ],
+      "technical_chapters_exact_spans_at_least_12_words": [],
+      "technical_longest_qualifying_match_words": 0,
+      "note": "No overall similarity percentage is computed; these are bounded local matches only."
+    },
+    {
+      "source": "Minor Project Report 2K20_IT_52 2K20_IT_49 2K20_IT_59.pdf",
+      "available": true,
+      "source_sha256": "704748ad41af86afa50309de047307c46278becd9ce334b79ba297c33401fe3d",
+      "front_matter_exact_spans_at_least_12_words": [
+        {
+          "report_token_start": 75,
+          "length_words": 16,
+          "report_excerpt": "department of information technology delhi technological university formerly delhi college of engineering bawana road delhi 110042"
+        }
+      ],
+      "technical_chapters_exact_spans_at_least_12_words": [],
+      "technical_longest_qualifying_match_words": 0,
+      "note": "No overall similarity percentage is computed; these are bounded local matches only."
+    }
+  ],
+  "limitations": [
+    "Not a Turnitin similarity percentage or an AI-writing determination.",
+    "Only the two supplied senior PDFs are in this comparison corpus; publisher/student/web databases are not searched.",
+    "Front matter includes standard institutional/degree/certificate language. A shared span is not automatically plagiarism.",
+    "No watermark detector, hidden-character bypass, external checker upload, new model training or dependency installation was used."
+  ],
+  "report_preserved": true
+}
